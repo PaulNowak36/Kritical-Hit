@@ -4,7 +4,7 @@
 In December 2022, my Moonshot project named KriticalHit has been validated by the Algosup team, who gave me the greenlight to start working on it.
 
 At the beginning of the year 2003, I’ve started to write weekly reports about my activities on my computer. 
-They are document resumes of my accomplishments, problems, observations and goals that I need to achieve. I try to update them each day if I manage to find time working on the development of KriticalHit  
+They are document resumes of my accomplishments, problems, observations and goals that I need to achieve. I try to update them each day if I manage to find time working on the development of KriticalHit.  
 Indeed, I wanted to leave a trace of any kind of work I was doing, in case I have to check older files for my future work. 
 
 In fact, I’m currently in the pre-production phase of KriticalHit, which means I am focusing on the Planning and the Research part of my product.
@@ -19,3 +19,5 @@ Indeed, François Gutherz from Harfang3D company gave me advices about how they 
 Finally, after gathering everything I will need for managing my project, and starting my researches, I will start to study further about how I will build KriticalHit and make a decision.  
 
 Will I build this software from scratch ? Or build it based on an existing one ? 
+
+To be continued...
