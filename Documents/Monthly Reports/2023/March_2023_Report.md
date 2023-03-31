@@ -17,6 +17,6 @@ Finally, as I was still trying to figure out how to build my software (from scra
  
 So, I’ve created an Excel Spreadsheet to list out all the features I would need, how important they are and details them in smaller tasks as much as possible. 
 
-It would be something similar to “Will the main menu have a LEAVE button ? Will there be a confirmation window displayed when we click it ? What about the “save template” button ? Has it no confirmation window ?”, as many possibilities could be addressed. 
+It would be something similar to *“Will the main menu have a LEAVE button ? Will there be a confirmation window displayed when we click it ? What about the “save template” button ? Has it no confirmation window ?”*, as many possibilities could be addressed. 
 
 I will use this spreadsheet as a help for writing my functional specifications. Once I decide everything I need, I’ll have a clearer view on what kind of engine I must build. 
