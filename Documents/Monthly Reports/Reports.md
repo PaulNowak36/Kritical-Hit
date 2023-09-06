@@ -9,3 +9,5 @@ Contains progress reports of my work during the Moonshot Project:
 [May 2023](https://algosup-my.sharepoint.com/:w:/p/paul_nowak/ERRRUOwhSClPrs06HpMYdqoBDdBrRJ7qZjrcsoxKnoYseg?e=tnNDI3) <br> 
 [June 2023](https://algosup-my.sharepoint.com/:w:/p/paul_nowak/EXJi_53ywhlBgTRfDWkG0vgBvbqZ3NuZRU-2J5PgtNc0IQ?e=Qmb6ei) <br> 
 [July 2023](https://algosup-my.sharepoint.com/:w:/p/paul_nowak/EQaq0hPXr25PmmDyzdjwLXUBd4tOGBFH_UlRQOo3WZeCSQ?e=DiCvyX)<br> 
+[August 2023](https://algosup-my.sharepoint.com/:w:/p/paul_nowak/Edby_ADv1nJJtl8bKmMA6NYB0cosEWuiPCYtFAzEoYYuNg?e=93aZ59)<br> 
+
