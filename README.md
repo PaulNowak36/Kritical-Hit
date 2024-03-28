@@ -2,7 +2,7 @@
 
 ## Overview
 
-The goal of this project is to create a software application that will help developpers create battle system for RPGs games. Indeed, the product will have a user-friendly interface and will be able propose several features like setting up stats, creating damage caculators, managing battle mechanics templates, and also simulating RPG battles. 
+The goal of this project is to create a software application that will help developpers create battle system for RPGs games. Indeed, the product will have a user-friendly interface and will be able to propose several features like setting up stats, creating damage calculators, managing battle mechanics templates, and also simulating RPG battles. 
 
 ## Documents
 
