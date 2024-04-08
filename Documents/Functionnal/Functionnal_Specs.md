@@ -111,20 +111,23 @@ AAA
 
 |         Term         |                  Definition                   |  
 | :------------------: | :------------------------------------------: | 
-| Ability |   Moving    |
-| Attribute |   Moving    |
-| Buff |   Moving    |
-| Character |   Moving    |
-| Critical Hit |   Moving    |
-| Defend |   Moving    |
-| Game Design |   Moving    |
-| Hazard |   Moving    |
-| Nerf |   Moving    |
-| Plugin |   Arti   |
-| Prototype |   Moving    |
-| Skill |   Moving    |
-| Stat |   Moving    |
-| Status |   Moving    |
+| Ability |   Also called "Trait", it's a specific characteristic of a character, generally allowing him to provide advantages during certain situations in battle.    |
+| Buff |   A skill, ability or other game mechanic that improves a character's capabilities to increase his effectiveness.    |
+| Character |   Persona created with characteristics embodied by a player within the context of the game.    |
+| Critical Hit |   Successful attack dealing greater damage than a normal attack which occurs generally depending on the player's luck. Also nicknamed "Crit".    |
+| Damage |   In game, any form of pain that decrease a character's life due to an attack is expressed as a damage.    |
+| Defend |   Also called "Guard", action performed by a character to protect himself from an oncoming attack, generally to reduce the damage received.    |
+| Element |   An attribute given to a character that refers to a type of attribute that can be applied to a skill, an effect or a character itself. Several can be used to create strengths and weaknesses for the different actors of the RPG battle. |
+| H.P. |   Abbreviation for "Hit Points", represents how much damage a character can take before being knocked out.     |
+| Hazard |   Passive effect affecting the entire battlefield in a fight that can hinders (or benefit) all characters.    |
+| K.O. |   Abbreviation for "Knocked Out", state when a character have lost all of his HPs and is unable to fight.    |
+| Modifiers |   Factors influencing a battle that allow the calculation of several attributes, like the total damage, or a specific stat.   |
+| Nerf |    Also called "debuff", it's a skill, ability or other game mechanic that decrease a character's capabilities to reduce his effectiveness.    |
+| S.P. |   Abbreviation for "Skill Points" and also called "mana", a limited quantity of points possessed by a character allowing him to uses a particular skill at the cost of a few of them.     |
+| Skill |   Particular action performed by a character during a battle. It allows to either attack the enemy, provides an effect or both, sometimes at the cost of a few SPs.   |
+| Special Ability |   Abilities characterized as game mechanics which provide a passive effect to a character in battle, like an immunity to an element.    |
+| Stat |   Numerical value that applies to a character's ability (Attack, Defense, Speed...).    |
+| Status |   Specific state affected to a character, generally negative, causing effects such as losing HPs each turn (poison) or being slowed down (paralyzis).    |
 
 ### 6.2. Miscallenous
 
@@ -136,3 +139,5 @@ AAA
 
 ## 7. Sources
 AAA
+
+https://rpggeek.com/
