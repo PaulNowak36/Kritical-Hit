@@ -13,11 +13,14 @@
    - [2.1 Project Scope](#21-project-scope)
    - [2.2 Constraints](#22-constraints)
    - [2.3 Risks and Assumptions](#23-risks-and-assumptions)
- - [3. Users Goal](#3-users-goal)
-   - [3.1 Market Research](#31-market-research)
-   - [3.2 Type of Audience](#32-type-of-audience)
-   - [3.3 User Stories](#33-user-stories)
-   - [3.4 Survey](#34-survey)
+ - [3. Audience study](#3-audience-study)
+   - [3.1 User Personas](#31-user-personas)
+     - [3.1.1 Henri Hollais](#311-henri-hollais)
+     - [3.1.2 Violet Hitgoh](#312-violet-hitgoh)
+     - [3.1.3 Arun Reddy](#313-arun-reddy)
+     - [3.1.4 Luke Atmadohg](#314-luke-atmadohg)
+     - [3.1.5 Katrina Ladalh](#315-katrina-ladalh)
+   - [3.2 Survey](#32-survey)
  - [4. Product Details](#4-product-details)
    - [4.1 Minimum Viable Product](#41-minimum-viable-product)
    - [4.2 Features Details](#42-features-details)
@@ -68,18 +71,22 @@ AAA
 ### 2.3 Risks and Assumptions
 AAA
 
-## 3. Users Goal
+## 3. Audience study
 
-### 3.1 Market Research
+### 3.1 User Personas
 AAA
 
-#### 3.2 Type of Audience
-AAA
+#### 3.1.1 Henri Hollais
 
-#### 3.3 User Stories
-AAA
+#### 3.1.2 Violet Hitgoh
 
-#### 3.4 Survey
+#### 3.1.3 Arun Reddy
+
+#### 3.1.4 Luke Atmadohg
+
+#### 3.1.5 Katrina Ladalh
+
+#### 3.2 Survey
 AAA
 
 ## 4. Product Details
@@ -133,9 +140,9 @@ AAA
 
 |         Term         |                  Definition                   |  
 | :------------------: | :------------------------------------------: | 
-| Game Design |   Moving    |
-| Plugin |   Arti   |
-| Prototype |   Moving    |
+| Game Design |   Processus of creation and development of rules and other constituent elements of a video game.    |
+| Plugin |   Software conceived to be implemented in another software through an interface and bringing new features to the latter.    |
+| Prototype |   Trial version and/or simulation of a software product made to provide a preview before its final version.    |
 
 ## 7. Sources
 AAA
