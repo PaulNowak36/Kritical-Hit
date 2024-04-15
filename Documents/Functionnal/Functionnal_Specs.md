@@ -74,17 +74,26 @@ AAA
 ## 3. Audience study
 
 ### 3.1 User Personas
-AAA
 
 #### 3.1.1 Henri Hollais
 
+<img src="Images/Persona_1.png" style="height: 400px">
+
 #### 3.1.2 Violet Hitgoh
+
+<img src="Images/Persona_2.png" style="height: 400px">
 
 #### 3.1.3 Arun Reddy
 
+<img src="Images/Persona_3.png" style="height: 400px">
+
 #### 3.1.4 Luke Atmadohg
 
+<img src="Images/Persona_4.png" style="height: 400px">
+
 #### 3.1.5 Katrina Ladalh
+
+<img src="Images/Persona_5.png" style="height: 400px">
 
 #### 3.2 Survey
 AAA
