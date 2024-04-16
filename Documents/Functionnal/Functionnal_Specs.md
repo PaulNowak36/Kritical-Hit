@@ -60,10 +60,17 @@ Each player chooses a character, whether completely create him or emboding a def
 
 ## 2. Product Goal
 
-In order to assist either game design amateurs or professional developpers, 
-
 ### 2.1 Project Scope
-AAA
+In order to assist either game design amateurs or professional developpers, the goal will be to conceive a desktop application quite similar to a game engine. 
+
+In fact, it will be a software implemented with a user-friendly interface that will assist people to set up the battle system rules for a future RPG game in development. It will allow the user to express his creativity and allow him the freedom to create countless variations of RPG battle templates.
+
+Eventually, these are the expected main features that will complete the product:
+
+  - The software will allow the user to navigate through the different menus with an understandable and colorful interface similar to the game Super Mario Maker.
+  - The software must be able to contain a large database of data including many battle templates.
+  - The user must be able to create RPG characters and test his own battle template by simulating an RPG fight using these characters.
+  - The user will have the possibility to decide how are calculated damages, and how work the different stats, skills and statuses.
 
 ### 2.2 Constraints
 AAA
