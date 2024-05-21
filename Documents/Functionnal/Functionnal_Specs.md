@@ -73,10 +73,30 @@ Eventually, these are the expected main features that will complete the product:
   - The user will have the possibility to decide how are calculated damages, and how work the different stats, skills and statuses.
 
 ### 2.2 Constraints
-AAA
+First of all, this project will be accomplished by someone who has never created a single software on his own ever before. Indeed, this Moonshot Project has to be realized individually, without any active assistance from other students, teachers or professional alike. 
+
+As a consequence, investments are impossible, so this project must only rely on limited local budget, hardware equipment and software tools.
+
+Furthermore, the product's development will be realized by a single contributor who will accomplish the entirety of the scheduled tasks with limited help, but also with limited work time due to his current studies. In fact, the contributor needs to accomplish this Moonshot Project to validate his degree, but without any clear deadline, he will need to adapt his task schedule depending on his studies' progression.
 
 ### 2.3 Risks and Assumptions
-AAA
+
+### 2.3.1 Risks 
+|   **Risk**  |   **Impact** |  **Mitigation**  |                     
+|   :-------  |   :--------- |  :-------------  |
+|   Insuffisant app responsive speed  |   The computer's performance might not be fast enough to allow the user to test the app properly |  Extended researches about app's speed and responsiveness must be performed  |
+|   User-friendly interface bad outcomes  |   Focusing on a simplified interactivity with the software can create limits of its potential and functionality  |  Highlighting the importance of testing UI prototypes to balance usability and simplicity   |
+|   Complex UI effects |   Some planned UI widgets may be too difficult and complex to implement in the software and could decrease its responsiveness   |  Creation of UI prototypes   |
+|   Heavy database |   The software's response could be slow due to the required amount of database stored in back-end  |  Further studies of database app storage   |
+
+### 2.3.2 Assumptions 
+|   **Assumption**  |   **Impact** |  **Mitigation**  |                     
+|   :-------  |   :--------- |  :-------------  |
+|   2D character models  |   To simulate RPG battle, 2D characters should be represented as they required less space in the memory than 3D ones |  Finding how to integrate 2D sprites in an app and make them react  |
+|   Tree representations  |   It could bring visibility to the user to have a clearier view on certain features such as stats |  Research on tree-like representation UI models  |
+|   Interactive tutorial  |   A tutorial could be added to help the user get familiarized with the product |  Search how to implement a tutorial in an app  |
+|   Battle systems RPG  |   RPG battle systems are various and unique, so we need to make sure the user gets enough creativity for his own taste|  Several battle systems must be tested out   |
+
 
 ## 3. Audience study
 
