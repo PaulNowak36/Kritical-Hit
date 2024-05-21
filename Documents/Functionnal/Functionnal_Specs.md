@@ -21,13 +21,13 @@
      - [3.1.4 Luke Atmadohg](#314-luke-atmadohg)
      - [3.1.5 Katrina Ladalh](#315-katrina-ladalh)
    - [3.2 Survey](#32-survey)
- - [4. Product Details](#4-product-details)
-   - [4.1 Minimum Viable Product](#41-minimum-viable-product)
-   - [4.2 Features Details](#42-features-details)
-   - [4.3 Non-Functional Requirements](#43-non-functional-requirements)
-   - [4.4 Prototype and User Interface](#44-prototype-and-user-interface)
-   - [4.5 Acceptance Criteria](#45-acceptance-criteria)
-   - [4.6 Security](#46-security)
+ - [4. List of features](#4-list-of-features)
+ - [5. Product Details](#5-product-details)
+   - [5.1 Minimum Viable Product](#41-minimum-viable-product)
+   - [5.2 Non-Functional Requirements](#52-non-functional-requirements)
+   - [5.3 Prototype and User Interface](#53-prototype-and-user-interface)
+   - [5.4 Acceptance Criteria](#54-acceptance-criteria)
+   - [5.5 Security](#55-security)
  - [5. Related Documents](#5-related-documents)
  - [6. Glossary](#6-glossary)
    - [6.1 RPG Lexical Field](#61-rpg-lexical-field)
@@ -84,18 +84,18 @@ Furthermore, the product's development will be realized by a single contributor 
 ### 2.3.1 Risks 
 |   **Risk**  |   **Impact** |  **Mitigation**  |                     
 |   :-------  |   :--------- |  :-------------  |
-|   Insuffisant app responsive speed  |   The computer's performance might not be fast enough to allow the user to test the app properly |  Extended researches about app's speed and responsiveness must be performed  |
-|   User-friendly interface bad outcomes  |   Focusing on a simplified interactivity with the software can create limits of its potential and functionality  |  Highlighting the importance of testing UI prototypes to balance usability and simplicity   |
-|   Complex UI effects |   Some planned UI widgets may be too difficult and complex to implement in the software and could decrease its responsiveness   |  Creation of UI prototypes   |
-|   Heavy database |   The software's response could be slow due to the required amount of database stored in back-end  |  Further studies of database app storage   |
+|   **Insuffisant app responsive speed**  |   The computer's performance might not be fast enough to allow the user to test the app properly |  Extended researches about app's speed and responsiveness must be performed  |
+|  **User-friendly interface bad outcomes**  |   Focusing on a simplified interactivity with the software can create limits of its potential and functionality  |  Highlighting the importance of testing UI prototypes to balance usability and simplicity   |
+|   **Complex UI effects** |   Some planned UI widgets may be too difficult and complex to implement in the software and could decrease its responsiveness   |  Creation of UI prototypes   |
+|   **Heavy database** |   The software's response could be slow due to the required amount of database stored in back-end  |  Further studies of database app storage   |
 
 ### 2.3.2 Assumptions 
 |   **Assumption**  |   **Impact** |  **Mitigation**  |                     
 |   :-------  |   :--------- |  :-------------  |
-|   2D character models  |   To simulate RPG battle, 2D characters should be represented as they required less space in the memory than 3D ones |  Finding how to integrate 2D sprites in an app and make them react  |
-|   Tree representations  |   It could bring visibility to the user to have a clearier view on certain features such as stats |  Research on tree-like representation UI models  |
-|   Interactive tutorial  |   A tutorial could be added to help the user get familiarized with the product |  Search how to implement a tutorial in an app  |
-|   Battle systems RPG  |   RPG battle systems are various and unique, so we need to make sure the user gets enough creativity for his own taste|  Several battle systems must be tested out   |
+|   **2D character models**  |   To simulate RPG battle, 2D characters should be represented as they required less space in the memory than 3D ones |  Finding how to integrate 2D sprites in an app and make them react  |
+|   **Tree representations**  |   It could bring visibility to the user to have a clearier view on certain features such as stats |  Research on tree-like representation UI models  |
+|   **Interactive tutorial**  |   A tutorial could be added to help the user get familiarized with the product |  Search how to implement a tutorial in an app  |
+|   **Battle systems RPG**  |   RPG battle systems are various and unique, so we need to make sure the user gets enough creativity for his own taste|  Several battle systems must be tested out   |
 
 
 ## 3. Audience study
@@ -125,62 +125,172 @@ Furthermore, the product's development will be realized by a single contributor 
 #### 3.2 Survey
 AAA
 
-## 4. Product Details
+## 4. List of Features
 
-### 4.1 Minimum Viable Product
+The software contain a variety of features, that belong to 5 big domains:
+
+- **Template Creation**: The features involving the set up of our own battle mechanics for a rpg battle, the use of different tools to customize them, and their simulation.
+
+- **Character Creation**: The features allowing to create a particular character class as an "actor" for a targeted battle system.
+
+- **Stats Creation**: The features to create and modify the stats for a particular battle system and its characters.
+
+- **Skills Creation**: The features to set up the different skills and abilities of a battle system and its characters.
+
+- **Status Creation**: The features to set up new status effects which will influence the gameplay of the battle system and its character.
+
+
+In fact, many of these functionalities could be challenging to be implemented during the development. So, the MoSCoW matrix method will also be used to sort each features and sub-sub features by how likely they will be implemented.
+
+### 4.1. Must-Have
+These features are mandatory and non-negociable needs for this project.
+
+#### 4.1.1. Template Creation:
+- RPG Style: Allow the user to choose what kind of RPG style he want for his battle system.
+  - Default Style: Allow the user to choose an RPG style similar to an existing game. A few choices will be proposed to the user.
+    - Final Fantasy 
+- AAA
+- AAA
+
+#### 4.1.2. Character Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.1.3. Stats Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.1.4. Skills Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.1.5. Status Creation:
+- AAA
+- AAA
+- AAA
+
+### 4.2. Should-Have
+These features are essential to the product, but they don't represent a vital part.
+
+#### 4.2.1. Template Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.2.2. Character Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.2.3. Stats Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.2.4. Skills Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.2.5. Status Creation:
+- AAA
+- AAA
+- AAA
+
+### 4.3. Could-Have
+These features aren't necessary to the core product and have a much smaller impact if left out, but they are considered as "nice-to-have".
+
+#### 4.3.1. Template Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.3.2. Character Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.3.3. Stats Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.3.4. Skills Creation:
+- AAA
+- AAA
+- AAA
+
+#### 4.3.5. Status Creation:
+- AAA
+- AAA
+- AAA
+
+## 5. Product Details
+
+### 5.1 Minimum Viable Product
+|   **Phase**  |   **Added features** |  **Version**  |                     
+|   :-------  |   :--------- |  :-------------  |
+|   **Phase 1**  |   App squeleton + Simple background + template menu |  0.1 |
+|   **Phase 2**  |   Rules menu |  0.2 |
+|   **Phase 3**  |   Simple UI effects + simulation menu + Additional backgrounds  |  0.4 (Alpha) |
+|   **Phase 4**  |   Template gallery + Character menu |  0.6 |
+|   **Phase 5**  |   Stats menu + Damage calculator + extra UI effects + Additional backgrounds |  0.7 (Beta) |
+|   **Phase 6**  |   Skills menu |  0.8 |
+|   **Phase 7**  |   Status menu + Additional backgrounds and UI effects + Advanced simulation|  0.9 |
+|   **Phase 8**  |   Code conversion + settings |  1.0 |
+
+
+### 5.2 Non-Functional Requirements
 AAA
 
-### 4.2 Features Details
+### 5.3 Prototype and User Interface
 AAA
 
-### 4.3 Non-Functional Requirements
+### 5.4 Acceptance Criteria
 AAA
 
-### 4.4 Prototype and User Interface
+### 5.5 Security
 AAA
 
-### 4.5 Acceptance Criteria
+## 6. Related Documents
 AAA
 
-### 4.6 Security
-AAA
+## 7. Glossary
 
-## 5. Related Documents
-AAA
-
-## 6. Glossary
-
-### 6.1. RPG Lexical Field
+### 7.1. RPG Lexical Field
 
 |         Term         |                  Definition                   |  
 | :------------------: | :------------------------------------------: | 
-| Ability |   Also called "Trait", it's a specific characteristic of a character, generally allowing him to provide advantages during certain situations in battle.    |
-| Buff |   A skill, ability or other game mechanic that improves a character's capabilities to increase his effectiveness.    |
-| Character |   Persona created with characteristics embodied by a player within the context of the game.    |
-| Critical Hit |   Successful attack dealing greater damage than a normal attack which occurs generally depending on the player's luck. Also nicknamed "Crit".    |
-| Damage |   In game, any form of pain that decrease a character's life due to an attack is expressed as a damage.    |
-| Defend |   Also called "Guard", action performed by a character to protect himself from an oncoming attack, generally to reduce the damage received.    |
-| Element |   An attribute given to a character that refers to a type of attribute that can be applied to a skill, an effect or a character itself. Several can be used to create strengths and weaknesses for the different actors of the RPG battle. |
-| H.P. |   Abbreviation for "Hit Points", represents how much damage a character can take before being knocked out.     |
-| Hazard |   Passive effect affecting the entire battlefield in a fight that can hinders (or benefit) all characters.    |
-| K.O. |   Abbreviation for "Knocked Out", state when a character have lost all of his HPs and is unable to fight.    |
-| Modifiers |   Factors influencing a battle that allow the calculation of several attributes, like the total damage, or a specific stat.   |
-| Nerf |    Also called "debuff", it's a skill, ability or other game mechanic that decrease a character's capabilities to reduce his effectiveness.    |
-| S.P. |   Abbreviation for "Skill Points" and also called "mana", a limited quantity of points possessed by a character allowing him to uses a particular skill at the cost of a few of them.     |
-| Skill |   Particular action performed by a character during a battle. It allows to either attack the enemy, provides an effect or both, sometimes at the cost of a few SPs.   |
-| Special Ability |   Abilities characterized as game mechanics which provide a passive effect to a character in battle, like an immunity to an element.    |
-| Stat |   Numerical value that applies to a character's ability (Attack, Defense, Speed...).    |
-| Status |   Specific state affected to a character, generally negative, causing effects such as losing HPs each turn (poison) or being slowed down (paralyzis).    |
+| **Ability** |   Also called "Trait", it's a specific characteristic of a character, generally allowing him to provide advantages during certain situations in battle.    |
+| **Buff** |   A skill, ability or other game mechanic that improves a character's capabilities to increase his effectiveness.    |
+| **Character** |   Persona created with characteristics embodied by a player within the context of the game.    |
+| **Critical Hit** |   Successful attack dealing greater damage than a normal attack which occurs generally depending on the player's luck. Also nicknamed "Crit".    |
+| **Damage** |   In game, any form of pain that decrease a character's life due to an attack is expressed as a damage.    |
+|**Defend** |   Also called "Guard", action performed by a character to protect himself from an oncoming attack, generally to reduce the damage received.    |
+| **Element** |   An attribute given to a character that refers to a type of attribute that can be applied to a skill, an effect or a character itself. Several can be used to create strengths and weaknesses for the different actors of the RPG battle. |
+| **H.P.** |   Abbreviation for "Hit Points", represents how much damage a character can take before being knocked out.     |
+| **Hazard** |   Passive effect affecting the entire battlefield in a fight that can hinders (or benefit) all characters.    |
+| **K.O.** |   Abbreviation for "Knocked Out", state when a character have lost all of his HPs and is unable to fight.    |
+| **Modifiers** |   Factors influencing a battle that allow the calculation of several attributes, like the total damage, or a specific stat.   |
+| **Nerf** |    Also called "debuff", it's a skill, ability or other game mechanic that decrease a character's capabilities to reduce his effectiveness.    |
+| **S.P.** |   Abbreviation for "Skill Points" and also called "mana", a limited quantity of points possessed by a character allowing him to uses a particular skill at the cost of a few of them.     |
+| **Skill** |   Particular action performed by a character during a battle. It allows to either attack the enemy, provides an effect or both, sometimes at the cost of a few SPs.   |
+| **Special Ability** |   Abilities characterized as game mechanics which provide a passive effect to a character in battle, like an immunity to an element.    |
+| **Stat** |   Numerical value that applies to a character's ability (Attack, Defense, Speed...).    |
+| **Status** |   Specific state affected to a character, generally negative, causing effects such as losing HPs each turn (poison) or being slowed down (paralyzis).    |
 
-### 6.2. Miscallenous
+### 7.2. Miscallenous
 
 |         Term         |                  Definition                   |  
 | :------------------: | :------------------------------------------: | 
-| Game Design |   Processus of creation and development of rules and other constituent elements of a video game.    |
-| Plugin |   Software conceived to be implemented in another software through an interface and bringing new features to the latter.    |
-| Prototype |   Trial version and/or simulation of a software product made to provide a preview before its final version.    |
+| **Game Design** |   Processus of creation and development of rules and other constituent elements of a video game.    |
+| **Plugin** |   Software conceived to be implemented in another software through an interface and bringing new features to the latter.    |
+| **Prototype** |   Trial version and/or simulation of a software product made to provide a preview before its final version.    |
 
-## 7. Sources
+## 8. Sources
 AAA
 
 https://rpggeek.com/
