@@ -146,35 +146,36 @@ In fact, many of these functionalities could be challenging to be implemented du
 These features are mandatory and non-negociable needs for this project.
 
 #### 4.1.1. Template Creation:
-- RPG Style: Allow the user to choose what kind of RPG style he want for his battle system.
+
+- **Template Management**: Allow
+  - Creating a template:
+  - Modifying a template:
+  - Deleting a template:
+
+- **Setting up Battle System**:
+  - Choosing Characters:
+  - Choosing Stats:
+
+
+- **RPG Style**: Allow the user to choose what kind of RPG style he want for his battle system.
   - Default Style: Allow the user to choose an RPG style similar to an existing game. A few choices will be proposed to the user.
     - Final Fantasy: The battle system is similar to the 7th opus of the series. 
     - New default style: Possibility to create a new default style from other battle system templates we created so far.
   - Custom Style: Allow the user to create an original battle template from scratch and express his creativity.
     - Turn-based type: Each character attack turn by turn.
-      - Active mode: Each fighter select their action and perform it directly.
+      - Active mode: Each fighter select their action and perform it directly.  
 
-- Damage Calculator: Allows the user to set up his own damage calculator and decide about the formula.
-  - Default version: The one already used to calculate damage from default RPG battle systems. It can be based from games but also be modified slightly.
-  - Custom version: We have to set up the inputs we need for creating the damage formula.
-    - The Attack and Defense will be required for the formula.
-    - The damages of an attack can depend on a skill's power.
-    - The buffs, nerfs and hazards will be used as modifiers.
-    - It's possible to decide the operations and mathematic formulas required for creating the calculator.
-    - For calculating the Critical Hit bonus, we can set the value.
-  
-- Attack Order System: Rule to decide in which order the characters can attack.
-  - Default types: Possibility to choose an order system based on pre-existing games.
-    - Classic: The order is from the fastest to the lowest.
-
-- Additional Game Mechanic: Allow the user to implement additionnal game mechanics as extra battle rules.
+- **Additional Game Mechanic**: Allow the user to implement additionnal game mechanics as extra battle rules.
   - Counter: Allow the user to add a counter that can be used for a specific game element, like a bonus granted to a character.
     - Limited counter: A counter cannot reach a certain number between 0 and 99.
       - It's possible to assign a minimal value N.
       - As a condition, we can get N points per turn, and prevent to receive them when we use 1 or more in the previous turn.
       - Using 1 or several can grant bonus to our skills (damages, increased duration for bonuses, number of attack per turn).
+  - Attack Order System: Rule to decide in which order the characters can attack.
+    - Default types: Possibility to choose an order system based on pre-existing games.
+      - Classic: The order is from the fastest to the lowest.
 
-- Battle System  Simulation: Allow the user to test his battle system by simulating a fight using its rules.
+- **Battle System Simulation**: Allow the user to test his battle system by simulating a fight using its rules.
   - Testing battle system: Allow the user to start the simulation and play the fight as a character.
     - We choose a battle system, the character involved, their stats and skills, and the number of enemies.
     - All characters start at full HP.
@@ -184,95 +185,249 @@ These features are mandatory and non-negociable needs for this project.
    
 
 #### 4.1.2. Character Creation:
-- Character Management: Allow the user to create and organize his characters.
+- **Character Management**: Allow the user to create and organize his characters.
   - Creating Character: Allow the user to create a new character.
   - Load Character: Allow the user to load a character which already exist.
   - Delete Character: Allow the user to delete a character which already exist.
 
-- Character Set Up: Allows the user to set up his character and his abilities.
+- **Character Set Up**: Allows the user to set up his character and his abilities.
   - Default Character: Select a default character already created in the app's database.
     - Default set up: The character has already have stats and skills applied to him, making him ready to test in the simulation.
+    - Template selection:
+    - Stats selection:
 - AAA
 
 #### 4.1.3. Stats Creation:
-- Setting up a Stat tree: Allows the user to set up his Stats Tree and decide the involved stats.
+- **Stats Trees Management**:
+  - Stats Tree Creation:
+  - Stats Tree Modification:
+  - Stats tree Deletion: 
+
+
+- **Setting up a Stat tree**: Allows the user to set up his Stats Tree and decide the involved stats.
   - Default stats: Classic stats used in class RPG games:
     - Attack, Defense, Speed, and HP are mandatory.
-    - Other have been set up but their use is optional like SP.
+    - Other have been set up but their use are optional: SP, evasion, accuracy and critical.
+
+- **Damage Calculator**: Allows the user to set up his own damage calculator and decide about the formula.
+  - Default version: The one already used to calculate damage from default RPG battle systems. It can be based from games but also be modified slightly.
+  - Custom version: We have to set up the inputs we need for creating the damage formula.
+    - The Attack and Defense will be required for the formula.
+    - The damages of an attack can depend on a skill's power.
+    - The buffs, nerfs and hazards will be used as modifiers.
+    - It's possible to decide the operations and mathematic formulas required for creating the calculator.
+    - For calculating the Critical Hit bonus, we can set the value.
   
-- Attack and Defense: How these stats are used in the battle system.
-  - We can decide to split them in physical and special damage or not.
-  
-- Stat Set Up: Set up the rules for a certain stat.
-  - A stat can have a fixed limot ( 5, 10, 99, 999...)
-  - We can decide if a stat can be buffed and/or nerfed.
+
+- **Stat Set Up**: Set up the rules for a certain stat.
+  - General:
+    - We can decide if a stat can be buffed and/or nerfed.
+  - Stat limit:
+    - A stat can have a fixed limit ( 5, 10, 99, 999...)
+  - Attack and Defense: How these stats are used in the battle system.
+    - We can decide to split them in physical and special damage or no.
   
 
 #### 4.1.4. Skills Creation:
-- Setting up Skills lit: Allows the user
-- AAA
-- AAA
+- **Skills Trees Management**:
+  - Skills Tree Creation:
+  - Skills Tree Modification:
+  - Skills tree Deletion: 
+
+- **Skills Tree Set up**:
+  - List of attacks:
+
+- **Skills Creation**:
+  - Attack oriented skills:
+    - Simple attacks:
+    - Special attacks:
+  - Skills with special effects:
+
 
 #### 4.1.5. Status Creation:
-- AAA
-- AAA
-- AAA
+- **Statuses Trees Management**:
+  - Statuses Tree Creation:
+  - Statuses Tree Modification:
+  - Statuses tree Deletion: 
+
+- **Statuses Tree Set up**:
+  - List
+
+- **Statuses Creation**:
+  - List
+
 
 ### 4.2. Should-Have
 These features are essential to the product, but they don't represent a vital part.
 
 #### 4.2.1. Template Creation:
-- AAA
-- AAA
-- AAA
+- **Template Management**: Allow
+  - Cloning a template:
+
+- **Setting up Battle System**:
+  - Choosing Skills:
+  - Choosing Statuses:
+
+- **RPG Style**: 
+  - Default style:
+    - Pokemon style:
+
+- **Additional Game Mechanic**: 
+  - Counter: 
+    - Limited counter: 
+      - It's 
+      - As a 
+      - Using 1 
+  - Attack Order System: 
+    - Default types: 
+      - Classic: 
+
+- **Battle System Simulation**: 
+  - Testing battle system: 
+    - We 
+   
 
 #### 4.2.2. Character Creation:
-- AAA
-- AAA
+- **Character Management**: 
+  - Cloning Character: 
+
+- **Character Set Up**: 
+  - Default Character: 
+    - Default set up: 
+    - Template selection:
+    - Stats selection:
 - AAA
 
 #### 4.2.3. Stats Creation:
-- AAA
-- AAA
-- AAA
+- **Stats Trees Management**:
+  - Stats Tree Creation:
+  - Stats Tree Modification:
+  - Stats tree Deletion: 
+
+- **Setting up a Stat tree**: 
+  - Default stats: 
+
+- **Damage Calculator**: 
+  - Default version: 
+  - Custom version: 
+    - The Attack 
+
+- **Stat Set Up**: Set up the rules for a certain stat.
+  - General:
+    - We can 
+  - Stat limit:
+    - A stat 
+  - Attack and Defense: 
+    - We can 
 
 #### 4.2.4. Skills Creation:
-- AAA
-- AAA
-- AAA
+- **Skills Trees Management**:
+  - Skills Tree Clonage:
+
+- **Skills Tree Set up**:
+  - List of attacks:
+
+- **Skills Creation**:
+  - Attack oriented skills:
+    - Simple attacks:
+    - Special attacks:
+  - Skills with special effects:
 
 #### 4.2.5. Status Creation:
-- AAA
-- AAA
-- AAA
+- **Statuses Trees Management**:
+  - Statuses Tree Clonage:
+
+- **Statuses Tree Set up**:
+  - List
+
+- **Statuses Creation**:
+  - List
 
 ### 4.3. Could-Have
 These features aren't necessary to the core product and have a much smaller impact if left out, but they are considered as "nice-to-have".
 
 #### 4.3.1. Template Creation:
-- AAA
-- AAA
-- AAA
+- **Template Management**: Allow
+  - Cloning a template:
+
+- **Setting up Battle System**:
+  - Choosing Skills:
+  - Choosing Statuses:
+
+- **RPG Style**: 
+  - Default style:
+    - Pokemon style:
+
+- **Additional Game Mechanic**: 
+  - Counter: 
+    - Limited counter: 
+      - It's 
+      - As a 
+      - Using 1 
+  - Attack Order System: 
+    - Default types: 
+      - Classic: 
+
+- **Battle System Simulation**: 
+  - Testing battle system: 
+    - We 
+   
 
 #### 4.3.2. Character Creation:
-- AAA
-- AAA
+- **Character Management**: 
+  - Cloning Character: 
+
+- **Character Set Up**: 
+  - Default Character: 
+    - Default set up: 
+    - Template selection:
+    - Stats selection:
 - AAA
 
 #### 4.3.3. Stats Creation:
-- AAA
-- AAA
-- AAA
+- **Stats Trees Management**:
+  - Stats Tree Creation:
+  - Stats Tree Modification:
+  - Stats tree Deletion: 
+
+- **Setting up a Stat tree**: 
+  - Default stats: 
+
+- **Damage Calculator**: 
+  - Default version: 
+  - Custom version: 
+    - The Attack 
+
+- **Stat Set Up**: Set up the rules for a certain stat.
+  - General:
+    - We can 
+  - Stat limit:
+    - A stat 
+  - Attack and Defense: 
+    - We can 
 
 #### 4.3.4. Skills Creation:
-- AAA
-- AAA
-- AAA
+- **Skills Trees Management**:
+  - Skills Tree Clonage:
+
+- **Skills Tree Set up**:
+  - List of attacks:
+
+- **Skills Creation**:
+  - Attack oriented skills:
+    - Simple attacks:
+    - Special attacks:
+  - Skills with special effects:
 
 #### 4.3.5. Status Creation:
-- AAA
-- AAA
-- AAA
+- **Statuses Trees Management**:
+  - Statuses Tree Clonage:
+
+- **Statuses Tree Set up**:
+  - List
+
+- **Statuses Creation**:
+  - List
 
 ## 5. Product Details
 
