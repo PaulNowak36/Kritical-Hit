@@ -147,14 +147,14 @@ These features are mandatory and non-negociable needs for this project.
 
 #### 4.1.1. Template Creation:
 
-- **Template Management**: Allow
-  - Creating a template:
-  - Modifying a template:
-  - Deleting a template:
+- **Template Management**: Allow the user to create and organize his battle mechanics templates.
+  - Creating a template: Allow the user to create a new template.
+  - Modifying a template: Allow the user to load a template which already exist.
+  - Deleting a template: Allow the user to delete a template which already exist.
 
-- **Setting up Battle System**:
-  - Choosing Characters:
-  - Choosing Stats:
+- **Setting up Battle System**: Allow the user to set up the rules of its battle system and detail how they work.
+  - Choosing Characters: Help the user select the characters which will be used for the battle system.
+  - Choosing Stats: Help the user select the stats which will be used for the battle system.
 
 
 - **RPG Style**: Allow the user to choose what kind of RPG style he want for his battle system.
@@ -193,13 +193,13 @@ These features are mandatory and non-negociable needs for this project.
 - **Character Set Up**: Allows the user to set up his character and his abilities.
   - Default Character: Select a default character already created in the app's database.
     - Default set up: The character has already have stats and skills applied to him, making him ready to test in the simulation.
-    - Template selection:
-    - Stats selection:
+    - Template selection: Permits the user to connect a character with a battle system to test it.
+    - Stats selection: Permits the user to decide a character's stats.
 - AAA
 
 #### 4.1.3. Stats Creation:
-- **Stats Trees Management**:
-  - Stats Tree Creation:
+- **Stats Trees Management**: Allows the user to organize his state tree templates which represent a list of stats connected at each other.
+  - Stats Tree Creation: Allow the user to create a new Stats Tree.
   - Stats Tree Modification:
   - Stats tree Deletion: 
 
