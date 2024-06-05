@@ -200,14 +200,13 @@ These features are mandatory and non-negociable needs for this project.
 #### 4.1.3. Stats Creation:
 - **Stats Trees Management**: Allows the user to organize his state tree templates which represent a list of stats connected at each other.
   - Stats Tree Creation: Allow the user to create a new Stats Tree.
-  - Stats Tree Modification:
-  - Stats tree Deletion: 
-
+  - Stats Tree Loading: Allow the user to load a Stats Tree to modify it.
+  - Stats tree Deletion: Allow the user to delete a Stats Tree.
 
 - **Setting up a Stat tree**: Allows the user to set up his Stats Tree and decide the involved stats.
   - Default stats: Classic stats used in class RPG games:
-    - Attack, Defense, Speed, and HP are mandatory.
-    - Other have been set up but their use are optional: SP, evasion, accuracy and critical.
+    - Attack, Defense, Speed, and HP are mandatory stats.
+    - Other have been set up but their use are optional: SP and Critical.
 
 - **Damage Calculator**: Allows the user to set up his own damage calculator and decide about the formula.
   - Default version: The one already used to calculate damage from default RPG battle systems. It can be based from games but also be modified slightly.
@@ -217,44 +216,51 @@ These features are mandatory and non-negociable needs for this project.
     - The buffs, nerfs and hazards will be used as modifiers.
     - It's possible to decide the operations and mathematic formulas required for creating the calculator.
     - For calculating the Critical Hit bonus, we can set the value.
-  
 
 - **Stat Set Up**: Set up the rules for a certain stat.
-  - General:
+  - General: Basic rules a stat can possess.
     - We can decide if a stat can be buffed and/or nerfed.
-  - Stat limit:
+  - Stat limit: Add a limit to put the stat within a range.
     - A stat can have a fixed limit ( 5, 10, 99, 999...)
   - Attack and Defense: How these stats are used in the battle system.
     - We can decide to split them in physical and special damage or no.
   
 
 #### 4.1.4. Skills Creation:
-- **Skills Trees Management**:
-  - Skills Tree Creation:
-  - Skills Tree Modification:
-  - Skills tree Deletion: 
+- **Skills Trees Management**: Allows the user to organize his Skills Trees which represent a list of attacks and skills.
+  - Skills Tree Creation: Allow the user to create a new Skills Tree.
+  - Skills Tree Loading: Allow the user to load a Skills Tree to modify it.
+  - Skills tree Deletion: Allow the user to delete a Skills Tree.
 
-- **Skills Tree Set up**:
-  - List of attacks:
+- **Skills Tree Set up**: Allows the user to set up his Skills Tree and decide the involved stats.
+  - Default skills will be set up by the software to allow the user testing them in the battle simulation.
+  - We can connect a Skills Tree to an existing battle template to test it.
 
-- **Skills Creation**:
-  - Attack oriented skills:
-    - Simple attacks:
-    - Special attacks:
-  - Skills with special effects:
+- **Skills Creation**: Allow the user to set up a skill that will be used for his battle system.
+  - Simple attacks: Create Basic attacks that doesn't require SP and without real side effects.
+    - They can give damages depending on the character's Attack and/or other stats.
+  - Special skills: Create skills that also trigger special effects either on enemies or the player/
+    - They can be offensive attacks or just trigger skills effects.
+    - Effects can be buff/nerf, statuses and healing.
+    - Effects can last during a certain number of turns or become permanent.
 
 
 #### 4.1.5. Status Creation:
-- **Statuses Trees Management**:
-  - Statuses Tree Creation:
-  - Statuses Tree Modification:
-  - Statuses tree Deletion: 
+- **Statuses Trees Management**: Allows the user to organize his Statuses Trees which are series of statuses.
+  - Statuses Tree Creation: Allow the user to create a new Statuses Tree.
+  - Statuses Tree Modification: Allow the user to load an existing Statuses Tree.
+  - Statuses tree Deletion: Allow the user to delete an existing Statuses Tree.
 
-- **Statuses Tree Set up**:
-  - List
+- **Statuses Tree Set up**: Allows the user to set up his Statuses List and decide which statuses are used.
+  - Default statuses will be set up by the software to allow the user testing them in the battle simulation.
+  - Several trees can share the same statuses.
+  - We can connect a Statuses Tree to an existing battle template to test it.
+  - If possible, a Statuses tree can be used for several battle templates.
 
-- **Statuses Creation**:
-  - List
+- **Statuses Creation**: Allow the user to create a new status in his Statuses List.
+  - We can set up a status' effects, its duration and its conditions.
+  - We can decide if only players, enemies or both can get statuses effects or not.
+  - We can decide which attacks can give statuses.
 
 
 ### 4.2. Should-Have
