@@ -334,10 +334,8 @@ These features are essential to the product, but they don't represent a vital pa
   - List of attacks:
 
 - **Skills Creation**:
-  - Attack oriented skills:
-    - Simple attacks:
-    - Special attacks:
-  - Skills with special effects:
+  - Simple attacks:
+  - Special skills:
 
 #### 4.2.5. Status Creation:
 - **Statuses Trees Management**:
@@ -420,10 +418,8 @@ These features aren't necessary to the core product and have a much smaller impa
   - List of attacks:
 
 - **Skills Creation**:
-  - Attack oriented skills:
-    - Simple attacks:
-    - Special attacks:
-  - Skills with special effects:
+  - Simple attacks:
+  - Special skills:
 
 #### 4.3.5. Status Creation:
 - **Statuses Trees Management**:
