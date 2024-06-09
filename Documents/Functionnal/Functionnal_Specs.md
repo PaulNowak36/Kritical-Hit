@@ -171,9 +171,9 @@ These features are mandatory and non-negociable needs for this project.
       - It's possible to assign a minimal value N.
       - As a condition, we can get N points per turn, and prevent to receive them when we use 1 or more in the previous turn.
       - Using 1 or several can grant bonus to our skills (damages, increased duration for bonuses, number of attack per turn).
-  - Attack Order System: Rule to decide in which order the characters can attack.
+  - Attack Order System: Rule to decide in which order the characters can act.
     - Default types: Possibility to choose an order system based on pre-existing games.
-      - Classic: The order is from the fastest to the lowest.
+      - The character's order turn can be from the fastest to the lowest.
 
 - **Battle System Simulation**: Allow the user to test his battle system by simulating a fight using its rules.
   - Testing battle system: Allow the user to start the simulation and play the fight as a character.
@@ -267,30 +267,48 @@ These features are mandatory and non-negociable needs for this project.
 These features are essential to the product, but they don't represent a vital part.
 
 #### 4.2.1. Template Creation:
-- **Template Management**: Allow
-  - Cloning a template:
+- **Template Management**: 
+  - Cloning a template: Allow the user to create a new template which is a copy of an existing template.
 
 - **Setting up Battle System**:
-  - Choosing Skills:
-  - Choosing Statuses:
+  - Choosing Skills: Help the user select the skills which will be used for the battle system.
+  - Choosing Statuses: Help the user select the statuses which will be used for the battle system.
 
 - **RPG Style**: 
   - Default style:
-    - Pokemon style:
+    - Pokemon style: The battle system will be based on the rules of the latest Pokemon mainline game.
+
 
 - **Additional Game Mechanic**: 
   - Counter: 
     - Limited counter: 
-      - It's 
-      - As a 
+      - We can increase the counter depending the number of times we attack/kill an enemy, or if we use certain skills.
+      - The number of times we can uses points to increase our skills can be limited for the entire battle.
       - Using 1 
   - Attack Order System: 
     - Default types: 
-      - Classic: 
+      - The turn order can be absolute or changed by priority skills.
+    - Custom types: The user choose a different way to determine the turn order.
+      - The order can involves another stat other than Speed.
+  - Defend system: Allow the player to put a defensive state during his turn and to receive less damage.
+    - The damages received is reduced, and the reduction is calculated with the character's Defense stat.
+    - The character can gets the priority in next turn after his defense state.
+  - Weakness System: Applies a mechanic where enemies can be weaker to certain attacks and receive more damage.
+    - Classic: Basic rules of the Weakness System.
+      - An enemy can get more damages from specific skills.
+      - A system of Strengths and Weaknesses is implemented in the Skills part of the Kritical Hit app.
+    - Special: Additional features to make the system unique.
+      - The enemy has a specific HP/counter bar where he takes damages from STRONG attacks.
+      - When his defense is broken, either the monster cannot act next turn and/or his defense is lowered/
+      - He can retrieves his full weakness bar at next turn.
+  - Different actions:
+    - Action menu:
 
 - **Battle System Simulation**: 
   - Testing battle system: 
-    - We 
+    - We can add a certain hazard during battle test.
+    - We can save the test simulation set up for next use.
+    - We can restart the battle again from the beginning.
    
 
 #### 4.2.2. Character Creation:
@@ -306,17 +324,23 @@ These features are essential to the product, but they don't represent a vital pa
 
 #### 4.2.3. Stats Creation:
 - **Stats Trees Management**:
-  - Stats Tree Creation:
-  - Stats Tree Modification:
-  - Stats tree Deletion: 
+  - Stats Tree Cloning:
 
 - **Setting up a Stat tree**: 
   - Default stats: 
+    - Some stats can be ignored for this battle test.
+  - New stats:
+    - Presense of database for using potential stats (Accuracy, Evasion, etc...).
+    - Each stat can have a personalizable emblem.
+  - Stat description:
+    - We can write the rules of a certain stat.
+    - We can write a description about the tree as well.
 
 - **Damage Calculator**: 
   - Default version: 
   - Custom version: 
-    - The Attack 
+    - If the damage result is 0, we can decide to make 1 the minimum value.
+    
 
 - **Stat Set Up**: Set up the rules for a certain stat.
   - General:
@@ -337,6 +361,27 @@ These features are essential to the product, but they don't represent a vital pa
   - Simple attacks:
   - Special skills:
 
+- **Special Abilities Creation**:
+  - Setting up list:
+    - 
+  - Ability creation:
+    -
+    -
+    -
+    -
+
+- **Elements Creation**
+  - Setting up Element list:
+    -
+    -
+  - Element Creation:
+    -
+    -
+    -
+    -
+
+  
+
 #### 4.2.5. Status Creation:
 - **Statuses Trees Management**:
   - Statuses Tree Clonage:
@@ -344,8 +389,21 @@ These features are essential to the product, but they don't represent a vital pa
 - **Statuses Tree Set up**:
   - List
 
+
 - **Statuses Creation**:
   - List
+
+- **Hazard Creation**:
+  - Setting up Hazard List:
+    -
+    -
+    -
+    -
+  - Hazard Creation:
+    -
+    -
+    -
+    -
 
 ### 4.3. Could-Have
 These features aren't necessary to the core product and have a much smaller impact if left out, but they are considered as "nice-to-have".
