@@ -207,6 +207,9 @@ These features are mandatory and non-negociable needs for this project.
   - Default stats: Classic stats used in class RPG games:
     - Attack, Defense, Speed, and HP are mandatory stats.
     - Other have been set up but their use are optional: SP and Critical.
+    - If those secondary stats are ignored, they are the same for everyone.
+  - Damage Calculator selection: Allow to select the damage calculator which will be applied to the Stats trees.
+    - The damage calculator database can be found in the Stats Trees set up page.
 
 - **Damage Calculator**: Allows the user to set up his own damage calculator and decide about the formula.
   - Default version: The one already used to calculate damage from default RPG battle systems. It can be based from games but also be modified slightly.
@@ -313,18 +316,18 @@ These features are essential to the product, but they don't represent a vital pa
 
 #### 4.2.2. Character Creation:
 - **Character Management**: 
-  - Cloning Character: 
+  - Cloning Character: Allow the user to create a new character which is a copy of an existing one. 
 
 - **Character Set Up**: 
-  - Default Character: 
-    - Default set up: 
-    - Template selection:
-    - Stats selection:
-- AAA
+  - Skills selection: Permits the user to set a character' skills.
+  - Attributes selection: Permits the user to set a character's attributes (special abilities, elements...).
+  - Custom Character: Create and set up a new character from scratch.
+    - As long as we have set up other features like battle templates, stats tree and skills tree, we can apply each of them to our character.
+    - It's possible to name the character.
 
 #### 4.2.3. Stats Creation:
 - **Stats Trees Management**:
-  - Stats Tree Cloning:
+  - Stats Tree Cloning: Allow the user to clone an existing Stats Tree and create a copy.
 
 - **Setting up a Stat tree**: 
   - Default stats: 
@@ -344,7 +347,9 @@ These features are essential to the product, but they don't represent a vital pa
 
 - **Stat Set Up**: Set up the rules for a certain stat.
   - General:
-    - We can 
+    - A stat or more can influence the value of another stat, using some kind of formula.
+    - We can choose if some stats depend on main stats values, like "Evasion" depending on the speed's stat.
+
   - Stat limit:
     - A stat 
   - Attack and Defense: 
@@ -479,6 +484,25 @@ These features aren't necessary to the core product and have a much smaller impa
   - Simple attacks:
   - Special skills:
 
+- **Special Abilities Creation**:
+  - Setting up list:
+    - 
+  - Ability creation:
+    -
+    -
+    -
+    -
+
+- **Elements Creation**
+  - Setting up Element list:
+    -
+    -
+  - Element Creation:
+    -
+    -
+    -
+    -
+
 #### 4.3.5. Status Creation:
 - **Statuses Trees Management**:
   - Statuses Tree Clonage:
@@ -486,8 +510,21 @@ These features aren't necessary to the core product and have a much smaller impa
 - **Statuses Tree Set up**:
   - List
 
+
 - **Statuses Creation**:
   - List
+
+- **Hazard Creation**:
+  - Setting up Hazard List:
+    -
+    -
+    -
+    -
+  - Hazard Creation:
+    -
+    -
+    -
+    -
 
 ## 5. Product Details
 
