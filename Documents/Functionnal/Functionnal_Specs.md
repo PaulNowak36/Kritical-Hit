@@ -311,8 +311,7 @@ These features are essential to the product, but they don't represent a vital pa
   - Testing battle system: 
     - We can add a certain hazard during battle test.
     - We can save the test simulation set up for next use.
-    - We can restart the battle again from the beginning.
-   
+    - We can restart the battle again from the beginning.   
 
 #### 4.2.2. Character Creation:
 - **Character Management**: 
@@ -344,38 +343,44 @@ These features are essential to the product, but they don't represent a vital pa
   - Custom version: 
     - If the damage result is 0, we can decide to make 1 the minimum value.
     
-
 - **Stat Set Up**: Set up the rules for a certain stat.
   - General:
     - A stat or more can influence the value of another stat, using some kind of formula.
     - We can choose if some stats depend on main stats values, like "Evasion" depending on the speed's stat.
-
-  - Stat limit:
-    - A stat 
+    - If we change or delete a stat, we might get a coordination error depending on the other stats.
+    - We can add a little description for a stat. 
   - Attack and Defense: 
-    - We can 
+    - If we only split one of these 2 stats in physical and elemental type, the other will be the same for both type.
+    - If none or them are used, the damage will be calculated on the skill's power and/or other stats.
+    - 
 
 #### 4.2.4. Skills Creation:
 - **Skills Trees Management**:
-  - Skills Tree Clonage:
+  - Skills Tree Clonage: Allow the user to clone an existing Skills Tree and create a copy.
+  - Skills Tree Organization: Helps the user organize the skills present within the list.
+    - Skills can be sorted (attack, special...).
+    - A list can be used for several battle templates.
+    - We can get a connection error if we use an attack that isn't compatible with a target battle template.
 
 - **Skills Tree Set up**:
   - List of attacks:
 
 - **Skills Creation**:
   - Simple attacks:
-  - Special skills:
+    - These attacks can be used a certain number of time if the battle system use an action counter.
+  - Emblem attribution: an emblem giving element attribute to an attack can be applied.
 
-- **Special Abilities Creation**:
-  - Setting up list:
-    - 
-  - Ability creation:
-    -
+- **Special Abilities Creation**: Allow the user to create and manage special abilities that act as support skills for a character.
+  - Setting up list: Allow the user to set up a list of special abilities that will be used for a battle template.
+    - We can decide if we need special abilities or not.
+    - A list can be used for several Skills Trees if compatible.
+  - Ability creation: Permits the user to set up a special ability for characters.
+    - Can give a bonus (countable value, percentage) to a character.
     -
     -
     -
 
-- **Elements Creation**
+- **Elements Creation**: Allow the user to create and manage Elements that distinct Character and Skills, and also give them various bonus.
   - Setting up Element list:
     -
     -
@@ -389,7 +394,7 @@ These features are essential to the product, but they don't represent a vital pa
 
 #### 4.2.5. Status Creation:
 - **Statuses Trees Management**:
-  - Statuses Tree Clonage:
+  - Statuses Tree Clonage: Allow the user to clone an existing Statuses Lists and create a copy.
 
 - **Statuses Tree Set up**:
   - List
@@ -398,13 +403,13 @@ These features are essential to the product, but they don't represent a vital pa
 - **Statuses Creation**:
   - List
 
-- **Hazard Creation**:
-  - Setting up Hazard List:
+- **Hazard Creation**: Allow the user to create and manage the battle's hazards which will influence the characters depending on the place's environment.
+  - Setting up Hazard List: Allows the user to set up an hazard list.
     -
     -
     -
     -
-  - Hazard Creation:
+  - Hazard Creation: Permits the user to create an hazard and decide its rules.
     -
     -
     -
