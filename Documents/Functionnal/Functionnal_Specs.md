@@ -339,7 +339,6 @@ These features are essential to the product, but they don't represent a vital pa
     - We can write a description about the tree as well.
 
 - **Damage Calculator**: 
-  - Default version: 
   - Custom version: 
     - If the damage result is 0, we can decide to make 1 the minimum value.
     
@@ -352,18 +351,17 @@ These features are essential to the product, but they don't represent a vital pa
   - Attack and Defense: 
     - If we only split one of these 2 stats in physical and elemental type, the other will be the same for both type.
     - If none or them are used, the damage will be calculated on the skill's power and/or other stats.
-    - 
+  
 
 #### 4.2.4. Skills Creation:
 - **Skills Trees Management**:
   - Skills Tree Clonage: Allow the user to clone an existing Skills Tree and create a copy.
+
+- **Skills Tree Set up**:
   - Skills Tree Organization: Helps the user organize the skills present within the list.
     - Skills can be sorted (attack, special...).
     - A list can be used for several battle templates.
     - We can get a connection error if we use an attack that isn't compatible with a target battle template.
-
-- **Skills Tree Set up**:
-  - List of attacks:
 
 - **Skills Creation**:
   - Simple attacks:
@@ -376,22 +374,19 @@ These features are essential to the product, but they don't represent a vital pa
     - A list can be used for several Skills Trees if compatible.
   - Ability creation: Permits the user to set up a special ability for characters.
     - Can give a bonus (countable value, percentage) to a character.
-    -
-    -
-    -
+    - Conditions of activation can be chosen (Remaining HP, Enemy killed, Hazard...)
+    - Can automatically deals damages or trigger a nerf/status when hit by an enemy (can depends on Attack's element).
 
 - **Elements Creation**: Allow the user to create and manage Elements that distinct Character and Skills, and also give them various bonus.
-  - Setting up Element list:
-    -
-    -
-  - Element Creation:
-    -
-    -
-    -
-    -
-
-  
-
+  - Setting up Element list: Create a list of Elements that could be used for the battle system.
+    - We can decide if our battle template will need them or not and how much elements we can have.
+    - We can decide if we can connect them to characters, skills and special abilities.
+  - Element Creation: Helps creating an element that will provides attributes to a character, a skill or a special ability.
+    - Can provide a bonus to our character.
+    - Enemies can possess one too. 
+    - Can influence other elements, like Water element dealing more damage to Fire element.
+    - We can use a database of elements logo for representation.
+      
 #### 4.2.5. Status Creation:
 - **Statuses Trees Management**:
   - Statuses Tree Clonage: Allow the user to clone an existing Statuses Lists and create a copy.
