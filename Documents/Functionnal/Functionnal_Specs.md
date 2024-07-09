@@ -392,23 +392,23 @@ These features are essential to the product, but they don't represent a vital pa
   - Statuses Tree Clonage: Allow the user to clone an existing Statuses Lists and create a copy.
 
 - **Statuses Tree Set up**:
-  - List
+  - We can decide if several statuses can be active on a single character or not.
 
 
 - **Statuses Creation**:
-  - List
+  - It could be possible if a status can be cured by certain skills, or if some statuses are permanent during the whole battle.
 
 - **Hazard Creation**: Allow the user to create and manage the battle's hazards which will influence the characters depending on the place's environment.
   - Setting up Hazard List: Allows the user to set up an hazard list.
-    -
-    -
-    -
-    -
-  - Hazard Creation: Permits the user to create an hazard and decide its rules.
-    -
-    -
-    -
-    -
+    - Default hazard lists (Rain, Sunshine, Wind, etc...) are already present in the Hazard list database.
+    - A global database of Hazards List is used where, if compatible, it's possible that a same list is used for several battle systems.
+    - We can decide if our battle template can trigger one or several hazard events at the same time or not. For the latter case, triggering another hazard event will replace the previous one.
+    - Each list can share some hazards.
+  - Hazard Creation: Permits the user to create a hazard event and decide its rules.
+    - The event affects the whole battlefield.
+    - We decide the effects, the duration and the conditions of a hazard event.
+    - Some characters can be immunized depending on conditions (special ability, etc...).
+    - We select whwich skills and abilities can trigger a hazard event.
 
 ### 4.3. Could-Have
 These features aren't necessary to the core product and have a much smaller impact if left out, but they are considered as "nice-to-have".
