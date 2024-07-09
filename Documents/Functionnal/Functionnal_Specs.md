@@ -304,8 +304,10 @@ These features are essential to the product, but they don't represent a vital pa
       - The enemy has a specific HP/counter bar where he takes damages from STRONG attacks.
       - When his defense is broken, either the monster cannot act next turn and/or his defense is lowered/
       - He can retrieves his full weakness bar at next turn.
-  - Different actions:
-    - Action menu:
+  - Action Menu: Help the user creating a list of all the possible actions (attack, magic, object, etc...) that the player can do in battle.
+    - Classic actions like "Attack", "Magic", "Special" and "Defend" represent default actions in the default action menu. 
+    - We can merge the "Magic" and "Special" actions together, and ignore the "Defend" action if we don't need it.
+    - Other actions like "Run", "Use Weapon" or "Heal" can be added.
 
 - **Battle System Simulation**: 
   - Testing battle system: 
@@ -414,16 +416,28 @@ These features are essential to the product, but they don't represent a vital pa
 These features aren't necessary to the core product and have a much smaller impact if left out, but they are considered as "nice-to-have".
 
 #### 4.3.1. Template Creation:
-- **Template Management**: Allow
-  - Cloning a template:
-
-- **Setting up Battle System**:
-  - Choosing Skills:
-  - Choosing Statuses:
+- **Template Management**: 
+  - Renaming a template: Allows the user to rename a certain template he has already created.
+  - Managing template: The managing system is improved, allowing to sort and filter (alphabetically, date updated, type of battle system, etc...) all battle templates created so far. 
 
 - **RPG Style**: 
   - Default style:
-    - Pokemon style:
+    - EarthBound style: The battle system will be based on the rules of the SNES game name Earthbound, released in 1994.
+  - Custom Style: 
+    - Turn-based type: 
+      - Classic mode: All party members select their action before they perform it.
+      - Multi-turn mode: All fighter has a "Turn value", and the one with the highest value starts.
+        - Once a character performed all of his action in his turn, his Turn value goes back to 0 and all other characters have their Turn values increased.
+    - Active Time type: Each fighter can perform an action if their TimeBar is filled enough.
+      - A gauge named "Timebar" is applied to the player and charges itself over time: if he perform an action, it causes the gauge to empty. The cycle repeat until the battle ends.
+      - The timebar can be randomly filled or depends on the character's values.
+      - Displays the action menu of a character when he reaches a certain timebar value.
+      - You can set the max value of a timebar in general.
+    - Multiplayer Mode: It would be possible to test a battle system with several characters.
+      - The ally party can have up to 4 characters.
+      - Enemies can attack several characters at the same time.
+      - Characters can perform skills on their allies, and even some attacks.
+
 
 - **Additional Game Mechanic**: 
   - Counter: 
@@ -433,7 +447,9 @@ These features aren't necessary to the core product and have a much smaller impa
       - Using 1 
   - Attack Order System: 
     - Default types: 
-      - Classic: 
+      - Classic:
+  - Action Menu:
+     
 
 - **Battle System Simulation**: 
   - Testing battle system: 
