@@ -289,9 +289,9 @@ These features are essential to the product, but they don't represent a vital pa
       - The number of times we can uses points to increase our skills can be limited for the entire battle.
       - Using 1 
   - Attack Order System: 
-    - Default types: 
+    - Default type: 
       - The turn order can be absolute or changed by priority skills.
-    - Custom types: The user choose a different way to determine the turn order.
+    - Custom type: The user choose a different way to determine the turn order.
       - The order can involves another stat other than Speed.
   - Defend system: Allow the player to put a defensive state during his turn and to receive less damage.
     - The damages received is reduced, and the reduction is calculated with the character's Defense stat.
@@ -442,12 +442,29 @@ These features aren't necessary to the core product and have a much smaller impa
 - **Additional Game Mechanic**: 
   - Counter: 
     - Limited counter: 
-      - It's 
-      - As a 
-      - Using 1 
+      - When used to grant bonuses, a certain fixed number of points can only be used for certain skills.
+      - Some skills can only be unlocked with enough points used.
+      - It's possible to earn/lose counter points with certain skills, and even to share them with allies.
+    - Special counter: this counter is different because the limit of points can be way bigger (100, 1000, etc...).
+      - There is no way to lose these points by default.
+      - Can grant bonuses and/or unlock skills when a certain number is reached.
+      - We obtain some at each turn.
   - Attack Order System: 
-    - Default types: 
-      - Classic:
+    - Default type: 
+      - At each turn, each character's speed can be increased by a randomized percentage value put in a range.
+  - Defend system:
+    - The defend system can completely cancel the damages received.
+    - At the next turn, the damages dealt by an enemy will be increased.
+    - When attacked, we can deal damages back to the attacker.
+    - We can decide if the defend system can block Critical Hits or not
+    - The Defend action can only be performed under conditions (HPs, MPs, dead ally...).
+  - Weakness System: 
+    - Classic: 
+      - Our characters can also have weaknesses.
+      - A system of resistance is implemented to allow characters resisting specific attacks.
+    - Special: 
+      - We can include a Body Parts system, where enemies are more sensible to certain areas like Head, Leg, Body, or Hand.
+      - Multi-targets attacks can aim either 1 specific part per monster, or all parts for a specific enemy.
   - Action Menu:
      
 
@@ -458,7 +475,8 @@ These features aren't necessary to the core product and have a much smaller impa
 
 #### 4.3.2. Character Creation:
 - **Character Management**: 
-  - Cloning Character: 
+  - Renaming a character: Allows the user to rename a certain character he has already created.
+  - Managing characters database: Allow the user to organize his characters database differently (alphabetically, date updated, etc...). 
 
 - **Character Set Up**: 
   - Default Character: 
@@ -477,9 +495,9 @@ These features aren't necessary to the core product and have a much smaller impa
   - Default stats: 
 
 - **Damage Calculator**: 
-  - Default version: 
   - Custom version: 
-    - The Attack 
+    - We can add a random value put in a range to alterate the formula.
+    - The damage calculator feature contain a simulation where a character attacks a monster and the final damages he deals. 
 
 - **Stat Set Up**: Set up the rules for a certain stat.
   - General:
