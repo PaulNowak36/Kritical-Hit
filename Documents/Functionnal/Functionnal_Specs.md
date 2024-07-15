@@ -210,6 +210,9 @@ These features are mandatory and non-negociable needs for this project.
     - If those secondary stats are ignored, they are the same for everyone.
   - Damage Calculator selection: Allow to select the damage calculator which will be applied to the Stats trees.
     - The damage calculator database can be found in the Stats Trees set up page.
+  - Template selection: Permits the user to connect a Stats Tree with a battle system to test it.
+    - We choose an exising Battle System which will use the Stats Tree when tested.
+    - We can connect the same Stats Tree to several Battle Systems, but we cannot connect a single template to several Stats Trees.
 
 - **Damage Calculator**: Allows the user to set up his own damage calculator and decide about the formula.
   - Default version: The one already used to calculate damage from default RPG battle systems. It can be based from games but also be modified slightly.
@@ -281,7 +284,6 @@ These features are essential to the product, but they don't represent a vital pa
   - Default style:
     - Pokemon style: The battle system will be based on the rules of the latest Pokemon mainline game.
 
-
 - **Additional Game Mechanic**: 
   - Counter: 
     - Limited counter: 
@@ -339,6 +341,8 @@ These features are essential to the product, but they don't represent a vital pa
   - Stat description:
     - We can write the rules of a certain stat.
     - We can write a description about the tree as well.
+  - Template selection: 
+      - We can connect the same Stats Tree to several Battle Systems, but we cannot connect a single template to several Stats Trees.
 
 - **Damage Calculator**: 
   - Custom version: 
@@ -469,7 +473,6 @@ s.
     - Both players and enemies can attack several characters at the same time.
     - Characters can perform skills on their allies, and even some attacks.
      
-
 - **Battle System Simulation**: 
   - Testing battle system: 
     - Monster stats can be auto-generated depending on the player's stats. 
@@ -478,27 +481,19 @@ s.
     - The results shows data about the fight like the numbers of turns, the damages dealt per characters, and a resumee of all actions performed by each characters per turn.
     - The results also display a ratio of how well each characters performed, depending on the damages they dealt and received.
    
-
 #### 4.3.2. Character Creation:
 - **Character Management**: 
   - Renaming a character: Allows the user to rename a certain character he has already created.
   - Managing characters database: Allow the user to organize his characters database differently (alphabetically, date updated, etc...). 
 
-- **Character Set Up**: 
-  - Default Character: 
-    - Default set up: 
-    - Template selection:
-    - Stats selection:
-- AAA
-
 #### 4.3.3. Stats Creation:
 - **Stats Trees Management**:
-  - Stats Tree Creation:
-  - Stats Tree Modification:
-  - Stats tree Deletion: 
+  - Renaming a Stats Tree: Allows the user to rename an existing Stats Tree.
+  - Managing Stats Trees: Allow the user to organize his Stats Trees database differently, using the sort and filter features(alphabetically, date updated, etc...). 
 
 - **Setting up a Stat tree**: 
-  - Default stats: 
+  - Template selection: 
+    - We can both connect and disconnect the selected Battle Templates we want.
 
 - **Damage Calculator**: 
   - Custom version: 
@@ -507,11 +502,8 @@ s.
 
 - **Stat Set Up**: Set up the rules for a certain stat.
   - General:
-    - We can 
-  - Stat limit:
-    - A stat 
-  - Attack and Defense: 
-    - We can 
+    - We can use other secondary stats like Sharpness or Luck.
+
 
 #### 4.3.4. Skills Creation:
 - **Skills Trees Management**:
