@@ -303,7 +303,7 @@ These features are essential to the product, but they don't represent a vital pa
     - Special: Additional features to make the system unique.
       - The enemy has a specific HP/counter bar where he takes damages from STRONG attacks.
       - When his defense is broken, either the monster cannot act next turn and/or his defense is lowered/
-      - He can retrieves his full weakness bar at next turn.
+      - He can retrieves his full weakness gauge at next turn.
   - Action Menu: Help the user creating a list of all the possible actions (attack, magic, object, etc...) that the player can do in battle.
     - Classic actions like "Attack", "Magic", "Special" and "Defend" represent default actions in the default action menu. 
     - We can merge the "Magic" and "Special" actions together, and ignore the "Defend" action if we don't need it.
@@ -433,10 +433,7 @@ These features aren't necessary to the core product and have a much smaller impa
       - The timebar can be randomly filled or depends on the character's values.
       - Displays the action menu of a character when he reaches a certain timebar value.
       - You can set the max value of a timebar in general.
-    - Multiplayer Mode: It would be possible to test a battle system with several characters.
-      - The ally party can have up to 4 characters.
-      - Enemies can attack several characters at the same time.
-      - Characters can perform skills on their allies, and even some attacks.
+s.
 
 
 - **Additional Game Mechanic**: 
@@ -465,12 +462,21 @@ These features aren't necessary to the core product and have a much smaller impa
     - Special: 
       - We can include a Body Parts system, where enemies are more sensible to certain areas like Head, Leg, Body, or Hand.
       - Multi-targets attacks can aim either 1 specific part per monster, or all parts for a specific enemy.
-  - Action Menu:
+  - Multiplayer Mode: It would be possible to test a battle system with several characters, and allow the user to manage his party.
+    - We can choose the complete size of our party (up to 6 characters), and how much members are active in battle (up to 4).
+    - We can add a new action named "SWITCH" to change active party members during battle.
+    - Enemies can also have a limited numbers of characters in their party.
+    - Both players and enemies can attack several characters at the same time.
+    - Characters can perform skills on their allies, and even some attacks.
      
 
 - **Battle System Simulation**: 
   - Testing battle system: 
-    - We 
+    - Monster stats can be auto-generated depending on the player's stats. 
+    - We can start the simulation where the player has already lost HPs.
+  - Viewing Results: Show information about the simulation fight (average damage dealt to enemies, number of turns until the end of the fight, etc...) to the user.
+    - The results shows data about the fight like the numbers of turns, the damages dealt per characters, and a resumee of all actions performed by each characters per turn.
+    - The results also display a ratio of how well each characters performed, depending on the damages they dealt and received.
    
 
 #### 4.3.2. Character Creation:
@@ -608,6 +614,7 @@ AAA
 | **K.O.** |   Abbreviation for "Knocked Out", state when a character have lost all of his HPs and is unable to fight.    |
 | **Modifiers** |   Factors influencing a battle that allow the calculation of several attributes, like the total damage, or a specific stat.   |
 | **Nerf** |    Also called "debuff", it's a skill, ability or other game mechanic that decrease a character's capabilities to reduce his effectiveness.    |
+| **Party** |    Group of characters teaming up during various adventures in a role-play game.    |
 | **S.P.** |   Abbreviation for "Skill Points" and also called "mana", a limited quantity of points possessed by a character allowing him to uses a particular skill at the cost of a few of them.     |
 | **Skill** |   Particular action performed by a character during a battle. It allows to either attack the enemy, provides an effect or both, sometimes at the cost of a few SPs.   |
 | **Special Ability** |   Abilities characterized as game mechanics which provide a passive effect to a character in battle, like an immunity to an element.    |
