@@ -507,56 +507,38 @@ s.
 
 #### 4.3.4. Skills Creation:
 - **Skills Trees Management**:
-  - Skills Tree Clonage:
+  - Renaming a Skills Tree: Allows the user to rename an existing Skills Tree.
+  - Managing Skills Trees: Allow the user to reorganize his Skills Trees database using the sort and filter features(alphabetically, date updated, etc...).
 
 - **Skills Tree Set up**:
-  - List of attacks:
+  - Skills Tree Organization: Helps the user organize the skills present within the list.
+    - Each Skills Tree can share some skills.
 
 - **Skills Creation**:
   - Simple attacks:
-  - Special skills:
+    - Some attacks can give constant damages or they could be based on percents (based on Attack Stat for example).
+    - We can switch weapons during battle and modify the weapon emblem for the player's next melee attack.
 
 - **Special Abilities Creation**:
   - Setting up list:
-    - 
+    - Enemies can also have a special ability.
   - Ability creation:
-    -
-    -
-    -
-    -
+    - Some Special Abilities can have an emblem for increasing specific attacks.
+    - They can also bring drawbacks to their user (HPs lost, Stats nerf, etc...) and we can decide at which turn they trigger.
+    - Player can lose HPs while attacking an enemy with a Special Ability.
 
 - **Elements Creation**
-  - Setting up Element list:
-    -
-    -
   - Element Creation:
-    -
-    -
-    -
-    -
+    - Elements can be influenced by stats if compatible (like lightning attacks increased by Speed for example).
 
 #### 4.3.5. Status Creation:
 - **Statuses Trees Management**:
-  - Statuses Tree Clonage:
-
-- **Statuses Tree Set up**:
-  - List
-
-
-- **Statuses Creation**:
-  - List
+  - Renaming a Statuses Tree: Allows the user to rename an existing Statuses Tree.
+  - Managing Statuses Trees: Allow the user to reorganize his Skills Trees database using the sort and filter features(alphabetically, date updated, etc...).
 
 - **Hazard Creation**:
-  - Setting up Hazard List:
-    -
-    -
-    -
-    -
   - Hazard Creation:
-    -
-    -
-    -
-    -
+    - We can decide if Hazards can be deactivated by some character's Skills and/or Special Abilities.
 
 ## 5. Product Details
 
