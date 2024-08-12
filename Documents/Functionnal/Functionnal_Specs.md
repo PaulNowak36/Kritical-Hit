@@ -552,7 +552,22 @@ s.
 
 
 ### 5.2 Non-Functional Requirements
-AAA
+
+- **Accessibility**: The User Interface of this product must be accessible to people unfamiliar with RPG games or computer software in general. Indeed, Kritical Hit’s range of capacities must bring a satisfaction rate around 95% of users. 
+
+- **Configurability**: The software must allow different settings that could be freely personalized by the user when he uses any feature. 
+
+- **Flexibility**: The software must have room to add new potential features to improve the creativity of the battle systems. Indeed, any update of the application shouldn’t require too much effort for the software engineer. 
+
+- **Responsiveness**: Most user inputs (button, selection) and interactions effects (button growing when mouse hovering, etc...) must be fast. The maximum response time for them should be 100ms to ensure user-friendly interactivity.  
+
+- **Re-usability**: The software’s interface could be reused as a model for any future software requiring a user-friendly interface. 
+
+- **Scalability**: The software must be able to contain a large database of battle system templates, and its performance shouldn’t be too highly impacted by the amount of data used. 
+
+- **Security**: The user’s personal data must be protected from any cyberattack when he is logged in. Furthermore, the software should prevent any leak from the template’s database. 
+
+- **Usability**: The software’s interface must be simple to understand and appealing enough to encourage people to use it. 
 
 ### 5.3 Prototype and User Interface
 AAA
