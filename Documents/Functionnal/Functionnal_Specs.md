@@ -570,7 +570,25 @@ s.
 - **Usability**: The software’s interface must be simple to understand and appealing enough to encourage people to use it. 
 
 ### 5.3 Prototype and User Interface
-AAA
+
+One of the most expected features of Kritical Hit must be his ability to draw any kind of users, whether they are familiar with softwares and video games or not.
+
+In fact, a Game Engine is often provided with a complete yet complex User Interface to allow developpers to conceive any type of game. 
+
+However, focusing on the Battle System aspect of RPG games would require a most game-inspired UI, taking inspiration on menus of games developped by Nintendo like Super Mario Maker or Super Smash Brothers Ultimate. 
+
+According to a study, the first game would be ideal to introduce User Experience to players as the different in-game tools showcase creative way to build up Super Mario levels alongside a simple and understandable design.
+
+The following link show the Concept Arts for each menu of the software made by #####:
+
+-
+
+Before building the app, a prototype of app which goal is to test the proposed interface has been created. Indeed, we can just navigate through the different pages of the app but it provides an interesting preview about what users will expect:
+
+-
+
+
+
 
 ### 5.4 Acceptance Criteria
 AAA
