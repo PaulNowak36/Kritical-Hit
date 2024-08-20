@@ -590,8 +590,15 @@ Before building the app, a prototype of app which goal is to test the proposed i
 
 
 
-### 5.4 Acceptance Criteria
-AAA
+### 5.4 Acceptance Criterias
+In order to determine this IT project as successful, Kritical Hit must meet all the following criterias:
+
+- The user is able to navigate through the app and interact with the different UI elements without
+- The app does not present any forms of crash or bugs that could hinder the quality of the app.
+- The app does
+-
+-
+-  
 
 ### 5.5 Security
 AAA
