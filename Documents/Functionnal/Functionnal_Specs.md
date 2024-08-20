@@ -579,7 +579,7 @@ However, focusing on the Battle System aspect of RPG games would require a most 
 
 According to a study, the first game would be ideal to introduce User Experience to players as the different in-game tools showcase creative way to build up Super Mario levels alongside a simple and understandable design.
 
-The following link show the Concept Arts for each menu of the software made by #####:
+The following link show the Concept Arts for each menu of the software made by Figma:
 
 -
 
@@ -588,17 +588,15 @@ Before building the app, a prototype of app which goal is to test the proposed i
 -
 
 
-
-
 ### 5.4 Acceptance Criterias
 In order to determine this IT project as successful, Kritical Hit must meet all the following criterias:
 
 - The user is able to navigate through the app and interact with the different UI elements without
+- The user can create his own battle template and test it on a simulator.
+- The user can save at least 10 battle templates in the app's database.
 - The app does not present any forms of crash or bugs that could hinder the quality of the app.
-- The app does
--
--
--  
+- The app does not return any error after being launched.
+- The player using the simulator to test his template must not know any latency and feels like he is playing a game.
 
 ### 5.5 Security
 AAA
