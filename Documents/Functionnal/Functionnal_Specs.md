@@ -27,12 +27,11 @@
    - [5.2 Non-Functional Requirements](#52-non-functional-requirements)
    - [5.3 Prototype and User Interface](#53-prototype-and-user-interface)
    - [5.4 Acceptance Criteria](#54-acceptance-criteria)
-   - [5.5 Security](#55-security)
- - [5. Related Documents](#5-related-documents)
- - [6. Glossary](#6-glossary)
-   - [6.1 RPG Lexical Field](#61-rpg-lexical-field)
-   - [6.2 Miscallenous](#62-miscallenous)
- - [7. Sources](#7-sources)
+ - [6. Related Documents](#6-related-documents)
+ - [7. Glossary](#7-glossary)
+   - [7.1 RPG Lexical Field](#71-rpg-lexical-field)
+   - [7.2 Miscallenous](#72-miscallenous)
+ - [8. Sources](#8-sources)
 </details>
 
 # 1. Overview
@@ -569,7 +568,23 @@ s.
 
 - **Usability**: The software’s interface must be simple to understand and appealing enough to encourage people to use it. 
 
-### 5.3 Prototype and User Interface
+### 5.3 Acceptance Criterias
+In order to determine this IT project as successful, Kritical Hit must meet all the following criterias:
+
+- The user is able to navigate through the app and interact with the different UI elements without important lagging issues.
+- The user can create his own battle template and test it on a simulator.
+- The user can save at least 10 battle templates in the app's database.
+- The app does not present any forms of crash or bugs that could hinder the quality of the app.
+- The app does not return any error after being launched.
+- The player using the simulator to test his template must not know any latency and feels like he is playing a game.
+
+### 5.4 Out of Scope
+In order
+
+## 6. User Interface
+AAA
+
+### 6.1. UI/UX Importance
 
 One of the most expected features of Kritical Hit must be his ability to draw any kind of users, whether they are familiar with softwares and video games or not.
 
@@ -579,34 +594,32 @@ However, focusing on the Battle System aspect of RPG games would require a most 
 
 According to a study, the first game would be ideal to introduce User Experience to players as the different in-game tools showcase creative way to build up Super Mario levels alongside a simple and understandable design.
 
+
+### 6.2. Mock-Ups
+
 The following link show the Concept Arts for each menu of the software made by Figma:
 
 -
+
+### 6.3. UI Elements
+
+### 6.4. Colors
+
+### 6.5. Prototype
 
 Before building the app, a prototype of app which goal is to test the proposed interface has been created. Indeed, we can just navigate through the different pages of the app but it provides an interesting preview about what users will expect:
 
 -
 
 
-### 5.4 Acceptance Criterias
-In order to determine this IT project as successful, Kritical Hit must meet all the following criterias:
+### 6.6. Changes made
 
-- The user is able to navigate through the app and interact with the different UI elements without
-- The user can create his own battle template and test it on a simulator.
-- The user can save at least 10 battle templates in the app's database.
-- The app does not present any forms of crash or bugs that could hinder the quality of the app.
-- The app does not return any error after being launched.
-- The player using the simulator to test his template must not know any latency and feels like he is playing a game.
-
-### 5.5 Security
+## 7. Related Documents
 AAA
 
-## 6. Related Documents
-AAA
+## 8. Glossary
 
-## 7. Glossary
-
-### 7.1. RPG Lexical Field
+### 8.1. RPG Lexical Field
 
 |         Term         |                  Definition                   |  
 | :------------------: | :------------------------------------------: | 
@@ -629,7 +642,7 @@ AAA
 | **Stat** |   Numerical value that applies to a character's ability (Attack, Defense, Speed...).    |
 | **Status** |   Specific state affected to a character, generally negative, causing effects such as losing HPs each turn (poison) or being slowed down (paralyzis).    |
 
-### 7.2. Miscallenous
+### 8.2. Miscallenous
 
 |         Term         |                  Definition                   |  
 | :------------------: | :------------------------------------------: | 
@@ -637,7 +650,7 @@ AAA
 | **Plugin** |   Software conceived to be implemented in another software through an interface and bringing new features to the latter.    |
 | **Prototype** |   Trial version and/or simulation of a software product made to provide a preview before its final version.    |
 
-## 8. Sources
+## 9. Sources
 AAA
 
 https://rpggeek.com/
