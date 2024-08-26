@@ -22,16 +22,25 @@
      - [3.1.5 Katrina Ladalh](#315-katrina-ladalh)
    - [3.2 Survey](#32-survey)
  - [4. List of features](#4-list-of-features)
+   - [4.1 Must-Have](#41-must-have)
+   - [4.2 Should-Have](#42-should-have)
+   - [4.3 Could-Have](#43-could-have)
  - [5. Product Details](#5-product-details)
-   - [5.1 Minimum Viable Product](#41-minimum-viable-product)
+   - [5.1 Minimum Viable Product](#51-minimum-viable-product)
    - [5.2 Non-Functional Requirements](#52-non-functional-requirements)
-   - [5.3 Prototype and User Interface](#53-prototype-and-user-interface)
-   - [5.4 Acceptance Criteria](#54-acceptance-criteria)
- - [6. Related Documents](#6-related-documents)
- - [7. Glossary](#7-glossary)
-   - [7.1 RPG Lexical Field](#71-rpg-lexical-field)
-   - [7.2 Miscallenous](#72-miscallenous)
- - [8. Sources](#8-sources)
+   - [5.3 Acceptance Criterias](#53-acceptance-criterias)
+   - [5.4 Out of Scope](#54-out-of-scope)
+ - [6. User Interface & User Experience](#6-user-interface-&-user-experience)
+   - [6.1 Importance](#61-importance)
+   - [6.2 Mock-Ups](#62-mock-ups)
+   - [6.3 UI Elements](#63-ui-elements)
+   - [6.4 Colors](#64-colors)
+   - [6.5 Prototype](#65-prototype)
+ - [7. Related Documents](#7-related-documents)
+ - [8. Glossary](#8-glossary)
+   - [8.1 RPG Lexical Field](#81-rpg-lexical-field)
+   - [8.2 Miscallenous](#82-miscallenous)
+ - [9. Sources](#9-sources)
 </details>
 
 # 1. Overview
@@ -581,10 +590,10 @@ In order to determine this IT project as successful, Kritical Hit must meet all 
 ### 5.4 Out of Scope
 In order
 
-## 6. User Interface
+## 6. User Interface & User Experience
 AAA
 
-### 6.1. UI/UX Importance
+### 6.1. Importance
 
 One of the most expected features of Kritical Hit must be his ability to draw any kind of users, whether they are familiar with softwares and video games or not.
 
