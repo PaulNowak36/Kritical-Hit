@@ -625,24 +625,23 @@ Some UI Elements will be commonly used through the different menus of Kritical H
 
 - Damage Calculator: Takes the form of a customizable mathematical formula that will be used to calculate damages depending of various inputs (Characters Stats, Bonuses, Maluses, fixed values...).
 
+- Tree: As its name implies, this UI element takes the form of a tree. Indeed, it will be used to represent a Stats Trees like an actual tree, and its branches and leaves represent the different involved Stats used to complete a Battle Template.
+
 - Simulation Screen: Represents a small window with 2 characters: the playable character and an enemy. When the simulation is activated, a fight will occur between the 2 characters where the user can view a menu for the hero's possible actions, and the remaining HPs and SPs of each entity.
-
-
 
 ### 6.4. Colors
 
-In order to make the interface easier to understand for the user, I decided to implement a color code to differentiate each section of the code. 
+In order to make the interface easier to understand for the user, I decided to implement a color code to differentiate each section of the code. Furthermore, each menu of KriticalHit has a backkground with a representative color.
 
-In the first place, each menu of KriticalHit has a backkground with a representative color:
+Here are each main colors used in the software:
 
-- Green (#09BC71): represents the main menu of the software. Also used for the main background of the Battle Template screen.
-- Red (#FF0000): represents the Template Creation menu.
+- Green (#09BC71): represents the main menu of the software. Also used for the main background of the Battle Template screen, and for buttons to confirm a choice and create a new feature.
+- Red (#FF0000): represents the Template Creation menu, but it's also used for a button to unconfirm a choice.
 - Orange(#FF9900): represents the Characters Creation menu.
 - Yellow(#EAE340): represents the Stats Creation menu.
 - Blue(#407AEA): represents the Skills Creation menu.
 - Purple(#EA40E3): represents the Statuses Creation menu.
 
-Furthermore
 
 
 ### 6.5. Prototype
