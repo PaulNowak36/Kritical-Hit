@@ -591,7 +591,6 @@ In order to determine this IT project as successful, Kritical Hit must meet all 
 In order
 
 ## 6. User Interface & User Experience
-AAA
 
 ### 6.1. Importance
 
@@ -612,7 +611,39 @@ The following link show the Concept Arts for each menu of the software made by F
 
 ### 6.3. UI Elements
 
+Some UI Elements will be commonly used through the different menus of Kritical Hit to assist the user in the making of a Battle Template. This includes:
+
+- Buttons: Often provided with an oval form and accompanied by a small symbol, this classic UI element draws the attention of the user who can clik on it to navigate through the app and make various choices.
+
+- Galleries: Used to store database of Battle Templates, Characters, Stats Trees, and more. The user can scroll up and down (or from left to right) to find the element of his choice and load it.
+
+- Pop-Up menu: Appears as a window that can be small or big depending on its content. Indeed, the small sized versions are used to display valuable information for the user, like an advice or a warning, while the large pop-ups take most of the screen and incite the user to spend his times choosing settings, like the rules for a Battle Template for example.
+
+- Checkboxes: Enables the user to focus their attention on them, so they could make selections for various settings, like the rules of a Battle Template, or other specific conditions. 
+
+- Range Sliders: Used occasionally to help fix a precise value, like a bonus given by a Skill, or make range of values, like the minimum and maximum values of a Stat for example. 
+
+- Damage Calculator: Takes the form of a customizable mathematical formula that will be used to calculate damages depending of various inputs (Characters Stats, Bonuses, Maluses, fixed values...).
+
+- Simulation Screen: Represents a small window with 2 characters: the playable character and an enemy. When the simulation is activated, a fight will occur between the 2 characters where the user can view a menu for the hero's possible actions, and the remaining HPs and SPs of each entity.
+
+
+
 ### 6.4. Colors
+
+In order to make the interface easier to understand for the user, I decided to implement a color code to differentiate each section of the code. 
+
+In the first place, each menu of KriticalHit has a backkground with a representative color:
+
+- Green (#09BC71): represents the main menu of the software. Also used for the main background of the Battle Template screen.
+- Red (#FF0000): represents the Template Creation menu.
+- Orange(#FF9900): represents the Characters Creation menu.
+- Yellow(#EAE340): represents the Stats Creation menu.
+- Blue(#407AEA): represents the Skills Creation menu.
+- Purple(#EA40E3): represents the Statuses Creation menu.
+
+Furthermore
+
 
 ### 6.5. Prototype
 
