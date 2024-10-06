@@ -593,7 +593,13 @@ In order to determine this IT project as successful, Kritical Hit must meet all 
 - The player using the simulator to test his template must not know any latency and feels like he is playing a game.
 
 ### 5.4 Out of Scope
-In order
+Severals features were considered but they won't be implemented in the product:
+
+- An Equipment creation menu: it would allow the user to set up an equipment menu which will create slots for objects to give bonuses/maluses for a character while using a certain battle system. Indeed, it would also the possibility to create objects (potions, weapons), and to set up trees of achievements.
+- 2 other types of RPG style: real-time battle (every character select and perform their action whenever and wherever) and phase battle (2 factions of enemies are fighting, and each faction perform their action when it's their phase turn).
+- Possibility to save videos of simulation within the app's database.
+- Connection of different attacks, where the user create links between certain skills and set up potential combos and bonuses.
+- Creation of an XP calculator, similar to the damage calculator, and useful to calculate the experience earned by the player when defeating a certain enemy.
 
 ## 6. User Interface & User Experience
 
@@ -651,16 +657,15 @@ Here are each main colors used in the software:
 - Blue(#407AEA): represents the Skills Creation menu.
 - Purple(#EA40E3): represents the Statuses Creation menu.
 
-
-
 ### 6.5. Prototype
 
 Before building the app, a prototype of app which goal is to test the proposed interface has been created. Indeed, we can just navigate through the different pages of the app but it provides an interesting preview about what users will expect:
 
--
+[PROTOTYPE 1](TBD)<br> 
 
 
 ### 6.6. Changes made
+TBD
 
 ## 7. Glossary
 
