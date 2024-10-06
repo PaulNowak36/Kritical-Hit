@@ -3,7 +3,7 @@
 | Author        | Paul NOWAK |
 |---------------|------------ |
 | Created       | 03/25/2024  |
-| Last Modified | 10/06/2024  |
+| Last Modified | 06/10/2024  |
 
 
 ## Table of Contents
@@ -612,7 +612,11 @@ According to a study, the first game would be ideal to introduce User Experience
 
 The following link show the Concept Arts for each menu of the software made by Figma:
 
--
+[Kritical Hit's Concept Arts](https://www.figma.com/design/tOh9vWgijZAMVSdAd2oILU/KriticalHit-Concept-Arts?node-id=0-3&t=zXnhpB73msD4rEtD-1)<br>
+
+The User Flowchart map show the different paths the user must take to test the different features while navigating through the app:
+
+<img src="Images/UserFlowchart_Map.png" style="height: 400px">
 
 ### 6.3. UI Elements
 
