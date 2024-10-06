@@ -1,5 +1,11 @@
 # Moonshot Project: KriticalHit - Functional Specifications
 
+| Author        | Paul NOWAK |
+|---------------|------------ |
+| Created       | 03/25/2024  |
+| Last Modified | 10/06/2024  |
+
+
 ## Table of Contents
 
 <details open>
@@ -36,11 +42,10 @@
    - [6.3 UI Elements](#63-ui-elements)
    - [6.4 Colors](#64-colors)
    - [6.5 Prototype](#65-prototype)
- - [7. Related Documents](#7-related-documents)
- - [8. Glossary](#8-glossary)
-   - [8.1 RPG Lexical Field](#81-rpg-lexical-field)
-   - [8.2 Miscallenous](#82-miscallenous)
- - [9. Sources](#9-sources)
+ - [7. Glossary](#7-glossary)
+   - [7.1 RPG Lexical Field](#71-rpg-lexical-field)
+   - [7.2 Miscallenous](#72-miscallenous)
+ - [8. Sources](#8-sources)
 </details>
 
 # 1. Overview
@@ -653,12 +658,9 @@ Before building the app, a prototype of app which goal is to test the proposed i
 
 ### 6.6. Changes made
 
-## 7. Related Documents
-AAA
+## 7. Glossary
 
-## 8. Glossary
-
-### 8.1. RPG Lexical Field
+### 7.1. RPG Lexical Field
 
 |         Term         |                  Definition                   |  
 | :------------------: | :------------------------------------------: | 
@@ -681,7 +683,7 @@ AAA
 | **Stat** |   Numerical value that applies to a character's ability (Attack, Defense, Speed...).    |
 | **Status** |   Specific state affected to a character, generally negative, causing effects such as losing HPs each turn (poison) or being slowed down (paralyzis).    |
 
-### 8.2. Miscallenous
+### 7.2. Miscallenous
 
 |         Term         |                  Definition                   |  
 | :------------------: | :------------------------------------------: | 
@@ -689,7 +691,3 @@ AAA
 | **Plugin** |   Software conceived to be implemented in another software through an interface and bringing new features to the latter.    |
 | **Prototype** |   Trial version and/or simulation of a software product made to provide a preview before its final version.    |
 
-## 9. Sources
-AAA
-
-https://rpggeek.com/
