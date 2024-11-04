@@ -21,3 +21,4 @@ Contains progress reports of my work during the Moonshot Project:
 [April & May 2024](https://algosup-my.sharepoint.com/:w:/p/paul_nowak/EX5jK4atYPBBh9QuUP07doABJqtwyoIBhCTz08GE46nsOw?e=cLeNUo) <br>
 [June & July & August 2024](https://algosup-my.sharepoint.com/:w:/p/paul_nowak/EdN2pXQlSLFIlZUvJ3FRoPwBTk1bY1KpidIONG-BBU75lg?e=7MnHCf) <br>
 [September 2024](https://algosup-my.sharepoint.com/:w:/p/paul_nowak/EaCds8Jw5HhDif8XKbaGvMkBFwRt5cS7vHaAi0BroHTLkQ?e=L1RebF) <br>
+[October 2024](https://algosup-my.sharepoint.com/:w:/p/paul_nowak/EfFycDWIVmRCpiAjJIaAVh4Bsqa80v4gjBVG3mHjjg-0eQ?e=ZUBGiJ) <br>
