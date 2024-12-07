@@ -53,9 +53,21 @@
 
 ### 1.1 Document Purpose
 
+This document has been created to provide the technical specification of a Moonshot Project named Kritical Hit. In fact, the Moonshot Project is a final evaluation imposed by the ALGOSUP school to create our own unique and professional project through the whole scolarity and to validate our Master level in Software development.
+
+Furthemore, it's a complementary document to the Functionnal Specifications while showcasing the technical details required for the project and the strategies planned to accomplish it. 
+
 ### 1.2 Project Presentation
 
+Kritical Hit is a Desktop Application and Game Development assistant tool that will provide frameworks for Combat Design systems focused on RPG games. Indeed, they will contain customizable settings to alter RPG assets and create various battle templates that can be stored, loaded and modified within the software's database.
+
+In addition, a user friendly interface will be implemented to allow a smooth navigation within the app, and a simulation system will be integrated to test a RPG game's behavior with the target Battle Template.
+
 ### 1.3 System Overview
+
+To start with, the software will be a desktop applications to ensure a proper performance due to the expected large amount of data required and its independance on internet speed. Due to its proximity to a Game Engine or even a video game, the program will be written in C++ and through the framework QT Creator, specialized in the development of GUI applications.
+
+
 
 ## 2. System Architecture
 
