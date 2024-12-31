@@ -26,62 +26,162 @@
       <height>419</height>
      </rect>
     </property>
-    <widget class="QWidget" name="page">
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(248, 248, 248);</string>
+    </property>
+    <widget class="QWidget" name="login_page">
      <property name="styleSheet">
-      <string notr="true">#widget {
+      <string notr="true">
+
+#widget {
 	background-color: rgb(255, 255, 255);
-	border-radius:5px;
+	border-radius:25px;
+	border: 2px solid #55aa00;
+}
+
+#verticalLayout_3 {
+	
+	background-color: rgb(170, 0, 127);
 }
 
 QLabel {
+	
 	color: #767e89;
 }
 
-QLabel#label {
-	color: #000;
+QLabel#KRITICAL_Label {
+	color:  #38a752;
+	font: 36pt &quot;Segoe UI&quot;;
+}
+
+QLabel#H_Label {
+	color: rgb(0, 0, 127);
+	font: 36pt &quot;Segoe UI&quot;;
+}
+
+QLabel#T_Label {
+	color: rgb(0, 0, 127);
+	font: 36pt &quot;Segoe UI&quot;;
+}
+
+
+
+QLabel#Welcome {
+	background-color: rgb(255, 255, 255);
+	color: #767e89;
+}
+
+QLabel#smallLabel {
+	background-color: rgb(255, 255, 255);
+	color: #767e89;
+}
+
+QLabel#smallLabel_2 {
+	background-color: rgb(255, 255, 255);
+	color: #767e89;
 }
 
 QLineEdit {
+	background-color: rgb(248, 248, 248);
 	border: none;
 	border-bottom: 2px solid #cccccc;
+	height: 20px;
 }
 
-QLineEdit#focus {
-	border-bottom: 2px solid #28a2a2;
+QLineEdit:focus {
+	border-bottom: 2px solid #38a752;
 }
 
 QPushButton {
+	margin-top: 10px;
 	background-color: rgb(85, 255, 127);
-	border: 2px solid #fff;
+	border: 2px solid #55aa00;
+	color: rgb(23, 107, 10);
 	color: #fff;
 	border-radius: 5px;
 	padding: 6px;
+}
+
+QPushButton:hover, QPushButton:clicked {
+	background-color: #38a752;
+
 }</string>
      </property>
      <widget class="QWidget" name="widget" native="true">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>90</y>
-        <width>381</width>
-        <height>285</height>
+        <x>270</x>
+        <y>170</y>
+        <width>241</width>
+        <height>241</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <property name="spacing">
         <number>6</number>
        </property>
+       <item row="1" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>45</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="2">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>44</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="1">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>11</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>11</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
        <item row="1" column="1">
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <property name="spacing">
           <number>20</number>
          </property>
          <item>
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="Welcome">
            <property name="font">
             <font>
              <pointsize>18</pointsize>
@@ -110,7 +210,7 @@ color: rgb(0, 0, 0);</string>
               <number>3</number>
              </property>
              <item>
-              <widget class="QLabel" name="label_2">
+              <widget class="QLabel" name="smallLabel">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -125,10 +225,10 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit">
+              <widget class="QLineEdit" name="username_Edit">
                <property name="minimumSize">
                 <size>
-                 <width>250</width>
+                 <width>200</width>
                  <height>0</height>
                 </size>
                </property>
@@ -150,7 +250,7 @@ color: rgb(0, 0, 0);</string>
               <number>3</number>
              </property>
              <item>
-              <widget class="QLabel" name="label_3">
+              <widget class="QLabel" name="smallLabel_2">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -165,7 +265,7 @@ color: rgb(0, 0, 0);</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_2">
+              <widget class="QLineEdit" name="password_Edit">
                <property name="font">
                 <font>
                  <pointsize>13</pointsize>
@@ -181,7 +281,7 @@ color: rgb(0, 0, 0);</string>
           </layout>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="loginButton">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -197,62 +297,106 @@ color: rgb(0, 0, 0);</string>
          </item>
         </layout>
        </item>
-       <item row="0" column="1">
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>11</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="1">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>11</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="0">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>45</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="2">
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>44</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
       </layout>
      </widget>
+     <widget class="QLabel" name="KRITICAL_Label">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>50</y>
+        <width>201</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>KRITICAL</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="T_Label">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>100</y>
+        <width>31</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>T</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="H_Label">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>0</y>
+        <width>31</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>H</string>
+      </property>
+     </widget>
     </widget>
-    <widget class="QWidget" name="page_2"/>
+    <widget class="QWidget" name="main_menu_page">
+     <property name="styleSheet">
+      <string notr="true">
+QLabel#KRITICAL_Label_2 {
+	color:  #38a752;
+	font: 36pt &quot;Segoe UI&quot;;
+}
+
+QLabel#H_Label_2 {
+	color: rgb(0, 0, 127);
+	font: 36pt &quot;Segoe UI&quot;;
+}
+
+QLabel#T_Label_2 {
+	color: rgb(0, 0, 127);
+	font: 36pt &quot;Segoe UI&quot;;
+}</string>
+     </property>
+     <widget class="QLabel" name="H_Label_2">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>0</y>
+        <width>31</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>H</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="KRITICAL_Label_2">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>50</y>
+        <width>201</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>KRITICAL</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="T_Label_2">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>100</y>
+        <width>31</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>T</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -266,6 +410,17 @@ color: rgb(0, 0, 0);</string>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
  </widget>
  <resources/>
  <connections/>
