@@ -240,6 +240,9 @@ color: rgb(0, 0, 0);</string>
                <property name="styleSheet">
                 <string notr="true"/>
                </property>
+               <property name="echoMode">
+                <enum>QLineEdit::Password</enum>
+               </property>
               </widget>
              </item>
             </layout>
@@ -273,6 +276,9 @@ color: rgb(0, 0, 0);</string>
                </property>
                <property name="styleSheet">
                 <string notr="true"/>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::Password</enum>
                </property>
               </widget>
              </item>
@@ -355,7 +361,42 @@ QLabel#H_Label_2 {
 QLabel#T_Label_2 {
 	color: rgb(0, 0, 127);
 	font: 36pt &quot;Segoe UI&quot;;
-}</string>
+}
+
+QPushButton{
+	color: rgb(0, 0, 0);
+	border-radius: 10px;
+}
+
+QPushButton#logOut_Button{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(148, 148, 148);
+	font-size: 15px;
+}
+
+QPushButton#logOut_Button:hover, QPushButton#logOut_Button:clicked {
+	background-color: rgb(71, 71, 71);
+}
+
+
+QPushButton#newTemplate_Button{
+	color: rgb(0, 0, 0);
+	background-color: rgb(85, 255, 0);
+	font-size: 20px;
+}
+
+QPushButton#loadTemplate_Button{
+	background-color: rgb(85, 85, 255);
+	font-size: 20px;
+}
+
+QPushButton#testMode_Button{
+	background-color: rgb(255, 170, 0);
+	font-size: 20px;
+}
+
+</string>
      </property>
      <widget class="QLabel" name="H_Label_2">
       <property name="geometry">
@@ -394,6 +435,58 @@ QLabel#T_Label_2 {
       </property>
       <property name="text">
        <string>T</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="logOut_Button">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>LOG OUT</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="newTemplate_Button">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>200</y>
+        <width>131</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>New Template</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="loadTemplate_Button">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>200</y>
+        <width>131</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load Template</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="testMode_Button">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>200</y>
+        <width>131</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Test Mode</string>
       </property>
      </widget>
     </widget>

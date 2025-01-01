@@ -55,6 +55,10 @@ public:
     QLabel *H_Label_2;
     QLabel *KRITICAL_Label_2;
     QLabel *T_Label_2;
+    QPushButton *logOut_Button;
+    QPushButton *newTemplate_Button;
+    QPushButton *loadTemplate_Button;
+    QPushButton *testMode_Button;
     QMenuBar *menubar;
     QStatusBar *statusbar;
     QToolBar *toolBar;
@@ -208,6 +212,7 @@ public:
         font2.setPointSize(13);
         username_Edit->setFont(font2);
         username_Edit->setStyleSheet(QString::fromUtf8(""));
+        username_Edit->setEchoMode(QLineEdit::Password);
 
         verticalLayout->addWidget(username_Edit);
 
@@ -228,6 +233,7 @@ public:
         password_Edit->setObjectName("password_Edit");
         password_Edit->setFont(font2);
         password_Edit->setStyleSheet(QString::fromUtf8(""));
+        password_Edit->setEchoMode(QLineEdit::Password);
 
         verticalLayout_2->addWidget(password_Edit);
 
@@ -275,7 +281,42 @@ public:
 "QLabel#T_Label_2 {\n"
 "	color: rgb(0, 0, 127);\n"
 "	font: 36pt \"Segoe UI\";\n"
-"}"));
+"}\n"
+"\n"
+"QPushButton{\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton#logOut_Button{\n"
+"	\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: rgb(148, 148, 148);\n"
+"	font-size: 15px;\n"
+"}\n"
+"\n"
+"QPushButton#logOut_Button:hover, QPushButton#logOut_Button:clicked {\n"
+"	background-color: rgb(71, 71, 71);\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton#newTemplate_Button{\n"
+"	color: rgb(0, 0, 0);\n"
+"	background-color: rgb(85, 255, 0);\n"
+"	font-size: 20px;\n"
+"}\n"
+"\n"
+"QPushButton#loadTemplate_Button{\n"
+"	background-color: rgb(85, 85, 255);\n"
+"	font-size: 20px;\n"
+"}\n"
+"\n"
+"QPushButton#testMode_Button{\n"
+"	background-color: rgb(255, 170, 0);\n"
+"	font-size: 20px;\n"
+"}\n"
+"\n"
+""));
         H_Label_2 = new QLabel(main_menu_page);
         H_Label_2->setObjectName("H_Label_2");
         H_Label_2->setGeometry(QRect(370, 0, 31, 41));
@@ -285,6 +326,18 @@ public:
         T_Label_2 = new QLabel(main_menu_page);
         T_Label_2->setObjectName("T_Label_2");
         T_Label_2->setGeometry(QRect(390, 100, 31, 41));
+        logOut_Button = new QPushButton(main_menu_page);
+        logOut_Button->setObjectName("logOut_Button");
+        logOut_Button->setGeometry(QRect(30, 20, 121, 31));
+        newTemplate_Button = new QPushButton(main_menu_page);
+        newTemplate_Button->setObjectName("newTemplate_Button");
+        newTemplate_Button->setGeometry(QRect(90, 200, 131, 131));
+        loadTemplate_Button = new QPushButton(main_menu_page);
+        loadTemplate_Button->setObjectName("loadTemplate_Button");
+        loadTemplate_Button->setGeometry(QRect(310, 200, 131, 131));
+        testMode_Button = new QPushButton(main_menu_page);
+        testMode_Button->setObjectName("testMode_Button");
+        testMode_Button->setGeometry(QRect(540, 200, 131, 131));
         stackedWidget->addWidget(main_menu_page);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -316,6 +369,10 @@ public:
         H_Label_2->setText(QCoreApplication::translate("MainWindow", "H", nullptr));
         KRITICAL_Label_2->setText(QCoreApplication::translate("MainWindow", "KRITICAL", nullptr));
         T_Label_2->setText(QCoreApplication::translate("MainWindow", "T", nullptr));
+        logOut_Button->setText(QCoreApplication::translate("MainWindow", "LOG OUT", nullptr));
+        newTemplate_Button->setText(QCoreApplication::translate("MainWindow", "New Template", nullptr));
+        loadTemplate_Button->setText(QCoreApplication::translate("MainWindow", "Load Template", nullptr));
+        testMode_Button->setText(QCoreApplication::translate("MainWindow", "Test Mode", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 
