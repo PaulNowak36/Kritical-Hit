@@ -300,7 +300,7 @@ background-color: rgb(85, 170, 255);</string>
      <string>Insert</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Insert_Button_2">
+   <widget class="QPushButton" name="Update_Button">
     <property name="geometry">
      <rect>
       <x>170</x>

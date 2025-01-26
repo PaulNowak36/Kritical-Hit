@@ -6,7 +6,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
-#include <QTextEdit>>
+#include <QTextEdit>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,6 +26,10 @@ private slots:
     void on_Insert_Button_clicked();
 
     void on_Get_Button_clicked();
+
+    void on_Insert_Button_2_clicked();
+
+    void on_Update_Button_clicked();
 
 private:
     Ui::MainWindow *ui;

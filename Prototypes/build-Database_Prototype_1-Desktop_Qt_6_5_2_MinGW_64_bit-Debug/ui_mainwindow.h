@@ -45,6 +45,8 @@ public:
     QTextEdit *specialAbility_Edit;
     QPushButton *Get_Button;
     QPushButton *Insert_Button;
+    QPushButton *Update_Button;
+    QPushButton *Get_Button_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -143,14 +145,24 @@ public:
         specialAbility_Edit->setGeometry(QRect(380, 300, 291, 41));
         Get_Button = new QPushButton(centralwidget);
         Get_Button->setObjectName("Get_Button");
-        Get_Button->setGeometry(QRect(470, 40, 71, 41));
+        Get_Button->setGeometry(QRect(470, 20, 71, 41));
         Get_Button->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 0, 0);"));
+"background-color: rgb(255, 255, 127);"));
         Insert_Button = new QPushButton(centralwidget);
         Insert_Button->setObjectName("Insert_Button");
-        Insert_Button->setGeometry(QRect(180, 40, 71, 41));
+        Insert_Button->setGeometry(QRect(180, 20, 71, 41));
         Insert_Button->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "background-color: rgb(85, 170, 255);"));
+        Update_Button = new QPushButton(centralwidget);
+        Update_Button->setObjectName("Update_Button");
+        Update_Button->setGeometry(QRect(170, 90, 71, 41));
+        Update_Button->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"background-color: rgb(85, 255, 127);"));
+        Get_Button_2 = new QPushButton(centralwidget);
+        Get_Button_2->setObjectName("Get_Button_2");
+        Get_Button_2->setGeometry(QRect(490, 90, 71, 41));
+        Get_Button_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 0, 0);"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -178,6 +190,8 @@ public:
         spec_Ability->setText(QCoreApplication::translate("MainWindow", "SPECIAL ABILITY", nullptr));
         Get_Button->setText(QCoreApplication::translate("MainWindow", "Search", nullptr));
         Insert_Button->setText(QCoreApplication::translate("MainWindow", "Insert", nullptr));
+        Update_Button->setText(QCoreApplication::translate("MainWindow", "Update", nullptr));
+        Get_Button_2->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
     } // retranslateUi
 
 };
