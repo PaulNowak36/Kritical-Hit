@@ -43,7 +43,8 @@ public:
     QTextEdit *skill_Edit_3;
     QLabel *spec_Ability;
     QTextEdit *specialAbility_Edit;
-    QPushButton *pushButton;
+    QPushButton *Get_Button;
+    QPushButton *Insert_Button;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -140,11 +141,16 @@ public:
         specialAbility_Edit = new QTextEdit(centralwidget);
         specialAbility_Edit->setObjectName("specialAbility_Edit");
         specialAbility_Edit->setGeometry(QRect(380, 300, 291, 41));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(470, 40, 71, 41));
-        pushButton->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+        Get_Button = new QPushButton(centralwidget);
+        Get_Button->setObjectName("Get_Button");
+        Get_Button->setGeometry(QRect(470, 40, 71, 41));
+        Get_Button->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 0, 0);"));
+        Insert_Button = new QPushButton(centralwidget);
+        Insert_Button->setObjectName("Insert_Button");
+        Insert_Button->setGeometry(QRect(180, 40, 71, 41));
+        Insert_Button->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"background-color: rgb(85, 170, 255);"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -170,7 +176,8 @@ public:
         Element->setText(QCoreApplication::translate("MainWindow", "ELEMENT", nullptr));
         Skills->setText(QCoreApplication::translate("MainWindow", "SKILLS", nullptr));
         spec_Ability->setText(QCoreApplication::translate("MainWindow", "SPECIAL ABILITY", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Search", nullptr));
+        Get_Button->setText(QCoreApplication::translate("MainWindow", "Search", nullptr));
+        Insert_Button->setText(QCoreApplication::translate("MainWindow", "Insert", nullptr));
     } // retranslateUi
 
 };

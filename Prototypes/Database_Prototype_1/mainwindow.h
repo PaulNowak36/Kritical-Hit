@@ -3,7 +3,10 @@
 
 #include <QMainWindow>
 #include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
 #include <QDebug>
+#include <QTextEdit>>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,7 +23,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_Insert_Button_clicked();
+
+    void on_Get_Button_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QSqlDatabase DB_Connection;
 };
 #endif // MAINWINDOW_H

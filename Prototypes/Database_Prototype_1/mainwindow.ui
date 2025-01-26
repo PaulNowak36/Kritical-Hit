@@ -266,11 +266,62 @@ border: 2px solid black;</string>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="Get_Button">
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>40</y>
+      <y>20</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 127);</string>
+    </property>
+    <property name="text">
+     <string>Search</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Insert_Button">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>20</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(85, 170, 255);</string>
+    </property>
+    <property name="text">
+     <string>Insert</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Insert_Button_2">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>90</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(85, 255, 127);</string>
+    </property>
+    <property name="text">
+     <string>Update</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Get_Button_2">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>90</y>
       <width>71</width>
       <height>41</height>
      </rect>
@@ -280,7 +331,7 @@ border: 2px solid black;</string>
 background-color: rgb(255, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Search</string>
+     <string>Delete</string>
     </property>
    </widget>
   </widget>
