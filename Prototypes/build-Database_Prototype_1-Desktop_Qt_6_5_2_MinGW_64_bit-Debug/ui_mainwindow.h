@@ -46,7 +46,7 @@ public:
     QPushButton *Get_Button;
     QPushButton *Insert_Button;
     QPushButton *Update_Button;
-    QPushButton *Get_Button_2;
+    QPushButton *Delete_Button;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -158,10 +158,10 @@ public:
         Update_Button->setGeometry(QRect(170, 90, 71, 41));
         Update_Button->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "background-color: rgb(85, 255, 127);"));
-        Get_Button_2 = new QPushButton(centralwidget);
-        Get_Button_2->setObjectName("Get_Button_2");
-        Get_Button_2->setGeometry(QRect(490, 90, 71, 41));
-        Get_Button_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+        Delete_Button = new QPushButton(centralwidget);
+        Delete_Button->setObjectName("Delete_Button");
+        Delete_Button->setGeometry(QRect(490, 90, 71, 41));
+        Delete_Button->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 0, 0);"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -191,7 +191,7 @@ public:
         Get_Button->setText(QCoreApplication::translate("MainWindow", "Search", nullptr));
         Insert_Button->setText(QCoreApplication::translate("MainWindow", "Insert", nullptr));
         Update_Button->setText(QCoreApplication::translate("MainWindow", "Update", nullptr));
-        Get_Button_2->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
+        Delete_Button->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
     } // retranslateUi
 
 };

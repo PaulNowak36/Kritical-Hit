@@ -7,7 +7,15 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    disconnect(ui->Insert_Button, nullptr, nullptr, nullptr);
+    disconnect(ui->Update_Button, nullptr, nullptr, nullptr);
+    disconnect(ui->Delete_Button, nullptr, nullptr, nullptr);
+
+    connect(ui->Insert_Button, &QPushButton::clicked, this, &MainWindow::on_Insert_Button_clicked);
     connect(ui->Update_Button, &QPushButton::clicked, this, &MainWindow::on_Update_Button_clicked);
+    connect(ui->Delete_Button, &QPushButton::clicked, this, &MainWindow::on_Delete_Button_clicked);
+
 
     QDir databasePath;
     QString path = databasePath.currentPath()+"/Character.db";
@@ -35,43 +43,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-/*void MainWindow::on_pushButton_clicked()
-{
-    QString name = "Rod-Rang";
-
-    int attValue = 40;
-    int defValue = 25;
-    int speValue = 70;
-    int hpValue = 60;
-
-    QString skill1 = "Fireball";
-    QString skill2 = "Thunder";
-    QString skill3 = "Freeze";
-
-    QString spec_Abi = "Fire_Resistance";
-
-    QString elem = "Fire";
-
-    ui->characterEdit->setPlainText(name);
-    ui->att_Edit->setPlainText(QString::number(attValue));
-    ui->def_Edit->setPlainText(QString::number(defValue));
-    ui->spe_Edit->setPlainText(QString::number(speValue));
-    ui->hp_Edit->setPlainText(QString::number(hpValue));
-    ui->skill_Edit->setPlainText(skill1);
-    ui->skill_Edit_2->setPlainText(skill2);
-    ui->skill_Edit_3->setPlainText(skill3);
-    ui->specialAbility_Edit->setPlainText(spec_Abi);
-    ui->elementEdit->setPlainText(elem);
-
-    qDebug() << QSqlDatabase::drivers();
-
-
-}*/
-
-
 void MainWindow::on_Insert_Button_clicked()
 {
+    qDebug() << "Insert Button Clicked!";
+
     DB_Connection.open();
     QSqlDatabase::database().transaction();
 
@@ -102,12 +77,12 @@ void MainWindow::on_Insert_Button_clicked()
 
 void MainWindow::on_Update_Button_clicked()
 {
-    qDebug() << "PINGAS";
+    qDebug() << "Update Button Clicked!";
 
-    if (!DB_Connection.isOpen()) {
+    /*if (!DB_Connection.isOpen()) {
         qDebug() << "Database connection is not open.";
         return;
-    }
+    }*/
 
     DB_Connection.open();
     QSqlDatabase::database().transaction();
@@ -133,6 +108,33 @@ void MainWindow::on_Update_Button_clicked()
     } else {
         QSqlDatabase::database().rollback();
         qDebug() << "Update failed, transaction rolled back: " << QueryInsertData.lastError();
+    }
+    DB_Connection.close();
+}
+
+
+void MainWindow::on_Delete_Button_clicked()
+{
+    qDebug() << "Delete Button Clicked!";
+
+    /*if (!DB_Connection.isOpen()) {
+        qDebug() << "Database connection is not open.";
+        return;
+    }*/
+
+    DB_Connection.open();
+    QSqlDatabase::database().transaction();
+
+    QSqlQuery QueryInsertData(DB_Connection);
+    QueryInsertData.prepare("DELETE FROM CHARACTER WHERE NAME=:NAME");
+    QueryInsertData.bindValue(":NAME",ui->characterEdit->toPlainText());
+
+    if (QueryInsertData.exec()) {
+        QSqlDatabase::database().commit();
+        qDebug() << "Data deleted successfully!";
+    } else {
+        QSqlDatabase::database().rollback();
+        qDebug() << "Delete failed, transaction rolled back: " << QueryInsertData.lastError();
     }
     DB_Connection.close();
 }

@@ -317,7 +317,7 @@ background-color: rgb(85, 255, 127);</string>
      <string>Update</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Get_Button_2">
+   <widget class="QPushButton" name="Delete_Button">
     <property name="geometry">
      <rect>
       <x>490</x>

@@ -31,6 +31,8 @@ private slots:
 
     void on_Update_Button_clicked();
 
+    void on_Delete_Button_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase DB_Connection;
