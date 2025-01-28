@@ -280,7 +280,7 @@ border: 2px solid black;</string>
 background-color: rgb(255, 255, 127);</string>
     </property>
     <property name="text">
-     <string>Search</string>
+     <string>Get</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Insert_Button">

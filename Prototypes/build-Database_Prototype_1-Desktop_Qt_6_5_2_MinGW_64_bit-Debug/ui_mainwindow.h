@@ -188,7 +188,7 @@ public:
         Element->setText(QCoreApplication::translate("MainWindow", "ELEMENT", nullptr));
         Skills->setText(QCoreApplication::translate("MainWindow", "SKILLS", nullptr));
         spec_Ability->setText(QCoreApplication::translate("MainWindow", "SPECIAL ABILITY", nullptr));
-        Get_Button->setText(QCoreApplication::translate("MainWindow", "Search", nullptr));
+        Get_Button->setText(QCoreApplication::translate("MainWindow", "Get", nullptr));
         Insert_Button->setText(QCoreApplication::translate("MainWindow", "Insert", nullptr));
         Update_Button->setText(QCoreApplication::translate("MainWindow", "Update", nullptr));
         Delete_Button->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
