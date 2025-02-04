@@ -293,6 +293,7 @@ public:
 "	color: rgb(255, 255, 255);\n"
 "	background-color: rgb(148, 148, 148);\n"
 "	font-size: 15px;\n"
+"	setWordWrap: true;\n"
 "}\n"
 "\n"
 "QPushButton#logOut_Button:hover, QPushButton#logOut_Button:clicked {\n"
@@ -304,16 +305,20 @@ public:
 "	color: rgb(0, 0, 0);\n"
 "	background-color: rgb(85, 255, 0);\n"
 "	font-size: 20px;\n"
+"	setWordWrap: true;\n"
 "}\n"
 "\n"
 "QPushButton#loadTemplate_Button{\n"
 "	background-color: rgb(85, 85, 255);\n"
 "	font-size: 20px;\n"
+"	setWordWrap: true;\n"
 "}\n"
 "\n"
 "QPushButton#testMode_Button{\n"
 "	background-color: rgb(255, 170, 0);\n"
-"	font-size: 20px;\n"
+""
+                        "	font-size: 20px;\n"
+"	setWordWrap: true;\n"
 "}\n"
 "\n"
 ""));
@@ -334,7 +339,7 @@ public:
         newTemplate_Button->setGeometry(QRect(90, 200, 131, 131));
         loadTemplate_Button = new QPushButton(main_menu_page);
         loadTemplate_Button->setObjectName("loadTemplate_Button");
-        loadTemplate_Button->setGeometry(QRect(310, 200, 131, 131));
+        loadTemplate_Button->setGeometry(QRect(320, 200, 131, 131));
         testMode_Button = new QPushButton(main_menu_page);
         testMode_Button->setObjectName("testMode_Button");
         testMode_Button->setGeometry(QRect(540, 200, 131, 131));

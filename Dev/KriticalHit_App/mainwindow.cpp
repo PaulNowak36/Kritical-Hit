@@ -1,5 +1,20 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QStorageInfo>
+#include <QDebug>
+
+void printRootDriveInfo() {
+    QStorageInfo storage = QStorageInfo::root();
+
+    qDebug() << storage.rootPath();
+    if (storage.isReadOnly())
+        qDebug() << "isReadOnly:" << storage.isReadOnly();
+
+    qDebug() << "name:" << storage.name();
+    qDebug() << "filesystem type:" << storage.fileSystemType();
+    qDebug() << "size:" << storage.bytesTotal()/1024/1024 << "MB";
+    qDebug() << "free space:" << storage.bytesAvailable()/1024/1024 << "MB";
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -8,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     ui->logOut_Button->setIcon(QIcon("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/logout.png"));
+
+    printRootDriveInfo();
 }
 
 MainWindow::~MainWindow()
