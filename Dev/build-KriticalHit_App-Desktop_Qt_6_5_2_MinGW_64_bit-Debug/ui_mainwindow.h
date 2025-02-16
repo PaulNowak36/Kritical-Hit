@@ -42,10 +42,8 @@ public:
     QLabel *Welcome;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout;
-    QLabel *smallLabel;
     QLineEdit *username_Edit;
     QVBoxLayout *verticalLayout_2;
-    QLabel *smallLabel_2;
     QLineEdit *password_Edit;
     QPushButton *loginButton;
     QLabel *KRITICAL_Label;
@@ -73,16 +71,33 @@ public:
         centralwidget->setObjectName("centralwidget");
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(9, 9, 782, 419));
-        stackedWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 248);"));
+        stackedWidget->setGeometry(QRect(10, 30, 782, 419));
+        stackedWidget->setStyleSheet(QString::fromUtf8("\n"
+"/*QPushButton {\n"
+"    font-family: \"Press Start 2P\";\n"
+"    font-size: 14px;\n"
+"    border: 2px solid #55aa00;\n"
+"    border-radius: 5px;\n"
+"    padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #38a752;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #2a7a40;\n"
+"    color: white;\n"
+"}*/\n"
+""));
         login_page = new QWidget();
         login_page->setObjectName("login_page");
         login_page->setStyleSheet(QString::fromUtf8("\n"
-"\n"
 "#widget {\n"
-"	background-color: rgb(255, 255, 255);\n"
 "	border-radius:25px;\n"
-"	border: 2px solid #55aa00;\n"
+"	border: 2px solid #000000;\n"
+"	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0.100962 rgba(34, 166, 178, 255),stop:0.543269 rgba(132, 213, 51, 255),stop:1 rgba(208, 255, 163, 255));\n"
 "}\n"
 "\n"
 "#verticalLayout_3 {\n"
@@ -91,66 +106,61 @@ public:
 "}\n"
 "\n"
 "QLabel {\n"
-"	\n"
 "	color: #767e89;\n"
+"	font: 36pt \"Segoe UI\";\n"
+"    font-size: 14px;\n"
 "}\n"
 "\n"
 "QLabel#KRITICAL_Label {\n"
 "	color:  #38a752;\n"
-"	font: 36pt \"Segoe UI\";\n"
 "}\n"
 "\n"
 "QLabel#H_Label {\n"
 "	color: rgb(0, 0, 127);\n"
-"	font: 36pt \"Segoe UI\";\n"
 "}\n"
 "\n"
 "QLabel#T_Label {\n"
 "	color: rgb(0, 0, 127);\n"
-"	font: 36pt \"Segoe UI\";\n"
 "}\n"
-"\n"
-"\n"
 "\n"
 "QLabel#Welcome {\n"
-"	background-color: rgb(255, 255, 255);\n"
+"	background: transparent;\n"
+"	font-family: \"Press Start 2P\";\n"
 "	color: #767e89;\n"
-"}\n"
-"\n"
-"QLabel#smallLabel {\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	color: #767e89;\n"
-"}\n"
-"\n"
-"QLabel#smallLabel_2 {\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	color: #767e89;\n"
+"	font-size: 20px;\n"
 "}\n"
 "\n"
 "QLineEdit {\n"
 "	background-color: rgb(248, 248, 248);\n"
-"	border: none;\n"
+"	border: 3px solid black;\n"
 "	border-bottom: 2px solid #cccccc;\n"
-"	height: 20px;\n"
+"	border-radius: 25px;\n"
+"	height: 30px;\n"
 "}\n"
 "\n"
 "QLineEdit:focus {\n"
-"	border-bot"
-                        "tom: 2px solid #38a752;\n"
+"	border-bottom: 2px solid #38a752;\n"
+""
+                        "}\n"
+"\n"
+"QLineEdit::placeholder {\n"
+"    color: grey;\n"
+"    font-style: italic;\n"
 "}\n"
 "\n"
 "QPushButton {\n"
 "	margin-top: 10px;\n"
-"	background-color: rgb(85, 255, 127);\n"
-"	border: 2px solid #55aa00;\n"
-"	color: rgb(23, 107, 10);\n"
-"	color: #fff;\n"
+"	font-family: \"Press Start 2P\";\n"
+"	color: #ffffff;\n"
+"	background-color: orange;\n"
+"	border: 2px solid #000000;\n"
 "	border-radius: 5px;\n"
 "	padding: 6px;\n"
 "}\n"
 "\n"
 "QPushButton:hover, QPushButton:clicked {\n"
-"	background-color: #38a752;\n"
+"	\n"
+"	background-color: rgb(194, 65, 0);\n"
 "\n"
 "}"));
         widget = new QWidget(login_page);
@@ -182,7 +192,9 @@ public:
         Welcome = new QLabel(widget);
         Welcome->setObjectName("Welcome");
         QFont font;
-        font.setPointSize(18);
+        font.setFamilies({QString::fromUtf8("Press Start 2P")});
+        font.setBold(false);
+        font.setItalic(false);
         Welcome->setFont(font);
         Welcome->setStyleSheet(QString::fromUtf8("horizontalAlignment: AlignHCenter;\n"
 "color: rgb(0, 0, 0);"));
@@ -196,21 +208,12 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(3);
         verticalLayout->setObjectName("verticalLayout");
-        smallLabel = new QLabel(widget);
-        smallLabel->setObjectName("smallLabel");
-        QFont font1;
-        font1.setPointSize(10);
-        smallLabel->setFont(font1);
-        smallLabel->setStyleSheet(QString::fromUtf8(""));
-
-        verticalLayout->addWidget(smallLabel);
-
         username_Edit = new QLineEdit(widget);
         username_Edit->setObjectName("username_Edit");
         username_Edit->setMinimumSize(QSize(200, 0));
-        QFont font2;
-        font2.setPointSize(13);
-        username_Edit->setFont(font2);
+        QFont font1;
+        font1.setPointSize(13);
+        username_Edit->setFont(font1);
         username_Edit->setStyleSheet(QString::fromUtf8(""));
         username_Edit->setEchoMode(QLineEdit::Password);
 
@@ -222,16 +225,9 @@ public:
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(3);
         verticalLayout_2->setObjectName("verticalLayout_2");
-        smallLabel_2 = new QLabel(widget);
-        smallLabel_2->setObjectName("smallLabel_2");
-        smallLabel_2->setFont(font1);
-        smallLabel_2->setStyleSheet(QString::fromUtf8(""));
-
-        verticalLayout_2->addWidget(smallLabel_2);
-
         password_Edit = new QLineEdit(widget);
         password_Edit->setObjectName("password_Edit");
-        password_Edit->setFont(font2);
+        password_Edit->setFont(font1);
         password_Edit->setStyleSheet(QString::fromUtf8(""));
         password_Edit->setEchoMode(QLineEdit::Password);
 
@@ -245,9 +241,9 @@ public:
 
         loginButton = new QPushButton(widget);
         loginButton->setObjectName("loginButton");
-        QFont font3;
-        font3.setPointSize(12);
-        loginButton->setFont(font3);
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Press Start 2P")});
+        loginButton->setFont(font2);
         loginButton->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);"));
 
         verticalLayout_4->addWidget(loginButton);
@@ -283,17 +279,42 @@ public:
 "	font: 36pt \"Segoe UI\";\n"
 "}\n"
 "\n"
-"QPushButton{\n"
-"	color: rgb(0, 0, 0);\n"
-"	border-radius: 10px;\n"
+"QPushButton.templateButton {\n"
+"    font-family: \"Press Start 2P\";\n"
+"    font-size: 13px;\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: orange; \n"
+"    border: 2px solid #000000;\n"
+"    border-radius: 10px;\n"
+"	min-width: 170px;\n"
+"    max-width: 170px;\n"
+"    padding-top: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-left: 6px;\n"
+"    padding-right: 6px;\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"QPushButton#newTemplate_Button {\n"
+"    background-color: rgb(0, 143, 0);\n"
+"}\n"
+"\n"
+"QPushButton#loadTemplate_Button {\n"
+"    background-color: rgb(85, 85, 255);\n"
+"}\n"
+"\n"
+"QPushButton#testMode_Button {\n"
+"    background-color: rgb(255, 85, 0);\n"
+"}\n"
+"\n"
 "\n"
 "QPushButton#logOut_Button{\n"
 "	\n"
-"	color: rgb(255, 255, 255);\n"
+"	color: rgb(255"
+                        ", 255, 255);\n"
 "	background-color: rgb(148, 148, 148);\n"
-"	font-size: 15px;\n"
-"	setWordWrap: true;\n"
+"	padding: 6px;\n"
 "}\n"
 "\n"
 "QPushButton#logOut_Button:hover, QPushButton#logOut_Button:clicked {\n"
@@ -302,23 +323,16 @@ public:
 "\n"
 "\n"
 "QPushButton#newTemplate_Button{\n"
-"	color: rgb(0, 0, 0);\n"
-"	background-color: rgb(85, 255, 0);\n"
-"	font-size: 20px;\n"
-"	setWordWrap: true;\n"
+"	background-color: rgb(0, 143, 0);\n"
 "}\n"
 "\n"
 "QPushButton#loadTemplate_Button{\n"
 "	background-color: rgb(85, 85, 255);\n"
-"	font-size: 20px;\n"
-"	setWordWrap: true;\n"
 "}\n"
 "\n"
 "QPushButton#testMode_Button{\n"
-"	background-color: rgb(255, 170, 0);\n"
-""
-                        "	font-size: 20px;\n"
-"	setWordWrap: true;\n"
+"	\n"
+"	background-color: rgb(255, 85, 0);\n"
 "}\n"
 "\n"
 ""));
@@ -333,7 +347,7 @@ public:
         T_Label_2->setGeometry(QRect(390, 100, 31, 41));
         logOut_Button = new QPushButton(main_menu_page);
         logOut_Button->setObjectName("logOut_Button");
-        logOut_Button->setGeometry(QRect(30, 20, 121, 31));
+        logOut_Button->setGeometry(QRect(30, 0, 121, 51));
         newTemplate_Button = new QPushButton(main_menu_page);
         newTemplate_Button->setObjectName("newTemplate_Button");
         newTemplate_Button->setGeometry(QRect(90, 200, 131, 131));
@@ -365,8 +379,8 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         Welcome->setText(QCoreApplication::translate("MainWindow", "Welcome", nullptr));
-        smallLabel->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
-        smallLabel_2->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
+        username_Edit->setText(QString());
+        username_Edit->setPlaceholderText(QString());
         loginButton->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
         KRITICAL_Label->setText(QCoreApplication::translate("MainWindow", "KRITICAL", nullptr));
         T_Label->setText(QCoreApplication::translate("MainWindow", "T", nullptr));

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>newTemplateMenu</class>
+ <widget class="QWidget" name="newTemplateMenu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>801</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#verticalWidget, QWidget#verticalWidget_2 {
+	background-color: orange;
+	border: 2px solid #000000;
+    border-radius: 10px;
+
+}
+
+QLabel{
+	background: transparent;
+	color: black;
+	font: 15pt &quot;Segoe UI&quot;;
+}
+
+QPushButton.templateButton {
+    font-family: &quot;Press Start 2P&quot;;
+    font-size: 13px;
+    color: rgb(255, 255, 255);
+    background-color: orange; 
+    border: 2px solid #000000;
+    border-radius: 10px;
+	min-width: 170px;
+    max-width: 170px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+
+QPushButton#defaultStyle_Button {
+	background-color: rgb(0, 0, 127);
+}
+
+QPushButton#customStyle_Button {
+	background-color: rgb(255, 85, 127);
+}
+
+QPushButton#pokemon_Button {
+	background-color: rgb(255, 0, 0);
+}
+
+QPushButton#DGQ_Button {
+	background-color: rgb(0, 0, 127);
+}
+
+QPushButton#FF_Button {	
+	background-color: rgb(0, 170, 0);
+}
+
+QPushButton#return_Button {	
+	background-color: rgb(140, 140, 140);
+}
+</string>
+   </property>
+   <widget class="QWidget" name="RPG_Style_page">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <widget class="QWidget" name="verticalWidget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>100</y>
+       <width>447</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QToolButton" name="quit_Button">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>10</y>
+        <width>80</width>
+        <height>35</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="chooseStyle_label">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>30</y>
+        <width>298</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Choose your RPG Style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="defaultStyle_Button">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>100</y>
+        <width>142</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Default Style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="customStyle_Button">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>100</y>
+        <width>142</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Custom Style</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Default_Style_page">
+    <widget class="QWidget" name="verticalWidget_2" native="true">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>90</y>
+       <width>447</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QToolButton" name="quit_Button_2">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>10</y>
+        <width>80</width>
+        <height>35</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="defaultStyle_Label">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>20</y>
+        <width>298</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Which default style ?</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pokemon_Button">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>80</y>
+        <width>221</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pokemon RPG style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="DGQ_Button">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>140</y>
+        <width>261</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Dragon Quest RPG Style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="FF_Button">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>210</y>
+        <width>261</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Final Fantasy RPG Style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="return_Button">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>270</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Return</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

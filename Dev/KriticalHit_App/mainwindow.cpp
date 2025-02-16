@@ -22,9 +22,22 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    ui->stackedWidget->insertWidget(2, &_newTempInfo);
+
+    connect(&_newTempInfo, SIGNAL(MainMenuClicked()), this, SLOT(moveMainMenu()));
+
     ui->logOut_Button->setIcon(QIcon("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/logout.png"));
 
-    printRootDriveInfo();
+    //printRootDriveInfo();
+
+    ui->username_Edit->setPlaceholderText("Username");
+    ui->password_Edit->setPlaceholderText("Password");
+
+    ui->newTemplate_Button->setProperty("class", "templateButton");
+    ui->loadTemplate_Button->setProperty("class", "templateButton");
+    ui->testMode_Button->setProperty("class", "templateButton");
+    ui->logOut_Button->setProperty("class", "templateButton");
+
 }
 
 MainWindow::~MainWindow()
@@ -54,4 +67,17 @@ void MainWindow::on_logOut_Button_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
+
+
+void MainWindow::on_newTemplate_Button_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::moveMainMenu()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+
 

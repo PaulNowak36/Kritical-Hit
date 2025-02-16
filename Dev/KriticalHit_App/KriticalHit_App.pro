@@ -10,13 +10,16 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    newtemplatemenu.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    newtemplatemenu.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    newtemplatemenu.ui
 
 TRANSLATIONS += \
     KriticalHit_App_en_US.ts
@@ -27,3 +30,9 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    style.qss
+
+RESOURCES += \
+    resources.qrc

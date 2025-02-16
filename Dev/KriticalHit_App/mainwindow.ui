@@ -20,23 +20,40 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>9</y>
+      <x>10</x>
+      <y>30</y>
       <width>782</width>
       <height>419</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(248, 248, 248);</string>
+     <string notr="true">
+/*QPushButton {
+    font-family: &quot;Press Start 2P&quot;;
+    font-size: 14px;
+    border: 2px solid #55aa00;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #38a752;
+    color: white;
+}
+
+QPushButton:pressed {
+    background-color: #2a7a40;
+    color: white;
+}*/
+</string>
     </property>
     <widget class="QWidget" name="login_page">
      <property name="styleSheet">
       <string notr="true">
-
 #widget {
-	background-color: rgb(255, 255, 255);
 	border-radius:25px;
-	border: 2px solid #55aa00;
+	border: 2px solid #000000;
+	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0.100962 rgba(34, 166, 178, 255),stop:0.543269 rgba(132, 213, 51, 255),stop:1 rgba(208, 255, 163, 255));
 }
 
 #verticalLayout_3 {
@@ -45,65 +62,60 @@
 }
 
 QLabel {
-	
 	color: #767e89;
+	font: 36pt &quot;Segoe UI&quot;;
+    font-size: 14px;
 }
 
 QLabel#KRITICAL_Label {
 	color:  #38a752;
-	font: 36pt &quot;Segoe UI&quot;;
 }
 
 QLabel#H_Label {
 	color: rgb(0, 0, 127);
-	font: 36pt &quot;Segoe UI&quot;;
 }
 
 QLabel#T_Label {
 	color: rgb(0, 0, 127);
-	font: 36pt &quot;Segoe UI&quot;;
 }
-
-
 
 QLabel#Welcome {
-	background-color: rgb(255, 255, 255);
+	background: transparent;
+	font-family: &quot;Press Start 2P&quot;;
 	color: #767e89;
-}
-
-QLabel#smallLabel {
-	background-color: rgb(255, 255, 255);
-	color: #767e89;
-}
-
-QLabel#smallLabel_2 {
-	background-color: rgb(255, 255, 255);
-	color: #767e89;
+	font-size: 20px;
 }
 
 QLineEdit {
 	background-color: rgb(248, 248, 248);
-	border: none;
+	border: 3px solid black;
 	border-bottom: 2px solid #cccccc;
-	height: 20px;
+	border-radius: 25px;
+	height: 30px;
 }
 
 QLineEdit:focus {
 	border-bottom: 2px solid #38a752;
 }
 
+QLineEdit::placeholder {
+    color: grey;
+    font-style: italic;
+}
+
 QPushButton {
 	margin-top: 10px;
-	background-color: rgb(85, 255, 127);
-	border: 2px solid #55aa00;
-	color: rgb(23, 107, 10);
-	color: #fff;
+	font-family: &quot;Press Start 2P&quot;;
+	color: #ffffff;
+	background-color: orange;
+	border: 2px solid #000000;
 	border-radius: 5px;
 	padding: 6px;
 }
 
 QPushButton:hover, QPushButton:clicked {
-	background-color: #38a752;
+	
+	background-color: rgb(194, 65, 0);
 
 }</string>
      </property>
@@ -184,7 +196,10 @@ QPushButton:hover, QPushButton:clicked {
           <widget class="QLabel" name="Welcome">
            <property name="font">
             <font>
-             <pointsize>18</pointsize>
+             <family>Press Start 2P</family>
+             <pointsize>-1</pointsize>
+             <italic>false</italic>
+             <bold>false</bold>
             </font>
            </property>
            <property name="styleSheet">
@@ -210,21 +225,6 @@ color: rgb(0, 0, 0);</string>
               <number>3</number>
              </property>
              <item>
-              <widget class="QLabel" name="smallLabel">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true"/>
-               </property>
-               <property name="text">
-                <string>Username</string>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QLineEdit" name="username_Edit">
                <property name="minimumSize">
                 <size>
@@ -240,8 +240,14 @@ color: rgb(0, 0, 0);</string>
                <property name="styleSheet">
                 <string notr="true"/>
                </property>
+               <property name="text">
+                <string/>
+               </property>
                <property name="echoMode">
                 <enum>QLineEdit::Password</enum>
+               </property>
+               <property name="placeholderText">
+                <string extracomment="Username"/>
                </property>
               </widget>
              </item>
@@ -252,21 +258,6 @@ color: rgb(0, 0, 0);</string>
              <property name="spacing">
               <number>3</number>
              </property>
-             <item>
-              <widget class="QLabel" name="smallLabel_2">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true"/>
-               </property>
-               <property name="text">
-                <string>Password</string>
-               </property>
-              </widget>
-             </item>
              <item>
               <widget class="QLineEdit" name="password_Edit">
                <property name="font">
@@ -290,7 +281,7 @@ color: rgb(0, 0, 0);</string>
           <widget class="QPushButton" name="loginButton">
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Press Start 2P</family>
             </font>
            </property>
            <property name="styleSheet">
@@ -363,17 +354,41 @@ QLabel#T_Label_2 {
 	font: 36pt &quot;Segoe UI&quot;;
 }
 
-QPushButton{
-	color: rgb(255, 255, 255);
-	border-radius: 10px;
+QPushButton.templateButton {
+    font-family: &quot;Press Start 2P&quot;;
+    font-size: 13px;
+    color: rgb(255, 255, 255);
+    background-color: orange; 
+    border: 2px solid #000000;
+    border-radius: 10px;
+	min-width: 170px;
+    max-width: 170px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
+
+
+
+QPushButton#newTemplate_Button {
+    background-color: rgb(0, 143, 0);
+}
+
+QPushButton#loadTemplate_Button {
+    background-color: rgb(85, 85, 255);
+}
+
+QPushButton#testMode_Button {
+    background-color: rgb(255, 85, 0);
+}
+
 
 QPushButton#logOut_Button{
 	
 	color: rgb(255, 255, 255);
 	background-color: rgb(148, 148, 148);
-	font-size: 15px;
-	setWordWrap: true;
+	padding: 6px;
 }
 
 QPushButton#logOut_Button:hover, QPushButton#logOut_Button:clicked {
@@ -382,23 +397,16 @@ QPushButton#logOut_Button:hover, QPushButton#logOut_Button:clicked {
 
 
 QPushButton#newTemplate_Button{
-	
 	background-color: rgb(0, 143, 0);
-	font-size: 20px;
-	setWordWrap: true;
 }
 
 QPushButton#loadTemplate_Button{
 	background-color: rgb(85, 85, 255);
-	font-size: 20px;
-	setWordWrap: true;
 }
 
 QPushButton#testMode_Button{
 	
 	background-color: rgb(255, 85, 0);
-	font-size: 20px;
-	setWordWrap: true;
 }
 
 </string>
@@ -446,9 +454,9 @@ QPushButton#testMode_Button{
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>20</y>
+        <y>0</y>
         <width>121</width>
-        <height>31</height>
+        <height>51</height>
        </rect>
       </property>
       <property name="text">
