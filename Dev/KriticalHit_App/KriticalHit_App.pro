@@ -1,4 +1,5 @@
 QT       += core gui
+QT      += testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,15 +12,18 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    newtemplatemenu.cpp
+    newtemplatemenu.cpp \
+    templatemainmenu.cpp
 
 HEADERS += \
     mainwindow.h \
-    newtemplatemenu.h
+    newtemplatemenu.h \
+    templatemainmenu.h
 
 FORMS += \
     mainwindow.ui \
-    newtemplatemenu.ui
+    newtemplatemenu.ui \
+    templatemainmenu.ui
 
 TRANSLATIONS += \
     KriticalHit_App_en_US.ts

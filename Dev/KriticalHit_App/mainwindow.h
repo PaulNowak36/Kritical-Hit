@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <newtemplatemenu.h>
+#include <templatemainmenu.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,9 +23,13 @@ private slots:
     void on_logOut_Button_clicked();
     void on_newTemplate_Button_clicked();
     void moveMainMenu();
+    void moveLoginMenu();
+
+    void on_loadTemplate_Button_clicked();
 
 private:
     Ui::MainWindow *ui;
     newTemplateMenu _newTempInfo;
+    TemplateMainMenu _TempMainInfo;
 };
 #endif // MAINWINDOW_H

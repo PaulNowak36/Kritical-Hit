@@ -23,8 +23,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     ui->stackedWidget->insertWidget(2, &_newTempInfo);
+    ui->stackedWidget->insertWidget(3, &_TempMainInfo);
 
     connect(&_newTempInfo, SIGNAL(MainMenuClicked()), this, SLOT(moveMainMenu()));
+    connect(&_TempMainInfo, SIGNAL(LoginMenuClicked()), this, SLOT(moveLoginMenu()));
 
     ui->logOut_Button->setIcon(QIcon("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/logout.png"));
 
@@ -45,7 +47,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::on_loginButton_clicked()
 {
     QString Username = ui -> username_Edit ->text();
@@ -62,12 +63,10 @@ void MainWindow::on_loginButton_clicked()
     }
 }
 
-
 void MainWindow::on_logOut_Button_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
-
 
 void MainWindow::on_newTemplate_Button_clicked()
 {
@@ -79,5 +78,13 @@ void MainWindow::moveMainMenu()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
+void MainWindow::moveLoginMenu()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
 
+void MainWindow::on_loadTemplate_Button_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
 
