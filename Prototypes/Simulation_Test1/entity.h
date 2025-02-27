@@ -27,6 +27,11 @@ public:
     int     getDefence();
     void    checkHealth();
 
+    static int genRandom(int from, int upto)
+    {
+        return (rand() % (upto - from + 1)) + from;
+    }
+
 };
 
 #endif // ENTITY_H

@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="escapeButton">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>390</x>
       <y>410</y>
       <width>101</width>
       <height>41</height>
@@ -48,9 +48,9 @@ font: 14pt &quot;MS UI Gothic&quot;;</string>
    <widget class="QLabel" name="statusLabel">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>250</y>
-      <width>561</width>
+      <x>90</x>
+      <y>270</y>
+      <width>551</width>
       <height>91</height>
      </rect>
     </property>
@@ -95,24 +95,11 @@ font: 14pt &quot;MS UI Gothic&quot;;</string>
      <string>Pokemon1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="inventoryButton">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>340</y>
-      <width>101</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Inventory</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="attackButton">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>340</y>
+      <x>220</x>
+      <y>410</y>
       <width>101</width>
       <height>41</height>
      </rect>
@@ -126,7 +113,6 @@ font: 14pt &quot;MS UI Gothic&quot;;</string>
    <zorder>attackButton</zorder>
    <zorder>opponentLabel</zorder>
    <zorder>statusLabel</zorder>
-   <zorder>inventoryButton</zorder>
    <zorder>escapeButton</zorder>
   </widget>
  </widget>

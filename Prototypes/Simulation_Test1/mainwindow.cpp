@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->statusLabel->setText("Waiting for action...");
     player = new Entity("Ouvrichu", 15, 15, 25, 20);
-    opponent = new Entity("Melogénieur", 20, 20, 18, 22);
+    opponent = new Entity("Melogénieur", 10, 10, 12, 16);
     battle = new Battle(player, opponent);
     showStatus();
 }
@@ -59,15 +59,10 @@ void MainWindow::showInfo()
 {
     std::string info;
     info.append(player->getName() + " attacked " + opponent->getName() + ". Opponent loses " +
-                std::to_string(5) + "HP \n" +
-                opponent->getName() + " attacked " + player->getName() + ". You lost " +
-                std::to_string(3) + " HP");
-    ui->statusLabel->setText(QString::fromStdString(info));
-    /*info.append(player->getName() + " attacked " + opponent->getName() + ". Opponent loses " +
                 std::to_string(Battle::getDamage(player, opponent)) + "HP \n" +
                 opponent->getName() + " attacked " + player->getName() + ". You lost " +
                 std::to_string(Battle::getDamage(opponent, player)) + " HP");
-    ui->statusLabel->setText(QString::fromStdString(info));*/
+    ui->statusLabel->setText(QString::fromStdString(info));
 }
 
 bool MainWindow::attack()
@@ -109,6 +104,34 @@ void MainWindow::on_attackButton_clicked()
     }
     if(!opponent)
     {
+        this->close();
+    }
+}
+
+
+void MainWindow::on_escapeButton_clicked()
+{
+    int random = Entity::genRandom(0,5);
+    if(random)
+    {
+        Battle::attack(opponent, player);
+        player->checkHealth();
+        opponent->checkHealth();
+        showStatus();
+        std::string info;
+        info.append("You failed to escape! " + opponent->getName() + " attacked " + player->getName() + ".\nYou lost " +
+                    std::to_string(Battle::getDamage(opponent, player)) + " HP");
+        ui->statusLabel->setText(QString::fromStdString(info));
+        if(player->getHealth() == 0)
+        {
+            QMessageBox::information(0, "You lost!", QString::fromStdString("GAME OVER"));
+            parentWidget()->parentWidget()->close();      //wylaczyc gre
+        }
+    }
+    else
+    {
+        QMessageBox::information(0, "You escaped!", QString::fromStdString("You got lucky! You were able to escape this fight!"));
+
         this->close();
     }
 }

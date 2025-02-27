@@ -24,6 +24,8 @@ public:
 private slots:
     void on_attackButton_clicked();
 
+    void on_escapeButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Entity *player;

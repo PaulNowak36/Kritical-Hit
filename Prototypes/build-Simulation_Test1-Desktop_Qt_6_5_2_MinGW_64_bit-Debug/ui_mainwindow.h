@@ -28,7 +28,6 @@ public:
     QLabel *statusLabel;
     QGraphicsView *graphicsView;
     QLabel *playerLabel;
-    QPushButton *inventoryButton;
     QPushButton *attackButton;
 
     void setupUi(QMainWindow *MainWindow)
@@ -40,7 +39,7 @@ public:
         BattleWindow->setObjectName("BattleWindow");
         escapeButton = new QPushButton(BattleWindow);
         escapeButton->setObjectName("escapeButton");
-        escapeButton->setGeometry(QRect(230, 410, 101, 41));
+        escapeButton->setGeometry(QRect(390, 410, 101, 41));
         opponentLabel = new QLabel(BattleWindow);
         opponentLabel->setObjectName("opponentLabel");
         opponentLabel->setGeometry(QRect(440, 80, 181, 161));
@@ -49,7 +48,7 @@ public:
 "font: 14pt \"MS UI Gothic\";"));
         statusLabel = new QLabel(BattleWindow);
         statusLabel->setObjectName("statusLabel");
-        statusLabel->setGeometry(QRect(100, 250, 561, 91));
+        statusLabel->setGeometry(QRect(90, 270, 551, 91));
         statusLabel->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0, 140);\n"
 "color: black;\n"
 "font: 14pt \"MS UI Gothic\";"));
@@ -64,19 +63,15 @@ public:
         playerLabel->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0, 140);\n"
 "color: black;\n"
 "font: 14pt \"MS UI Gothic\";"));
-        inventoryButton = new QPushButton(BattleWindow);
-        inventoryButton->setObjectName("inventoryButton");
-        inventoryButton->setGeometry(QRect(230, 340, 101, 41));
         attackButton = new QPushButton(BattleWindow);
         attackButton->setObjectName("attackButton");
-        attackButton->setGeometry(QRect(110, 340, 101, 41));
+        attackButton->setGeometry(QRect(220, 410, 101, 41));
         MainWindow->setCentralWidget(BattleWindow);
         graphicsView->raise();
         playerLabel->raise();
         attackButton->raise();
         opponentLabel->raise();
         statusLabel->raise();
-        inventoryButton->raise();
         escapeButton->raise();
 
         retranslateUi(MainWindow);
@@ -91,7 +86,6 @@ public:
         opponentLabel->setText(QCoreApplication::translate("MainWindow", "Pokemon2", nullptr));
         statusLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         playerLabel->setText(QCoreApplication::translate("MainWindow", "Pokemon1", nullptr));
-        inventoryButton->setText(QCoreApplication::translate("MainWindow", "Inventory", nullptr));
         attackButton->setText(QCoreApplication::translate("MainWindow", "Attack", nullptr));
     } // retranslateUi
 
