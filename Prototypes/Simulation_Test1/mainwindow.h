@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "entity.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -13,9 +14,14 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void showStatus();
+    void showInfo();
+    bool attack();
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
+    Entity *player;
+    Entity *opponent;
 };
 #endif // MAINWINDOW_H

@@ -45,13 +45,13 @@ public:
         opponentLabel->setObjectName("opponentLabel");
         opponentLabel->setGeometry(QRect(440, 80, 181, 161));
         opponentLabel->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0, 140);\n"
-"color: rgb(255, 255, 255);\n"
+"color: black;\n"
 "font: 14pt \"MS UI Gothic\";"));
         statusLabel = new QLabel(BattleWindow);
         statusLabel->setObjectName("statusLabel");
         statusLabel->setGeometry(QRect(100, 250, 561, 91));
         statusLabel->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0, 140);\n"
-"color: rgb(255, 255, 255);\n"
+"color: black;\n"
 "font: 14pt \"MS UI Gothic\";"));
         graphicsView = new QGraphicsView(BattleWindow);
         graphicsView->setObjectName("graphicsView");
@@ -62,7 +62,7 @@ public:
         playerLabel->setObjectName("playerLabel");
         playerLabel->setGeometry(QRect(100, 82, 221, 141));
         playerLabel->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0, 140);\n"
-"color: rgb(255, 255, 255);\n"
+"color: black;\n"
 "font: 14pt \"MS UI Gothic\";"));
         inventoryButton = new QPushButton(BattleWindow);
         inventoryButton->setObjectName("inventoryButton");
