@@ -15,6 +15,7 @@ SOURCES += \
 
 
 HEADERS += \
+    battle.h \
     entity.h \
     mainwindow.h
 

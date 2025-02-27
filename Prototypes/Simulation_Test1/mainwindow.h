@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include "entity.h"
+#include "battle.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,9 +21,13 @@ public:
     bool attack();
     ~MainWindow();
 
+private slots:
+    void on_attackButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Entity *player;
     Entity *opponent;
+    Battle *battle;
 };
 #endif // MAINWINDOW_H

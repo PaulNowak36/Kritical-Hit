@@ -25,6 +25,7 @@ public:
     int     getStrength();
     void    setDefence(int);
     int     getDefence();
+    void    checkHealth();
 
 };
 

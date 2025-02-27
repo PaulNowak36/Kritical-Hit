@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->statusLabel->setText("Waiting for action...");
     player = new Entity("Ouvrichu", 15, 15, 25, 20);
     opponent = new Entity("Melogénieur", 20, 20, 18, 22);
-
+    battle = new Battle(player, opponent);
     showStatus();
 }
 
@@ -55,8 +55,61 @@ void MainWindow::showStatus()
     ui->opponentLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 }
 
+void MainWindow::showInfo()
+{
+    std::string info;
+    info.append(player->getName() + " attacked " + opponent->getName() + ". Opponent loses " +
+                std::to_string(5) + "HP \n" +
+                opponent->getName() + " attacked " + player->getName() + ". You lost " +
+                std::to_string(3) + " HP");
+    ui->statusLabel->setText(QString::fromStdString(info));
+    /*info.append(player->getName() + " attacked " + opponent->getName() + ". Opponent loses " +
+                std::to_string(Battle::getDamage(player, opponent)) + "HP \n" +
+                opponent->getName() + " attacked " + player->getName() + ". You lost " +
+                std::to_string(Battle::getDamage(opponent, player)) + " HP");
+    ui->statusLabel->setText(QString::fromStdString(info));*/
+}
+
+bool MainWindow::attack()
+{
+    Battle::attack(player, opponent);
+    if(opponent->getHealth() > 0)
+    {
+        Battle::attack(opponent, player);
+        player->checkHealth();
+        opponent->checkHealth();
+        showStatus();
+        showInfo();
+        return player->getHealth() != 0;
+    }
+    else
+    {
+        QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
+        delete opponent;
+        opponent = 0;
+        delete battle;
+        battle = 0;
+        return true;
+    }
+
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+void MainWindow::on_attackButton_clicked()
+{
+    if(attack() == false)
+    {
+        QMessageBox::information(0, "You lost!", QString::fromStdString("GAME OVER"));
+        parentWidget()->parentWidget()->close();     //wylaczyc gre
+    }
+    if(!opponent)
+    {
+        this->close();
+    }
 }
 

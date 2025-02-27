@@ -21,6 +21,18 @@ void Entity::setStrength(int artDamage)     {_strength = artDamage;}
 void Entity::setName(std::string name)      {_name = name;}
 
 int Entity::getDefence()            {return _defence;}
+
+void Entity::checkHealth()
+{
+    if(getHealth() > getMaxHealth())
+    {
+        setHealth(getMaxHealth());
+    }
+    else if(getHealth() < 0)
+    {
+        setHealth(0);
+    }
+}
 int Entity::getHealth()             {return _health;}
 int Entity::getMaxHealth()          {return _maxHealth;}
 int Entity::getStrength()           {return _strength;}
