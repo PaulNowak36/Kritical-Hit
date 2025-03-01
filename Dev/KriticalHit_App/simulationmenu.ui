@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SimulationMenu</class>
+ <widget class="QWidget" name="SimulationMenu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="statusLabel">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>240</y>
+     <width>551</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0, 140);
+color: black;
+font: 14pt &quot;MS UI Gothic&quot;;</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="escapeButton">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>350</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Escape</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="opponentLabel">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>30</y>
+     <width>181</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0, 140);
+color: black;
+font: 14pt &quot;MS UI Gothic&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Pokemon2</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="graphicsView">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>480</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(&quot;C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Prototypes/Simulation_Test1/Images/BattleBackground.jpeg&quot;) 100% stretch;
+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="attackButton_1">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>350</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Attack 1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="playerLabel">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>221</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0, 140);
+color: black;
+font: 14pt &quot;MS UI Gothic&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Pokemon1</string>
+   </property>
+  </widget>
+  <zorder>graphicsView</zorder>
+  <zorder>attackButton_1</zorder>
+  <zorder>playerLabel</zorder>
+  <zorder>escapeButton</zorder>
+  <zorder>opponentLabel</zorder>
+  <zorder>statusLabel</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

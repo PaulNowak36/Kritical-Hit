@@ -8,6 +8,9 @@ TemplateMainMenu::TemplateMainMenu(QWidget *parent) :
     ui(new Ui::TemplateMainMenu)
 {
     ui->setupUi(this);
+    ui->stackedWidget3->insertWidget(1, &_simInfo);
+
+    connect(&_simInfo, SIGNAL(battleFinished()), this, SLOT(moveTemplateMenu()));
 }
 
 TemplateMainMenu::~TemplateMainMenu()
@@ -32,3 +35,14 @@ void TemplateMainMenu::on_logOut_Button2_clicked()
 
     ui->stackedWidget3->setCurrentIndex(0);
 }
+
+void TemplateMainMenu::on_logOut_Button2_2_clicked()
+{
+    ui->stackedWidget3->setCurrentIndex(1);
+}
+
+void TemplateMainMenu::moveTemplateMenu()
+{
+    ui->stackedWidget3->setCurrentIndex(0);
+}
+
