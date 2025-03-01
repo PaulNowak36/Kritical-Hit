@@ -94,16 +94,38 @@ bool SimulationMenu::attack()
 
 }
 
+void SimulationMenu::resetBattle()
+{
+    // Delete existing objects to prevent memory leaks
+    delete player;
+    delete opponent;
+    delete battle;
+
+    // Reinitialize characters and battle
+    player = new Entity("Ouvrichu", 15, 15, 25, 20);
+    opponent = new Entity("Melogénieur", 10, 10, 12, 16);
+        battle = new Battle(player, opponent);
+
+    // Reset UI labels
+    ui->statusLabel->setText("Waiting for action...");
+    showStatus();
+}
+
+
 void SimulationMenu::on_attackButton_1_clicked()
 {
     if(attack() == false)
     {
         QMessageBox::information(0, "You lost!", QString::fromStdString("GAME OVER"));
-        emit battleFinished();    //wylaczyc gre
+        resetBattle();  // Reset the game before exiting
+        emit battleFinished();   //wylaczyc gre
+
     }
     if(!opponent)
     {
+        resetBattle();  // Reset the game before exiting
         emit battleFinished();
+
     }
 }
 
@@ -130,6 +152,7 @@ void SimulationMenu::on_escapeButton_clicked()
     else
     {
         QMessageBox::information(0, "You escaped!", QString::fromStdString("You got lucky! You were able to escape this fight!"));
+        resetBattle();  // Reset the game before exiting
         emit battleFinished();
     }
 }

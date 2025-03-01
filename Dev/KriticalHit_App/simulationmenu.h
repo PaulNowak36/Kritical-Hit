@@ -20,6 +20,7 @@ public:
     void showStatus();
     void showInfo();
     bool attack();
+    void resetBattle();
     ~SimulationMenu();
 
 private slots:
@@ -35,6 +36,10 @@ private:
     Entity *player;
     Entity *opponent;
     Battle *battle;
+
+    /*std::string playerInfo;
+    std::string opponentInfo;
+    std::string battleInfo;*/
 };
 
 #endif // SIMULATIONMENU_H
