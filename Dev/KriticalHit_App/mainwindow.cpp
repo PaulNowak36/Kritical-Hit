@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QStorageInfo>
 #include <QDebug>
+#include <QPixmap>
 
 void printRootDriveInfo() {
     QStorageInfo storage = QStorageInfo::root();
@@ -39,6 +40,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->loadTemplate_Button->setProperty("class", "templateButton");
     ui->testMode_Button->setProperty("class", "templateButton");
     ui->logOut_Button->setProperty("class", "templateButton");
+
+    QPixmap pm("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/KriticalHit_Logo1.png"); // <- path to image file
+    ui->logoLabel->setPixmap(pm);
+    ui->logoLabel->setScaledContents(true);
+    ui->logoLabel_2->setPixmap(pm);
+    ui->logoLabel_2->setScaledContents(true);
 
 }
 

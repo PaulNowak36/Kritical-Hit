@@ -7,8 +7,8 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->statusLabel->setText("Waiting for action...");
-    player = new Entity("Ouvrichu", 15, 15, 25, 20);
-    opponent = new Entity("Melogénieur", 10, 10, 12, 16);
+    player = new Entity("Agribizarre", 29, 29, 14, 14);
+    opponent = new Entity("Temaratatta", 18, 18, 10, 8);
         battle = new Battle(player, opponent);
     showStatus();
 }
@@ -102,8 +102,8 @@ void SimulationMenu::resetBattle()
     delete battle;
 
     // Reinitialize characters and battle
-    player = new Entity("Ouvrichu", 15, 15, 25, 20);
-    opponent = new Entity("Melogénieur", 10, 10, 12, 16);
+    player = new Entity("Agribizarre", 29, 29, 14, 14);
+    opponent = new Entity("Temaratatta", 18, 18, 10, 8);
         battle = new Battle(player, opponent);
 
     // Reset UI labels

@@ -46,17 +46,13 @@ public:
     QVBoxLayout *verticalLayout_2;
     QLineEdit *password_Edit;
     QPushButton *loginButton;
-    QLabel *KRITICAL_Label;
-    QLabel *T_Label;
-    QLabel *H_Label;
+    QLabel *logoLabel;
     QWidget *main_menu_page;
-    QLabel *H_Label_2;
-    QLabel *KRITICAL_Label_2;
-    QLabel *T_Label_2;
     QPushButton *logOut_Button;
     QPushButton *newTemplate_Button;
     QPushButton *loadTemplate_Button;
     QPushButton *testMode_Button;
+    QLabel *logoLabel_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
     QToolBar *toolBar;
@@ -71,7 +67,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(10, 30, 782, 419));
+        stackedWidget->setGeometry(QRect(10, 8, 782, 441));
         stackedWidget->setStyleSheet(QString::fromUtf8("\n"
 "/*QPushButton {\n"
 "    font-family: \"Press Start 2P\";\n"
@@ -165,7 +161,7 @@ public:
 "}"));
         widget = new QWidget(login_page);
         widget->setObjectName("widget");
-        widget->setGeometry(QRect(270, 170, 241, 241));
+        widget->setGeometry(QRect(270, 190, 241, 241));
         widget->setStyleSheet(QString::fromUtf8(""));
         gridLayout = new QGridLayout(widget);
         gridLayout->setSpacing(6);
@@ -251,15 +247,9 @@ public:
 
         gridLayout->addLayout(verticalLayout_4, 1, 1, 1, 1);
 
-        KRITICAL_Label = new QLabel(login_page);
-        KRITICAL_Label->setObjectName("KRITICAL_Label");
-        KRITICAL_Label->setGeometry(QRect(290, 50, 201, 41));
-        T_Label = new QLabel(login_page);
-        T_Label->setObjectName("T_Label");
-        T_Label->setGeometry(QRect(390, 100, 31, 41));
-        H_Label = new QLabel(login_page);
-        H_Label->setObjectName("H_Label");
-        H_Label->setGeometry(QRect(370, 0, 31, 41));
+        logoLabel = new QLabel(login_page);
+        logoLabel->setObjectName("logoLabel");
+        logoLabel->setGeometry(QRect(280, 20, 221, 161));
         stackedWidget->addWidget(login_page);
         main_menu_page = new QWidget();
         main_menu_page->setObjectName("main_menu_page");
@@ -336,27 +326,21 @@ public:
 "}\n"
 "\n"
 ""));
-        H_Label_2 = new QLabel(main_menu_page);
-        H_Label_2->setObjectName("H_Label_2");
-        H_Label_2->setGeometry(QRect(370, 0, 31, 41));
-        KRITICAL_Label_2 = new QLabel(main_menu_page);
-        KRITICAL_Label_2->setObjectName("KRITICAL_Label_2");
-        KRITICAL_Label_2->setGeometry(QRect(290, 50, 201, 41));
-        T_Label_2 = new QLabel(main_menu_page);
-        T_Label_2->setObjectName("T_Label_2");
-        T_Label_2->setGeometry(QRect(390, 100, 31, 41));
         logOut_Button = new QPushButton(main_menu_page);
         logOut_Button->setObjectName("logOut_Button");
-        logOut_Button->setGeometry(QRect(30, 0, 121, 51));
+        logOut_Button->setGeometry(QRect(10, 10, 121, 51));
         newTemplate_Button = new QPushButton(main_menu_page);
         newTemplate_Button->setObjectName("newTemplate_Button");
-        newTemplate_Button->setGeometry(QRect(90, 200, 131, 131));
+        newTemplate_Button->setGeometry(QRect(90, 230, 131, 131));
         loadTemplate_Button = new QPushButton(main_menu_page);
         loadTemplate_Button->setObjectName("loadTemplate_Button");
-        loadTemplate_Button->setGeometry(QRect(320, 200, 131, 131));
+        loadTemplate_Button->setGeometry(QRect(320, 230, 131, 131));
         testMode_Button = new QPushButton(main_menu_page);
         testMode_Button->setObjectName("testMode_Button");
-        testMode_Button->setGeometry(QRect(540, 200, 131, 131));
+        testMode_Button->setGeometry(QRect(540, 230, 131, 131));
+        logoLabel_2 = new QLabel(main_menu_page);
+        logoLabel_2->setObjectName("logoLabel_2");
+        logoLabel_2->setGeometry(QRect(280, 20, 221, 161));
         stackedWidget->addWidget(main_menu_page);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -382,16 +366,12 @@ public:
         username_Edit->setText(QString());
         username_Edit->setPlaceholderText(QString());
         loginButton->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
-        KRITICAL_Label->setText(QCoreApplication::translate("MainWindow", "KRITICAL", nullptr));
-        T_Label->setText(QCoreApplication::translate("MainWindow", "T", nullptr));
-        H_Label->setText(QCoreApplication::translate("MainWindow", "H", nullptr));
-        H_Label_2->setText(QCoreApplication::translate("MainWindow", "H", nullptr));
-        KRITICAL_Label_2->setText(QCoreApplication::translate("MainWindow", "KRITICAL", nullptr));
-        T_Label_2->setText(QCoreApplication::translate("MainWindow", "T", nullptr));
+        logoLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         logOut_Button->setText(QCoreApplication::translate("MainWindow", "LOG OUT", nullptr));
         newTemplate_Button->setText(QCoreApplication::translate("MainWindow", "New Template", nullptr));
         loadTemplate_Button->setText(QCoreApplication::translate("MainWindow", "Load Template", nullptr));
         testMode_Button->setText(QCoreApplication::translate("MainWindow", "Test Mode", nullptr));
+        logoLabel_2->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 
