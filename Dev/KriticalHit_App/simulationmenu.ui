@@ -13,50 +13,55 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QLabel {
+	background-color: #fffbde;
+	color: black;
+	font: 10pt &quot;Press Start 2P&quot;;	
+	border: 2px solid #587372;
+	border-radius: 10px;
+}</string>
+  </property>
   <widget class="QLabel" name="statusLabel">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>240</y>
-     <width>551</width>
+     <x>0</x>
+     <y>340</y>
+     <width>431</width>
      <height>91</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 0, 0, 140);
-color: black;
-font: 14pt &quot;MS UI Gothic&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="escapeButton">
+  <widget class="QPushButton" name="quitButton">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>350</y>
+     <x>680</x>
+     <y>10</y>
      <width>101</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Escape</string>
+    <string>Quit</string>
    </property>
   </widget>
   <widget class="QLabel" name="opponentLabel">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>30</y>
-     <width>181</width>
-     <height>161</height>
+     <x>20</x>
+     <y>10</y>
+     <width>231</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 0, 0, 140);
-color: black;
-font: 14pt &quot;MS UI Gothic&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Pokemon2</string>
@@ -79,10 +84,10 @@ font: 14pt &quot;MS UI Gothic&quot;;</string>
   <widget class="QPushButton" name="attackButton_1">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>450</x>
      <y>350</y>
-     <width>101</width>
-     <height>41</height>
+     <width>131</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
@@ -92,27 +97,55 @@ font: 14pt &quot;MS UI Gothic&quot;;</string>
   <widget class="QLabel" name="playerLabel">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>40</y>
+     <x>500</x>
+     <y>210</y>
      <width>221</width>
-     <height>141</height>
+     <height>111</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 0, 0, 140);
-color: black;
-font: 14pt &quot;MS UI Gothic&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Pokemon1</string>
    </property>
   </widget>
+  <widget class="QGraphicsView" name="graphicsView_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>280</y>
+     <width>371</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:transparent;
+border: none;</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="graphicsView_3">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>90</y>
+     <width>371</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:transparent;
+border: none;</string>
+   </property>
+  </widget>
   <zorder>graphicsView</zorder>
   <zorder>attackButton_1</zorder>
   <zorder>playerLabel</zorder>
-  <zorder>escapeButton</zorder>
+  <zorder>quitButton</zorder>
   <zorder>opponentLabel</zorder>
+  <zorder>graphicsView_2</zorder>
   <zorder>statusLabel</zorder>
+  <zorder>graphicsView_3</zorder>
  </widget>
  <resources/>
  <connections/>
