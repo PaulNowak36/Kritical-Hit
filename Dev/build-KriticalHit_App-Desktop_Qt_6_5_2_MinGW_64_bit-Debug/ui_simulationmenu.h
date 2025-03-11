@@ -29,6 +29,8 @@ public:
     QLabel *playerLabel;
     QGraphicsView *graphicsView_2;
     QGraphicsView *graphicsView_3;
+    QLabel *playerSprite;
+    QLabel *opponentSprite;
 
     void setupUi(QWidget *SimulationMenu)
     {
@@ -41,6 +43,12 @@ public:
 "	font: 10pt \"Press Start 2P\";	\n"
 "	border: 2px solid #587372;\n"
 "	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QLabel#playerSprite, QLabel#opponentSprite {\n"
+"	background: transparent;\n"
+"	border:none;\n"
+"\n"
 "}"));
         statusLabel = new QLabel(SimulationMenu);
         statusLabel->setObjectName("statusLabel");
@@ -75,6 +83,12 @@ public:
         graphicsView_3->setGeometry(QRect(400, 90, 371, 121));
         graphicsView_3->setStyleSheet(QString::fromUtf8("background:transparent;\n"
 "border: none;"));
+        playerSprite = new QLabel(SimulationMenu);
+        playerSprite->setObjectName("playerSprite");
+        playerSprite->setGeometry(QRect(110, 210, 201, 171));
+        opponentSprite = new QLabel(SimulationMenu);
+        opponentSprite->setObjectName("opponentSprite");
+        opponentSprite->setGeometry(QRect(490, 40, 201, 161));
         graphicsView->raise();
         attackButton_1->raise();
         playerLabel->raise();
@@ -83,6 +97,8 @@ public:
         graphicsView_2->raise();
         statusLabel->raise();
         graphicsView_3->raise();
+        playerSprite->raise();
+        opponentSprite->raise();
 
         retranslateUi(SimulationMenu);
 
@@ -97,6 +113,8 @@ public:
         opponentLabel->setText(QCoreApplication::translate("SimulationMenu", "Pokemon2", nullptr));
         attackButton_1->setText(QCoreApplication::translate("SimulationMenu", "Attack 1", nullptr));
         playerLabel->setText(QCoreApplication::translate("SimulationMenu", "Pokemon1", nullptr));
+        playerSprite->setText(QCoreApplication::translate("SimulationMenu", "Bulbasaur", nullptr));
+        opponentSprite->setText(QCoreApplication::translate("SimulationMenu", "Rattatta", nullptr));
     } // retranslateUi
 
 };

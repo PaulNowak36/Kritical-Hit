@@ -1,13 +1,20 @@
 #include "simulationmenu.h"
 #include "ui_simulationmenu.h"
 
-
 SimulationMenu::SimulationMenu(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SimulationMenu),
     scene(nullptr)
 {
     ui->setupUi(this);
+
+    QPixmap backSprite("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/BulbasaurSprite_Back.png");
+    ui->playerSprite->setPixmap(backSprite);
+    ui->playerSprite->setScaledContents(true);
+    QPixmap frontSprite("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/RattataSprite_Front.png");
+    ui->opponentSprite->setPixmap(frontSprite);
+    ui->opponentSprite->setScaledContents(true);
+
     ui->statusLabel->setText("Waiting for action...");
     player = new Entity("Agribizarre", 29, 29, 14, 14);
     opponent = new Entity("Temaratatta", 18, 18, 10, 8);

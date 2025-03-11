@@ -67,18 +67,6 @@ QLabel {
     font-size: 14px;
 }
 
-QLabel#KRITICAL_Label {
-	color:  #38a752;
-}
-
-QLabel#H_Label {
-	color: rgb(0, 0, 127);
-}
-
-QLabel#T_Label {
-	color: rgb(0, 0, 127);
-}
-
 QLabel#Welcome {
 	background: transparent;
 	font-family: &quot;Press Start 2P&quot;;
