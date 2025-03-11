@@ -27,6 +27,10 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     ui->graphicsView_3->setScene(scene);
 
     drawEllipse(scene);
+
+    updatePlayerHP();
+    updateOpponentHP();
+
 }
 
 SimulationMenu::~SimulationMenu()
@@ -56,15 +60,7 @@ void SimulationMenu::showStatus()
         info.append( "HP: " + std::to_string(player->getHealth()) + " \n" );
 
     }
-    /*if (player->getStrength())
-    {
-        info.append( "STRENGTH: " +  std::to_string(player->getStrength()) + " \n");
-    }
-    if (player->getDefence())
-    {
-        info.append( "DEFENCE:    " + std::to_string(player->getDefence()) + " \n");
 
-    }*/
     ui->playerLabel->setText(QString::fromStdString(info));
     ui->playerLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
@@ -76,15 +72,7 @@ void SimulationMenu::showStatus()
         info.append( "HP: " + std::to_string(opponent->getHealth()) + " \n" );
 
     }
-    /*if (opponent->getStrength())
-    {
-        info.append( "STRENGTH: " +  std::to_string(opponent->getStrength()) + " \n");
-    }
-    if (opponent->getDefence())
-    {
-        info.append( "DEFENCE:    " + std::to_string(opponent->getDefence()) + " \n");
 
-    }*/
     ui->opponentLabel->setText(QString::fromStdString(info));
     ui->opponentLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 }
@@ -99,9 +87,23 @@ void SimulationMenu::showInfo()
     ui->statusLabel->setText(QString::fromStdString(info));
 }
 
+void SimulationMenu::updatePlayerHP()
+{
+    int playerLife = (player->getHealth() * 100) / player->getMaxHealth();
+    ui->playerHP->setValue(playerLife);
+}
+
+void SimulationMenu::updateOpponentHP()
+{
+    int opponentLife = (opponent->getHealth() * 100) / opponent->getMaxHealth();
+    ui->opponentHP->setValue(opponentLife);
+}
+
 bool SimulationMenu::attack()
 {
     Battle::attack(player, opponent);
+    updatePlayerHP();
+    updateOpponentHP();
     if(opponent->getHealth() > 0)
     {
         Battle::attack(opponent, player);
@@ -138,6 +140,11 @@ void SimulationMenu::resetBattle()
     // Reset UI labels
     ui->statusLabel->setText("What will you do ?");
         showStatus();
+
+    int playerLife = (player->getMaxHealth() * 100) / player->getMaxHealth();
+    ui->playerHP->setValue(playerLife);
+    int opponentLife = (opponent->getMaxHealth() * 100) / opponent->getMaxHealth();
+    ui->opponentHP->setValue(opponentLife);
 }
 
 void SimulationMenu::on_attackButton_1_clicked()

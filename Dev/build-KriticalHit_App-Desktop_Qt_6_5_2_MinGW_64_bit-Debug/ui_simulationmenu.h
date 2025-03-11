@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -31,6 +32,8 @@ public:
     QGraphicsView *graphicsView_3;
     QLabel *playerSprite;
     QLabel *opponentSprite;
+    QProgressBar *opponentHP;
+    QProgressBar *playerHP;
 
     void setupUi(QWidget *SimulationMenu)
     {
@@ -59,7 +62,7 @@ public:
         quitButton->setGeometry(QRect(680, 10, 101, 41));
         opponentLabel = new QLabel(SimulationMenu);
         opponentLabel->setObjectName("opponentLabel");
-        opponentLabel->setGeometry(QRect(20, 10, 231, 121));
+        opponentLabel->setGeometry(QRect(20, 10, 301, 121));
         opponentLabel->setStyleSheet(QString::fromUtf8(""));
         graphicsView = new QGraphicsView(SimulationMenu);
         graphicsView->setObjectName("graphicsView");
@@ -71,7 +74,7 @@ public:
         attackButton_1->setGeometry(QRect(450, 350, 131, 51));
         playerLabel = new QLabel(SimulationMenu);
         playerLabel->setObjectName("playerLabel");
-        playerLabel->setGeometry(QRect(500, 210, 221, 111));
+        playerLabel->setGeometry(QRect(480, 210, 301, 121));
         playerLabel->setStyleSheet(QString::fromUtf8(""));
         graphicsView_2 = new QGraphicsView(SimulationMenu);
         graphicsView_2->setObjectName("graphicsView_2");
@@ -85,10 +88,18 @@ public:
 "border: none;"));
         playerSprite = new QLabel(SimulationMenu);
         playerSprite->setObjectName("playerSprite");
-        playerSprite->setGeometry(QRect(110, 210, 201, 171));
+        playerSprite->setGeometry(QRect(110, 208, 201, 171));
         opponentSprite = new QLabel(SimulationMenu);
         opponentSprite->setObjectName("opponentSprite");
         opponentSprite->setGeometry(QRect(490, 40, 201, 161));
+        opponentHP = new QProgressBar(SimulationMenu);
+        opponentHP->setObjectName("opponentHP");
+        opponentHP->setGeometry(QRect(100, 100, 201, 23));
+        opponentHP->setValue(24);
+        playerHP = new QProgressBar(SimulationMenu);
+        playerHP->setObjectName("playerHP");
+        playerHP->setGeometry(QRect(560, 300, 201, 23));
+        playerHP->setValue(24);
         graphicsView->raise();
         attackButton_1->raise();
         playerLabel->raise();
@@ -99,6 +110,8 @@ public:
         graphicsView_3->raise();
         playerSprite->raise();
         opponentSprite->raise();
+        opponentHP->raise();
+        playerHP->raise();
 
         retranslateUi(SimulationMenu);
 

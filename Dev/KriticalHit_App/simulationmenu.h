@@ -24,6 +24,8 @@ public:
     void drawEllipse(QGraphicsScene *ellipse);
     void showStatus();
     void showInfo();
+    void updatePlayerHP();
+    void updateOpponentHP();
     bool attack();
     void resetBattle();
     ~SimulationMenu();
