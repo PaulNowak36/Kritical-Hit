@@ -15,9 +15,13 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     ui->opponentSprite->setPixmap(frontSprite);
     ui->opponentSprite->setScaledContents(true);
 
+    ui->attackButton_1->setProperty("class", "templateButton");
+    ui->quitButton->setProperty("class", "templateButton");
+
     ui->statusLabel->setText("Waiting for action...");
-    player = new Entity("Agribizarre", 29, 29, 14, 14);
-    opponent = new Entity("Temaratatta", 18, 18, 10, 8);
+    player = new Entity("Agribizarre", 30, 30, 15, 15);
+    //opponent = new Entity("Temaratatta", 18, 18, 10, 8);
+    opponent = new Entity("Temaratatta", 58, 58, 38, 26);
         battle = new Battle(player, opponent);
     showStatus();
 
@@ -102,11 +106,11 @@ void SimulationMenu::updateOpponentHP()
 bool SimulationMenu::attack()
 {
     Battle::attack(player, opponent);
-    updatePlayerHP();
     updateOpponentHP();
     if(opponent->getHealth() > 0)
     {
         Battle::attack(opponent, player);
+        updatePlayerHP();
         player->checkHealth();
         opponent->checkHealth();
         showStatus();
@@ -133,9 +137,10 @@ void SimulationMenu::resetBattle()
     delete battle;
 
     // Reinitialize characters and battle
-    player = new Entity("Agribizarre", 29, 29, 14, 14);
-    opponent = new Entity("Temaratatta", 18, 18, 10, 8);
-        battle = new Battle(player, opponent);
+    player = new Entity("Agribizarre", 30, 30, 15, 15);
+    //opponent = new Entity("Temaratatta", 18, 18, 10, 8);
+    opponent = new Entity("Temaratatta", 58, 58, 38, 26);
+    battle = new Battle(player, opponent);
 
     // Reset UI labels
     ui->statusLabel->setText("What will you do ?");

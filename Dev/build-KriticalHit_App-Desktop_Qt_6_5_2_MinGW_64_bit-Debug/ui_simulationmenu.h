@@ -51,8 +51,35 @@ public:
 "QLabel#playerSprite, QLabel#opponentSprite {\n"
 "	background: transparent;\n"
 "	border:none;\n"
+"}\n"
 "\n"
-"}"));
+"QPushButton.templateButton {\n"
+"    font: 10pt \"Press Start 2P\";	\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: orange; \n"
+"    border: 2px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QProgressBar {\n"
+"	background-color: black;\n"
+"    border: 2px solid black;\n"
+"    border-radius: 10px;\n"
+"	text-align: center;\n"
+"    color: transparent;\n"
+"	min-width: 200px;\n"
+"    max-width: 200px;\n"
+"	min-height: 20px;\n"
+"    max-height: 20px;\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"    background-color: #73fbaa;\n"
+"	 border-radius: 10px;\n"
+"    margin-left: 2px;    \n"
+"	margin-right: 2px;\n"
+"}\n"
+""));
         statusLabel = new QLabel(SimulationMenu);
         statusLabel->setObjectName("statusLabel");
         statusLabel->setGeometry(QRect(0, 340, 431, 91));
@@ -71,7 +98,7 @@ public:
 ""));
         attackButton_1 = new QPushButton(SimulationMenu);
         attackButton_1->setObjectName("attackButton_1");
-        attackButton_1->setGeometry(QRect(450, 350, 131, 51));
+        attackButton_1->setGeometry(QRect(440, 340, 131, 51));
         playerLabel = new QLabel(SimulationMenu);
         playerLabel->setObjectName("playerLabel");
         playerLabel->setGeometry(QRect(480, 210, 301, 121));
@@ -94,11 +121,11 @@ public:
         opponentSprite->setGeometry(QRect(490, 40, 201, 161));
         opponentHP = new QProgressBar(SimulationMenu);
         opponentHP->setObjectName("opponentHP");
-        opponentHP->setGeometry(QRect(100, 100, 201, 23));
+        opponentHP->setGeometry(QRect(100, 100, 204, 24));
         opponentHP->setValue(24);
         playerHP = new QProgressBar(SimulationMenu);
         playerHP->setObjectName("playerHP");
-        playerHP->setGeometry(QRect(560, 300, 201, 23));
+        playerHP->setGeometry(QRect(560, 300, 204, 24));
         playerHP->setValue(24);
         graphicsView->raise();
         attackButton_1->raise();

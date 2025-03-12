@@ -25,8 +25,35 @@
 QLabel#playerSprite, QLabel#opponentSprite {
 	background: transparent;
 	border:none;
+}
 
-}</string>
+QPushButton.templateButton {
+    font: 10pt &quot;Press Start 2P&quot;;	
+    color: rgb(255, 255, 255);
+    background-color: orange; 
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+QProgressBar {
+	background-color: black;
+    border: 2px solid black;
+    border-radius: 10px;
+	text-align: center;
+    color: transparent;
+	min-width: 200px;
+    max-width: 200px;
+	min-height: 20px;
+    max-height: 20px;
+}
+
+QProgressBar::chunk {
+    background-color: #73fbaa;
+	 border-radius: 10px;
+    margin-left: 2px;    
+	margin-right: 2px;
+}
+</string>
   </property>
   <widget class="QLabel" name="statusLabel">
    <property name="geometry">
@@ -90,8 +117,8 @@ QLabel#playerSprite, QLabel#opponentSprite {
   <widget class="QPushButton" name="attackButton_1">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>350</y>
+     <x>440</x>
+     <y>340</y>
      <width>131</width>
      <height>51</height>
     </rect>
@@ -175,8 +202,8 @@ border: none;</string>
     <rect>
      <x>100</x>
      <y>100</y>
-     <width>201</width>
-     <height>23</height>
+     <width>204</width>
+     <height>24</height>
     </rect>
    </property>
    <property name="value">
@@ -188,8 +215,8 @@ border: none;</string>
     <rect>
      <x>560</x>
      <y>300</y>
-     <width>201</width>
-     <height>23</height>
+     <width>204</width>
+     <height>24</height>
     </rect>
    </property>
    <property name="value">
