@@ -18,10 +18,12 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     ui->attackButton_1->setProperty("class", "templateButton");
     ui->quitButton->setProperty("class", "templateButton");
 
+    attack1 = new capacity("Pound", 40);
+
     ui->statusLabel->setText("Waiting for action...");
-    player = new Entity("Agribizarre", 30, 30, 15, 15);
-    //opponent = new Entity("Temaratatta", 18, 18, 10, 8);
-    opponent = new Entity("Temaratatta", 58, 58, 38, 26);
+    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1);
+    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1);
+    //opponent = new Entity("Temaratatta", 58, 58, 38, 26);
         battle = new Battle(player, opponent);
     showStatus();
 
@@ -137,9 +139,9 @@ void SimulationMenu::resetBattle()
     delete battle;
 
     // Reinitialize characters and battle
-    player = new Entity("Agribizarre", 30, 30, 15, 15);
-    //opponent = new Entity("Temaratatta", 18, 18, 10, 8);
-    opponent = new Entity("Temaratatta", 58, 58, 38, 26);
+    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1);
+    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1);
+    //opponent = new Entity("Temaratatta", 58, 58, 38, 26);
     battle = new Battle(player, opponent);
 
     // Reset UI labels

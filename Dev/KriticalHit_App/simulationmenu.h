@@ -9,8 +9,6 @@
 #include "entity.h"
 #include "battle.h"
 
-
-
 namespace Ui {
 class SimulationMenu;
 }
@@ -48,6 +46,7 @@ private:
     Entity *player;
     Entity *opponent;
     Battle *battle;
+    capacity *attack1;
     QGraphicsScene *scene; // Scene for drawing the ellipse
 
     /*std::string playerInfo;

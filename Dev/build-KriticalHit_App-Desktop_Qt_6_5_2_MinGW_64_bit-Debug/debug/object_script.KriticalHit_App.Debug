@@ -1,3 +1,4 @@
+debug/capacity.o
 debug/entity.o
 debug/main.o
 debug/mainwindow.o
