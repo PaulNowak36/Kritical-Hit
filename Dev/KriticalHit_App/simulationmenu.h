@@ -22,6 +22,7 @@ public:
     void drawEllipse(QGraphicsScene *ellipse);
     void showStatus();
     void showInfo();
+    void setAttacks();
     void updatePlayerHP();
     void updateOpponentHP();
     bool attack();

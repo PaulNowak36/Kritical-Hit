@@ -24,8 +24,9 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1);
     opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1);
     //opponent = new Entity("Temaratatta", 58, 58, 38, 26);
-        battle = new Battle(player, opponent);
+    battle = new Battle(player, opponent);
     showStatus();
+    setAttacks();
 
     // Create a scene and attach it to the 2 QGraphicsViews
     scene = new QGraphicsScene(this);
@@ -91,6 +92,13 @@ void SimulationMenu::showInfo()
                 opponent->getName() + " attacked " + player->getName() + ". \nYou lost " +
                 std::to_string(Battle::getDamage(opponent, player)) + " HP !");
     ui->statusLabel->setText(QString::fromStdString(info));
+}
+
+void SimulationMenu::setAttacks()
+{
+    std::string attackInfo1;
+    attackInfo1.append(player->getSkill().getAttackName() + " \n" + "Pow: " + std::to_string(player->getSkill().getAttackPower()));
+    ui->attackButton_1->setText(QString::fromStdString(attackInfo1));
 }
 
 void SimulationMenu::updatePlayerHP()

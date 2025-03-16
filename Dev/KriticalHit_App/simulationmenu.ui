@@ -124,7 +124,7 @@ QProgressBar::chunk {
     </rect>
    </property>
    <property name="text">
-    <string>Attack 1</string>
+    <string>Text</string>
    </property>
   </widget>
   <widget class="QLabel" name="playerLabel">

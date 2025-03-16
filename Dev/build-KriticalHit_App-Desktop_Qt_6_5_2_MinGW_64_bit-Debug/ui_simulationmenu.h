@@ -151,7 +151,7 @@ public:
         statusLabel->setText(QCoreApplication::translate("SimulationMenu", "TextLabel", nullptr));
         quitButton->setText(QCoreApplication::translate("SimulationMenu", "Quit", nullptr));
         opponentLabel->setText(QCoreApplication::translate("SimulationMenu", "Pokemon2", nullptr));
-        attackButton_1->setText(QCoreApplication::translate("SimulationMenu", "Attack 1", nullptr));
+        attackButton_1->setText(QCoreApplication::translate("SimulationMenu", "Text", nullptr));
         playerLabel->setText(QCoreApplication::translate("SimulationMenu", "Pokemon1", nullptr));
         playerSprite->setText(QCoreApplication::translate("SimulationMenu", "Bulbasaur", nullptr));
         opponentSprite->setText(QCoreApplication::translate("SimulationMenu", "Rattatta", nullptr));
