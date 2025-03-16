@@ -1,6 +1,7 @@
 #ifndef BATTLE_H
 #define BATTLE_H
 #include "entity.h"
+#include "capacity.h"
 
 class Battle {
 protected:
@@ -33,9 +34,28 @@ public:
             return 1;
     }
 
+    static int calculateDamage(Entity* attacker, Entity* defender, capacity* attack) {
+        double level = attacker->getLevel();
+        double att = attacker->getStrength();
+        double pow = attack->getAttackPower();
+        double def = defender->getDefence();
+
+        // Corrected formula with explicit floating-point arithmetic
+        double totalDamage = (((level * 0.4 + 2) * att * pow) / (def * 50)) + 2;
+
+        // Ensuring minimum damage of 1
+        return std::max(1, static_cast<int>(totalDamage));
+    }
+
+
     static void attack(Entity* attacker, Entity* defender)
     {
         defender->setHealth(defender->getHealth() - getDamage(attacker,defender));
+    }
+
+    static void newAttack(Entity* attacker, Entity* defender, capacity* attack)
+    {
+        defender->setHealth(defender->getHealth() - calculateDamage(attacker,defender, attack));
     }
 };
 

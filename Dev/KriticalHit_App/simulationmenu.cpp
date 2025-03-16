@@ -115,11 +115,11 @@ void SimulationMenu::updateOpponentHP()
 
 bool SimulationMenu::attack()
 {
-    Battle::attack(player, opponent);
+    Battle::newAttack(player, opponent, &player->getSkill());
     updateOpponentHP();
     if(opponent->getHealth() > 0)
     {
-        Battle::attack(opponent, player);
+        Battle::newAttack(opponent, player, &opponent->getSkill());
         updatePlayerHP();
         player->checkHealth();
         opponent->checkHealth();

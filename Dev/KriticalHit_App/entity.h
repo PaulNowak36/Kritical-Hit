@@ -34,7 +34,7 @@ public:
     int     getSpeed();
     void    setLevel(int);
     int     getLevel();
-    capacity getSkill();
+    capacity& getSkill();
     void setSkill(const capacity&);
 
     void    checkHealth();

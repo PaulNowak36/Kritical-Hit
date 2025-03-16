@@ -42,5 +42,5 @@ int Entity::getMaxHealth()          {return _maxHealth;}
 int Entity::getStrength()           {return _strength;}
 int Entity::getDefence()            {return _defence;}
 int Entity::getSpeed()            {return _speed;}
-capacity Entity::getSkill()        {return _skill;}
+capacity& Entity::getSkill()        {return _skill;}
 std::string Entity::getName()       {return _name;}
