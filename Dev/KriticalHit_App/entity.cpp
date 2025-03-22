@@ -1,5 +1,6 @@
 #include "entity.h"
 #include<string>
+#include <stdexcept>
 
 Entity::Entity()
 {
@@ -11,10 +12,13 @@ Entity::Entity()
     setSpeed(25);
     setName("newMon");
     setSkill(capacity());
+
+    std::array<capacity, 4> skills = {capacity(), capacity()};
+    setSkillList(skills);
 }
 
-Entity::Entity(std::string name, int level, int health, int maxHealth, int strength, int defence, int speed, const capacity& skill1)
-    : _name(name), _health(health), _maxHealth(maxHealth), _strength(strength), _defence(defence), _speed(speed), _level(level), _skill(skill1) {}
+Entity::Entity(std::string name, int level, int health, int maxHealth, int strength, int defence, int speed, const capacity& skill1, const std::array<capacity, 4>& moves)
+    : _name(name), _health(health), _maxHealth(maxHealth), _strength(strength), _defence(defence), _speed(speed), _level(level), _skill(skill1), _skillList(moves) {}
 
 void Entity::setName(std::string name)      {_name = name;}
 void Entity::setLevel(int artLevel)       {_level = artLevel;}
@@ -24,6 +28,13 @@ void Entity::setStrength(int artDamage)     {_strength = artDamage;}
 void Entity::setDefence(int artShield)       {_defence = artShield;}
 void Entity::setSpeed(int artSwift)       {_speed = artSwift;}
 void Entity::setSkill(const capacity&  artSkill)       {_skill = artSkill;}
+void Entity::setNewSkill(int index, const capacity &skill)
+{
+    if (index >= 0 && index < 4) {
+        _skillList[index] = skill;
+    }
+}
+void Entity::setSkillList(const std::array<capacity, 4> &moveList)  {_skillList = moveList;}
 
 void Entity::checkHealth()
 {
@@ -43,4 +54,13 @@ int Entity::getStrength()           {return _strength;}
 int Entity::getDefence()            {return _defence;}
 int Entity::getSpeed()            {return _speed;}
 capacity& Entity::getSkill()        {return _skill;}
+capacity &Entity::getNewSkill(int index)
+{
+    if (index >= 0 && index < 4) {
+        return _skillList[index];
+    }
+    throw std::out_of_range("Index out of bounds"); // Handle invalid access
+}
+const std::array<capacity, 4> &Entity::getSkillList() const {return _skillList;}
+
 std::string Entity::getName()       {return _name;}

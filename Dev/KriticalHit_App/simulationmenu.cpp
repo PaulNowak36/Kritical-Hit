@@ -19,10 +19,15 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     ui->quitButton->setProperty("class", "templateButton");
 
     attack1 = new capacity("Pound", 40);
+    attack2 = new capacity("Take Down", 90);
+
+    std::array<capacity, 4> moveset = {*attack1, *attack2};
 
     ui->statusLabel->setText("Waiting for action...");
-    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1);
-    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1);
+    //player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1);
+    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1, moveset);
+    //opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1);
+    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1, moveset);
     //opponent = new Entity("Temaratatta", 58, 58, 38, 26);
     battle = new Battle(player, opponent);
     showStatus();
@@ -115,29 +120,35 @@ void SimulationMenu::updateOpponentHP()
 
 bool SimulationMenu::attack()
 {
-    Battle::newAttack(player, opponent, &player->getSkill());
+    int playerDamage = Battle::newAttack(player, opponent, &player->getSkill()); // Store damage dealt by player
     updateOpponentHP();
-    if(opponent->getHealth() > 0)
+
+    if (opponent->getHealth() > 0)
     {
-        Battle::newAttack(opponent, player, &opponent->getSkill());
+        int opponentDamage = Battle::newAttack(opponent, player, &opponent->getSkill()); // Store damage dealt by opponent
         updatePlayerHP();
         player->checkHealth();
         opponent->checkHealth();
         showStatus();
         showInfo();
+
+        // You can now use playerDamage and opponentDamage however you want.
+        qDebug() << "Player dealt: " << playerDamage << " damage.";
+        qDebug() << "Opponent dealt: " << opponentDamage << " damage.";
+
         return player->getHealth() != 0;
     }
     else
     {
         QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
         delete opponent;
-        opponent = 0;
+        opponent = nullptr;
         delete battle;
-        battle = 0;
+        battle = nullptr;
         return true;
     }
-
 }
+
 
 void SimulationMenu::resetBattle()
 {
@@ -147,8 +158,10 @@ void SimulationMenu::resetBattle()
     delete battle;
 
     // Reinitialize characters and battle
-    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1);
-    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1);
+    //player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1);
+    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1, moveset);
+    //opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1);
+    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1, moveset);
     //opponent = new Entity("Temaratatta", 58, 58, 38, 26);
     battle = new Battle(player, opponent);
 

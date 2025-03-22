@@ -1,6 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 #include<string>
+#include <array>
 #include "capacity.h"
 
 class Entity {
@@ -14,11 +15,12 @@ protected:
     int _speed;
     int _level;
     capacity _skill;
+    std::array<capacity, 4> _skillList;
 
 
 public:
     Entity();
-    Entity(std::string, int, int, int, int, int, int, const capacity&);
+    Entity(std::string, int, int, int, int, int, int, const capacity&, const std::array<capacity, 4>&);
 
     void    setName(std::string);
     std::string  getName();
@@ -34,8 +36,13 @@ public:
     int     getSpeed();
     void    setLevel(int);
     int     getLevel();
-    capacity& getSkill();
     void setSkill(const capacity&);
+    void setNewSkill(int index, const capacity& skill);
+    capacity& getSkill();
+    capacity& getNewSkill(int);
+    void setSkillList(const std::array<capacity, 4>& moveList);
+    const std::array<capacity, 4>& getSkillList() const;
+
 
     void    checkHealth();
 

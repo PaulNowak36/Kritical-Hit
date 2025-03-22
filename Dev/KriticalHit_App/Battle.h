@@ -53,9 +53,11 @@ public:
         defender->setHealth(defender->getHealth() - getDamage(attacker,defender));
     }
 
-    static void newAttack(Entity* attacker, Entity* defender, capacity* attack)
+    static int newAttack(Entity* attacker, Entity* defender, capacity* attack)
     {
-        defender->setHealth(defender->getHealth() - calculateDamage(attacker,defender, attack));
+        int damage = calculateDamage(attacker, defender, attack);
+        defender->setHealth(defender->getHealth() - damage);
+        return damage;  // Return the total damage dealt
     }
 };
 

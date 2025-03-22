@@ -48,6 +48,8 @@ private:
     Entity *opponent;
     Battle *battle;
     capacity *attack1;
+    capacity *attack2;
+    std::array<capacity, 4> moveset;
     QGraphicsScene *scene; // Scene for drawing the ellipse
 
     /*std::string playerInfo;
