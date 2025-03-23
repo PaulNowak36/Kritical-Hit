@@ -26,15 +26,17 @@ public:
     void updatePlayerHP();
     void updateOpponentHP();
     bool attack();
+    void checkAttack(int);
+    bool newAttack(int);
     void resetBattle();
+    void initializeBattle();
     ~SimulationMenu();
 
 private slots:
     void on_attackButton_1_clicked();
-
-    void on_escapeButton_clicked();
-
+    void on_attackButton_2_clicked();
     void on_quitButton_clicked();
+    //void on_escapeButton_clicked();
 
 signals:
     void battleFinished();
@@ -52,9 +54,6 @@ private:
     std::array<capacity, 4> moveset;
     QGraphicsScene *scene; // Scene for drawing the ellipse
 
-    /*std::string playerInfo;
-    std::string opponentInfo;
-    std::string battleInfo;*/
 };
 
 #endif // SIMULATIONMENU_H

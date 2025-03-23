@@ -42,7 +42,7 @@ static constexpr auto qt_meta_stringdata_CLASSSimulationMenuENDCLASS = QtMocHelp
     "battleFinished",
     "",
     "on_attackButton_1_clicked",
-    "on_escapeButton_clicked",
+    "on_attackButton_2_clicked",
     "on_quitButton_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
@@ -52,7 +52,7 @@ struct qt_meta_stringdata_CLASSSimulationMenuENDCLASS_t {
     char stringdata1[15];
     char stringdata2[1];
     char stringdata3[26];
-    char stringdata4[24];
+    char stringdata4[26];
     char stringdata5[22];
 };
 #define QT_MOC_LITERAL(ofs, len) \
@@ -63,14 +63,14 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSSimulationMenuENDCLASS_t qt_met
         QT_MOC_LITERAL(15, 14),  // "battleFinished"
         QT_MOC_LITERAL(30, 0),  // ""
         QT_MOC_LITERAL(31, 25),  // "on_attackButton_1_clicked"
-        QT_MOC_LITERAL(57, 23),  // "on_escapeButton_clicked"
-        QT_MOC_LITERAL(81, 21)   // "on_quitButton_clicked"
+        QT_MOC_LITERAL(57, 25),  // "on_attackButton_2_clicked"
+        QT_MOC_LITERAL(83, 21)   // "on_quitButton_clicked"
     },
     "SimulationMenu",
     "battleFinished",
     "",
     "on_attackButton_1_clicked",
-    "on_escapeButton_clicked",
+    "on_attackButton_2_clicked",
     "on_quitButton_clicked"
 };
 #undef QT_MOC_LITERAL
@@ -122,7 +122,7 @@ Q_CONSTINIT const QMetaObject SimulationMenu::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_attackButton_1_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_escapeButton_clicked'
+        // method 'on_attackButton_2_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_quitButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
@@ -138,7 +138,7 @@ void SimulationMenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->battleFinished(); break;
         case 1: _t->on_attackButton_1_clicked(); break;
-        case 2: _t->on_escapeButton_clicked(); break;
+        case 2: _t->on_attackButton_2_clicked(); break;
         case 3: _t->on_quitButton_clicked(); break;
         default: ;
         }
