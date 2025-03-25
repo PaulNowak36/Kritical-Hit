@@ -21,12 +21,17 @@ public:
     explicit SimulationMenu(QWidget *parent = nullptr);
     void drawEllipse(QGraphicsScene *ellipse);
     void showStatus();
+    void showPlayerInfo();
+    void showOpponentInfo();
     void showInfo();
+    void showNewInfo(Entity*);
     void setAttacks();
     void updatePlayerHP();
     void updateOpponentHP();
-    bool attack();
     void checkAttack(int);
+    void newCheckAttack(int);
+    bool playerAttack(int);
+    bool opponentAttack(int);
     bool newAttack(int);
     void resetBattle();
     void initializeBattle();
