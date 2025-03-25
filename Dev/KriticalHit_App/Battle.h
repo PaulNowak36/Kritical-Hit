@@ -59,6 +59,30 @@ public:
         defender->setHealth(defender->getHealth() - damage);
         return damage;  // Return the total damage dealt
     }
+
+    static int genRandom(int from, int upto)
+    {
+        return (rand() % (upto - from + 1)) + from;
+    }
+
+    static void checkAttackOrder(Entity* player, Entity* opponent)
+    {
+        // When player is faster than opponent
+        if (player->getSpeed() > opponent->getSpeed()) {
+            player->setAttackOrder(0);
+            opponent->setAttackOrder(1);
+        } // When opponent is faster than player
+        else if (player->getSpeed() < opponent->getSpeed()) {
+            player->setAttackOrder(1);
+            opponent->setAttackOrder(0);
+        }
+        else { // Speeds are equal, decide randomly
+            bool playerFirst = Battle::genRandom(0, 1);
+            player->setAttackOrder(playerFirst ? 0 : 1);
+            opponent->setAttackOrder(playerFirst ? 1 : 0);
+        }
+    }
+
 };
 
 

@@ -14,9 +14,11 @@ protected:
     int _defence;
     int _speed;
     int _level;
+
     capacity _skill;
     std::array<capacity, 4> _skillList;
 
+    int attackOrder;
 
 public:
     Entity();
@@ -50,6 +52,9 @@ public:
     {
         return (rand() % (upto - from + 1)) + from;
     }
+
+    void setAttackOrder(int);
+    int getAttackOrder();
 
 };
 

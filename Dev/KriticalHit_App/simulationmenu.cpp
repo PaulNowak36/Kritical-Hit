@@ -136,19 +136,19 @@ void SimulationMenu::showInfo()
     ui->statusLabel->setText(QString::fromStdString(info));
 }
 
-void SimulationMenu::showNewInfo(Entity *attacker)
+void SimulationMenu::showNewInfo(Entity *attacker, int damages)
 {
     std::string info;
 
     if (attacker == player) // If the player is the attacker
     {
-        info.append(player->getName() + " attacked " + opponent->getName() + ". \nOpponent loses " +
-                    std::to_string(Battle::getDamage(player, opponent)) + " HP !");
+        info.append(player->getName() + " attacked " + opponent->getName() + ". \n" + opponent->getName() + " loses " +
+                    std::to_string(damages) + " HP !");
     }
     else if (attacker == opponent) // If the opponent is the attacker
     {
-        info.append(opponent->getName() + " attacked " + player->getName() + ". \nYou lost " +
-                    std::to_string(Battle::getDamage(opponent, player)) + " HP !");
+        info.append(opponent->getName() + " attacked " + player->getName() + ". \n" + player->getName() + " loses " +
+                    std::to_string(damages) + " HP !");
     }
 
     ui->statusLabel->setText(QString::fromStdString(info));
@@ -187,7 +187,7 @@ bool SimulationMenu::playerAttack(int attack)
     // Makes the player attacks the opponent
     int playerDamage = Battle::newAttack(player, opponent, &player->getNewSkill(attack)); // Store damage dealt by player
     qDebug() << "Attack used: " << QString::fromStdString(player->getNewSkill(attack).getAttackName());
-    showNewInfo(player);
+    showNewInfo(player, playerDamage);
     updateOpponentHP();
     opponent->checkHealth();
 
@@ -224,7 +224,7 @@ bool SimulationMenu::opponentAttack(int attack)
     // Makes the opponent attacks the player
     int opponentDamage = Battle::newAttack(opponent, player, &opponent->getNewSkill(attack)); // Store damage dealt by opponent
     qDebug() << "Attack used: " << QString::fromStdString(opponent->getNewSkill(attack).getAttackName());
-    showNewInfo(opponent);
+    showNewInfo(opponent, opponentDamage);
     updatePlayerHP();
     player->checkHealth();
 
