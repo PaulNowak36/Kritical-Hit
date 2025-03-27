@@ -78,8 +78,8 @@ void SimulationMenu::initializeBattle()
     std::array<capacity, 4> moveset = {*attack1, *attack2};
 
     //set up characters with their name, stats and moveset
-    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1, moveset);
-    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1, moveset);
+    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1, moveset, 0);
+    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 15, *attack1, moveset, 0);
 
     //initialize battle with the 2 characters
     battle = new Battle(player, opponent);
@@ -283,25 +283,54 @@ void SimulationMenu::resetBattle()
     ui->opponentHP->setValue(opponentLife);
 }
 
+// check who is the first character to start in that turn
 void SimulationMenu::newCheckAttack(int move)
 {
-    // check if the player is still alive
-    if(playerAttack(move) == false)
-    {
-        resetBattle();  // Reset the game before exiting
-        emit battleFinished();
-        return;
 
-    }
-    // check if the opponent is still alive
-    if(opponentAttack(move) == false)
+    // calculate the attack order of each character
+    Battle::checkAttackOrder(player, opponent);
+    qDebug() << "Player attack order: " << std::to_string(player->getAttackOrder());
+    qDebug() << "Opponent attack order: " << std::to_string(opponent->getAttackOrder());
+
+    //when player attack first
+    if (player->getAttackOrder() < opponent->getAttackOrder())
     {
-        resetBattle();  // Reset the game before exiting
-        emit battleFinished();
-        return;
+        // has player defeated opponent ?
+        if(playerAttack(move) == false)
+        {
+            resetBattle();  // Reset the game before exiting
+            emit battleFinished();
+            return;
+
+        }
+        // has opponent defeated player ?
+        if(opponentAttack(move) == false)
+        {
+            resetBattle();  // Reset the game before exiting
+            emit battleFinished();
+            return;
+        }
     }
+    //when opponent attack first
+    else {
+        // has opponent defeated player ?
+        if(opponentAttack(move) == false)
+        {
+            resetBattle();  // Reset the game before exiting
+            emit battleFinished();
+            return;
+        }
+        // has player defeated opponent ?
+        if(playerAttack(move) == false)
+        {
+            resetBattle();  // Reset the game before exiting
+            emit battleFinished();
+            return;
+
+        }
+    }
+
 }
-
 
 // Performs attack 1 from player's moveset
 void SimulationMenu::on_attackButton_1_clicked()

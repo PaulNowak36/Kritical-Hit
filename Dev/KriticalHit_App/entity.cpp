@@ -15,10 +15,11 @@ Entity::Entity()
 
     std::array<capacity, 4> skills = {capacity(), capacity()};
     setSkillList(skills);
+    setAttackOrder(0);
 }
 
-Entity::Entity(std::string name, int level, int health, int maxHealth, int strength, int defence, int speed, const capacity& skill1, const std::array<capacity, 4>& moves)
-    : _name(name), _health(health), _maxHealth(maxHealth), _strength(strength), _defence(defence), _speed(speed), _level(level), _skill(skill1), _skillList(moves) {}
+Entity::Entity(std::string name, int level, int health, int maxHealth, int strength, int defence, int speed, const capacity& skill1, const std::array<capacity, 4>& moves, int order)
+    : _name(name), _health(health), _maxHealth(maxHealth), _strength(strength), _defence(defence), _speed(speed), _level(level), _skill(skill1), _skillList(moves), _attackOrder(order) {}
 
 void Entity::setName(std::string name)      {_name = name;}
 void Entity::setLevel(int artLevel)       {_level = artLevel;}
@@ -36,6 +37,8 @@ void Entity::setNewSkill(int index, const capacity &skill)
 }
 void Entity::setSkillList(const std::array<capacity, 4> &moveList)  {_skillList = moveList;}
 
+void Entity::setAttackOrder(int turnOrder)        {_attackOrder = turnOrder;}
+
 void Entity::checkHealth()
 {
     if(getHealth() > getMaxHealth())
@@ -47,6 +50,8 @@ void Entity::checkHealth()
         setHealth(0);
     }
 }
+
+
 int Entity::getLevel()             {return _level;}
 int Entity::getHealth()             {return _health;}
 int Entity::getMaxHealth()          {return _maxHealth;}
@@ -64,3 +69,4 @@ capacity &Entity::getNewSkill(int index)
 const std::array<capacity, 4> &Entity::getSkillList() const {return _skillList;}
 
 std::string Entity::getName()       {return _name;}
+int Entity::getAttackOrder()        {return _attackOrder;}

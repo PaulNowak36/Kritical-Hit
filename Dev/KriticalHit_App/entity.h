@@ -18,11 +18,11 @@ protected:
     capacity _skill;
     std::array<capacity, 4> _skillList;
 
-    int attackOrder;
+    int _attackOrder;
 
 public:
     Entity();
-    Entity(std::string, int, int, int, int, int, int, const capacity&, const std::array<capacity, 4>&);
+    Entity(std::string, int, int, int, int, int, int, const capacity&, const std::array<capacity, 4>&, int);
 
     void    setName(std::string);
     std::string  getName();

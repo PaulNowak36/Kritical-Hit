@@ -28,7 +28,6 @@ public:
     void setAttacks();
     void updatePlayerHP();
     void updateOpponentHP();
-    void checkAttack(int);
     void newCheckAttack(int);
     bool playerAttack(int);
     bool opponentAttack(int);
