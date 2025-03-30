@@ -26,7 +26,9 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     initializeBattle();
 
     // Prepare battle info box
-    ui->statusLabel->setText("What will you do ?");
+    ui->statusLabel->setText("HERE WE GO !!!");
+    //QTimer::singleShot(5000, this, SLOT(updateCaption()));
+
 
     // Display data about both characters
     showPlayerInfo();
@@ -43,11 +45,22 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     updatePlayerHP();
     updateOpponentHP();
 
+    // Initialize the timer once in the constructor
+    timerTest = new QTimer(this);
+    timerTest->setSingleShot(true);  // Make the timer single-shot
+    connect(timerTest, &QTimer::timeout, this, &SimulationMenu::startTimer);
+
 }
 
 SimulationMenu::~SimulationMenu()
 {
     delete ui;
+}
+
+void SimulationMenu::startTimer()
+{
+    qDebug() << "Timer out...";
+    ui->statusLabel->setText("What will you do ?");
 }
 
 // Draw an ellipse representing the characters' battle areas
@@ -119,19 +132,23 @@ void SimulationMenu::showOpponentInfo()
 }
 
 //display battle info
-void SimulationMenu::showNewInfo(Entity *attacker, int damages)
+void SimulationMenu::showNewInfo(Entity *attacker, int move)
 {
     std::string info;
 
     if (attacker == player) // If the player is the attacker
     {
-        info.append(player->getName() + " attacked " + opponent->getName() + ". \n" + opponent->getName() + " loses " +
-                    std::to_string(damages) + " HP !");
+        /*info.append(player->getName() + " attacked " + opponent->getName() + ". \n" + opponent->getName() + " loses " +
+                    std::to_string(damages) + " HP !");*/
+
+        info.append(player->getName() + " uses " + player->getNewSkill(move).getAttackName() + " !");
+
     }
     else if (attacker == opponent) // If the opponent is the attacker
     {
-        info.append(opponent->getName() + " attacked " + player->getName() + ". \n" + player->getName() + " loses " +
-                    std::to_string(damages) + " HP !");
+        /*info.append(opponent->getName() + " attacked " + player->getName() + ". \n" + player->getName() + " loses " +
+                    std::to_string(damages) + " HP !");*/
+        info.append(opponent->getName() + " uses " + opponent->getNewSkill(move).getAttackName() + " !");
     }
 
     ui->statusLabel->setText(QString::fromStdString(info));
@@ -170,9 +187,11 @@ void SimulationMenu::updateOpponentHP()
 bool SimulationMenu::playerAttack(int attack)
 {
     // Makes the player attacks the opponent
+
     int playerDamage = Battle::newAttack(player, opponent, &player->getNewSkill(attack)); // Store damage dealt by player
     qDebug() << "Attack used: " << QString::fromStdString(player->getNewSkill(attack).getAttackName());
-    showNewInfo(player, playerDamage);
+    qDebug() << "Damage dealt: " << std::to_string(playerDamage);
+    showNewInfo(player, attack);
     opponent->checkHealth();
     updateOpponentHP();
     //opponent->checkHealth();
@@ -204,7 +223,8 @@ bool SimulationMenu::opponentAttack(int attack)
     // Makes the opponent attacks the player
     int opponentDamage = Battle::newAttack(opponent, player, &opponent->getNewSkill(attack)); // Store damage dealt by opponent
     qDebug() << "Attack used: " << QString::fromStdString(opponent->getNewSkill(attack).getAttackName());
-    showNewInfo(opponent, opponentDamage);
+    qDebug() << "Damage dealt: " << std::to_string(opponentDamage);
+    showNewInfo(opponent, attack);
     player->checkHealth();
     updatePlayerHP();
     //player->checkHealth();
@@ -332,6 +352,9 @@ void SimulationMenu::showEvent(QShowEvent *event)
     if (!scene->items().isEmpty()) {
         scene->update();
     }
+
+    timerTest->start(5000);  // Start the timer after showing the widget
+
 }
 
 

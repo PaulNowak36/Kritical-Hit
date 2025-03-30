@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QGraphicsScene>
 #include <QGraphicsEllipseItem>
+#include <QTimer>
 #include "entity.h"
 #include "battle.h"
 
@@ -34,6 +35,10 @@ public:
     void resetBattle();
     void initializeBattle();
     ~SimulationMenu();
+    QTimer *timerTest;
+
+public slots:
+    void startTimer();
 
 private slots:
     void on_attackButton_1_clicked();
@@ -43,6 +48,7 @@ private slots:
 
 signals:
     void battleFinished();
+    void timesUp();
 
 protected:
     void showEvent(QShowEvent *event) override; // Ensure scene is set up properly

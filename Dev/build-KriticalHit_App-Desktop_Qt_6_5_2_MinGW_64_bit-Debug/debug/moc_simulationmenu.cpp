@@ -41,19 +41,23 @@ static constexpr auto qt_meta_stringdata_CLASSSimulationMenuENDCLASS = QtMocHelp
     "SimulationMenu",
     "battleFinished",
     "",
+    "timesUp",
+    "startTimer",
     "on_attackButton_1_clicked",
     "on_attackButton_2_clicked",
     "on_quitButton_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSSimulationMenuENDCLASS_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[16];
     char stringdata0[15];
     char stringdata1[15];
     char stringdata2[1];
-    char stringdata3[26];
-    char stringdata4[26];
-    char stringdata5[22];
+    char stringdata3[8];
+    char stringdata4[11];
+    char stringdata5[26];
+    char stringdata6[26];
+    char stringdata7[22];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSSimulationMenuENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -62,13 +66,17 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSSimulationMenuENDCLASS_t qt_met
         QT_MOC_LITERAL(0, 14),  // "SimulationMenu"
         QT_MOC_LITERAL(15, 14),  // "battleFinished"
         QT_MOC_LITERAL(30, 0),  // ""
-        QT_MOC_LITERAL(31, 25),  // "on_attackButton_1_clicked"
-        QT_MOC_LITERAL(57, 25),  // "on_attackButton_2_clicked"
-        QT_MOC_LITERAL(83, 21)   // "on_quitButton_clicked"
+        QT_MOC_LITERAL(31, 7),  // "timesUp"
+        QT_MOC_LITERAL(39, 10),  // "startTimer"
+        QT_MOC_LITERAL(50, 25),  // "on_attackButton_1_clicked"
+        QT_MOC_LITERAL(76, 25),  // "on_attackButton_2_clicked"
+        QT_MOC_LITERAL(102, 21)   // "on_quitButton_clicked"
     },
     "SimulationMenu",
     "battleFinished",
     "",
+    "timesUp",
+    "startTimer",
     "on_attackButton_1_clicked",
     "on_attackButton_2_clicked",
     "on_quitButton_clicked"
@@ -83,25 +91,29 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSimulationMenuENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x06,    1 /* Public */,
+       1,    0,   50,    2, 0x06,    1 /* Public */,
+       3,    0,   51,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   39,    2, 0x08,    2 /* Private */,
-       4,    0,   40,    2, 0x08,    3 /* Private */,
-       5,    0,   41,    2, 0x08,    4 /* Private */,
+       4,    0,   52,    2, 0x0a,    3 /* Public */,
+       5,    0,   53,    2, 0x08,    4 /* Private */,
+       6,    0,   54,    2, 0x08,    5 /* Private */,
+       7,    0,   55,    2, 0x08,    6 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -120,6 +132,10 @@ Q_CONSTINIT const QMetaObject SimulationMenu::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<SimulationMenu, std::true_type>,
         // method 'battleFinished'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'timesUp'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'startTimer'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_attackButton_1_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_attackButton_2_clicked'
@@ -137,9 +153,11 @@ void SimulationMenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         (void)_t;
         switch (_id) {
         case 0: _t->battleFinished(); break;
-        case 1: _t->on_attackButton_1_clicked(); break;
-        case 2: _t->on_attackButton_2_clicked(); break;
-        case 3: _t->on_quitButton_clicked(); break;
+        case 1: _t->timesUp(); break;
+        case 2: _t->startTimer(); break;
+        case 3: _t->on_attackButton_1_clicked(); break;
+        case 4: _t->on_attackButton_2_clicked(); break;
+        case 5: _t->on_quitButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -148,6 +166,13 @@ void SimulationMenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
             using _t = void (SimulationMenu::*)();
             if (_t _q_method = &SimulationMenu::battleFinished; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (SimulationMenu::*)();
+            if (_t _q_method = &SimulationMenu::timesUp; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
                 return;
             }
         }
@@ -174,13 +199,13 @@ int SimulationMenu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }
@@ -189,5 +214,11 @@ int SimulationMenu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void SimulationMenu::battleFinished()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void SimulationMenu::timesUp()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 QT_WARNING_POP
