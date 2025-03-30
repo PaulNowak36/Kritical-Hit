@@ -90,7 +90,7 @@ void SimulationMenu::initializeBattle()
 
     //set up characters with their name, stats and moveset
     player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1, moveset, 0);
-    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1, moveset, 0);
+    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 15, *attack1, moveset, 0);
 
     //initialize battle with the 2 characters
     battle = new Battle(player, opponent);
@@ -293,13 +293,17 @@ void SimulationMenu::newCheckAttack(int move)
             return;
 
         }
-        // has opponent defeated player ?
-        if(opponentAttack(move) == false)
-        {
-            resetBattle();  // Reset the game before exiting
-            emit battleFinished();
-            return;
-        }
+
+        // Set up a QTimer to delay the opponent's attack by 2 seconds
+        QTimer::singleShot(2000, this, [this, move]() {
+            // has opponent defeated player ?
+            if(opponentAttack(move) == false)
+            {
+                resetBattle();  // Reset the game before exiting
+                emit battleFinished();
+                return;
+            }
+        });
     }
     //when opponent attack first
     else {
@@ -310,14 +314,17 @@ void SimulationMenu::newCheckAttack(int move)
             emit battleFinished();
             return;
         }
-        // has player defeated opponent ?
-        if(playerAttack(move) == false)
-        {
-            resetBattle();  // Reset the game before exiting
-            emit battleFinished();
-            return;
 
-        }
+        // Set up a QTimer to delay the player's attack by 2 seconds
+        QTimer::singleShot(2000, this, [this, move]() {
+            // has player defeated opponent ?
+            if(playerAttack(move) == false)
+            {
+                resetBattle();  // Reset the game before exiting
+                emit battleFinished();
+                return;
+            }
+        });
     }
 
 }
