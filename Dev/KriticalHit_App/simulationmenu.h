@@ -23,7 +23,6 @@ public:
     void showStatus();
     void showPlayerInfo();
     void showOpponentInfo();
-    void showInfo();
     void showNewInfo(Entity*, int);
     void setAttacks();
     void updatePlayerHP();

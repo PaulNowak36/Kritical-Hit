@@ -43,8 +43,6 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     updatePlayerHP();
     updateOpponentHP();
 
-    qDebug() << "Player actual HP: " << std::to_string(player->getHealth());
-
 }
 
 SimulationMenu::~SimulationMenu()
@@ -79,7 +77,7 @@ void SimulationMenu::initializeBattle()
 
     //set up characters with their name, stats and moveset
     player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1, moveset, 0);
-    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 15, *attack1, moveset, 0);
+    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1, moveset, 0);
 
     //initialize battle with the 2 characters
     battle = new Battle(player, opponent);
@@ -94,13 +92,11 @@ void SimulationMenu::showPlayerInfo()
 
     //Display player HP
     playerInfo.append(player->getName() + "\n\n");
-    if (player->getHealth())
-    {
-        playerInfo.append( "HP: " + std::to_string(player->getHealth()) + " \n" );
+    playerInfo.append( "HP: " + std::to_string(player->getHealth()) + " \n" );
 
-    }
     ui->playerLabel->setText(QString::fromStdString(playerInfo));
     ui->playerLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
 
     //reinitialize info
     playerInfo = "";
@@ -113,11 +109,8 @@ void SimulationMenu::showOpponentInfo()
 
     //Display opponent HP
     opponentInfo.append(opponent->getName() + "\n\n");
-    if (opponent->getHealth())
-    {
-        opponentInfo.append( "HP: " + std::to_string(opponent->getHealth()) + " \n" );
+    opponentInfo.append( "HP: " + std::to_string(opponent->getHealth()) + " \n" );
 
-    }
     ui->opponentLabel->setText(QString::fromStdString(opponentInfo));
     ui->opponentLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
@@ -126,16 +119,6 @@ void SimulationMenu::showOpponentInfo()
 }
 
 //display battle info
-void SimulationMenu::showInfo()
-{
-    std::string info;
-    info.append(player->getName() + " attacked " + opponent->getName() + ". \nOpponent loses " +
-                std::to_string(Battle::getDamage(player, opponent)) + "HP ! \n" +
-                opponent->getName() + " attacked " + player->getName() + ". \nYou lost " +
-                std::to_string(Battle::getDamage(opponent, player)) + " HP !");
-    ui->statusLabel->setText(QString::fromStdString(info));
-}
-
 void SimulationMenu::showNewInfo(Entity *attacker, int damages)
 {
     std::string info;
@@ -170,12 +153,14 @@ void SimulationMenu::setAttacks()
     ui->attackButton_2->setText(QString::fromStdString(attackInfo2));
 }
 
+// Update the player HP bar
 void SimulationMenu::updatePlayerHP()
 {
     int playerLife = (player->getHealth() * 100) / player->getMaxHealth();
     ui->playerHP->setValue(playerLife);
 }
 
+// Update the opponent HP bar
 void SimulationMenu::updateOpponentHP()
 {
     int opponentLife = (opponent->getHealth() * 100) / opponent->getMaxHealth();
@@ -188,18 +173,20 @@ bool SimulationMenu::playerAttack(int attack)
     int playerDamage = Battle::newAttack(player, opponent, &player->getNewSkill(attack)); // Store damage dealt by player
     qDebug() << "Attack used: " << QString::fromStdString(player->getNewSkill(attack).getAttackName());
     showNewInfo(player, playerDamage);
-    updateOpponentHP();
     opponent->checkHealth();
+    updateOpponentHP();
+    //opponent->checkHealth();
+
+    // Update opponent info
+    showOpponentInfo();
+
+    // Display damages for debug
+    //qDebug() << "Player dealt: " << playerDamage << " damage.";
+    //qDebug() << "Opponent actual HP: " << std::to_string(opponent->getHealth());
 
     // Checks if the opponent is still alive
     if (opponent->getHealth() > 0)
     {
-        // Update opponent info
-        showOpponentInfo();
-        //showInfo(); // Update battle info
-
-        // Display damages for debug
-        qDebug() << "Player dealt: " << playerDamage << " damage.";
 
         // return opponent's state
         return true;
@@ -208,13 +195,6 @@ bool SimulationMenu::playerAttack(int attack)
     {// the opponent has no more HP
         //End the battle
         QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
-        qDebug() << "Player actual HP: " << std::to_string(player->getHealth());
-        delete player;
-        player = nullptr;
-        delete opponent;
-        opponent = nullptr;
-        delete battle;
-        battle = nullptr;
         return false;
     }
 }
@@ -225,20 +205,20 @@ bool SimulationMenu::opponentAttack(int attack)
     int opponentDamage = Battle::newAttack(opponent, player, &opponent->getNewSkill(attack)); // Store damage dealt by opponent
     qDebug() << "Attack used: " << QString::fromStdString(opponent->getNewSkill(attack).getAttackName());
     showNewInfo(opponent, opponentDamage);
-    updatePlayerHP();
     player->checkHealth();
+    updatePlayerHP();
+    //player->checkHealth();
+
+    showPlayerInfo();
+
+    // Display damages for debug
+    //qDebug() << "Opponent dealt: " << opponentDamage << " damage.";
+    //qDebug() << "Player actual HP: " << std::to_string(player->getHealth());
+
 
     // Checks if the player is still alive
     if (player->getHealth() > 0)
     {
-        // Update player info
-        showPlayerInfo();
-        //showInfo(); // Update battle info
-
-        // Display damages for debug
-        qDebug() << "Opponent dealt: " << opponentDamage << " damage.";
-        qDebug() << "Player actual HP: " << std::to_string(player->getHealth());
-
         // return player's state
         return true;
     }
@@ -246,12 +226,6 @@ bool SimulationMenu::opponentAttack(int attack)
     {// the player has no more HP
         //End the battle
         QMessageBox::information(0, "You lost!", QString::fromStdString("GAME OVER"));
-        delete player;
-        player = nullptr;
-        delete opponent;
-        opponent = nullptr;
-        delete battle;
-        battle = nullptr;
         return false;
     }
 }
@@ -276,8 +250,6 @@ void SimulationMenu::resetBattle()
     // Reset characters to full HP
     int playerLife = (player->getMaxHealth() * 100) / player->getMaxHealth(); // Set player HP to max HP
     ui->playerHP->setValue(playerLife);
-    qDebug() << "Player HP must be set to MAX ";
-    qDebug() << "Player actual HP: " << std::to_string(player->getHealth());
 
     int opponentLife = (opponent->getMaxHealth() * 100) / opponent->getMaxHealth(); // Set opponent HP to max HP
     ui->opponentHP->setValue(opponentLife);
@@ -289,8 +261,6 @@ void SimulationMenu::newCheckAttack(int move)
 
     // calculate the attack order of each character
     Battle::checkAttackOrder(player, opponent);
-    qDebug() << "Player attack order: " << std::to_string(player->getAttackOrder());
-    qDebug() << "Opponent attack order: " << std::to_string(opponent->getAttackOrder());
 
     //when player attack first
     if (player->getAttackOrder() < opponent->getAttackOrder())
