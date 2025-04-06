@@ -42,8 +42,8 @@ static constexpr auto qt_meta_stringdata_CLASSTemplateMainMenuENDCLASS = QtMocHe
     "LoginMenuClicked",
     "",
     "on_logOut_Button2_clicked",
-    "on_logOut_Button2_2_clicked",
-    "moveTemplateMenu"
+    "moveTemplateMenu",
+    "on_simulation_Button_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSTemplateMainMenuENDCLASS_t {
@@ -52,8 +52,8 @@ struct qt_meta_stringdata_CLASSTemplateMainMenuENDCLASS_t {
     char stringdata1[17];
     char stringdata2[1];
     char stringdata3[26];
-    char stringdata4[28];
-    char stringdata5[17];
+    char stringdata4[17];
+    char stringdata5[29];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSTemplateMainMenuENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -63,15 +63,15 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSTemplateMainMenuENDCLASS_t qt_m
         QT_MOC_LITERAL(17, 16),  // "LoginMenuClicked"
         QT_MOC_LITERAL(34, 0),  // ""
         QT_MOC_LITERAL(35, 25),  // "on_logOut_Button2_clicked"
-        QT_MOC_LITERAL(61, 27),  // "on_logOut_Button2_2_clicked"
-        QT_MOC_LITERAL(89, 16)   // "moveTemplateMenu"
+        QT_MOC_LITERAL(61, 16),  // "moveTemplateMenu"
+        QT_MOC_LITERAL(78, 28)   // "on_simulation_Button_clicked"
     },
     "TemplateMainMenu",
     "LoginMenuClicked",
     "",
     "on_logOut_Button2_clicked",
-    "on_logOut_Button2_2_clicked",
-    "moveTemplateMenu"
+    "moveTemplateMenu",
+    "on_simulation_Button_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -122,9 +122,9 @@ Q_CONSTINIT const QMetaObject TemplateMainMenu::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_logOut_Button2_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_logOut_Button2_2_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'moveTemplateMenu'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_simulation_Button_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -138,8 +138,8 @@ void TemplateMainMenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         switch (_id) {
         case 0: _t->LoginMenuClicked(); break;
         case 1: _t->on_logOut_Button2_clicked(); break;
-        case 2: _t->on_logOut_Button2_2_clicked(); break;
-        case 3: _t->moveTemplateMenu(); break;
+        case 2: _t->moveTemplateMenu(); break;
+        case 3: _t->on_simulation_Button_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

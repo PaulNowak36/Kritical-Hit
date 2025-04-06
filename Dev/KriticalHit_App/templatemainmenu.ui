@@ -92,7 +92,7 @@ color: rgb(0, 0, 0);</string>
       <string>Save</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="logOut_Button2_2">
+    <widget class="QPushButton" name="simulation_Button">
      <property name="geometry">
       <rect>
        <x>360</x>

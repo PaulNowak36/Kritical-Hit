@@ -36,13 +36,19 @@ void TemplateMainMenu::on_logOut_Button2_clicked()
     ui->stackedWidget3->setCurrentIndex(0);
 }
 
-void TemplateMainMenu::on_logOut_Button2_2_clicked()
+/*void TemplateMainMenu::on_logOut_Button2_2_clicked()
 {
     ui->stackedWidget3->setCurrentIndex(1);
-}
+}*/
 
 void TemplateMainMenu::moveTemplateMenu()
 {
     ui->stackedWidget3->setCurrentIndex(0);
+}
+
+
+void TemplateMainMenu::on_simulation_Button_clicked()
+{
+    ui->stackedWidget3->setCurrentIndex(1);
 }
 

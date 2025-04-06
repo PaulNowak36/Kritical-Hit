@@ -322,6 +322,9 @@ release/moc_mainwindow.cpp: ../KriticalHit_App/mainwindow.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainterpath.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qbasictimer.h \
 		../KriticalHit_App/entity.h \
 		../KriticalHit_App/capacity.h \
 		../KriticalHit_App/battle.h \
@@ -501,6 +504,9 @@ release/moc_newtemplatemenu.cpp: ../KriticalHit_App/newtemplatemenu.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainterpath.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qbasictimer.h \
 		../KriticalHit_App/entity.h \
 		../KriticalHit_App/capacity.h \
 		../KriticalHit_App/battle.h \
@@ -678,6 +684,9 @@ release/moc_simulationmenu.cpp: ../KriticalHit_App/simulationmenu.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainterpath.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qbasictimer.h \
 		../KriticalHit_App/entity.h \
 		../KriticalHit_App/capacity.h \
 		../KriticalHit_App/battle.h \
@@ -856,6 +865,9 @@ release/moc_templatemainmenu.cpp: ../KriticalHit_App/templatemainmenu.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainterpath.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qbasictimer.h \
 		../KriticalHit_App/entity.h \
 		../KriticalHit_App/capacity.h \
 		../KriticalHit_App/battle.h \
@@ -1078,6 +1090,9 @@ release/main.o: ../KriticalHit_App/main.cpp ../KriticalHit_App/mainwindow.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainterpath.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qbasictimer.h \
 		../KriticalHit_App/entity.h \
 		../KriticalHit_App/capacity.h \
 		../KriticalHit_App/battle.h \
@@ -1298,6 +1313,9 @@ release/mainwindow.o: ../KriticalHit_App/mainwindow.cpp ../KriticalHit_App/mainw
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainterpath.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qbasictimer.h \
 		../KriticalHit_App/entity.h \
 		../KriticalHit_App/capacity.h \
 		../KriticalHit_App/battle.h \
@@ -1538,6 +1556,9 @@ release/newtemplatemenu.o: ../KriticalHit_App/newtemplatemenu.cpp ../KriticalHit
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainterpath.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qbasictimer.h \
 		../KriticalHit_App/entity.h \
 		../KriticalHit_App/capacity.h \
 		../KriticalHit_App/battle.h \
@@ -1753,6 +1774,9 @@ release/simulationmenu.o: ../KriticalHit_App/simulationmenu.cpp ../KriticalHit_A
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainterpath.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qbasictimer.h \
 		../KriticalHit_App/entity.h \
 		../KriticalHit_App/capacity.h \
 		../KriticalHit_App/battle.h \
@@ -1969,6 +1993,9 @@ release/templatemainmenu.o: ../KriticalHit_App/templatemainmenu.cpp ../KriticalH
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainterpath.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QTimer \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qbasictimer.h \
 		../KriticalHit_App/entity.h \
 		../KriticalHit_App/capacity.h \
 		../KriticalHit_App/battle.h \

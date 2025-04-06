@@ -22,9 +22,10 @@ signals:
 
 private slots:
     void on_logOut_Button2_clicked();
-    void on_logOut_Button2_2_clicked();
 
     void moveTemplateMenu();
+
+    void on_simulation_Button_clicked();
 
 private:
     Ui::TemplateMainMenu *ui;

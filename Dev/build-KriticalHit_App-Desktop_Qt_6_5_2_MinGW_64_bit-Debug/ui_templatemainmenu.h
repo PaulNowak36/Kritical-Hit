@@ -28,7 +28,7 @@ public:
     QPushButton *newTemplate_Button2;
     QPushButton *loadTemplate_Button2;
     QPushButton *saveTemplate_Button;
-    QPushButton *logOut_Button2_2;
+    QPushButton *simulation_Button;
     QWidget *page_2;
 
     void setupUi(QWidget *TemplateMainMenu)
@@ -58,9 +58,9 @@ public:
         saveTemplate_Button = new QPushButton(templatePokemon_page);
         saveTemplate_Button->setObjectName("saveTemplate_Button");
         saveTemplate_Button->setGeometry(QRect(10, 210, 91, 81));
-        logOut_Button2_2 = new QPushButton(templatePokemon_page);
-        logOut_Button2_2->setObjectName("logOut_Button2_2");
-        logOut_Button2_2->setGeometry(QRect(360, 200, 121, 51));
+        simulation_Button = new QPushButton(templatePokemon_page);
+        simulation_Button->setObjectName("simulation_Button");
+        simulation_Button->setGeometry(QRect(360, 200, 121, 51));
         stackedWidget3->addWidget(templatePokemon_page);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
@@ -79,7 +79,7 @@ public:
         newTemplate_Button2->setText(QCoreApplication::translate("TemplateMainMenu", "New +", nullptr));
         loadTemplate_Button2->setText(QCoreApplication::translate("TemplateMainMenu", "Load +", nullptr));
         saveTemplate_Button->setText(QCoreApplication::translate("TemplateMainMenu", "Save", nullptr));
-        logOut_Button2_2->setText(QCoreApplication::translate("TemplateMainMenu", "Test Battle Template", nullptr));
+        simulation_Button->setText(QCoreApplication::translate("TemplateMainMenu", "Test Battle Template", nullptr));
     } // retranslateUi
 
 };
