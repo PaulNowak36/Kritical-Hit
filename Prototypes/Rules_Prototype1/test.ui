@@ -35,7 +35,7 @@ color: rgb(255, 0, 0);</string>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>120</x>
      <y>190</y>
      <width>171</width>
      <height>91</height>
@@ -53,7 +53,7 @@ font: 900 20pt &quot;Segoe UI&quot;;</string>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>440</x>
      <y>190</y>
      <width>171</width>
      <height>91</height>
@@ -71,7 +71,7 @@ font: 900 20pt &quot;Segoe UI&quot;;</string>
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>290</x>
      <y>320</y>
      <width>171</width>
      <height>91</height>
@@ -84,6 +84,24 @@ font: 900 20pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
     <string>Button 3</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="return_Button">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>50</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+background-color: rgb(255, 85, 0);
+font: 900 20pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Return</string>
    </property>
   </widget>
  </widget>

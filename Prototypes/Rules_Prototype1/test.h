@@ -15,6 +15,12 @@ public:
     explicit Test(QWidget *parent = nullptr);
     ~Test();
 
+private slots:
+    void on_return_Button_clicked();
+
+signals:
+    void returnMenu();
+
 private:
     Ui::Test *ui;
 };

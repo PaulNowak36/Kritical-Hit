@@ -15,6 +15,12 @@ public:
     explicit Rules(QWidget *parent = nullptr);
     ~Rules();
 
+signals:
+    void rulesConfirmed();
+
+private slots:
+    void on_Confirm_Button_clicked();
+
 private:
     Ui::Rules *ui;
 };

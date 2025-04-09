@@ -12,3 +12,9 @@ Test::~Test()
 {
     delete ui;
 }
+
+void Test::on_return_Button_clicked()
+{
+    emit returnMenu();
+}
+

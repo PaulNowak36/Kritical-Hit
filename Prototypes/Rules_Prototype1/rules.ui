@@ -35,7 +35,7 @@ color: rgb(255, 0, 0);</string>
     <string>Rules MENU</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="Cofirm_Button">
+  <widget class="QPushButton" name="Confirm_Button">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -51,6 +51,24 @@ font: 900 20pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
     <string>Confirm</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>200</y>
+     <width>251</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 85, 255);
+color: rgb(255, 255, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Activate Button 3</string>
    </property>
   </widget>
  </widget>
