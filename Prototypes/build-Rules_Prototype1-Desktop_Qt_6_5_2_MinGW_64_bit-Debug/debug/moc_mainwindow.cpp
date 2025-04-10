@@ -46,11 +46,13 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "moveMainMenu",
     "openDatabase",
     "QSqlQuery",
-    "getDatabaseInfo"
+    "getDatabaseInfo",
+    "getDatabase",
+    "QSqlDatabase"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[18];
+    uint offsetsAndSizes[22];
     char stringdata0[11];
     char stringdata1[19];
     char stringdata2[1];
@@ -60,6 +62,8 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata6[13];
     char stringdata7[10];
     char stringdata8[16];
+    char stringdata9[12];
+    char stringdata10[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -73,7 +77,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(78, 12),  // "moveMainMenu"
         QT_MOC_LITERAL(91, 12),  // "openDatabase"
         QT_MOC_LITERAL(104, 9),  // "QSqlQuery"
-        QT_MOC_LITERAL(114, 15)   // "getDatabaseInfo"
+        QT_MOC_LITERAL(114, 15),  // "getDatabaseInfo"
+        QT_MOC_LITERAL(130, 11),  // "getDatabase"
+        QT_MOC_LITERAL(142, 12)   // "QSqlDatabase"
     },
     "MainWindow",
     "handleDatabaseCall",
@@ -83,7 +89,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "moveMainMenu",
     "openDatabase",
     "QSqlQuery",
-    "getDatabaseInfo"
+    "getDatabaseInfo",
+    "getDatabase",
+    "QSqlDatabase"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -95,7 +103,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -103,12 +111,13 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   50,    2, 0x0a,    1 /* Public */,
-       3,    0,   51,    2, 0x08,    2 /* Private */,
-       4,    0,   52,    2, 0x08,    3 /* Private */,
-       5,    0,   53,    2, 0x08,    4 /* Private */,
-       6,    0,   54,    2, 0x08,    5 /* Private */,
-       8,    1,   55,    2, 0x08,    6 /* Private */,
+       1,    0,   56,    2, 0x0a,    1 /* Public */,
+       3,    0,   57,    2, 0x08,    2 /* Private */,
+       4,    0,   58,    2, 0x08,    3 /* Private */,
+       5,    0,   59,    2, 0x08,    4 /* Private */,
+       6,    0,   60,    2, 0x08,    5 /* Private */,
+       8,    1,   61,    2, 0x08,    6 /* Private */,
+       9,    0,   64,    2, 0x08,    8 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -117,6 +126,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     0x80000000 | 7,
     QMetaType::Void, 0x80000000 | 7,    2,
+    0x80000000 | 10,
 
        0        // eod
 };
@@ -142,7 +152,9 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QSqlQuery, std::false_type>,
         // method 'getDatabaseInfo'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QSqlQuery, std::false_type>
+        QtPrivate::TypeAndForceComplete<QSqlQuery, std::false_type>,
+        // method 'getDatabase'
+        QtPrivate::TypeAndForceComplete<QSqlDatabase, std::false_type>
     >,
     nullptr
 } };
@@ -160,6 +172,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: { QSqlQuery _r = _t->openDatabase();
             if (_a[0]) *reinterpret_cast< QSqlQuery*>(_a[0]) = std::move(_r); }  break;
         case 5: _t->getDatabaseInfo((*reinterpret_cast< std::add_pointer_t<QSqlQuery>>(_a[1]))); break;
+        case 6: { QSqlDatabase _r = _t->getDatabase();
+            if (_a[0]) *reinterpret_cast< QSqlDatabase*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
     }
@@ -184,13 +198,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

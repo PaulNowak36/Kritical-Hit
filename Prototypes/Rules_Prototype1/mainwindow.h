@@ -32,6 +32,7 @@ private slots:
     void moveMainMenu();
     QSqlQuery openDatabase();
     void getDatabaseInfo(QSqlQuery);
+    QSqlDatabase getDatabase();
 
 private:
     Ui::MainWindow *ui;

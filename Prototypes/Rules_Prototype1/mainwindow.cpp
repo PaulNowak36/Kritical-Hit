@@ -10,7 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->insertWidget(2, &_testInfo);
 
     connect(&_rulesInfo, SIGNAL(rulesConfirmed()), this, SLOT(moveMainMenu()));
-    connect(&_rulesInfo, SIGNAL(databaseCalled()), this, SLOT(handleDatabaseCall()));
+    //connect(&_rulesInfo, SIGNAL(databaseCalled()), this, SLOT(handleDatabaseCall()));
+    connect(&_rulesInfo, SIGNAL(newDatabaseCalled()), this, SLOT(getDatabase()));
     connect(&_testInfo, SIGNAL(returnMenu()), this, SLOT(moveMainMenu()));
 
     QDir databasePath;
@@ -33,6 +34,11 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+QSqlDatabase MainWindow::getDatabase()
+{
+    return DB_Connection;
 }
 
 void MainWindow::handleDatabaseCall()

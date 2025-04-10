@@ -2,6 +2,10 @@
 #define RULES_H
 
 #include <QWidget>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QDir>
 
 namespace Ui {
 class Rules;
@@ -20,10 +24,13 @@ protected:
 
 signals:
     void rulesConfirmed();
-    void databaseCalled();
+    QSqlDatabase databaseCalled();
+    void newDatabaseCalled();
 
 private slots:
     void on_Confirm_Button_clicked();
+    QSqlQuery newOpenDatabase(QSqlDatabase);
+    void newGetDatabaseInfo(QSqlQuery);
 
 private:
     Ui::Rules *ui;
