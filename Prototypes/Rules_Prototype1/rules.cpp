@@ -8,11 +8,18 @@ Rules::Rules(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
 }
 
 Rules::~Rules()
 {
     delete ui;
+}
+
+void Rules::showEvent(QShowEvent *event)
+{// the signal will be emitted every time the Rules widget is shown in the QStackedWidget
+    QWidget::showEvent(event); // Call base implementation
+    emit databaseCalled();
 }
 
 void Rules::on_Confirm_Button_clicked()

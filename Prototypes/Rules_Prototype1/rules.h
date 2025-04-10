@@ -15,8 +15,12 @@ public:
     explicit Rules(QWidget *parent = nullptr);
     ~Rules();
 
+protected:
+    void showEvent(QShowEvent *event) override;
+
 signals:
     void rulesConfirmed();
+    void databaseCalled();
 
 private slots:
     void on_Confirm_Button_clicked();

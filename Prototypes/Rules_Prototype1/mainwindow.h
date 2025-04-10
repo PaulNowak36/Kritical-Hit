@@ -8,6 +8,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDir>
+#include <utility>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,11 +22,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void handleDatabaseCall();
+
 private slots:
     void on_rules_Button_clicked();
 
     void on_test_Button_clicked();
     void moveMainMenu();
+    QSqlQuery openDatabase();
+    void getDatabaseInfo(QSqlQuery);
 
 private:
     Ui::MainWindow *ui;

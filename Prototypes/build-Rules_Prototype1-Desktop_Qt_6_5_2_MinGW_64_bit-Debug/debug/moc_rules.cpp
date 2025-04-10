@@ -41,15 +41,17 @@ static constexpr auto qt_meta_stringdata_CLASSRulesENDCLASS = QtMocHelpers::stri
     "Rules",
     "rulesConfirmed",
     "",
+    "databaseCalled",
     "on_Confirm_Button_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSRulesENDCLASS_t {
-    uint offsetsAndSizes[8];
+    uint offsetsAndSizes[10];
     char stringdata0[6];
     char stringdata1[15];
     char stringdata2[1];
-    char stringdata3[26];
+    char stringdata3[15];
+    char stringdata4[26];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSRulesENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -58,11 +60,13 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSRulesENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(0, 5),  // "Rules"
         QT_MOC_LITERAL(6, 14),  // "rulesConfirmed"
         QT_MOC_LITERAL(21, 0),  // ""
-        QT_MOC_LITERAL(22, 25)   // "on_Confirm_Button_clicked"
+        QT_MOC_LITERAL(22, 14),  // "databaseCalled"
+        QT_MOC_LITERAL(37, 25)   // "on_Confirm_Button_clicked"
     },
     "Rules",
     "rulesConfirmed",
     "",
+    "databaseCalled",
     "on_Confirm_Button_clicked"
 };
 #undef QT_MOC_LITERAL
@@ -75,20 +79,22 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSRulesENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   26,    2, 0x06,    1 /* Public */,
+       1,    0,   32,    2, 0x06,    1 /* Public */,
+       3,    0,   33,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   27,    2, 0x08,    2 /* Private */,
+       4,    0,   34,    2, 0x08,    3 /* Private */,
 
  // signals: parameters
+    QMetaType::Void,
     QMetaType::Void,
 
  // slots: parameters
@@ -108,6 +114,8 @@ Q_CONSTINIT const QMetaObject Rules::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<Rules, std::true_type>,
         // method 'rulesConfirmed'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'databaseCalled'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_Confirm_Button_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
@@ -121,7 +129,8 @@ void Rules::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         (void)_t;
         switch (_id) {
         case 0: _t->rulesConfirmed(); break;
-        case 1: _t->on_Confirm_Button_clicked(); break;
+        case 1: _t->databaseCalled(); break;
+        case 2: _t->on_Confirm_Button_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -130,6 +139,13 @@ void Rules::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
             using _t = void (Rules::*)();
             if (_t _q_method = &Rules::rulesConfirmed; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (Rules::*)();
+            if (_t _q_method = &Rules::databaseCalled; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
                 return;
             }
         }
@@ -156,13 +172,13 @@ int Rules::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }
@@ -171,5 +187,11 @@ int Rules::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void Rules::rulesConfirmed()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void Rules::databaseCalled()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 QT_WARNING_POP
