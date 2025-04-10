@@ -31,9 +31,11 @@ private slots:
     void on_Confirm_Button_clicked();
     QSqlQuery newOpenDatabase(QSqlDatabase);
     void newGetDatabaseInfo(QSqlQuery);
+    void changeRule(QSqlQuery);
 
 private:
     Ui::Rules *ui;
+    //QSqlDatabase *ules_DB;
 };
 
 #endif // RULES_H

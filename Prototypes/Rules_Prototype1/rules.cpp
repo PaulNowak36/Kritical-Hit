@@ -20,12 +20,14 @@ void Rules::showEvent(QShowEvent *event)
 {// the signal will be emitted every time the Rules widget is shown in the QStackedWidget
     QWidget::showEvent(event); // Call base implementation
 
-    QSqlDatabase rulesDB = emit databaseCalled();
-    newGetDatabaseInfo(newOpenDatabase(rulesDB));
+    QSqlDatabase rules_DB = emit databaseCalled();
+    newGetDatabaseInfo(newOpenDatabase(rules_DB));
 }
 
 void Rules::on_Confirm_Button_clicked()
 {
+    /*QSqlQuery query(*rules_DB);
+    changeRule(query);*/
 
     if(ui->checkBox->isChecked())
     {
@@ -69,5 +71,27 @@ void Rules::newGetDatabaseInfo(QSqlQuery query)
         qDebug() << "ID:" << ID;
         qDebug() << "Rule 1 activated:" << Rule1;
     }
+}
+
+void Rules::changeRule(QSqlQuery query)
+{
+    bool Rule1 = query.value("RULE1").toBool();
+
+    query.prepare("UPDATE RULES_SET SET RULE1=:Rule1");
+
+    if(Rule1){
+        ui->checkBox->setCheckState(Qt::Checked);
+    } else {
+        ui->checkBox->setCheckState(Qt::Unchecked);
+    }
+
+    if (query.exec()) {
+        QSqlDatabase::database().commit();
+        qDebug() << "Data updated successfully!";
+    } else {
+        QSqlDatabase::database().rollback();
+        qDebug() << "Update failed, transaction rolled back: " << query.lastError();
+    }
+
 }
 
