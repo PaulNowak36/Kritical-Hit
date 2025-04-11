@@ -15,6 +15,9 @@ public:
     explicit Test(QWidget *parent = nullptr);
     ~Test();
 
+protected:
+    void showEvent(QShowEvent *event) override;
+
 private slots:
     void on_return_Button_clicked();
 

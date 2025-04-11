@@ -3,41 +3,26 @@
 #include "data.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    data::setFullPath(QDir().currentPath() + "/Rules.db");
+    data::openDatabase();
+
     ui->stackedWidget->insertWidget(1, &_rulesInfo);
     ui->stackedWidget->insertWidget(2, &_testInfo);
 
     connect(&_rulesInfo, SIGNAL(rulesConfirmed()), this, SLOT(moveMainMenu()));
-    //connect(&_rulesInfo, SIGNAL(databaseCalled()), this, SLOT(handleDatabaseCall()));
-    connect(&_rulesInfo, SIGNAL(newDatabaseCalled()), this, SLOT(getDatabase()));
     connect(&_testInfo, SIGNAL(returnMenu()), this, SLOT(moveMainMenu()));
-
-    QDir databasePath;
-    QString path = databasePath.currentPath()+"/Rules.db";
-
-    qDebug() << path;
-    DB_Connection = QSqlDatabase::addDatabase("QSQLITE");
-    DB_Connection.setDatabaseName(path);
-    if(DB_Connection.open())
-    {
-        qDebug() << "Character Database is connected.";
-    }
-    else
-    {
-        qDebug() << "Character Database is not connected.";
-        qDebug() << "Error : " << DB_Connection.lastError();
-    }
 }
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-QSqlDatabase MainWindow::getDatabase()
+/*QSqlDatabase MainWindow::getDatabase()
 {
     return DB_Connection;
 }
@@ -45,7 +30,7 @@ QSqlDatabase MainWindow::getDatabase()
 void MainWindow::handleDatabaseCall()
 {
     getDatabaseInfo(openDatabase());
-}
+}*/
 
 void MainWindow::on_rules_Button_clicked()
 {
@@ -61,8 +46,11 @@ void MainWindow::on_test_Button_clicked()
 void MainWindow::moveMainMenu()
 {
     ui->stackedWidget->setCurrentIndex(0);
-    DB_Connection.close();
+    //DB_Connection.close();
+    data::closeDatabase();
 }
+
+/*
 
 QSqlQuery MainWindow::openDatabase()
 {
@@ -93,5 +81,5 @@ void MainWindow::getDatabaseInfo(QSqlQuery query)
         qDebug() << "Rule 1 activated:" << Rule1;
     }
 
-}
+}*/
 

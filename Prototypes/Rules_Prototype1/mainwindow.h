@@ -23,21 +23,20 @@ public:
     ~MainWindow();
 
 public slots:
-    void handleDatabaseCall();
+    //void handleDatabaseCall();
 
 private slots:
     void on_rules_Button_clicked();
-
     void on_test_Button_clicked();
     void moveMainMenu();
-    QSqlQuery openDatabase();
-    void getDatabaseInfo(QSqlQuery);
-    QSqlDatabase getDatabase();
+    //QSqlQuery openDatabase();
+    //void getDatabaseInfo(QSqlQuery);
+    //QSqlDatabase getDatabase();
 
 private:
     Ui::MainWindow *ui;
     Rules _rulesInfo;
     Test _testInfo;
-    QSqlDatabase DB_Connection;
+    //QSqlDatabase DB_Connection;
 };
 #endif // MAINWINDOW_H

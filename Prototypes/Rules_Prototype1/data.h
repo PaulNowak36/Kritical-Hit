@@ -1,33 +1,29 @@
 #ifndef DATA_H
 #define DATA_H
+
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDir>
-#include <utility>
 #include <QDebug>
-
 
 class data
 {
-
-protected:
-    QSqlDatabase rules_DB;
-    QSqlQuery db_query;
-    QDir _databasePath;
-    QString _fullPath;
+private:
+    static QSqlDatabase rules_DB;
+    static QString fullPath;
 
 public:
-    data();
-    data(QString);
+    data();  // constructor just sets the path
 
-    void setFullPath(QString);
-    QString getFullPath();
+    static void setFullPath(const QString &path);
+    static QString getFullPath();
 
-    void setUpDatabase();
+    static bool openDatabase();
+    static void closeDatabase();
 
-
-
+    static bool getRule1();               // Read the value of RULE1
+    static bool setRule1(bool value);     // Update the value of RULE1
 };
 
 #endif // DATA_H

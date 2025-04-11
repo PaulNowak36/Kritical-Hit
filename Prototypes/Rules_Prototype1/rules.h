@@ -24,14 +24,14 @@ protected:
 
 signals:
     void rulesConfirmed();
-    QSqlDatabase databaseCalled();
-    void newDatabaseCalled();
+    //QSqlDatabase databaseCalled();
+    //void newDatabaseCalled();
 
 private slots:
     void on_Confirm_Button_clicked();
-    QSqlQuery newOpenDatabase(QSqlDatabase);
-    void newGetDatabaseInfo(QSqlQuery);
-    void changeRule(QSqlQuery);
+    //QSqlQuery newOpenDatabase(QSqlDatabase);
+    //void newGetDatabaseInfo(QSqlQuery);
+    //void changeRule(QSqlQuery);
 
 private:
     Ui::Rules *ui;

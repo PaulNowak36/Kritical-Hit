@@ -816,7 +816,8 @@ release/data.o: ../Rules_Prototype1/data.cpp ../Rules_Prototype1/data.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qfileinfo.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qdatetime.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/data.o ../Rules_Prototype1/data.cpp
 
 release/main.o: ../Rules_Prototype1/main.cpp ../Rules_Prototype1/mainwindow.h \
@@ -1242,7 +1243,9 @@ release/mainwindow.o: ../Rules_Prototype1/mainwindow.cpp ../Rules_Prototype1/mai
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStackedWidget \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstackedwidget.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStatusBar \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstatusbar.h
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstatusbar.h \
+		../Rules_Prototype1/data.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/mainwindow.o ../Rules_Prototype1/mainwindow.cpp
 
 release/rules.o: ../Rules_Prototype1/rules.cpp ../Rules_Prototype1/rules.h \
@@ -1453,6 +1456,7 @@ release/rules.o: ../Rules_Prototype1/rules.cpp ../Rules_Prototype1/rules.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		../Rules_Prototype1/data.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/rules.o ../Rules_Prototype1/rules.cpp
 
@@ -1645,7 +1649,25 @@ release/test.o: ../Rules_Prototype1/test.cpp ../Rules_Prototype1/test.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../Rules_Prototype1/data.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QDir \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdir.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfile.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfiledevice.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfileinfo.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/test.o ../Rules_Prototype1/test.cpp
 
 release/qrc_qmake_qmake_qm_files.o: release/qrc_qmake_qmake_qm_files.cpp 
