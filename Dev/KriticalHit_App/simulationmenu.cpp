@@ -21,6 +21,7 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     //Set up the pushButtons
     ui->attackButton_1->setProperty("class", "templateButton");
     ui->attackButton_2->setProperty("class", "templateButton");
+    ui->attackButton_3->setProperty("class", "templateButton");
     ui->quitButton->setProperty("class", "templateButton");
 
     initializeBattle();
@@ -31,8 +32,10 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
 
 
     // Display data about both characters
-    showPlayerInfo();
-    showOpponentInfo();
+    showEntityInfo(player, ui->playerLabel);
+    showEntityInfo(opponent, ui->opponentLabel);
+
+
     setAttacks(); //Display moveset data
 
     // Create a scene and attach it to the 2 QGraphicsViews
@@ -42,8 +45,10 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     drawEllipse(scene); // display ellipses for player and opponent battle areas
 
     // set up Characters with full HP
-    updatePlayerHP();
-    updateOpponentHP();
+    //updatePlayerHP();
+    //updateOpponentHP();
+    newUpdateHP(player, ui->playerHP);
+    newUpdateHP(opponent, ui->opponentHP);
 
     // Initialize the timer once in the constructor
     timerTest = new QTimer(this);
@@ -77,58 +82,42 @@ void SimulationMenu::drawEllipse(QGraphicsScene *ellipse)
     ellipse->addEllipse(20, 20, 330, 80, borderPen, fillBrush);
 }
 
+void SimulationMenu::showEntityInfo(Entity* entity, QLabel* label)
+{
+    std::string info;
+
+    info.append(entity->getName() + "\n\n");
+    info.append("HP: " + std::to_string(entity->getHealth()) + " \n");
+
+    label->setText(QString::fromStdString(info));
+    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+}
+
+
 
 void SimulationMenu::initializeBattle()
 {// set up characters and their moveset
 
     // set up moves
-    attack1 = new capacity("Pound", 40);
-    attack2 = new capacity("Take Down", 90);
+    //attack1 = new capacity("Pound", 40);
+    //attack2 = new capacity("Take Down", 90);
+
+    attack1 = new capacity("Pound", 40, MoveCategory::Physical, {EffectType::Attack});
+    attack2 = new capacity("Take Down", 90, MoveCategory::Physical, {EffectType::Attack});
+    attack3 = new capacity("Recover", 0, MoveCategory::Status, {EffectType::Heal});
+    attack3->setHealPercent(50);
 
     //set up moveset with the new moves
-    std::array<capacity, 4> moveset = {*attack1, *attack2};
+    std::array<capacity, 4> moveset = {*attack1, *attack2, *attack3};
 
     //set up characters with their name, stats and moveset
     player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1, moveset, 0);
-    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 15, *attack1, moveset, 0);
+    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1, moveset, 0);
 
     //initialize battle with the 2 characters
     battle = new Battle(player, opponent);
 
 
-}
-
-// Display HP data for player
-void SimulationMenu::showPlayerInfo()
-{
-    std::string playerInfo;
-
-    //Display player HP
-    playerInfo.append(player->getName() + "\n\n");
-    playerInfo.append( "HP: " + std::to_string(player->getHealth()) + " \n" );
-
-    ui->playerLabel->setText(QString::fromStdString(playerInfo));
-    ui->playerLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-
-
-    //reinitialize info
-    playerInfo = "";
-}
-
-// Display HP data for opponent
-void SimulationMenu::showOpponentInfo()
-{
-    std::string opponentInfo;
-
-    //Display opponent HP
-    opponentInfo.append(opponent->getName() + "\n\n");
-    opponentInfo.append( "HP: " + std::to_string(opponent->getHealth()) + " \n" );
-
-    ui->opponentLabel->setText(QString::fromStdString(opponentInfo));
-    ui->opponentLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-
-    //reinitialize opponentInfo
-    opponentInfo = "";
 }
 
 //display battle info
@@ -160,6 +149,7 @@ void SimulationMenu::setAttacks()
 {
     std::string attackInfo1;
     std::string attackInfo2;
+    std::string attackInfo3;
 
     //set up attack 1 Button
     attackInfo1.append(player->getNewSkill(0).getAttackName() + " \n" + "Pow: " + std::to_string(player->getNewSkill(0).getAttackPower()));
@@ -168,86 +158,28 @@ void SimulationMenu::setAttacks()
     //set up attack 2 Button
     attackInfo2.append(player->getNewSkill(1).getAttackName() + " \n" + "Pow: " + std::to_string(player->getNewSkill(1).getAttackPower()));
     ui->attackButton_2->setText(QString::fromStdString(attackInfo2));
+
+    //set up attack 3 Button
+    attackInfo3.append(player->getNewSkill(2).getAttackName() + " \n" + "Pow: " + std::to_string(player->getNewSkill(2).getAttackPower()));
+    ui->attackButton_3->setText(QString::fromStdString(attackInfo3));
 }
 
-// Update the player HP bar
-void SimulationMenu::updatePlayerHP()
+void SimulationMenu::newUpdateHP(Entity* entity, QProgressBar* hpBar)
 {
-    int playerLife = (player->getHealth() * 100) / player->getMaxHealth();
-    ui->playerHP->setValue(playerLife);
-}
-
-// Update the opponent HP bar
-void SimulationMenu::updateOpponentHP()
-{
-    int opponentLife = (opponent->getHealth() * 100) / opponent->getMaxHealth();
-    ui->opponentHP->setValue(opponentLife);
+    int life = (entity->getHealth() * 100) / entity->getMaxHealth();
+    hpBar->setValue(life);
 }
 
 bool SimulationMenu::playerAttack(int attack)
 {
     // Makes the player attacks the opponent
-
-    int playerDamage = Battle::newAttack(player, opponent, &player->getNewSkill(attack)); // Store damage dealt by player
-    qDebug() << "Attack used: " << QString::fromStdString(player->getNewSkill(attack).getAttackName());
-    qDebug() << "Damage dealt: " << std::to_string(playerDamage);
-    showNewInfo(player, attack);
-    opponent->checkHealth();
-    updateOpponentHP();
-    //opponent->checkHealth();
-
-    // Update opponent info
-    showOpponentInfo();
-
-    // Display damages for debug
-    //qDebug() << "Player dealt: " << playerDamage << " damage.";
-    //qDebug() << "Opponent actual HP: " << std::to_string(opponent->getHealth());
-
-    // Checks if the opponent is still alive
-    if (opponent->getHealth() > 0)
-    {
-
-        // return opponent's state
-        return true;
-    }
-    else
-    {// the opponent has no more HP
-        //End the battle
-        QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
-        return false;
-    }
+    return entityPerformMove(player, opponent, attack);
 }
 
 bool SimulationMenu::opponentAttack(int attack)
 {
     // Makes the opponent attacks the player
-    int opponentDamage = Battle::newAttack(opponent, player, &opponent->getNewSkill(attack)); // Store damage dealt by opponent
-    qDebug() << "Attack used: " << QString::fromStdString(opponent->getNewSkill(attack).getAttackName());
-    qDebug() << "Damage dealt: " << std::to_string(opponentDamage);
-    showNewInfo(opponent, attack);
-    player->checkHealth();
-    updatePlayerHP();
-    //player->checkHealth();
-
-    showPlayerInfo();
-
-    // Display damages for debug
-    //qDebug() << "Opponent dealt: " << opponentDamage << " damage.";
-    //qDebug() << "Player actual HP: " << std::to_string(player->getHealth());
-
-
-    // Checks if the player is still alive
-    if (player->getHealth() > 0)
-    {
-        // return player's state
-        return true;
-    }
-    else
-    {// the player has no more HP
-        //End the battle
-        QMessageBox::information(0, "You lost!", QString::fromStdString("GAME OVER"));
-        return false;
-    }
+    return entityPerformMove(opponent, player, attack);
 }
 
 
@@ -264,8 +196,8 @@ void SimulationMenu::resetBattle()
 
     // Reset UI labels
     ui->statusLabel->setText("What will you do ?");
-    showPlayerInfo();
-    showOpponentInfo();
+    showEntityInfo(player, ui->playerLabel);
+    showEntityInfo(opponent, ui->opponentLabel);
 
     // Reset characters to full HP
     int playerLife = (player->getMaxHealth() * 100) / player->getMaxHealth(); // Set player HP to max HP
@@ -329,6 +261,43 @@ void SimulationMenu::newCheckAttack(int move)
 
 }
 
+bool SimulationMenu::entityPerformMove(Entity* attacker, Entity* defender, int attack)
+{
+    // Perform the attack
+    int damage = Battle::newAttack(attacker, defender, &attacker->getNewSkill(attack));
+
+    // Debug output
+    qDebug() << "Attack used: " << QString::fromStdString(attacker->getNewSkill(attack).getAttackName());
+    qDebug() << "Damage dealt: " << std::to_string(damage);
+
+    // Show move info
+    showNewInfo(attacker, attack);
+
+    // Check defender's health and update UI
+    defender->checkHealth();
+
+    if (defender == player) {
+        newUpdateHP(player, ui->playerHP);
+        showEntityInfo(player, ui->playerLabel);
+    } else if (defender == opponent) {
+        newUpdateHP(opponent, ui->opponentHP);
+        showEntityInfo(opponent, ui->opponentLabel);
+    }
+
+    // Determine if defender is still alive
+    if (defender->getHealth() > 0) {
+        return true;
+    } else {
+        if (attacker == player) {
+            QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
+        } else if (attacker == opponent) {
+            QMessageBox::information(0, "You lost!", "GAME OVER");
+        }
+        return false;
+    }
+}
+
+
 // Performs attack 1 from player's moveset
 void SimulationMenu::on_attackButton_1_clicked()
 {
@@ -339,6 +308,11 @@ void SimulationMenu::on_attackButton_1_clicked()
 void SimulationMenu::on_attackButton_2_clicked()
 {
     newCheckAttack(1);
+}
+
+void SimulationMenu::on_attackButton_3_clicked()
+{
+    newCheckAttack(2);
 }
 
 // Allow the user to quit the simulation anytime
@@ -393,7 +367,5 @@ void SimulationMenu::on_escapeButton_clicked()
         emit battleFinished();
     }
 }*/
-
-
 
 

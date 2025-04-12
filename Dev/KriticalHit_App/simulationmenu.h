@@ -7,8 +7,13 @@
 #include <QGraphicsScene>
 #include <QGraphicsEllipseItem>
 #include <QTimer>
+#include <QProgressBar>
 #include "entity.h"
+#include "capacity.h"
 #include "battle.h"
+#include <vector>
+#include <iostream>
+
 
 namespace Ui {
 class SimulationMenu;
@@ -22,13 +27,12 @@ public:
     explicit SimulationMenu(QWidget *parent = nullptr);
     void drawEllipse(QGraphicsScene *ellipse);
     void showStatus();
-    void showPlayerInfo();
-    void showOpponentInfo();
+    void showEntityInfo(Entity*, QLabel*);
     void showNewInfo(Entity*, int);
     void setAttacks();
-    void updatePlayerHP();
-    void updateOpponentHP();
+    void newUpdateHP(Entity*, QProgressBar*);
     void newCheckAttack(int);
+    bool entityPerformMove(Entity*, Entity*, int);
     bool playerAttack(int);
     bool opponentAttack(int);
     bool newAttack(int);
@@ -46,6 +50,8 @@ private slots:
     void on_quitButton_clicked();
     //void on_escapeButton_clicked();
 
+    void on_attackButton_3_clicked();
+
 signals:
     void battleFinished();
     void timesUp();
@@ -60,6 +66,7 @@ private:
     Battle *battle;
     capacity *attack1;
     capacity *attack2;
+    capacity *attack3;
     std::array<capacity, 4> moveset;
     QGraphicsScene *scene; // Scene for drawing the ellipse
 
