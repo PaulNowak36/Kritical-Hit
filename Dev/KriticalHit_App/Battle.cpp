@@ -2,41 +2,29 @@
 #include <iostream>
 #include <algorithm>
 #include <cstdlib>
+#include <QDebug> // Include for qDebug()
 
-int Battle::getDamage(Entity* attacker, Entity* defender) {
-    int damage = (attacker->getStrength() * attacker->getStrength()) /
-                 (attacker->getStrength() * defender->getDefence());
-
-    return std::max(1, damage);
-}
-
-int Battle::calculateDamage(Entity* attacker, Entity* defender, capacity* attack) {
+int Battle::calculateDamage(Entity* attacker, Entity* defender, const capacity* attack) {
     double level = attacker->getLevel();
     double att = attacker->getStrength();
     double pow = attack->getAttackPower();
     double def = defender->getDefence();
 
     double totalDamage = (((level * 0.4 + 2) * att * pow) / (def * 50)) + 2;
-
     return std::max(1, static_cast<int>(totalDamage));
 }
 
-void Battle::attack(Entity* attacker, Entity* defender) {
-    defender->setHealth(defender->getHealth() - getDamage(attacker, defender));
-}
-
-int Battle::newAttack(Entity* attacker, Entity* defender, capacity* attack) {
+int Battle::newAttack(Entity* attacker, Entity* defender, const capacity* attack) {
     int damage = calculateDamage(attacker, defender, attack);
     defender->setHealth(defender->getHealth() - damage);
-
-    std::cout << attacker->getName() << " used " << attack->getAttackName()
-              << " and dealt " << damage << " damage!\n";
 
     return damage;
 }
 
 int Battle::genRandom(int from, int upto) {
-    return (rand() % (upto - from + 1)) + from;
+    int result = (rand() % (upto - from + 1)) + from;
+    qDebug() << "Generated random value: " << result;
+    return result;
 }
 
 void Battle::checkAttackOrder(Entity* player, Entity* opponent) {
@@ -53,7 +41,7 @@ void Battle::checkAttackOrder(Entity* player, Entity* opponent) {
     }
 }
 
-int Battle::healEffect(Entity* target, capacity* healingMove) {
+int Battle::healEffect(Entity* target, const capacity* healingMove) {
     int healPercent = healingMove->getHealPercent();
     int maxHP = target->getMaxHealth();
     int current = target->getHealth();
@@ -63,22 +51,48 @@ int Battle::healEffect(Entity* target, capacity* healingMove) {
     int healed = newHP - current;
     target->setHealth(newHP);
 
-    std::cout << target->getName() << " healed for " << healed << " HP!\n";
+    qDebug() << target->getName() << " healed for " << healed << " HP!"
+             << " Total HP = " << newHP;
+
     return healed;
 }
 
-void Battle::applyEffect(Entity* user, Entity* target, capacity* move) {
+Battle::EffectResult Battle::applyEffect(Entity* user, Entity* target, const capacity* move) {
+    EffectResult result;
+
     for (EffectType effect : move->getEffects()) {
         switch (effect) {
         case EffectType::Attack:
+            qDebug() << "Applying Attack effect...";
+            result.damageDealt += Battle::newAttack(user, target, move);
+            break;
+        case EffectType::Heal:
+            qDebug() << "Applying Heal effect...";
+            result.hpHealed += Battle::healEffect(user, move);
+            break;
+        default:
+            qDebug() << "Effect not handled yet.";
+        }
+    }
+
+    return result;
+}
+
+
+/*void Battle::applyEffect(Entity* user, Entity* target, const capacity* move) {
+    for (EffectType effect : move->getEffects()) {
+        switch (effect) {
+        case EffectType::Attack:
+            qDebug() << "Applying Attack effect...";
             Battle::newAttack(user, target, move);
             break;
         case EffectType::Heal:
+            qDebug() << "Applying Heal effect...";
             Battle::healEffect(user, move);
             break;
         // Buff/Debuff can be added here
         default:
-            std::cout << "Effect not handled yet.\n";
+            qDebug() << "Effect not handled yet.";
         }
     }
-}
+}*/

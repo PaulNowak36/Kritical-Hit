@@ -23,14 +23,19 @@ public:
     static void checkAttackOrder(Entity* player, Entity* opponent);
 
     // Combat core
-    static int getDamage(Entity* attacker, Entity* defender);
-    static int calculateDamage(Entity* attacker, Entity* defender, capacity* attack);
-    static void attack(Entity* attacker, Entity* defender);
-    static int newAttack(Entity* attacker, Entity* defender, capacity* attack);
+    static int calculateDamage(Entity* attacker, Entity* defender, const capacity* attack);
+    static int newAttack(Entity* attacker, Entity* defender, const capacity* attack);
+
+    struct EffectResult {
+        int damageDealt = 0;
+        int hpHealed = 0;
+    };
 
     // Effects (extension)
-    static int healEffect(Entity* target, capacity* healingMove);
-    static void applyEffect(Entity* user, Entity* target, capacity* move);
+    static int healEffect(Entity* target, const capacity* healingMove);
+    //static void applyEffect(Entity* user, Entity* target, const capacity* move);
+    static EffectResult applyEffect(Entity* user, Entity* target, const capacity* move);
+
 };
 
 #endif // BATTLE_H

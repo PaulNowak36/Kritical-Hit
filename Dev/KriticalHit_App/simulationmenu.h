@@ -32,7 +32,7 @@ public:
     void setAttacks();
     void newUpdateHP(Entity*, QProgressBar*);
     void newCheckAttack(int);
-    bool entityPerformMove(Entity*, Entity*, int);
+    bool entityPerformMove2(Entity*, Entity*, int);
     bool playerAttack(int);
     bool opponentAttack(int);
     bool newAttack(int);

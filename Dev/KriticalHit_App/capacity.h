@@ -43,13 +43,18 @@ public:
     void setDebuffAmount(int);
 
     // Getters
-    std::string getAttackName();
-    int getAttackPower();
+    //std::string getAttackName();
+    std::string getAttackName() const;
+    int getAttackPower() const;
     MoveCategory getCategory();
-    const std::vector<EffectType>& getEffects();
-    int getHealPercent();
+    const std::vector<EffectType>& getEffects() const;
+    int getHealPercent() const;
     int getBuffAmount();
     int getDebuffAmount();
+
+    //static std::string effectTypeToString(EffectType effect);
+    std::string getEffectString() const;
+
 };
 
 #endif // CAPACITY_H
