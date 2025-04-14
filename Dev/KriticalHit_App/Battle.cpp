@@ -41,6 +41,12 @@ void Battle::checkAttackOrder(Entity* player, Entity* opponent) {
     }
 }
 
+void Battle::nextTurn() {
+    ++turn;
+    qDebug() << "Turn advanced to:" << turn;
+}
+
+
 int Battle::healEffect(Entity* target, const capacity* healingMove) {
     int healPercent = healingMove->getHealPercent();
     int maxHP = target->getMaxHealth();

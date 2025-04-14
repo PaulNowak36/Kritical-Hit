@@ -207,59 +207,60 @@ void SimulationMenu::resetBattle()
     ui->opponentHP->setValue(opponentLife);
 }
 
-// check who is the first character to start in that turn
 void SimulationMenu::newCheckAttack(int move)
 {
-
-    // calculate the attack order of each character
     Battle::checkAttackOrder(player, opponent);
 
-    //when player attack first
     if (player->getAttackOrder() < opponent->getAttackOrder())
     {
-        // has player defeated opponent ?
-        if(playerAttack(move) == false)
+        if (playerAttack(move) == false)
         {
-            resetBattle();  // Reset the game before exiting
-            emit battleFinished();
-            return;
-
-        }
-
-        // Set up a QTimer to delay the opponent's attack by 2 seconds
-        QTimer::singleShot(2000, this, [this, move]() {
-            // has opponent defeated player ?
-            if(opponentAttack(move) == false)
-            {
-                resetBattle();  // Reset the game before exiting
-                emit battleFinished();
-                return;
-            }
-        });
-    }
-    //when opponent attack first
-    else {
-        // has opponent defeated player ?
-        if(opponentAttack(move) == false)
-        {
-            resetBattle();  // Reset the game before exiting
+            resetBattle();
             emit battleFinished();
             return;
         }
 
-        // Set up a QTimer to delay the player's attack by 2 seconds
         QTimer::singleShot(2000, this, [this, move]() {
-            // has player defeated opponent ?
-            if(playerAttack(move) == false)
+            if (opponentAttack(move) == false)
             {
-                resetBattle();  // Reset the game before exiting
+                resetBattle();
                 emit battleFinished();
                 return;
             }
+
+            // Add 2-second delay before next turn update
+            QTimer::singleShot(2000, this, [this]() {
+                ui->statusLabel->setText("What will you do ?");
+                battle->nextTurn();
+            });
         });
     }
+    else
+    {
+        if (opponentAttack(move) == false)
+        {
+            resetBattle();
+            emit battleFinished();
+            return;
+        }
 
+        QTimer::singleShot(2000, this, [this, move]() {
+            if (playerAttack(move) == false)
+            {
+                resetBattle();
+                emit battleFinished();
+                return;
+            }
+
+            // Add 2-second delay before next turn update
+            QTimer::singleShot(2000, this, [this]() {
+                ui->statusLabel->setText("What will you do ?");
+                battle->nextTurn();
+            });
+        });
+    }
 }
+
 
 bool SimulationMenu::entityPerformMove2(Entity* attacker, Entity* defender, int attack)
 {

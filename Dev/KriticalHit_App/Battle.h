@@ -5,9 +5,20 @@
 #include "capacity.h"
 
 class Battle {
+
+enum class BattleState {
+    WaitingForPlayer,
+    Animating,
+    Finished
+};
+
 protected:
     Entity *player;
     Entity *opponent;
+    int turn = 1; // New turn variable
+
+private:
+    BattleState state = BattleState::WaitingForPlayer;
 
 public:
     Battle(Entity *player, Entity *opponent) : player(player), opponent(opponent) {}
@@ -18,9 +29,16 @@ public:
     Entity *getOpponent() const { return opponent; }
     void setOpponent(Entity *opponent) { this->opponent = opponent; }
 
+    int getTurn() const { return turn; }           // Getter for turn
+    void setTurn(int newTurn) { turn = newTurn; }  // Setter for turn
+
+    BattleState getState() const { return state; }
+    void setState(BattleState newState) { state = newState; }
+
     // Utility
     static int genRandom(int from, int upto);
     static void checkAttackOrder(Entity* player, Entity* opponent);
+    void nextTurn();  // Increments the turn count
 
     // Combat core
     static int calculateDamage(Entity* attacker, Entity* defender, const capacity* attack);
@@ -33,9 +51,7 @@ public:
 
     // Effects (extension)
     static int healEffect(Entity* target, const capacity* healingMove);
-    //static void applyEffect(Entity* user, Entity* target, const capacity* move);
     static EffectResult applyEffect(Entity* user, Entity* target, const capacity* move);
-
 };
 
 #endif // BATTLE_H
