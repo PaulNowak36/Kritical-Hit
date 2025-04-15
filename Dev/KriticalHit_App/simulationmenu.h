@@ -32,12 +32,16 @@ public:
     void setAttacks();
     void newUpdateHP(Entity*, QProgressBar*);
     void newCheckAttack(int);
+    bool handleMoveResult(Entity*, Entity*, Battle::EffectResult);
     bool entityPerformMove2(Entity*, Entity*, int);
     bool playerAttack(int);
+    bool playerTurn(int);
     bool opponentAttack(int);
+    bool opponentTurn(int);
     bool newAttack(int);
     void resetBattle();
     void initializeBattle();
+    void updateButtonVisibility();
     ~SimulationMenu();
     QTimer *timerTest;
 

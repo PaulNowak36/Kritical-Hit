@@ -6,19 +6,18 @@
 
 class Battle {
 
-enum class BattleState {
-    WaitingForPlayer,
-    Animating,
-    Finished
-};
+public:
+    enum class BattleState {
+        WaitingForPlayer,
+        Animating,
+        Finished
+    };
 
 protected:
     Entity *player;
     Entity *opponent;
     int turn = 1; // New turn variable
-
-private:
-    BattleState state = BattleState::WaitingForPlayer;
+    BattleState state = BattleState::WaitingForPlayer;  
 
 public:
     Battle(Entity *player, Entity *opponent) : player(player), opponent(opponent) {}
@@ -32,13 +31,15 @@ public:
     int getTurn() const { return turn; }           // Getter for turn
     void setTurn(int newTurn) { turn = newTurn; }  // Setter for turn
 
-    BattleState getState() const { return state; }
+    BattleState getState() const;
     void setState(BattleState newState) { state = newState; }
 
     // Utility
     static int genRandom(int from, int upto);
     static void checkAttackOrder(Entity* player, Entity* opponent);
     void nextTurn();  // Increments the turn count
+    void performTurn();
+    void endBattle();
 
     // Combat core
     static int calculateDamage(Entity* attacker, Entity* defender, const capacity* attack);
@@ -48,6 +49,8 @@ public:
         int damageDealt = 0;
         int hpHealed = 0;
     };
+
+    EffectResult performMove(Entity* attacker, Entity* defender, int attackIndex);
 
     // Effects (extension)
     static int healEffect(Entity* target, const capacity* healingMove);
