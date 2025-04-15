@@ -1,3 +1,4 @@
+//OG
 #include "battle.h"
 #include <iostream>
 #include <algorithm>
@@ -129,3 +130,5 @@ Battle::EffectResult Battle::applyEffect(Entity* user, Entity* target, const cap
 
     return result;
 }
+
+

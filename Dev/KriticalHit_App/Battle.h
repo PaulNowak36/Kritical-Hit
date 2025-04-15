@@ -17,7 +17,7 @@ protected:
     Entity *player;
     Entity *opponent;
     int turn = 1; // New turn variable
-    BattleState state = BattleState::WaitingForPlayer;  
+    BattleState state = BattleState::WaitingForPlayer;
 
 public:
     Battle(Entity *player, Entity *opponent) : player(player), opponent(opponent) {}

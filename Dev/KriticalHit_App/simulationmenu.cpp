@@ -25,6 +25,7 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     ui->quitButton->setProperty("class", "templateButton");
 
     initializeBattle();
+    //updateButtonVisibility();
 
     // Prepare battle info box
     ui->statusLabel->setText("HERE WE GO !!!");
@@ -110,6 +111,7 @@ void SimulationMenu::initializeBattle()
     //initialize battle with the 2 characters
     battle = new Battle(player, opponent);
     battle->getState();
+    updateButtonVisibility();
 
 
 }
@@ -226,6 +228,8 @@ void SimulationMenu::resetBattle()
 void SimulationMenu::newCheckAttack(int move)
 {
     battle->Battle::performTurn();
+    updateButtonVisibility(); // Hide buttons immediately
+
     Battle::checkAttackOrder(player, opponent);
 
     if (player->getAttackOrder() < opponent->getAttackOrder())
@@ -249,8 +253,9 @@ void SimulationMenu::newCheckAttack(int move)
 
             // Add 2-second delay before next turn update
             QTimer::singleShot(2000, this, [this]() {
+                battle->nextTurn(); // This will set the state to WaitingForPlayer
+                updateButtonVisibility(); // Update button visibility
                 ui->statusLabel->setText("What will you do ?");
-                battle->nextTurn();
             });
         });
     }
@@ -275,12 +280,14 @@ void SimulationMenu::newCheckAttack(int move)
 
             // Add 2-second delay before next turn update
             QTimer::singleShot(2000, this, [this]() {
+                battle->nextTurn(); // This will set the state to WaitingForPlayer
+                updateButtonVisibility(); // Update button visibility
                 ui->statusLabel->setText("What will you do ?");
-                battle->nextTurn();
             });
         });
     }
 }
+
 
 bool SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result)
 {
