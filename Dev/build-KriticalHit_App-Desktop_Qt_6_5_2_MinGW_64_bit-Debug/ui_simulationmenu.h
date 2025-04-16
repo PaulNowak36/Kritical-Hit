@@ -36,6 +36,7 @@ public:
     QProgressBar *playerHP;
     QPushButton *attackButton_2;
     QPushButton *attackButton_3;
+    QPushButton *attackButton_4;
 
     void setupUi(QWidget *SimulationMenu)
     {
@@ -135,6 +136,9 @@ public:
         attackButton_3 = new QPushButton(SimulationMenu);
         attackButton_3->setObjectName("attackButton_3");
         attackButton_3->setGeometry(QRect(440, 400, 131, 51));
+        attackButton_4 = new QPushButton(SimulationMenu);
+        attackButton_4->setObjectName("attackButton_4");
+        attackButton_4->setGeometry(QRect(600, 400, 131, 51));
         graphicsView->raise();
         attackButton_1->raise();
         playerLabel->raise();
@@ -149,6 +153,7 @@ public:
         playerHP->raise();
         attackButton_2->raise();
         attackButton_3->raise();
+        attackButton_4->raise();
 
         retranslateUi(SimulationMenu);
 
@@ -167,6 +172,7 @@ public:
         opponentSprite->setText(QCoreApplication::translate("SimulationMenu", "Rattatta", nullptr));
         attackButton_2->setText(QCoreApplication::translate("SimulationMenu", "Text", nullptr));
         attackButton_3->setText(QCoreApplication::translate("SimulationMenu", "Text", nullptr));
+        attackButton_4->setText(QCoreApplication::translate("SimulationMenu", "Text", nullptr));
     } // retranslateUi
 
 };

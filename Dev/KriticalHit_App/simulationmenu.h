@@ -56,6 +56,8 @@ private slots:
 
     void on_attackButton_3_clicked();
 
+    void on_attackButton_4_clicked();
+
 signals:
     void battleFinished();
     void timesUp();
@@ -71,6 +73,7 @@ private:
     capacity *attack1;
     capacity *attack2;
     capacity *attack3;
+    capacity *attack4;
     std::array<capacity, 4> moveset;
     QGraphicsScene *scene; // Scene for drawing the ellipse
 

@@ -22,6 +22,17 @@ int Battle::newAttack(Entity* attacker, Entity* defender, const capacity* attack
     return damage;
 }
 
+double Battle::getStatMultiplier(int stage) {
+    if (stage > 6) stage = 6;
+    if (stage < -6) stage = -6;
+
+    if (stage >= 0)
+        return (2.0 + stage) / 2.0;  // e.g., +1 = 3/2, +2 = 4/2 = 2.0
+    else
+        return 2.0 / (2.0 - stage);  // e.g., -1 = 2 / (2 + 1) = 0.66
+}
+
+
 Battle::EffectResult Battle::performMove(Entity* attacker, Entity* defender, int attackIndex) {
     const capacity& move = attacker->getNewSkill(attackIndex);
 
@@ -110,6 +121,43 @@ int Battle::healEffect(Entity* target, const capacity* healingMove) {
     return healed;
 }
 
+
+Battle::EffectResult Battle::applyStatModifiers(Entity* target, const std::vector<StatModifier>& mods) {
+    EffectResult result;
+
+    for (const auto& mod : mods) {
+        StatType stat = mod.stat;
+        int originalStage = target->getStatStage(stat);
+        int newStage = originalStage + mod.amount;
+
+        // Clamp between -6 and 6
+        if (newStage > 6) newStage = 6;
+        if (newStage < -6) newStage = -6;
+
+        target->setStatStage(stat, newStage);
+        double multiplier = getStatMultiplier(newStage);
+
+        switch (stat) {
+        case StatType::Strength:
+            result.attackBoost = newStage - originalStage;
+            target->setStrength(static_cast<int>(target->getStrength() * multiplier));
+            break;
+        case StatType::Defence:
+            result.defenceBoost = newStage - originalStage;
+            target->setDefence(static_cast<int>(target->getDefence() * multiplier));
+            break;
+        case StatType::Speed:
+            result.speedBoost = newStage - originalStage;
+            target->setSpeed(static_cast<int>(target->getSpeed() * multiplier));
+            break;
+        }
+    }
+
+    return result;
+}
+
+
+
 Battle::EffectResult Battle::applyEffect(Entity* user, Entity* target, const capacity* move) {
     EffectResult result;
 
@@ -119,10 +167,22 @@ Battle::EffectResult Battle::applyEffect(Entity* user, Entity* target, const cap
             qDebug() << "Applying Attack effect...";
             result.damageDealt += Battle::newAttack(user, target, move);
             break;
+
         case EffectType::Heal:
             qDebug() << "Applying Heal effect...";
             result.hpHealed += Battle::healEffect(user, move);
             break;
+
+        case EffectType::Buff:
+            qDebug() << "Applying Buff effect...";
+            {
+                EffectResult buffResult = Battle::applyStatModifiers(user, move->getStatModifiers());
+                result.attackBoost += buffResult.attackBoost;
+                result.defenceBoost += buffResult.defenceBoost;
+                result.speedBoost += buffResult.speedBoost;
+            }
+            break;
+
         default:
             qDebug() << "Effect not handled yet.";
         }
@@ -130,5 +190,8 @@ Battle::EffectResult Battle::applyEffect(Entity* user, Entity* target, const cap
 
     return result;
 }
+
+
+
 
 

@@ -22,6 +22,7 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     ui->attackButton_1->setProperty("class", "templateButton");
     ui->attackButton_2->setProperty("class", "templateButton");
     ui->attackButton_3->setProperty("class", "templateButton");
+    ui->attackButton_4->setProperty("class", "templateButton");
     ui->quitButton->setProperty("class", "templateButton");
 
     initializeBattle();
@@ -100,13 +101,16 @@ void SimulationMenu::initializeBattle()
     attack2 = new capacity("Take Down", 90, MoveCategory::Physical, {EffectType::Attack});
     attack3 = new capacity("Recover", 0, MoveCategory::Status, {EffectType::Heal});
     attack3->setHealPercent(50);
+    attack4 = new capacity("Sword Dance", 0, MoveCategory::Status, {EffectType::Buff});
+    attack4->setStatModifiers(StatType::Strength, 2);  // Buff Strength by 2 stages
 
     //set up moveset with the new moves
-    std::array<capacity, 4> moveset = {*attack1, *attack2, *attack3};
+    std::array<capacity, 4> moveset = {*attack1, *attack2, *attack3, *attack4};
 
     //set up characters with their name, stats and moveset
-    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, *attack1, moveset, 0);
-    opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, *attack1, moveset, 0);
+    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, moveset, 0);
+    //opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, moveset, 0);
+    opponent = new Entity("Temaratatta", 10, 26, 26, 16, 12, 19, moveset, 0);
 
     //initialize battle with the 2 characters
     battle = new Battle(player, opponent);
@@ -124,6 +128,7 @@ void SimulationMenu::updateButtonVisibility() {
     ui->attackButton_1->setVisible(shouldShowButtons);
     ui->attackButton_2->setVisible(shouldShowButtons);
     ui->attackButton_3->setVisible(shouldShowButtons);
+    ui->attackButton_4->setVisible(shouldShowButtons);
     ui->quitButton->setVisible(shouldShowButtons);
 }
 
@@ -158,6 +163,7 @@ void SimulationMenu::setAttacks()
     std::string attackInfo1;
     std::string attackInfo2;
     std::string attackInfo3;
+    std::string attackInfo4;
 
     //set up attack 1 Button
     attackInfo1.append(player->getNewSkill(0).getAttackName() + " \n" + "Pow: " + std::to_string(player->getNewSkill(0).getAttackPower()));
@@ -170,6 +176,10 @@ void SimulationMenu::setAttacks()
     //set up attack 3 Button
     attackInfo3.append(player->getNewSkill(2).getAttackName() + " \n" + "Pow: " + std::to_string(player->getNewSkill(2).getAttackPower()));
     ui->attackButton_3->setText(QString::fromStdString(attackInfo3));
+
+    //set up attack 4 Button
+    attackInfo4.append(player->getNewSkill(3).getAttackName() + " \n" + "Pow: " + std::to_string(player->getNewSkill(3).getAttackPower()));
+    ui->attackButton_4->setText(QString::fromStdString(attackInfo4));
 }
 
 void SimulationMenu::newUpdateHP(Entity* entity, QProgressBar* hpBar)
@@ -289,7 +299,7 @@ void SimulationMenu::newCheckAttack(int move)
 }
 
 
-bool SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result)
+/*bool SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result)
 {
     if (result.damageDealt > 0)
     {
@@ -344,7 +354,109 @@ bool SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle
 
     qDebug() << "Move executed successfully, returning true.";
     return true;
+}*/
+
+bool SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result)
+{
+    // Handle damage dealt
+    if (result.damageDealt > 0)
+    {
+        qDebug() << "-> Deals damage! Damage dealt: " << result.damageDealt;
+
+        // Update UI for defender's health
+        defender->checkHealth();
+        if (defender == player)
+        {
+            newUpdateHP(player, ui->playerHP);
+            showEntityInfo(player, ui->playerLabel);
+        }
+        else
+        {
+            newUpdateHP(opponent, ui->opponentHP);
+            showEntityInfo(opponent, ui->opponentLabel);
+        }
+
+        // Check for win/loss
+        if (defender->getHealth() <= 0)
+        {
+            if (attacker == player)
+            {
+                QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
+            }
+            else
+            {
+                QMessageBox::information(0, "You lost!", "GAME OVER");
+            }
+            return false;
+        }
+    }
+
+    // Handle heal result if any
+    if (result.hpHealed > 0)
+    {
+        qDebug() << "-> Heals HP! Life received: " << result.hpHealed;
+
+        // Update UI for attacker's health
+        attacker->checkHealth();
+        if (attacker == player)
+        {
+            newUpdateHP(player, ui->playerHP);
+            showEntityInfo(player, ui->playerLabel);
+        }
+        else
+        {
+            newUpdateHP(opponent, ui->opponentHP);
+            showEntityInfo(opponent, ui->opponentLabel);
+        }
+    }
+
+    // Handle stat boosts (attack, defense, speed)
+    if (result.attackBoost != 0)
+    {
+        if (result.attackBoost == 1)
+        {
+            qDebug() << attacker->getName() << "'s attack rose!";
+            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s attack rose!"));
+        }
+        else if (result.attackBoost == 2)
+        {
+            qDebug() << attacker->getName() << "'s attack rose sharply!";
+            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s attack rose sharply!"));
+        }
+    }
+
+    if (result.defenceBoost != 0)
+    {
+        if (result.defenceBoost == 1)
+        {
+            qDebug() << attacker->getName() << "'s defense rose!";
+            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s defense rose!"));
+        }
+        else if (result.defenceBoost == 2)
+        {
+            qDebug() << attacker->getName() << "'s defense rose sharply!";
+            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s defense rose sharply!"));
+        }
+    }
+
+    if (result.speedBoost != 0)
+    {
+        if (result.speedBoost == 1)
+        {
+            qDebug() << attacker->getName() << "'s speed rose!";
+            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s speed rose!"));
+        }
+        else if (result.speedBoost == 2)
+        {
+            qDebug() << attacker->getName() << "'s speed rose sharply!";
+            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s speed rose sharply!"));
+        }
+    }
+
+    qDebug() << "Move executed successfully, returning true.";
+    return true;
 }
+
 
 // Performs attack 1 from player's moveset
 void SimulationMenu::on_attackButton_1_clicked()
@@ -362,6 +474,12 @@ void SimulationMenu::on_attackButton_3_clicked()
 {
     newCheckAttack(2);
 }
+
+void SimulationMenu::on_attackButton_4_clicked()
+{
+    newCheckAttack(3);
+}
+
 
 // Allow the user to quit the simulation anytime
 void SimulationMenu::on_quitButton_clicked()
@@ -416,5 +534,7 @@ void SimulationMenu::on_escapeButton_clicked()
         emit battleFinished();
     }
 }*/
+
+
 
 

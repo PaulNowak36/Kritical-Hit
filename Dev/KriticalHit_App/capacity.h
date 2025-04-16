@@ -17,6 +17,17 @@ enum class EffectType {
     Heal
 };
 
+enum class StatType {
+    Strength,
+    Defence,
+    Speed
+};
+
+struct StatModifier {
+    StatType stat;
+    int amount;  // Positive for buff, negative for debuff
+};
+
 class capacity {
 protected:
     std::string _attackName;
@@ -28,6 +39,7 @@ protected:
     int _healPercent;      // Only for Heal moves, e.g., 50 = heal 50% of maxHP
     int _buffAmount;       // Buff value (positive or negative)
     int _debuffAmount;     // Debuff value
+    std::vector<StatModifier> _statModifiers;
 
 public:
     capacity();
@@ -41,6 +53,7 @@ public:
     void setHealPercent(int);
     void setBuffAmount(int);
     void setDebuffAmount(int);
+    void setStatModifiers(StatType stat, int amount);
 
     // Getters
     //std::string getAttackName();
@@ -51,6 +64,7 @@ public:
     int getHealPercent() const;
     int getBuffAmount();
     int getDebuffAmount();
+    const std::vector<StatModifier>& getStatModifiers() const;
 
     //static std::string effectTypeToString(EffectType effect);
     std::string getEffectString() const;

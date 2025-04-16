@@ -44,10 +44,14 @@ public:
     // Combat core
     static int calculateDamage(Entity* attacker, Entity* defender, const capacity* attack);
     static int newAttack(Entity* attacker, Entity* defender, const capacity* attack);
+    static double getStatMultiplier(int);
 
     struct EffectResult {
         int damageDealt = 0;
         int hpHealed = 0;
+        short int attackBoost = 0;
+        short int defenceBoost = 0;
+        short int speedBoost = 0;
     };
 
     EffectResult performMove(Entity* attacker, Entity* defender, int attackIndex);
@@ -55,6 +59,8 @@ public:
     // Effects (extension)
     static int healEffect(Entity* target, const capacity* healingMove);
     static EffectResult applyEffect(Entity* user, Entity* target, const capacity* move);
+    static EffectResult applyStatModifiers(Entity* target, const std::vector<StatModifier>& mods);
+
 };
 
 #endif // BATTLE_H

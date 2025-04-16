@@ -15,6 +15,11 @@ void capacity::setHealPercent(int percent) { _healPercent = percent; }
 void capacity::setBuffAmount(int amount) { _buffAmount = amount; }
 void capacity::setDebuffAmount(int amount) { _debuffAmount = amount; }
 
+void capacity::setStatModifiers(StatType stat, int amount)
+{
+    _statModifiers.push_back({ stat, amount });
+}
+
 //std::string capacity::getAttackName() { return _attackName; }
 std::string capacity::getAttackName() const {
     return _attackName;
@@ -30,6 +35,11 @@ const std::vector<EffectType>& capacity::getEffects() const {
 int capacity::getHealPercent() const { return _healPercent; }
 int capacity::getBuffAmount() { return _buffAmount; }
 int capacity::getDebuffAmount() { return _debuffAmount; }
+
+const std::vector<StatModifier> &capacity::getStatModifiers() const
+{
+    return _statModifiers;
+}
 
 std::string capacity::getEffectString() const {
     std::string result = "[";

@@ -15,14 +15,16 @@ protected:
     int _speed;
     int _level;
 
-    capacity _skill;
+    //capacity _skill;
     std::array<capacity, 4> _skillList;
 
     int _attackOrder;
+    int _statStages[3] = { 0, 0, 0 }; // index 0 = Strength, 1 = Defence, 2 = Speed
 
 public:
     Entity();
-    Entity(std::string, int, int, int, int, int, int, const capacity&, const std::array<capacity, 4>&, int);
+    //Entity(std::string, int, int, int, int, int, int, const capacity&, const std::array<capacity, 4>&, int);
+    Entity(std::string, int, int, int, int, int, int, const std::array<capacity, 4>&, int);
 
     void    setName(std::string);
     std::string  getName();
@@ -38,9 +40,11 @@ public:
     int     getSpeed();
     void    setLevel(int);
     int     getLevel();
+    int getStatStage(StatType) const;
+    void setStatStage(StatType, int);
     void setSkill(const capacity&);
     void setNewSkill(int index, const capacity& skill);
-    capacity& getSkill();
+    //capacity& getSkill();
     capacity& getNewSkill(int);
     void setSkillList(const std::array<capacity, 4>& moveList);
     const std::array<capacity, 4>& getSkillList() const;

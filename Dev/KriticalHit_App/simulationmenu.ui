@@ -249,6 +249,19 @@ border: none;</string>
     <string>Text</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="attackButton_4">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>400</y>
+     <width>131</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Text</string>
+   </property>
+  </widget>
   <zorder>graphicsView</zorder>
   <zorder>attackButton_1</zorder>
   <zorder>playerLabel</zorder>
@@ -263,6 +276,7 @@ border: none;</string>
   <zorder>playerHP</zorder>
   <zorder>attackButton_2</zorder>
   <zorder>attackButton_3</zorder>
+  <zorder>attackButton_4</zorder>
  </widget>
  <resources/>
  <connections/>

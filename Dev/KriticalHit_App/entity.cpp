@@ -11,15 +11,19 @@ Entity::Entity()
     setDefence(24);
     setSpeed(25);
     setName("newMon");
-    setSkill(capacity());
+    //setSkill(capacity());
 
     std::array<capacity, 4> skills = {capacity(), capacity()};
     setSkillList(skills);
     setAttackOrder(0);
 }
 
-Entity::Entity(std::string name, int level, int health, int maxHealth, int strength, int defence, int speed, const capacity& skill1, const std::array<capacity, 4>& moves, int order)
+/*Entity::Entity(std::string name, int level, int health, int maxHealth, int strength, int defence, int speed, const capacity& skill1, const std::array<capacity, 4>& moves, int order)
     : _name(name), _health(health), _maxHealth(maxHealth), _strength(strength), _defence(defence), _speed(speed), _level(level), _skill(skill1), _skillList(moves), _attackOrder(order) {}
+*/
+Entity::Entity(std::string name, int level, int health, int maxHealth, int strength, int defence, int speed, const std::array<capacity, 4>& moves, int order)
+    : _name(name), _health(health), _maxHealth(maxHealth), _strength(strength), _defence(defence), _speed(speed), _level(level), _skillList(moves), _attackOrder(order) {}
+
 
 void Entity::setName(std::string name)      {_name = name;}
 void Entity::setLevel(int artLevel)       {_level = artLevel;}
@@ -28,7 +32,7 @@ void Entity::setMaxHealth(int artMaxHealth) {_maxHealth = artMaxHealth;}
 void Entity::setStrength(int artDamage)     {_strength = artDamage;}
 void Entity::setDefence(int artShield)       {_defence = artShield;}
 void Entity::setSpeed(int artSwift)       {_speed = artSwift;}
-void Entity::setSkill(const capacity&  artSkill)       {_skill = artSkill;}
+//void Entity::setSkill(const capacity&  artSkill)       {_skill = artSkill;}
 void Entity::setNewSkill(int index, const capacity &skill)
 {
     if (index >= 0 && index < 4) {
@@ -53,12 +57,25 @@ void Entity::checkHealth()
 
 
 int Entity::getLevel()             {return _level;}
+
+// Setter for a specific stat stage
+void Entity::setStatStage(StatType stat, int stage) {
+    if (stage > 6) stage = 6;
+    if (stage < -6) stage = -6;
+    _statStages[static_cast<int>(stat)] = stage;
+}
+
+// Getter for a specific stat stage
+int Entity::getStatStage(StatType stat) const {
+    return _statStages[static_cast<int>(stat)];
+}
+
 int Entity::getHealth()             {return _health;}
 int Entity::getMaxHealth()          {return _maxHealth;}
 int Entity::getStrength()           {return _strength;}
 int Entity::getDefence()            {return _defence;}
 int Entity::getSpeed()            {return _speed;}
-capacity& Entity::getSkill()        {return _skill;}
+//capacity& Entity::getSkill()        {return _skill;}
 capacity &Entity::getNewSkill(int index)
 {
     if (index >= 0 && index < 4) {
