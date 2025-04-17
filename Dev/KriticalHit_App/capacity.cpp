@@ -1,11 +1,10 @@
 #include "capacity.h"
+#include <iostream>
 
-capacity::capacity() : _attackName(""), _attackPower(0), _category(MoveCategory::Physical),
-    _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
+capacity::capacity() : _attackName(""), _attackPower(0), _category(MoveCategory::Physical), _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
 
 capacity::capacity(std::string name, int power, MoveCategory category, std::vector<EffectType> effects)
-    : _attackName(name), _attackPower(power), _category(category), _effects(effects),
-    _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
+    : _attackName(name), _attackPower(power), _category(category), _effects(effects), _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
 
 void capacity::setAttackName(std::string name) { _attackName = name; }
 void capacity::setAttackPower(int power) { _attackPower = power; }
@@ -15,49 +14,73 @@ void capacity::setHealPercent(int percent) { _healPercent = percent; }
 void capacity::setBuffAmount(int amount) { _buffAmount = amount; }
 void capacity::setDebuffAmount(int amount) { _debuffAmount = amount; }
 
-void capacity::setStatModifiers(StatType stat, int amount)
-{
-    _statModifiers.push_back({ stat, amount });
+void capacity::setStatModifiers(StatType stat, int amount) {
+    _statModifiers.push_back({stat, amount});
 }
 
-//std::string capacity::getAttackName() { return _attackName; }
-std::string capacity::getAttackName() const {
-    return _attackName;
-}
-
-
+std::string capacity::getAttackName() const { return _attackName; }
 int capacity::getAttackPower() const { return _attackPower; }
 MoveCategory capacity::getCategory() { return _category; }
-const std::vector<EffectType>& capacity::getEffects() const {
-    return _effects;
-}
-
+const std::vector<EffectType>& capacity::getEffects() const { return _effects; }
 int capacity::getHealPercent() const { return _healPercent; }
 int capacity::getBuffAmount() { return _buffAmount; }
 int capacity::getDebuffAmount() { return _debuffAmount; }
+const std::vector<StatModifier>& capacity::getStatModifiers() const { return _statModifiers; }
 
-const std::vector<StatModifier> &capacity::getStatModifiers() const
-{
-    return _statModifiers;
+// New getter implementation
+StatModifier capacity::getStatModifier(size_t index) const {
+    if (index < _statModifiers.size()) {
+        return _statModifiers[index];
+    } else {
+        // Handle out-of-bounds access (e.g., return a default value or throw an exception)
+        std::cerr << "Error: StatModifier index out of bounds!" << std::endl;
+        return {StatType::Strength, 0}; // Return a default StatModifier
+    }
+}
+
+// Debug function implementation
+void capacity::printStatModifiers() const {
+    for (size_t i = 0; i < _statModifiers.size(); ++i) {
+        std::cout << "StatModifier " << i + 1 << ":" << std::endl;
+        std::cout << "  Stat = " << statTypeToString(_statModifiers[i].stat) << std::endl;
+        std::cout << "  Amount = " << _statModifiers[i].amount << std::endl;
+    }
+}
+
+// Helper function implementation
+std::string capacity::statTypeToString(StatType stat) const {
+    switch (stat) {
+    case StatType::Strength:
+        return "Strength";
+    case StatType::Defence:
+        return "Defence";
+    case StatType::Speed:
+        return "Speed";
+    default:
+        return "Unknown";
+    }
 }
 
 std::string capacity::getEffectString() const {
-    std::string result = "[";
+    std::string effectString;
     for (size_t i = 0; i < _effects.size(); ++i) {
-        switch (_effects[i]) {
-        case EffectType::Attack: result += "Attack"; break;
-        case EffectType::Buff: result += "Buff"; break;
-        case EffectType::Debuff: result += "Debuff"; break;
-        case EffectType::Heal: result += "Heal"; break;
-        default: result += "Unknown"; break;
-        }
-
-        if (i != _effects.size() - 1) {
-            result += ", ";
+        // You'll need a way to convert EffectType to a string here
+        // For example, using a switch statement or a lookup table
+        // effectString += effectTypeToString(_effects[i]);
+        if (i < _effects.size() - 1) {
+            effectString += ", ";
         }
     }
-    result += "]";
-    return result;
+    return effectString;
 }
+
+// Example usage in SimulationMenu.cpp (or wherever you need to debug)
+// In SimulationMenu::initializeBattle() or another relevant function:
+// After creating the attack4 object:
+// attack4->printStatModifiers();
+
+// In SimulationMenu::someOtherFunction() where you want to access a specific StatModifier:
+// StatModifier modifier = attack4->getStatModifier(0); // Get the first modifier
+// qDebug() << "Stat: " << QString::fromStdString(attack4->statTypeToString(modifier.stat)) << ", Amount: " << modifier.amount;
 
 

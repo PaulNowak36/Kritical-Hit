@@ -23,13 +23,15 @@ enum StatusMessage {
 enum DynamicStatusMessage {
     MSG_ATTACK_ACTION,
     MSG_HEAL_ACTION,
+    MSG_BUFF_ACTION_1,
     // You can add more types like MSG_HEAL_ACTION, MSG_LEVEL_UP, etc.
 };
 
 struct MoveResultState {
     bool continueBattle;
     bool hasHealing;
-    Entity* healer;
+    bool hasBuffing;
+    Entity* character;
 };
 
 
@@ -49,12 +51,13 @@ public:
     void showEntityInfo(Entity*, QLabel*);
     void showNewInfo(Entity*, int);
     void showStatusMessage(StatusMessage);
-    void showDynamicStatusMessage(DynamicStatusMessage, const std::string&, const std::string&);
+    void showDynamicStatusMessage(DynamicStatusMessage, const std::string&, const std::string&, const std::string&);
     void setAttacks();
     void newUpdateHP(Entity*, QProgressBar*);
     void newCheckAttack(int);
     MoveResultState handleMoveResult(Entity*, Entity*, Battle::EffectResult);
     void handleHealing(const MoveResultState&, std::function<void()>);
+    void handleBuffing(const MoveResultState&, std::function<void()>);
     void goToNextTurn();
     void secondCharacterPerform(bool, int);
     MoveResultState playerTurn(int);

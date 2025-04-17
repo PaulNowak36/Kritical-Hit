@@ -80,6 +80,14 @@ void Battle::checkAttackOrder(Entity* player, Entity* opponent) {
     }
 }
 
+void Battle::battleBegin()
+{
+    if (state == BattleState::Start) {
+        state = BattleState::WaitingForPlayer;
+        qDebug() << "State changed: Start → WaitingForPlayer";
+    }
+}
+
 // Move to Animating when a turn is being performed
 void Battle::performTurn() {
     if (state == BattleState::WaitingForPlayer) {

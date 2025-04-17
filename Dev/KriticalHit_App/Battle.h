@@ -8,6 +8,7 @@ class Battle {
 
 public:
     enum class BattleState {
+        Start,
         WaitingForPlayer,
         Animating,
         Finished
@@ -17,7 +18,7 @@ protected:
     Entity *player;
     Entity *opponent;
     int turn = 1; // New turn variable
-    BattleState state = BattleState::WaitingForPlayer;
+    BattleState state = BattleState::Start;
 
 public:
     Battle(Entity *player, Entity *opponent) : player(player), opponent(opponent) {}
@@ -37,6 +38,7 @@ public:
     // Utility
     static int genRandom(int from, int upto);
     static void checkAttackOrder(Entity* player, Entity* opponent);
+    void battleBegin();
     void nextTurn();  // Increments the turn count
     void performTurn();
     void endBattle();

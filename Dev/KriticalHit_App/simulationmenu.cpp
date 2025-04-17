@@ -63,6 +63,8 @@ void SimulationMenu::startTimer()
 {
     qDebug() << "Timer out...";
     showStatusMessage(STATUS_DECISION);
+    battle->battleBegin();
+    updateButtonVisibility();
 }
 
 // Draw an ellipse representing the characters' battle areas
@@ -144,11 +146,11 @@ void SimulationMenu::showNewInfo(Entity *attacker, int move)
 {
     if (attacker == player)
     {
-        showDynamicStatusMessage(MSG_ATTACK_ACTION, player->getName(), player->getNewSkill(move).getAttackName());
+        showDynamicStatusMessage(MSG_ATTACK_ACTION, player->getName(), player->getNewSkill(move).getAttackName(), "");
     }
     else if (attacker == opponent)
     {
-        showDynamicStatusMessage(MSG_ATTACK_ACTION, opponent->getName(), opponent->getNewSkill(move).getAttackName());
+        showDynamicStatusMessage(MSG_ATTACK_ACTION, opponent->getName(), opponent->getNewSkill(move).getAttackName(), "");
     }
 }
 
@@ -173,7 +175,7 @@ void SimulationMenu::showStatusMessage(StatusMessage messageCode)
     }
 }
 
-void SimulationMenu::showDynamicStatusMessage(DynamicStatusMessage type, const std::string& actorName, const std::string& skillName)
+void SimulationMenu::showDynamicStatusMessage(DynamicStatusMessage type, const std::string& actorName, const std::string& skillName,  const std::string& statName)
 {
     std::string message;
 
@@ -186,7 +188,10 @@ void SimulationMenu::showDynamicStatusMessage(DynamicStatusMessage type, const s
     case MSG_HEAL_ACTION:
         message = actorName + " regained health !";
         break;
-        // Add other cases for other dynamic types here
+
+    case MSG_BUFF_ACTION_1:
+        message = actorName + "'s " + statName + " rose !";
+        break;
 
     default:
         message = "Unknown dynamic message.";
@@ -284,12 +289,9 @@ void SimulationMenu::newCheckAttack(int move)
     });
 }
 
-
-
-
 MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result)
 {
-    MoveResultState state{true, false, nullptr};
+    MoveResultState state{true, false, false, nullptr};
 
     // Handle damage dealt
     if (result.damageDealt > 0)
@@ -313,7 +315,7 @@ MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defen
     if (result.hpHealed > 0)
     {
         state.hasHealing = true;
-        state.healer = attacker;
+        state.character = attacker;
 
         attacker->checkHealth();
         if (attacker == player)
@@ -345,16 +347,39 @@ void SimulationMenu::handleHealing(const MoveResultState& result, std::function<
 {
     if (result.hasHealing)
     {
+        // Wait 2s BEFORE showing "Character regained health"
         QTimer::singleShot(2000, this, [this, result, nextStep]() {
-            showDynamicStatusMessage(MSG_HEAL_ACTION, result.healer->getName(), "");
-            QTimer::singleShot(2000, this, nextStep);
+            showDynamicStatusMessage(MSG_HEAL_ACTION, result.character->getName(), "", "");
+
+            // Then wait 2s more before continuing
+            nextStep();
         });
     }
     else
     {
-        QTimer::singleShot(2000, this, nextStep);
+        nextStep();  // No healing? Just move on
     }
 }
+
+void SimulationMenu::handleBuffing(const MoveResultState& result, std::function<void()> nextStep)
+{
+    if (result.hasBuffing)
+    {
+        // Wait 2s BEFORE showing "Character's STAT rose"
+        QTimer::singleShot(2000, this, [this, result, nextStep]() {
+            showDynamicStatusMessage(MSG_BUFF_ACTION_1, result.character->getName(), "", "");
+
+            // Then wait 2s more before continuing
+            nextStep();
+        });
+    }
+    else
+    {
+        nextStep();  // No healing? Just move on
+    }
+}
+
+
 
 void SimulationMenu::goToNextTurn()
 {
@@ -374,9 +399,14 @@ void SimulationMenu::secondCharacterPerform(bool isPlayer, int move)
             return;
         }
 
-        handleHealing(result, [this]() { goToNextTurn(); });
+        handleHealing(result, [this]() {
+            QTimer::singleShot(2000, this, [this]() {
+                goToNextTurn();
+            });
+        });
     });
 }
+
 
 
 MoveResultState SimulationMenu::playerTurn(int attack)
@@ -434,7 +464,7 @@ void SimulationMenu::showEvent(QShowEvent *event)
         scene->update();
     }
 
-    timerTest->start(5000);  // Start the timer after showing the widget
+    timerTest->start(2000);  // Start the timer after showing the widget
 
 }
 
@@ -467,7 +497,3 @@ void SimulationMenu::on_escapeButton_clicked()
         emit battleFinished();
     }
 }*/
-
-
-
-
