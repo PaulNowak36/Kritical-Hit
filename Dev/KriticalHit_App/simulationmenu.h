@@ -14,6 +14,25 @@
 #include <vector>
 #include <iostream>
 
+enum StatusMessage {
+    STATUS_START,
+    STATUS_DECISION,
+    // Add more statuses here as needed
+};
+
+enum DynamicStatusMessage {
+    MSG_ATTACK_ACTION,
+    MSG_HEAL_ACTION,
+    // You can add more types like MSG_HEAL_ACTION, MSG_LEVEL_UP, etc.
+};
+
+struct MoveResultState {
+    bool continueBattle;
+    bool hasHealing;
+    Entity* healer;
+};
+
+
 
 namespace Ui {
 class SimulationMenu;
@@ -29,19 +48,21 @@ public:
     void showStatus();
     void showEntityInfo(Entity*, QLabel*);
     void showNewInfo(Entity*, int);
+    void showStatusMessage(StatusMessage);
+    void showDynamicStatusMessage(DynamicStatusMessage, const std::string&, const std::string&);
     void setAttacks();
     void newUpdateHP(Entity*, QProgressBar*);
     void newCheckAttack(int);
-    bool handleMoveResult(Entity*, Entity*, Battle::EffectResult);
-    bool entityPerformMove2(Entity*, Entity*, int);
-    bool playerAttack(int);
-    bool playerTurn(int);
-    bool opponentAttack(int);
-    bool opponentTurn(int);
-    bool newAttack(int);
+    MoveResultState handleMoveResult(Entity*, Entity*, Battle::EffectResult);
+    void handleHealing(const MoveResultState&, std::function<void()>);
+    void goToNextTurn();
+    void secondCharacterPerform(bool, int);
+    MoveResultState playerTurn(int);
+    MoveResultState opponentTurn(int);
     void resetBattle();
     void initializeBattle();
     void updateButtonVisibility();
+    void endSimulation();
     ~SimulationMenu();
     QTimer *timerTest;
 

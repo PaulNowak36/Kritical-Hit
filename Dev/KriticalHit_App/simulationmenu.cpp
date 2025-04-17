@@ -26,10 +26,9 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     ui->quitButton->setProperty("class", "templateButton");
 
     initializeBattle();
-    //updateButtonVisibility();
 
     // Prepare battle info box
-    ui->statusLabel->setText("HERE WE GO !!!");
+    showStatusMessage(STATUS_START);
 
     // Display data about both characters
     showEntityInfo(player, ui->playerLabel);
@@ -63,7 +62,7 @@ SimulationMenu::~SimulationMenu()
 void SimulationMenu::startTimer()
 {
     qDebug() << "Timer out...";
-    ui->statusLabel->setText("What will you do ?");
+    showStatusMessage(STATUS_DECISION);
 }
 
 // Draw an ellipse representing the characters' battle areas
@@ -132,29 +131,71 @@ void SimulationMenu::updateButtonVisibility() {
     ui->quitButton->setVisible(shouldShowButtons);
 }
 
+void SimulationMenu::endSimulation()
+{
+    battle->endBattle();
+    resetBattle();
+    emit battleFinished();
+}
+
 
 //display battle info
 void SimulationMenu::showNewInfo(Entity *attacker, int move)
 {
-    std::string info;
-
-    if (attacker == player) // If the player is the attacker
+    if (attacker == player)
     {
-        /*info.append(player->getName() + " attacked " + opponent->getName() + ". \n" + opponent->getName() + " loses " +
-                    std::to_string(damages) + " HP !");*/
-
-        info.append(player->getName() + " uses " + player->getNewSkill(move).getAttackName() + " !");
-
+        showDynamicStatusMessage(MSG_ATTACK_ACTION, player->getName(), player->getNewSkill(move).getAttackName());
     }
-    else if (attacker == opponent) // If the opponent is the attacker
+    else if (attacker == opponent)
     {
-        /*info.append(opponent->getName() + " attacked " + player->getName() + ". \n" + player->getName() + " loses " +
-                    std::to_string(damages) + " HP !");*/
-        info.append(opponent->getName() + " uses " + opponent->getNewSkill(move).getAttackName() + " !");
+        showDynamicStatusMessage(MSG_ATTACK_ACTION, opponent->getName(), opponent->getNewSkill(move).getAttackName());
     }
-
-    ui->statusLabel->setText(QString::fromStdString(info));
 }
+
+
+void SimulationMenu::showStatusMessage(StatusMessage messageCode)
+{
+    switch (messageCode)
+    {
+    case STATUS_START:
+        ui->statusLabel->setText("HERE WE GO !!!");
+        break;
+
+    case STATUS_DECISION:
+        ui->statusLabel->setText("What will you do ?");
+        break;
+
+        // Add more cases here if needed
+
+    default:
+        ui->statusLabel->setText("Unknown status message.");
+        break;
+    }
+}
+
+void SimulationMenu::showDynamicStatusMessage(DynamicStatusMessage type, const std::string& actorName, const std::string& skillName)
+{
+    std::string message;
+
+    switch (type)
+    {
+    case MSG_ATTACK_ACTION:
+        message = actorName + " uses " + skillName + " !";
+        break;
+
+    case MSG_HEAL_ACTION:
+        message = actorName + " regained health !";
+        break;
+        // Add other cases for other dynamic types here
+
+    default:
+        message = "Unknown dynamic message.";
+        break;
+    }
+
+    ui->statusLabel->setText(QString::fromStdString(message));
+}
+
 
 
 //Set up pushButtons attacks with characters moves
@@ -196,20 +237,6 @@ void SimulationMenu::newUpdateHP(Entity* entity, QProgressBar* hpBar)
              << " / Max Health:" << entity->getMaxHealth();
 }
 
-bool SimulationMenu::playerTurn(int attack)
-{
-    Battle::EffectResult result = battle->performMove(player, opponent, attack);
-    showNewInfo(player, attack);
-    return handleMoveResult(player, opponent, result);
-}
-
-bool SimulationMenu::opponentTurn(int attack)
-{
-    Battle::EffectResult result = battle->performMove(opponent, player, attack);
-    showNewInfo(opponent, attack);
-    return handleMoveResult(opponent, player, result);
-}
-
 
 // Reset battle when it's over or if the player quit the game
 void SimulationMenu::resetBattle()
@@ -223,7 +250,8 @@ void SimulationMenu::resetBattle()
     initializeBattle();
 
     // Reset UI labels
-    ui->statusLabel->setText("What will you do ?");
+
+    showStatusMessage(STATUS_START);
     showEntityInfo(player, ui->playerLabel);
     showEntityInfo(opponent, ui->opponentLabel);
 
@@ -238,132 +266,36 @@ void SimulationMenu::resetBattle()
 void SimulationMenu::newCheckAttack(int move)
 {
     battle->Battle::performTurn();
-    updateButtonVisibility(); // Hide buttons immediately
-
+    updateButtonVisibility();
     Battle::checkAttackOrder(player, opponent);
 
-    if (player->getAttackOrder() < opponent->getAttackOrder())
+    bool playerGoesFirst = player->getAttackOrder() < opponent->getAttackOrder();
+
+    auto firstTurn = playerGoesFirst ? playerTurn(move) : opponentTurn(move);
+
+    if (!firstTurn.continueBattle)
     {
-        if (playerTurn(move) == false)
-        {
-            battle->endBattle();
-            resetBattle();
-            emit battleFinished();
-            return;
-        }
-
-        QTimer::singleShot(2000, this, [this, move]() {
-            if (opponentTurn(move) == false)
-            {
-                battle->endBattle();
-                resetBattle();
-                emit battleFinished();
-                return;
-            }
-
-            // Add 2-second delay before next turn update
-            QTimer::singleShot(2000, this, [this]() {
-                battle->nextTurn(); // This will set the state to WaitingForPlayer
-                updateButtonVisibility(); // Update button visibility
-                ui->statusLabel->setText("What will you do ?");
-            });
-        });
+        endSimulation();
+        return;
     }
-    else
-    {
-        if (opponentTurn(move) == false)
-        {
-            battle->endBattle();
-            resetBattle();
-            emit battleFinished();
-            return;
-        }
 
-        QTimer::singleShot(2000, this, [this, move]() {
-            if (playerTurn(move) == false)
-            {
-                battle->endBattle();
-                resetBattle();
-                emit battleFinished();
-                return;
-            }
-
-            // Add 2-second delay before next turn update
-            QTimer::singleShot(2000, this, [this]() {
-                battle->nextTurn(); // This will set the state to WaitingForPlayer
-                updateButtonVisibility(); // Update button visibility
-                ui->statusLabel->setText("What will you do ?");
-            });
-        });
-    }
+    handleHealing(firstTurn, [=]() {
+        secondCharacterPerform(!playerGoesFirst, move);
+    });
 }
 
 
-/*bool SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result)
+
+
+MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result)
 {
-    if (result.damageDealt > 0)
-    {
-        qDebug() << "-> Deals damage! Damage dealt: " << result.damageDealt;
+    MoveResultState state{true, false, nullptr};
 
-        // Update UI for defender's health
-        defender->checkHealth();
-        if (defender == player)
-        {
-            newUpdateHP(player, ui->playerHP);
-            showEntityInfo(player, ui->playerLabel);
-        }
-        else
-        {
-            newUpdateHP(opponent, ui->opponentHP);
-            showEntityInfo(opponent, ui->opponentLabel);
-        }
-
-        // Check for win/loss
-        if (defender->getHealth() <= 0)
-        {
-            if (attacker == player)
-            {
-                QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
-            }
-            else
-            {
-                QMessageBox::information(0, "You lost!", "GAME OVER");
-            }
-            return false;
-        }
-    }
-
-    // Handle heal result if any
-    if (result.hpHealed > 0)
-    {
-        qDebug() << "-> Heals HP! Life received: " << result.hpHealed;
-
-        // Update UI for attacker's health
-        attacker->checkHealth();
-        if (attacker == player)
-        {
-            newUpdateHP(player, ui->playerHP);
-            showEntityInfo(player, ui->playerLabel);
-        }
-        else
-        {
-            newUpdateHP(opponent, ui->opponentHP);
-            showEntityInfo(opponent, ui->opponentLabel);
-        }
-    }
-
-    qDebug() << "Move executed successfully, returning true.";
-    return true;
-}*/
-
-bool SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result)
-{
     // Handle damage dealt
     if (result.damageDealt > 0)
     {
         qDebug() << "-> Deals damage! Damage dealt: " << result.damageDealt;
 
-        // Update UI for defender's health
         defender->checkHealth();
         if (defender == player)
         {
@@ -375,28 +307,14 @@ bool SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle
             newUpdateHP(opponent, ui->opponentHP);
             showEntityInfo(opponent, ui->opponentLabel);
         }
-
-        // Check for win/loss
-        if (defender->getHealth() <= 0)
-        {
-            if (attacker == player)
-            {
-                QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
-            }
-            else
-            {
-                QMessageBox::information(0, "You lost!", "GAME OVER");
-            }
-            return false;
-        }
     }
 
-    // Handle heal result if any
+    // Handle healing
     if (result.hpHealed > 0)
     {
-        qDebug() << "-> Heals HP! Life received: " << result.hpHealed;
+        state.hasHealing = true;
+        state.healer = attacker;
 
-        // Update UI for attacker's health
         attacker->checkHealth();
         if (attacker == player)
         {
@@ -410,53 +328,70 @@ bool SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle
         }
     }
 
-    // Handle stat boosts (attack, defense, speed)
-    if (result.attackBoost != 0)
+    // Check for win/loss after all effects
+    if (defender->getHealth() <= 0)
     {
-        if (result.attackBoost == 1)
-        {
-            qDebug() << attacker->getName() << "'s attack rose!";
-            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s attack rose!"));
-        }
-        else if (result.attackBoost == 2)
-        {
-            qDebug() << attacker->getName() << "'s attack rose sharply!";
-            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s attack rose sharply!"));
-        }
+        state.continueBattle = false;
+        if (attacker == player)
+            QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
+        else
+            QMessageBox::information(0, "You lost!", "GAME OVER");
     }
 
-    if (result.defenceBoost != 0)
-    {
-        if (result.defenceBoost == 1)
-        {
-            qDebug() << attacker->getName() << "'s defense rose!";
-            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s defense rose!"));
-        }
-        else if (result.defenceBoost == 2)
-        {
-            qDebug() << attacker->getName() << "'s defense rose sharply!";
-            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s defense rose sharply!"));
-        }
-    }
-
-    if (result.speedBoost != 0)
-    {
-        if (result.speedBoost == 1)
-        {
-            qDebug() << attacker->getName() << "'s speed rose!";
-            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s speed rose!"));
-        }
-        else if (result.speedBoost == 2)
-        {
-            qDebug() << attacker->getName() << "'s speed rose sharply!";
-            QMessageBox::information(0, "Boost", QString::fromStdString(attacker->getName() + "'s speed rose sharply!"));
-        }
-    }
-
-    qDebug() << "Move executed successfully, returning true.";
-    return true;
+    return state;
 }
 
+void SimulationMenu::handleHealing(const MoveResultState& result, std::function<void()> nextStep)
+{
+    if (result.hasHealing)
+    {
+        QTimer::singleShot(2000, this, [this, result, nextStep]() {
+            showDynamicStatusMessage(MSG_HEAL_ACTION, result.healer->getName(), "");
+            QTimer::singleShot(2000, this, nextStep);
+        });
+    }
+    else
+    {
+        QTimer::singleShot(2000, this, nextStep);
+    }
+}
+
+void SimulationMenu::goToNextTurn()
+{
+    battle->nextTurn();
+    updateButtonVisibility();
+    showStatusMessage(STATUS_DECISION);
+}
+
+void SimulationMenu::secondCharacterPerform(bool isPlayer, int move)
+{
+    QTimer::singleShot(2000, this, [=]() {
+        MoveResultState result = isPlayer ? playerTurn(move) : opponentTurn(move);
+
+        if (!result.continueBattle)
+        {
+            endSimulation();
+            return;
+        }
+
+        handleHealing(result, [this]() { goToNextTurn(); });
+    });
+}
+
+
+MoveResultState SimulationMenu::playerTurn(int attack)
+{
+    Battle::EffectResult result = battle->performMove(player, opponent, attack);
+    showNewInfo(player, attack);
+    return handleMoveResult(player, opponent, result);
+}
+
+MoveResultState SimulationMenu::opponentTurn(int attack)
+{
+    Battle::EffectResult result = battle->performMove(opponent, player, attack);
+    showNewInfo(opponent, attack);
+    return handleMoveResult(opponent, player, result);
+}
 
 // Performs attack 1 from player's moveset
 void SimulationMenu::on_attackButton_1_clicked()
@@ -485,9 +420,7 @@ void SimulationMenu::on_attackButton_4_clicked()
 void SimulationMenu::on_quitButton_clicked()
 {
     QMessageBox::information(0, "You quit the simulation!", QString::fromStdString("How was your battle like ?"));
-    battle->endBattle();
-    resetBattle();  // Reset the game before exiting
-    emit battleFinished();
+    endSimulation();
 }
 
 // Ensures the widget is shown properly and refreshes the scene if it contains items
