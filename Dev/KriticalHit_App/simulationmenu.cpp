@@ -193,6 +193,14 @@ void SimulationMenu::showDynamicStatusMessage(DynamicStatusMessage type, const s
         message = actorName + "'s " + statName + " rose !";
         break;
 
+    case MSG_BUFF_ACTION_2:
+        message = actorName + "'s " + statName + " rose sharply !";
+        break;
+
+    case MSG_BUFF_ACTION_3:
+        message = actorName + "'s " + statName + " rose drastically !";
+        break;
+
     default:
         message = "Unknown dynamic message.";
         break;
@@ -268,30 +276,43 @@ void SimulationMenu::resetBattle()
     ui->opponentHP->setValue(opponentLife);
 }
 
+// This function initiates a turn by determining attack order,
+// performing the first move, handling any healing,
+// and scheduling the second character's move.
 void SimulationMenu::newCheckAttack(int move)
 {
+    // Perform any general turn setup logic (e.g., increase turn count)
     battle->Battle::performTurn();
-    updateButtonVisibility();
-    Battle::checkAttackOrder(player, opponent);
 
+    // Update button visibility based on the current state of the game
+    updateButtonVisibility();
+
+    // Determine which character goes first based on speed or other criteria
+    Battle::checkAttackOrder(player, opponent);
     bool playerGoesFirst = player->getAttackOrder() < opponent->getAttackOrder();
 
+    // Perform the move for the character who goes first
     auto firstTurn = playerGoesFirst ? playerTurn(move) : opponentTurn(move);
 
+    // If the battle ends after the first move (e.g., opponent defeated), stop here
     if (!firstTurn.continueBattle)
     {
         endSimulation();
         return;
     }
 
+    // Handle healing, then buffing, then second character's move
     handleHealing(firstTurn, [=]() {
-        secondCharacterPerform(!playerGoesFirst, move);
+        handleBuffing(firstTurn, [=]() {
+            secondCharacterPerform(!playerGoesFirst, move);
+        });
     });
 }
 
-MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result)
+
+/*MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result, capacity* move)
 {
-    MoveResultState state{true, false, false, nullptr};
+    MoveResultState state{true, false, false, nullptr, nullptr};
 
     // Handle damage dealt
     if (result.damageDealt > 0)
@@ -330,6 +351,76 @@ MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defen
         }
     }
 
+    //Handle Buffing
+    if (result.attackBoost != 0 || result.defenceBoost != 0 || result.speedBoost != 0)
+    {
+        state.hasBuffing = true;
+        state.character = attacker;
+        state.moveUsed = move;
+    }
+
+    // Check for win/loss after all effects
+    if (defender->getHealth() <= 0)
+    {
+        state.continueBattle = false;
+        if (attacker == player)
+            QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
+        else
+            QMessageBox::information(0, "You lost!", "GAME OVER");
+    }
+
+    return state;
+}*/
+
+MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result, std::shared_ptr<capacity> move)
+{
+    MoveResultState state{true, false, false, nullptr, nullptr};
+
+    // Handle damage dealt
+    if (result.damageDealt > 0)
+    {
+        qDebug() << "-> Deals damage! Damage dealt: " << result.damageDealt;
+
+        defender->checkHealth();
+        if (defender == player)
+        {
+            newUpdateHP(player, ui->playerHP);
+            showEntityInfo(player, ui->playerLabel);
+        }
+        else
+        {
+            newUpdateHP(opponent, ui->opponentHP);
+            showEntityInfo(opponent, ui->opponentLabel);
+        }
+    }
+
+    // Handle healing
+    if (result.hpHealed > 0)
+    {
+        state.hasHealing = true;
+        state.character = attacker;
+
+        attacker->checkHealth();
+        if (attacker == player)
+        {
+            newUpdateHP(player, ui->playerHP);
+            showEntityInfo(player, ui->playerLabel);
+        }
+        else
+        {
+            newUpdateHP(opponent, ui->opponentHP);
+            showEntityInfo(opponent, ui->opponentLabel);
+        }
+    }
+
+    // Handle Buffing
+    if (result.attackBoost != 0 || result.defenceBoost != 0 || result.speedBoost != 0)
+    {
+        state.hasBuffing = true;
+        state.character = attacker;
+        state.moveUsed = move;  // Store the move as shared_ptr
+    }
+
     // Check for win/loss after all effects
     if (defender->getHealth() <= 0)
     {
@@ -361,23 +452,32 @@ void SimulationMenu::handleHealing(const MoveResultState& result, std::function<
     }
 }
 
+//For now it only work if the buffing capacity has only 1 statModifier
 void SimulationMenu::handleBuffing(const MoveResultState& result, std::function<void()> nextStep)
 {
-    if (result.hasBuffing)
+    if (!result.hasBuffing)
     {
-        // Wait 2s BEFORE showing "Character's STAT rose"
-        QTimer::singleShot(2000, this, [this, result, nextStep]() {
-            showDynamicStatusMessage(MSG_BUFF_ACTION_1, result.character->getName(), "", "");
+        nextStep();
+        return;
+    }
 
-            // Then wait 2s more before continuing
-            nextStep();
-        });
-    }
-    else
-    {
-        nextStep();  // No healing? Just move on
-    }
+    const StatModifier& modifier = result.moveUsed->getStatModifier(0);
+    const QString statChanged = QString::fromStdString(result.moveUsed->statTypeToString(modifier.stat));
+    const int boost = modifier.amount;
+
+    qDebug() << "handleBuffing -> Stat:" << statChanged << ", Amount:" << boost;
+
+    DynamicStatusMessage buffMessage =
+        (boost >= 3) ? MSG_BUFF_ACTION_3 :
+            (boost == 2) ? MSG_BUFF_ACTION_2 :
+            MSG_BUFF_ACTION_1;
+
+    QTimer::singleShot(2000, this, [this, result, statChanged, nextStep, buffMessage]() {
+        showDynamicStatusMessage(buffMessage, result.character->getName(), "", statChanged.toStdString());
+        nextStep();
+    });
 }
+
 
 
 
@@ -399,29 +499,32 @@ void SimulationMenu::secondCharacterPerform(bool isPlayer, int move)
             return;
         }
 
-        handleHealing(result, [this]() {
-            QTimer::singleShot(2000, this, [this]() {
-                goToNextTurn();
+        handleHealing(result, [this, result]() {
+            handleBuffing(result, [this]() {
+                QTimer::singleShot(2000, this, [this]() {
+                    goToNextTurn();
+                });
             });
         });
     });
 }
 
-
-
 MoveResultState SimulationMenu::playerTurn(int attack)
 {
     Battle::EffectResult result = battle->performMove(player, opponent, attack);
     showNewInfo(player, attack);
-    return handleMoveResult(player, opponent, result);
+    std::shared_ptr<capacity> chosenSkill = std::make_shared<capacity>(player->getNewSkill(attack));
+    return handleMoveResult(player, opponent, result, chosenSkill);
 }
 
 MoveResultState SimulationMenu::opponentTurn(int attack)
 {
     Battle::EffectResult result = battle->performMove(opponent, player, attack);
     showNewInfo(opponent, attack);
-    return handleMoveResult(opponent, player, result);
+    std::shared_ptr<capacity> chosenSkill = std::make_shared<capacity>(opponent->getNewSkill(attack));
+    return handleMoveResult(opponent, player, result, chosenSkill);
 }
+
 
 // Performs attack 1 from player's moveset
 void SimulationMenu::on_attackButton_1_clicked()

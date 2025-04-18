@@ -24,6 +24,8 @@ enum DynamicStatusMessage {
     MSG_ATTACK_ACTION,
     MSG_HEAL_ACTION,
     MSG_BUFF_ACTION_1,
+    MSG_BUFF_ACTION_2,
+    MSG_BUFF_ACTION_3,
     // You can add more types like MSG_HEAL_ACTION, MSG_LEVEL_UP, etc.
 };
 
@@ -32,8 +34,8 @@ struct MoveResultState {
     bool hasHealing;
     bool hasBuffing;
     Entity* character;
+    std::shared_ptr<capacity> moveUsed;  // Use shared_ptr for better memory management
 };
-
 
 
 namespace Ui {
@@ -55,7 +57,7 @@ public:
     void setAttacks();
     void newUpdateHP(Entity*, QProgressBar*);
     void newCheckAttack(int);
-    MoveResultState handleMoveResult(Entity*, Entity*, Battle::EffectResult);
+    MoveResultState handleMoveResult(Entity*, Entity*, Battle::EffectResult, std::shared_ptr<capacity>);
     void handleHealing(const MoveResultState&, std::function<void()>);
     void handleBuffing(const MoveResultState&, std::function<void()>);
     void goToNextTurn();

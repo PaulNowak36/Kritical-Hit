@@ -80,6 +80,9 @@ public:
     //static std::string effectTypeToString(EffectType effect);
     std::string getEffectString() const;
 
+    std::vector<int> getStatChangeSummary() const;
+
+
 };
 
 #endif // CAPACITY_H

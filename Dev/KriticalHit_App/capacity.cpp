@@ -50,16 +50,13 @@ void capacity::printStatModifiers() const {
 // Helper function implementation
 std::string capacity::statTypeToString(StatType stat) const {
     switch (stat) {
-    case StatType::Strength:
-        return "Strength";
-    case StatType::Defence:
-        return "Defence";
-    case StatType::Speed:
-        return "Speed";
-    default:
-        return "Unknown";
+    case StatType::Strength: return "Strength";
+    case StatType::Defence: return "Defence";
+    case StatType::Speed: return "Speed";
+    default: return "unknown";
     }
 }
+
 
 std::string capacity::getEffectString() const {
     std::string effectString;
@@ -73,6 +70,28 @@ std::string capacity::getEffectString() const {
     }
     return effectString;
 }
+
+std::vector<int> capacity::getStatChangeSummary() const {
+    // Initialize the vector with 0s for each StatType
+    std::vector<int> summary(3, 0); // Index 0 = Strength, 1 = Defence, 2 = Speed
+
+    for (const auto& modifier : _statModifiers) {
+        switch (modifier.stat) {
+        case StatType::Strength:
+            summary[0] += modifier.amount;
+            break;
+        case StatType::Defence:
+            summary[1] += modifier.amount;
+            break;
+        case StatType::Speed:
+            summary[2] += modifier.amount;
+            break;
+        }
+    }
+
+    return summary;
+}
+
 
 // Example usage in SimulationMenu.cpp (or wherever you need to debug)
 // In SimulationMenu::initializeBattle() or another relevant function:
