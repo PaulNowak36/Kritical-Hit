@@ -8,6 +8,7 @@ class Entity {
 
 protected:
     std::string _name;
+    std::vector<int> _baseStats = {0, 0, 0, 0}; // [0]=HP, [1]=strength, [2]=defence, [3]=speed
     int _health;
     int _maxHealth;
     int _strength;
@@ -15,7 +16,6 @@ protected:
     int _speed;
     int _level;
 
-    //capacity _skill;
     std::array<capacity, 4> _skillList;
 
     int _attackOrder;
@@ -23,42 +23,45 @@ protected:
 
 public:
     Entity();
-    //Entity(std::string, int, int, int, int, int, int, const capacity&, const std::array<capacity, 4>&, int);
-    Entity(std::string, int, int, int, int, int, int, const std::array<capacity, 4>&, int);
+    Entity(std::string, int, const std::vector<int>&, const std::array<capacity, 4>&, int);
 
-    void    setName(std::string);
-    std::string  getName();
-    void    setHealth(int);
-    int     getHealth();
-    void    setMaxHealth(int);
-    int     getMaxHealth();
-    void    setStrength(int);
-    int     getStrength();
-    void    setDefence(int);
-    int     getDefence();
-    void    setSpeed(int);
-    int     getSpeed();
-    void    setLevel(int);
-    int     getLevel();
-    int getStatStage(StatType) const;
+    // --- Setters ---
+    void setName(std::string);
+    void setHealth(int);
+    void setMaxHealth(int);
+    void setBaseStats(int, int, int, int);
+    void setStrength(int);
+    void setDefence(int);
+    void setSpeed(int);
+    void setLevel(int);
     void setStatStage(StatType, int);
     void setSkill(const capacity&);
     void setNewSkill(int index, const capacity& skill);
-    //capacity& getSkill();
-    capacity& getNewSkill(int);
     void setSkillList(const std::array<capacity, 4>& moveList);
+    void setAttackOrder(int);
+
+    // --- Getters ---
+    std::string getName();
+    int getHealth();
+    int getMaxHealth();
+    std::vector<int> getBaseStats() const;
+    int getStrength();
+    int getDefence();
+    int getSpeed();
+    int getLevel();
+    int getStatStage(StatType) const;
+    capacity& getNewSkill(int);
     const std::array<capacity, 4>& getSkillList() const;
+    int getAttackOrder();
 
-
-    void    checkHealth();
+    // --- Utility ---
+    void checkHealth();
 
     static int genRandom(int from, int upto)
     {
         return (rand() % (upto - from + 1)) + from;
     }
 
-    void setAttackOrder(int);
-    int getAttackOrder();
 
 };
 

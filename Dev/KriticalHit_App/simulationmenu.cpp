@@ -108,10 +108,13 @@ void SimulationMenu::initializeBattle()
     //set up moveset with the new moves
     std::array<capacity, 4> moveset = {*attack1, *attack2, *attack3, *attack4};
 
+    std::vector<int> agribizarre_baseStats = {30, 15, 15, 14};
+    std::vector<int> temarattata_baseStats = {26, 16, 12, 19};
+
     //set up characters with their name, stats and moveset
-    player = new Entity("Agribizarre", 11, 30, 30, 15, 15, 14, moveset, 0);
+    player = new Entity("Agribizarre", 11, agribizarre_baseStats, moveset, 0);
     //opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, moveset, 0);
-    opponent = new Entity("Temaratatta", 10, 26, 26, 16, 12, 19, moveset, 0);
+    opponent = new Entity("Temaratatta", 10, temarattata_baseStats, moveset, 0);
 
     //initialize battle with the 2 characters
     battle = new Battle(player, opponent);
@@ -308,69 +311,6 @@ void SimulationMenu::newCheckAttack(int move)
         });
     });
 }
-
-
-/*MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result, capacity* move)
-{
-    MoveResultState state{true, false, false, nullptr, nullptr};
-
-    // Handle damage dealt
-    if (result.damageDealt > 0)
-    {
-        qDebug() << "-> Deals damage! Damage dealt: " << result.damageDealt;
-
-        defender->checkHealth();
-        if (defender == player)
-        {
-            newUpdateHP(player, ui->playerHP);
-            showEntityInfo(player, ui->playerLabel);
-        }
-        else
-        {
-            newUpdateHP(opponent, ui->opponentHP);
-            showEntityInfo(opponent, ui->opponentLabel);
-        }
-    }
-
-    // Handle healing
-    if (result.hpHealed > 0)
-    {
-        state.hasHealing = true;
-        state.character = attacker;
-
-        attacker->checkHealth();
-        if (attacker == player)
-        {
-            newUpdateHP(player, ui->playerHP);
-            showEntityInfo(player, ui->playerLabel);
-        }
-        else
-        {
-            newUpdateHP(opponent, ui->opponentHP);
-            showEntityInfo(opponent, ui->opponentLabel);
-        }
-    }
-
-    //Handle Buffing
-    if (result.attackBoost != 0 || result.defenceBoost != 0 || result.speedBoost != 0)
-    {
-        state.hasBuffing = true;
-        state.character = attacker;
-        state.moveUsed = move;
-    }
-
-    // Check for win/loss after all effects
-    if (defender->getHealth() <= 0)
-    {
-        state.continueBattle = false;
-        if (attacker == player)
-            QMessageBox::information(0, "You won!", QString::fromStdString("+ " + std::to_string(20) + " EXP"));
-        else
-            QMessageBox::information(0, "You lost!", "GAME OVER");
-    }
-
-    return state;
-}*/
 
 MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result, std::shared_ptr<capacity> move)
 {
