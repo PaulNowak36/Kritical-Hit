@@ -148,15 +148,19 @@ Battle::EffectResult Battle::applyStatModifiers(Entity* target, const std::vecto
         switch (stat) {
         case StatType::Strength:
             result.attackBoost = newStage - originalStage;
-            target->setStrength(static_cast<int>(target->getStrength() * multiplier));
+            //target->setStrength(static_cast<int>(target->getStrength() * multiplier));
+            target->setStrength(static_cast<int>(target->getBaseStats()[1] * multiplier));
+            qDebug() << "New Strength =" << target->getStrength();
             break;
         case StatType::Defence:
             result.defenceBoost = newStage - originalStage;
-            target->setDefence(static_cast<int>(target->getDefence() * multiplier));
+            //target->setDefence(static_cast<int>(target->getDefence() * multiplier));
+            target->setDefence(static_cast<int>(target->getBaseStats()[2] * multiplier));
             break;
         case StatType::Speed:
             result.speedBoost = newStage - originalStage;
-            target->setSpeed(static_cast<int>(target->getSpeed() * multiplier));
+            //target->setSpeed(static_cast<int>(target->getSpeed() * multiplier));
+            target->setSpeed(static_cast<int>(target->getBaseStats()[3] * multiplier));
             break;
         }
     }
