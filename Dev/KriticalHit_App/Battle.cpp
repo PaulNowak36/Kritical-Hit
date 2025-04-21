@@ -206,4 +206,3 @@ Battle::EffectResult Battle::applyEffect(Entity* user, Entity* target, const cap
 
 
 
-

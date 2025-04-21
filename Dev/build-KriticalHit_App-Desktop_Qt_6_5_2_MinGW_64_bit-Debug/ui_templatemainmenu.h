@@ -1,13 +1,11 @@
+#pragma once
 /********************************************************************************
-** Form generated from reading UI file 'templatemainmenu.ui'
+** Form generated from reading UI file ''
 **
 ** Created by: Qt User Interface Compiler version 6.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
-
-#ifndef UI_TEMPLATEMAINMENU_H
-#define UI_TEMPLATEMAINMENU_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -29,6 +27,7 @@ public:
     QPushButton *loadTemplate_Button2;
     QPushButton *saveTemplate_Button;
     QPushButton *simulation_Button;
+    QPushButton *rules_Button;
     QWidget *page_2;
 
     void setupUi(QWidget *TemplateMainMenu)
@@ -60,7 +59,10 @@ public:
         saveTemplate_Button->setGeometry(QRect(10, 210, 91, 81));
         simulation_Button = new QPushButton(templatePokemon_page);
         simulation_Button->setObjectName("simulation_Button");
-        simulation_Button->setGeometry(QRect(360, 200, 121, 51));
+        simulation_Button->setGeometry(QRect(450, 170, 121, 51));
+        rules_Button = new QPushButton(templatePokemon_page);
+        rules_Button->setObjectName("simulation_Button_2");
+        rules_Button->setGeometry(QRect(180, 100, 121, 51));
         stackedWidget3->addWidget(templatePokemon_page);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
@@ -80,6 +82,7 @@ public:
         loadTemplate_Button2->setText(QCoreApplication::translate("TemplateMainMenu", "Load +", nullptr));
         saveTemplate_Button->setText(QCoreApplication::translate("TemplateMainMenu", "Save", nullptr));
         simulation_Button->setText(QCoreApplication::translate("TemplateMainMenu", "Test Battle Template", nullptr));
+        rules_Button->setText(QCoreApplication::translate("TemplateMainMenu", "Test Battle Template", nullptr));
     } // retranslateUi
 
 };
@@ -90,4 +93,3 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_TEMPLATEMAINMENU_H

@@ -16,6 +16,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     newtemplatemenu.cpp \
+    rulesmenu.cpp \
     simulationmenu.cpp \
     templatemainmenu.cpp
 
@@ -25,12 +26,14 @@ HEADERS += \
     entity.h \
     mainwindow.h \
     newtemplatemenu.h \
+    rulesmenu.h \
     simulationmenu.h \
     templatemainmenu.h
 
 FORMS += \
     mainwindow.ui \
     newtemplatemenu.ui \
+    rulesmenu.ui \
     simulationmenu.ui \
     templatemainmenu.ui
 

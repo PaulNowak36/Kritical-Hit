@@ -102,4 +102,3 @@ std::vector<int> capacity::getStatChangeSummary() const {
 // StatModifier modifier = attack4->getStatModifier(0); // Get the first modifier
 // qDebug() << "Stat: " << QString::fromStdString(attack4->statTypeToString(modifier.stat)) << ", Amount: " << modifier.amount;
 
-
