@@ -9,8 +9,10 @@ TemplateMainMenu::TemplateMainMenu(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->stackedWidget3->insertWidget(1, &_simInfo);
+    ui->stackedWidget3->insertWidget(2, &_rulesInfo);
 
     connect(&_simInfo, SIGNAL(battleFinished()), this, SLOT(moveTemplateMenu()));
+    connect(&_rulesInfo, SIGNAL(rulesConfirmed()), this, SLOT(moveTemplateMenu()));
 }
 
 TemplateMainMenu::~TemplateMainMenu()
@@ -50,5 +52,11 @@ void TemplateMainMenu::moveTemplateMenu()
 void TemplateMainMenu::on_simulation_Button_clicked()
 {
     ui->stackedWidget3->setCurrentIndex(1);
+}
+
+
+void TemplateMainMenu::on_rules_Button_clicked()
+{
+    ui->stackedWidget3->setCurrentIndex(2);
 }
 

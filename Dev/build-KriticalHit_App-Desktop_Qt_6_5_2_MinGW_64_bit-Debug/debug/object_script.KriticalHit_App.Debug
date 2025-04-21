@@ -4,10 +4,12 @@ debug/entity.o
 debug/main.o
 debug/mainwindow.o
 debug/newtemplatemenu.o
+debug/rulesmenu.o
 debug/simulationmenu.o
 debug/templatemainmenu.o
 debug/qrc_qmake_qmake_qm_files.o
 debug/moc_mainwindow.o
 debug/moc_newtemplatemenu.o
+debug/moc_rulesmenu.o
 debug/moc_simulationmenu.o
 debug/moc_templatemainmenu.o

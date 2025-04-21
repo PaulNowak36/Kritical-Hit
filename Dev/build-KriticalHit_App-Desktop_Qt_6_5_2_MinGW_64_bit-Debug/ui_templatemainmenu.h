@@ -1,11 +1,13 @@
-#pragma once
 /********************************************************************************
-** Form generated from reading UI file ''
+** Form generated from reading UI file 'templatemainmenu.ui'
 **
 ** Created by: Qt User Interface Compiler version 6.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
+
+#ifndef UI_TEMPLATEMAINMENU_H
+#define UI_TEMPLATEMAINMENU_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -61,7 +63,7 @@ public:
         simulation_Button->setObjectName("simulation_Button");
         simulation_Button->setGeometry(QRect(450, 170, 121, 51));
         rules_Button = new QPushButton(templatePokemon_page);
-        rules_Button->setObjectName("simulation_Button_2");
+        rules_Button->setObjectName("rules_Button");
         rules_Button->setGeometry(QRect(180, 100, 121, 51));
         stackedWidget3->addWidget(templatePokemon_page);
         page_2 = new QWidget();
@@ -82,7 +84,7 @@ public:
         loadTemplate_Button2->setText(QCoreApplication::translate("TemplateMainMenu", "Load +", nullptr));
         saveTemplate_Button->setText(QCoreApplication::translate("TemplateMainMenu", "Save", nullptr));
         simulation_Button->setText(QCoreApplication::translate("TemplateMainMenu", "Test Battle Template", nullptr));
-        rules_Button->setText(QCoreApplication::translate("TemplateMainMenu", "Test Battle Template", nullptr));
+        rules_Button->setText(QCoreApplication::translate("TemplateMainMenu", "RULES", nullptr));
     } // retranslateUi
 
 };
@@ -93,3 +95,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
+#endif // UI_TEMPLATEMAINMENU_H

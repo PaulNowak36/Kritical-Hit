@@ -15,6 +15,12 @@ public:
     explicit rulesMenu(QWidget *parent = nullptr);
     ~rulesMenu();
 
+private slots:
+    void on_Confirm_Button_clicked();
+
+signals:
+    void rulesConfirmed();
+
 private:
     Ui::rulesMenu *ui;
 };

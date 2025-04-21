@@ -12,3 +12,9 @@ rulesMenu::~rulesMenu()
 {
     delete ui;
 }
+
+void rulesMenu::on_Confirm_Button_clicked()
+{
+    emit rulesConfirmed();
+}
+
