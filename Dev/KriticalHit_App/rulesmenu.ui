@@ -36,7 +36,7 @@ color: rgb(255, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>160</y>
+     <y>110</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -50,11 +50,11 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
     <string>healing allowed</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="healing_checkBox_2">
+  <widget class="QCheckBox" name="buffing_checkBox">
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>250</y>
+     <y>180</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -84,6 +84,24 @@ font: 900 12pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
     <string>Confirm</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="PP_checkBox">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>250</y>
+     <width>281</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 170, 255);
+color: rgb(255, 255, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Use PP System </string>
    </property>
   </widget>
  </widget>

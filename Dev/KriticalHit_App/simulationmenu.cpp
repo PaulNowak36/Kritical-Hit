@@ -56,6 +56,9 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
 
 SimulationMenu::~SimulationMenu()
 {
+    delete player;
+    delete opponent;
+    delete battle;
     delete ui;
 }
 
@@ -98,7 +101,7 @@ void SimulationMenu::initializeBattle()
 {// set up characters and their moveset
 
     // set up moves
-    attack1 = new capacity("Pound", 40, MoveCategory::Physical, {EffectType::Attack});
+    /*attack1 = new capacity("Pound", 40, MoveCategory::Physical, {EffectType::Attack});
     attack2 = new capacity("Take Down", 90, MoveCategory::Physical, {EffectType::Attack});
     attack3 = new capacity("Recover", 0, MoveCategory::Status, {EffectType::Heal});
     attack3->setHealPercent(50);
@@ -118,10 +121,34 @@ void SimulationMenu::initializeBattle()
 
     //initialize battle with the 2 characters
     battle = new Battle(player, opponent);
-    battle->getState();
+    battle->getState();*/
+
+    Setup setup;
+
+    // Get moveset and characters
+    moveset = setup.getMoveset();
+    player = setup.getPlayer();
+    opponent = setup.getOpponent();
+
+    // Assign attack shortcuts
+    attack1 = &moveset[0];
+    attack2 = &moveset[1];
+    attack3 = &moveset[2];
+    attack4 = &moveset[3];
+
+    // Create the battle
+    battle = new Battle(player, opponent);
+
+    // Debug
+    qDebug() << "[SimulationMenu] Player created:" << QString::fromStdString(player->getName());
+    qDebug() << "[SimulationMenu] Opponent created:" << QString::fromStdString(opponent->getName());
+
+    for (int i = 0; i < 4; ++i) {
+        qDebug() << " Move" << i << ": " << QString::fromStdString(player->getNewSkill(i).getAttackName())
+                 << " Power:" << player->getNewSkill(i).getAttackPower();
+    }
+
     updateButtonVisibility();
-
-
 }
 
 void SimulationMenu::updateButtonVisibility() {
@@ -259,8 +286,13 @@ void SimulationMenu::resetBattle()
 {
     // Delete existing objects to prevent memory leaks
     delete player;
+    player = nullptr;
+
     delete opponent;
+    opponent = nullptr;
+
     delete battle;
+    battle = nullptr;
 
     // Reinitialize characters and battle
     initializeBattle();

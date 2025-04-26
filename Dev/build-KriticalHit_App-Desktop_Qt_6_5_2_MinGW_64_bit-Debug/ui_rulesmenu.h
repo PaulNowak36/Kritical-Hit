@@ -1,11 +1,13 @@
-#pragma once
 /********************************************************************************
-** Form generated from reading UI file ''
+** Form generated from reading UI file 'rulesmenu.ui'
 **
 ** Created by: Qt User Interface Compiler version 6.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
+
+#ifndef UI_RULESMENU_H
+#define UI_RULESMENU_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -56,9 +58,9 @@ public:
 "background-color: rgb(0, 255, 0);\n"
 "font: 900 12pt \"Segoe UI\";"));
         PP_checkBox = new QCheckBox(rulesMenu);
-        PP_checkBox->setObjectName("healing_checkBox_3");
-        PP_checkBox->setGeometry(QRect(230, 240, 281, 51));
-        PP_checkBox->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 170, 0);\n"
+        PP_checkBox->setObjectName("PP_checkBox");
+        PP_checkBox->setGeometry(QRect(230, 250, 281, 51));
+        PP_checkBox->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 170, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "font: 700 14pt \"Segoe UI\";"));
 
@@ -74,7 +76,7 @@ public:
         healing_checkBox->setText(QCoreApplication::translate("rulesMenu", "healing allowed", nullptr));
         buffing_checkBox->setText(QCoreApplication::translate("rulesMenu", "buffing allowed", nullptr));
         Confirm_Button->setText(QCoreApplication::translate("rulesMenu", "Confirm", nullptr));
-        PP_checkBox->setText(QCoreApplication::translate("rulesMenu", "buffing allowed", nullptr));
+        PP_checkBox->setText(QCoreApplication::translate("rulesMenu", "Use PP System ", nullptr));
     } // retranslateUi
 
 };
@@ -85,3 +87,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
+#endif // UI_RULESMENU_H

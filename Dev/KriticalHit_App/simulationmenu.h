@@ -11,6 +11,7 @@
 #include "entity.h"
 #include "capacity.h"
 #include "battle.h"
+#include "setup.h"
 #include <vector>
 #include <iostream>
 

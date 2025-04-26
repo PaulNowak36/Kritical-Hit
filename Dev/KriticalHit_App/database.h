@@ -36,15 +36,18 @@ public:
 
     // Rule getter and setter for 'healing' rule
     static bool getHealingRule();
-    static bool setHealingRule(bool value);
+    static bool setHealingRule(bool);
 
     // Rule getter and setter for 'buffing' rule
     static bool getBuffingRule();
-    static bool setBuffingRule(bool value);
+    static bool setBuffingRule(bool);
 
     // Rule getter and setter for 'PP' rule
     static bool getPPRule();
-    static bool setPPRule(bool value);
+    static bool setPPRule(bool);
+
+    static QMap<QString, bool> getAllRules();
+    static bool setAllRules(bool, bool, bool);
 };
 
 #endif // DATABASE_H

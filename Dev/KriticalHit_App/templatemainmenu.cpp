@@ -8,6 +8,10 @@ TemplateMainMenu::TemplateMainMenu(QWidget *parent) :
     ui(new Ui::TemplateMainMenu)
 {
     ui->setupUi(this);
+
+    database::setFullPath(QDir().currentPath() + "/rules1.db");
+    database::openDatabase();
+
     ui->stackedWidget3->insertWidget(1, &_simInfo);
     ui->stackedWidget3->insertWidget(2, &_rulesInfo);
 

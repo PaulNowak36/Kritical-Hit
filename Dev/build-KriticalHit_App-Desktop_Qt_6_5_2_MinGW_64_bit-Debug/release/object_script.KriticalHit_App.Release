@@ -1,10 +1,12 @@
 release/Battle.o
 release/capacity.o
+release/database.o
 release/entity.o
 release/main.o
 release/mainwindow.o
 release/newtemplatemenu.o
 release/rulesmenu.o
+release/setup.o
 release/simulationmenu.o
 release/templatemainmenu.o
 release/qrc_qmake_qmake_qm_files.o

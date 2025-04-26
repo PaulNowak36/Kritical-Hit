@@ -8,6 +8,8 @@ newTemplateMenu::newTemplateMenu(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
+
     ui->stackedWidget2->setCurrentIndex(0);
     ui->stackedWidget2->insertWidget(4, &_TempMainInfo);
 

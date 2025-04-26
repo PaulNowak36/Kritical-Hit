@@ -18,6 +18,7 @@ SOURCES += \
     mainwindow.cpp \
     newtemplatemenu.cpp \
     rulesmenu.cpp \
+    setup.cpp \
     simulationmenu.cpp \
     templatemainmenu.cpp
 
@@ -29,6 +30,7 @@ HEADERS += \
     mainwindow.h \
     newtemplatemenu.h \
     rulesmenu.h \
+    setup.h \
     simulationmenu.h \
     templatemainmenu.h
 
