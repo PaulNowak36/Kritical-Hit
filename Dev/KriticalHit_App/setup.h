@@ -6,6 +6,7 @@
 #include <string>
 #include "capacity.h"
 #include "Entity.h"
+#include "moveLibrary.h"
 
 class Setup
 {
@@ -17,6 +18,7 @@ public:
 
 private:
     std::array<capacity, 4> moveset;
+    void initializeMoveset();
 };
 
 

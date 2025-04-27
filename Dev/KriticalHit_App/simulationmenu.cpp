@@ -25,26 +25,14 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     ui->attackButton_4->setProperty("class", "templateButton");
     ui->quitButton->setProperty("class", "templateButton");
 
-    initializeBattle();
-
     // Prepare battle info box
     showStatusMessage(STATUS_START);
-
-    // Display data about both characters
-    showEntityInfo(player, ui->playerLabel);
-    showEntityInfo(opponent, ui->opponentLabel);
-
-    setAttacks(); //Display moveset data
 
     // Create a scene and attach it to the 2 QGraphicsViews
     scene = new QGraphicsScene(this);
     ui->graphicsView_2->setScene(scene);
     ui->graphicsView_3->setScene(scene);
     drawEllipse(scene); // display ellipses for player and opponent battle areas
-
-    // set up Characters with full HP
-    newUpdateHP(player, ui->playerHP);
-    newUpdateHP(opponent, ui->opponentHP);
 
     // Initialize the timer once in the constructor
     timerTest = new QTimer(this);
@@ -99,29 +87,6 @@ void SimulationMenu::showEntityInfo(Entity* entity, QLabel* label)
 
 void SimulationMenu::initializeBattle()
 {// set up characters and their moveset
-
-    // set up moves
-    /*attack1 = new capacity("Pound", 40, MoveCategory::Physical, {EffectType::Attack});
-    attack2 = new capacity("Take Down", 90, MoveCategory::Physical, {EffectType::Attack});
-    attack3 = new capacity("Recover", 0, MoveCategory::Status, {EffectType::Heal});
-    attack3->setHealPercent(50);
-    attack4 = new capacity("Sword Dance", 0, MoveCategory::Status, {EffectType::Buff});
-    attack4->setStatModifiers(StatType::Strength, 2);  // Buff Strength by 2 stages
-
-    //set up moveset with the new moves
-    std::array<capacity, 4> moveset = {*attack1, *attack2, *attack3, *attack4};
-
-    std::vector<int> agribizarre_baseStats = {30, 15, 15, 14};
-    std::vector<int> temarattata_baseStats = {26, 16, 12, 19};
-
-    //set up characters with their name, stats and moveset
-    player = new Entity("Agribizarre", 11, agribizarre_baseStats, moveset, 0);
-    //opponent = new Entity("Temaratatta", 5, 18, 18, 10, 8, 12, moveset, 0);
-    opponent = new Entity("Temaratatta", 10, temarattata_baseStats, moveset, 0);
-
-    //initialize battle with the 2 characters
-    battle = new Battle(player, opponent);
-    battle->getState();*/
 
     Setup setup;
 
@@ -533,6 +498,19 @@ void SimulationMenu::showEvent(QShowEvent *event)
 {
     // Call the base class implementation to ensure the widget is shown properly
     QWidget::showEvent(event);
+
+    //Set up the battle once the widget is visible
+    initializeBattle();
+
+    // Display data about both characters
+    showEntityInfo(player, ui->playerLabel);
+    showEntityInfo(opponent, ui->opponentLabel);
+
+    setAttacks(); //Display moveset data
+
+    newUpdateHP(player, ui->playerHP);
+    newUpdateHP(opponent, ui->opponentHP);
+
 
     // If the scene contains any items, trigger an update to refresh the display
     if (!scene->items().isEmpty()) {

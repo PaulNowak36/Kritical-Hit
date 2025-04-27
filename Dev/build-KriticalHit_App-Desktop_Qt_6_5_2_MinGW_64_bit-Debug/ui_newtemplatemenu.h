@@ -419,7 +419,7 @@ public:
 
         retranslateUi(newTemplateMenu);
 
-        stackedWidget2->setCurrentIndex(1);
+        stackedWidget2->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(newTemplateMenu);

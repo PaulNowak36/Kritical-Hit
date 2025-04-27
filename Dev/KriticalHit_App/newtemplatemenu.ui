@@ -189,7 +189,7 @@ QPushButton#return_Button, QPushButton#return2_Button, QPushButton#return3_Butto
 </string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="RPG_Style_page">
     <property name="styleSheet">

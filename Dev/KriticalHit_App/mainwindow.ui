@@ -191,7 +191,7 @@ QPushButton:hover, QPushButton:clicked {
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">horizontalAlignment: AlignHCenter;
+            <string notr="true">
 color: rgb(0, 0, 0);</string>
            </property>
            <property name="text">

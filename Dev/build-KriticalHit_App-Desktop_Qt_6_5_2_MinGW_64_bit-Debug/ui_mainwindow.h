@@ -180,7 +180,7 @@ public:
         font.setBold(false);
         font.setItalic(false);
         Welcome->setFont(font);
-        Welcome->setStyleSheet(QString::fromUtf8("horizontalAlignment: AlignHCenter;\n"
+        Welcome->setStyleSheet(QString::fromUtf8("\n"
 "color: rgb(0, 0, 0);"));
         Welcome->setAlignment(Qt::AlignCenter);
 

@@ -28,6 +28,7 @@ HEADERS += \
     database.h \
     entity.h \
     mainwindow.h \
+    moveLibrary.h \
     newtemplatemenu.h \
     rulesmenu.h \
     setup.h \
