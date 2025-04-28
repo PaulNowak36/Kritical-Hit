@@ -7,6 +7,7 @@
 #include "capacity.h"
 #include "Entity.h"
 #include "moveLibrary.h"
+#include "database.h"
 
 class Setup
 {
@@ -19,6 +20,10 @@ public:
 private:
     std::array<capacity, 4> moveset;
     void initializeMoveset();
+    void filterMoveset();
+    bool healTrue;
+    bool buffTrue;
+    bool PPTrue;
 };
 
 
