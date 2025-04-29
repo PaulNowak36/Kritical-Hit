@@ -57,7 +57,7 @@ public:
 "}\n"
 "\n"
 "QPushButton.templateButton {\n"
-"    font: 10pt \"Press Start 2P\";	\n"
+"    font: 8pt \"Press Start 2P\";	\n"
 "    color: rgb(255, 255, 255);\n"
 "    background-color: orange; \n"
 "    border: 2px solid #000000;\n"

@@ -34,6 +34,8 @@ class capacity {
 protected:
     std::string _attackName;
     int _attackPower; // Damage for attacks, not used for healing
+    int _powerPoints; // Energy required for a capacity to be performed
+    int _maxPowerPoints;
     MoveCategory _category;
     std::vector<EffectType> _effects;
 
@@ -46,10 +48,13 @@ protected:
 public:
     capacity();
     capacity(std::string name, int power, MoveCategory category, std::vector<EffectType> effects);
+    capacity(std::string name, int power, int PP, MoveCategory category, std::vector<EffectType> effects);
 
     // Setters
     void setAttackName(std::string);
     void setAttackPower(int);
+    void setPowerPoints(int);
+    void setMaxPowerPoints(int);
     void setCategory(MoveCategory);
     void setEffects(std::vector<EffectType>);
     void setHealPercent(int);
@@ -61,6 +66,8 @@ public:
     //std::string getAttackName();
     std::string getAttackName() const;
     int getAttackPower() const;
+    int getPowerPoints() const;
+    int getMaxPowerPoints() const;
     MoveCategory getCategory();
     const std::vector<EffectType>& getEffects() const;
     int getHealPercent() const;
@@ -81,6 +88,8 @@ public:
     std::string getEffectString() const;
 
     std::vector<int> getStatChangeSummary() const;
+
+    bool useCapacity();
 
 
 };

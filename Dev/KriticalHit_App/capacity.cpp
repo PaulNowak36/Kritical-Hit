@@ -1,13 +1,20 @@
 #include "capacity.h"
 #include <iostream>
 
-capacity::capacity() : _attackName(""), _attackPower(0), _category(MoveCategory::Physical), _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
+capacity::capacity() : _attackName(""), _attackPower(0), _powerPoints(40), _category(MoveCategory::Physical), _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
 
 capacity::capacity(std::string name, int power, MoveCategory category, std::vector<EffectType> effects)
     : _attackName(name), _attackPower(power), _category(category), _effects(effects), _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
 
+capacity::capacity(std::string name, int power, int PP, MoveCategory category, std::vector<EffectType> effects)
+    : _attackName(name), _attackPower(power), _powerPoints(PP), _maxPowerPoints(PP), _category(category), _effects(effects), _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
+
+
 void capacity::setAttackName(std::string name) { _attackName = name; }
 void capacity::setAttackPower(int power) { _attackPower = power; }
+void capacity::setPowerPoints(int points) { _powerPoints = points; }
+void capacity::setMaxPowerPoints(int maxPoints) { _maxPowerPoints = maxPoints; }
+
 void capacity::setCategory(MoveCategory category) { _category = category; }
 void capacity::setEffects(std::vector<EffectType> effects) { _effects = effects; }
 void capacity::setHealPercent(int percent) { _healPercent = percent; }
@@ -20,6 +27,9 @@ void capacity::setStatModifiers(StatType stat, int amount) {
 
 std::string capacity::getAttackName() const { return _attackName; }
 int capacity::getAttackPower() const { return _attackPower; }
+int capacity::getPowerPoints() const { return _powerPoints; }
+int capacity::getMaxPowerPoints() const { return _maxPowerPoints; }
+
 MoveCategory capacity::getCategory() { return _category; }
 const std::vector<EffectType>& capacity::getEffects() const { return _effects; }
 int capacity::getHealPercent() const { return _healPercent; }
@@ -91,6 +101,17 @@ std::vector<int> capacity::getStatChangeSummary() const {
 
     return summary;
 }
+
+bool capacity::useCapacity() {
+    if (_powerPoints > 0) {
+        _powerPoints--;
+        return true;
+    } else {
+        std::cout << _attackName << " has no PP left!\n"; // Optional debug
+        return false;
+    }
+}
+
 
 
 // Example usage in SimulationMenu.cpp (or wherever you need to debug)

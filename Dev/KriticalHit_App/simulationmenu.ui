@@ -28,7 +28,7 @@ QLabel#playerSprite, QLabel#opponentSprite {
 }
 
 QPushButton.templateButton {
-    font: 10pt &quot;Press Start 2P&quot;;	
+    font: 8pt &quot;Press Start 2P&quot;;	
     color: rgb(255, 255, 255);
     background-color: orange; 
     border: 2px solid #000000;

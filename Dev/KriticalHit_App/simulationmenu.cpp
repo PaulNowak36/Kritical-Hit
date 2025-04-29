@@ -215,19 +215,19 @@ void SimulationMenu::setAttacks()
     std::string attackInfo4;
 
     //set up attack 1 Button
-    attackInfo1.append(player->getNewSkill(0).getAttackName() + " \n" + "Pow: " + std::to_string(player->getNewSkill(0).getAttackPower()));
+    attackInfo1.append(player->getNewSkill(0).getAttackName() + " \n \n" + std::to_string(player->getNewSkill(0).getPowerPoints()) + "/" + std::to_string(player->getNewSkill(0).getMaxPowerPoints()));
     ui->attackButton_1->setText(QString::fromStdString(attackInfo1));
 
     //set up attack 2 Button
-    attackInfo2.append(player->getNewSkill(1).getAttackName() + " \n" + "Pow: " + std::to_string(player->getNewSkill(1).getAttackPower()));
+    attackInfo2.append(player->getNewSkill(1).getAttackName()  + " \n \n" + std::to_string(player->getNewSkill(1).getPowerPoints()) + "/" + std::to_string(player->getNewSkill(1).getMaxPowerPoints()));
     ui->attackButton_2->setText(QString::fromStdString(attackInfo2));
 
     //set up attack 3 Button
-    attackInfo3.append(player->getNewSkill(2).getAttackName() + " \n" + "Pow: " + std::to_string(player->getNewSkill(2).getAttackPower()));
+    attackInfo3.append(player->getNewSkill(2).getAttackName()  + " \n \n" + std::to_string(player->getNewSkill(2).getPowerPoints()) + "/" + std::to_string(player->getNewSkill(2).getMaxPowerPoints()));
     ui->attackButton_3->setText(QString::fromStdString(attackInfo3));
 
     //set up attack 4 Button
-    attackInfo4.append(player->getNewSkill(3).getAttackName() + " \n" + "Pow: " + std::to_string(player->getNewSkill(3).getAttackPower()));
+    attackInfo4.append(player->getNewSkill(3).getAttackName()  + " \n \n" + std::to_string(player->getNewSkill(3).getPowerPoints()) + "/" + std::to_string(player->getNewSkill(3).getMaxPowerPoints()));
     ui->attackButton_4->setText(QString::fromStdString(attackInfo4));
 }
 
@@ -368,6 +368,9 @@ MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defen
             QMessageBox::information(0, "You lost!", "GAME OVER");
     }
 
+    //Update number of PP of an attack after each use
+    setAttacks();
+
     return state;
 }
 
@@ -466,23 +469,39 @@ MoveResultState SimulationMenu::opponentTurn(int attack)
 // Performs attack 1 from player's moveset
 void SimulationMenu::on_attackButton_1_clicked()
 {
-    newCheckAttack(0);
+    if (player->getNewSkill(0).useCapacity()) {
+        newCheckAttack(0);
+    } else {
+        QMessageBox::warning(this, "No PP Left", "This move cannot be used anymore.");
+    }
 }
 
 // Performs attack 2 from player's moveset
 void SimulationMenu::on_attackButton_2_clicked()
 {
-    newCheckAttack(1);
+    if (player->getNewSkill(1).useCapacity()) {
+        newCheckAttack(1);
+    } else {
+        QMessageBox::warning(this, "No PP Left", "This move cannot be used anymore.");
+    }
 }
 
 void SimulationMenu::on_attackButton_3_clicked()
 {
-    newCheckAttack(2);
+    if (player->getNewSkill(2).useCapacity()) {
+        newCheckAttack(2);
+    } else {
+        QMessageBox::warning(this, "No PP Left", "This move cannot be used anymore.");
+    }
 }
 
 void SimulationMenu::on_attackButton_4_clicked()
 {
-    newCheckAttack(3);
+    if (player->getNewSkill(3).useCapacity()) {
+        newCheckAttack(3);
+    } else {
+        QMessageBox::warning(this, "No PP Left", "This move cannot be used anymore.");
+    }
 }
 
 
