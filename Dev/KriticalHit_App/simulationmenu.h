@@ -91,6 +91,7 @@ signals:
 
 protected:
     void showEvent(QShowEvent *event) override; // Ensure scene is set up properly
+    Setup *battleSetup;
 
 private:
     Ui::SimulationMenu *ui;

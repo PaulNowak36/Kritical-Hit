@@ -47,6 +47,7 @@ SimulationMenu::~SimulationMenu()
     delete player;
     delete opponent;
     delete battle;
+    delete battleSetup;
     delete ui;
 }
 
@@ -88,12 +89,18 @@ void SimulationMenu::showEntityInfo(Entity* entity, QLabel* label)
 void SimulationMenu::initializeBattle()
 {// set up characters and their moveset
 
-    Setup setup;
+    // Clean up any existing setup if necessary
+    if (battleSetup) {
+        delete battleSetup;
+    }
+
+    // Allocate new Setup instance
+    battleSetup = new Setup();
 
     // Get moveset and characters
-    moveset = setup.getMoveset();
-    player = setup.getPlayer();
-    opponent = setup.getOpponent();
+    moveset = battleSetup->getMoveset();
+    player = battleSetup->getPlayer();
+    opponent = battleSetup->getOpponent();
 
     // Assign attack shortcuts
     attack1 = &moveset[0];
@@ -469,26 +476,28 @@ MoveResultState SimulationMenu::opponentTurn(int attack)
 // Performs attack 1 from player's moveset
 void SimulationMenu::on_attackButton_1_clicked()
 {
-    if (player->getNewSkill(0).useCapacity()) {
+    if (battleSetup->getPPRule() == false || player->getNewSkill(0).useCapacity()) {
         newCheckAttack(0);
     } else {
         QMessageBox::warning(this, "No PP Left", "This move cannot be used anymore.");
     }
+
 }
 
 // Performs attack 2 from player's moveset
 void SimulationMenu::on_attackButton_2_clicked()
 {
-    if (player->getNewSkill(1).useCapacity()) {
+    if (battleSetup->getPPRule() == false || player->getNewSkill(1).useCapacity()) {
         newCheckAttack(1);
     } else {
         QMessageBox::warning(this, "No PP Left", "This move cannot be used anymore.");
     }
+
 }
 
 void SimulationMenu::on_attackButton_3_clicked()
 {
-    if (player->getNewSkill(2).useCapacity()) {
+    if (battleSetup->getPPRule() == false || player->getNewSkill(2).useCapacity()) {
         newCheckAttack(2);
     } else {
         QMessageBox::warning(this, "No PP Left", "This move cannot be used anymore.");
@@ -497,7 +506,7 @@ void SimulationMenu::on_attackButton_3_clicked()
 
 void SimulationMenu::on_attackButton_4_clicked()
 {
-    if (player->getNewSkill(3).useCapacity()) {
+    if (battleSetup->getPPRule() == false || player->getNewSkill(3).useCapacity()) {
         newCheckAttack(3);
     } else {
         QMessageBox::warning(this, "No PP Left", "This move cannot be used anymore.");

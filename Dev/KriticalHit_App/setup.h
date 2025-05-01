@@ -16,6 +16,8 @@ public:
     std::array<capacity, 4> getMoveset();
     Entity* getPlayer();
     Entity* getOpponent();
+    bool getPPRule();
+
 
 private:
     std::array<capacity, 4> moveset;
