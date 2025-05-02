@@ -216,26 +216,29 @@ void SimulationMenu::showDynamicStatusMessage(DynamicStatusMessage type, const s
 //Set up pushButtons attacks with characters moves
 void SimulationMenu::setAttacks()
 {
-    std::string attackInfo1;
-    std::string attackInfo2;
-    std::string attackInfo3;
-    std::string attackInfo4;
 
-    //set up attack 1 Button
-    attackInfo1.append(player->getNewSkill(0).getAttackName() + " \n \n" + std::to_string(player->getNewSkill(0).getPowerPoints()) + "/" + std::to_string(player->getNewSkill(0).getMaxPowerPoints()));
-    ui->attackButton_1->setText(QString::fromStdString(attackInfo1));
+    // Array of pointers to the four attack buttons
+    QPushButton* attackButtons[4] = {
+        ui->attackButton_1,
+        ui->attackButton_2,
+        ui->attackButton_3,
+        ui->attackButton_4
+    };
 
-    //set up attack 2 Button
-    attackInfo2.append(player->getNewSkill(1).getAttackName()  + " \n \n" + std::to_string(player->getNewSkill(1).getPowerPoints()) + "/" + std::to_string(player->getNewSkill(1).getMaxPowerPoints()));
-    ui->attackButton_2->setText(QString::fromStdString(attackInfo2));
 
-    //set up attack 3 Button
-    attackInfo3.append(player->getNewSkill(2).getAttackName()  + " \n \n" + std::to_string(player->getNewSkill(2).getPowerPoints()) + "/" + std::to_string(player->getNewSkill(2).getMaxPowerPoints()));
-    ui->attackButton_3->setText(QString::fromStdString(attackInfo3));
+    for (int i = 0; i < 4; ++i)
+    {
+        const auto& skill = player->getNewSkill(i);
+        std::string attackInfo = skill.getAttackName();
 
-    //set up attack 4 Button
-    attackInfo4.append(player->getNewSkill(3).getAttackName()  + " \n \n" + std::to_string(player->getNewSkill(3).getPowerPoints()) + "/" + std::to_string(player->getNewSkill(3).getMaxPowerPoints()));
-    ui->attackButton_4->setText(QString::fromStdString(attackInfo4));
+        if (battleSetup->getPPRule()) {//Display the moves remaining and max PPs if PPRule is true
+            attackInfo += " \n \n" +
+                          std::to_string(skill.getPowerPoints()) + "/" +
+                          std::to_string(skill.getMaxPowerPoints());
+        }
+        // else just display the attack name
+        attackButtons[i]->setText(QString::fromStdString(attackInfo));
+    }
 }
 
 void SimulationMenu::newUpdateHP(Entity* entity, QProgressBar* hpBar)

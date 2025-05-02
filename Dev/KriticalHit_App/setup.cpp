@@ -42,6 +42,11 @@ Entity* Setup::getOpponent()
     return new Entity("Temaratatta", 10, baseStats, moveset, 0);
 }
 
+bool Setup::getPPRule()
+{
+    return PPTrue;
+}
+
 void Setup::initializeMoveset()
 {
     moveset = {
