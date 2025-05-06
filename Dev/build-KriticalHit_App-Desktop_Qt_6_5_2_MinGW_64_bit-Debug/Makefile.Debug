@@ -15,7 +15,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN -DQT_TESTCASE_BUILDDIR='"C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/build-KriticalHit_App-Desktop_Qt_6_5_2_MinGW_64_bit-Debug"'
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra $(DEFINES)
-CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++1z -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
+CXXFLAGS      = -fno-keep-inline-dllexport -g -g -O0 -std=gnu++1z -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
 INCPATH       = -I../KriticalHit_App -I. -IC:/Qt/6.5.2/mingw_64/include -IC:/Qt/6.5.2/mingw_64/include/QtWidgets -IC:/Qt/6.5.2/mingw_64/include/QtGui -IC:/Qt/6.5.2/mingw_64/include/QtSql -IC:/Qt/6.5.2/mingw_64/include/QtTest -IC:/Qt/6.5.2/mingw_64/include/QtCore -Idebug -I. -I/include -IC:/Qt/6.5.2/mingw_64/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,console -mthreads
@@ -162,7 +162,7 @@ compiler_moc_predefs_make_all: debug/moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) debug/moc_predefs.h
 debug/moc_predefs.h: C:/Qt/6.5.2/mingw_64/mkspecs/features/data/dummy.cpp
-	g++ -fno-keep-inline-dllexport -g -std=gnu++1z -Wall -Wextra -Wextra -dM -E -o debug/moc_predefs.h C:/Qt/6.5.2/mingw_64/mkspecs/features/data/dummy.cpp
+	g++ -fno-keep-inline-dllexport -g -g -O0 -std=gnu++1z -Wall -Wextra -Wextra -dM -E -o debug/moc_predefs.h C:/Qt/6.5.2/mingw_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: debug/moc_mainwindow.cpp debug/moc_newtemplatemenu.cpp debug/moc_rulesmenu.cpp debug/moc_simulationmenu.cpp debug/moc_templatemainmenu.cpp
 compiler_moc_header_clean:
@@ -352,7 +352,6 @@ debug/moc_mainwindow.cpp: ../KriticalHit_App/mainwindow.h \
 		../KriticalHit_App/setup.h \
 		../KriticalHit_App/Entity.h \
 		../KriticalHit_App/moveLibrary.h \
-		../KriticalHit_App/rulesmenu.h \
 		../KriticalHit_App/database.h \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
@@ -372,6 +371,7 @@ debug/moc_mainwindow.cpp: ../KriticalHit_App/mainwindow.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
+		../KriticalHit_App/rulesmenu.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.5.2/mingw_64/bin/moc.exe
 	'C:\Qt\6.5.2\mingw_64\bin\moc.exe' $(DEFINES) --include 'C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/build-KriticalHit_App-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.5.2/mingw_64/mkspecs/win32-g++ -I'C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App' -IC:/Qt/6.5.2/mingw_64/include -IC:/Qt/6.5.2/mingw_64/include/QtWidgets -IC:/Qt/6.5.2/mingw_64/include/QtGui -IC:/Qt/6.5.2/mingw_64/include/QtSql -IC:/Qt/6.5.2/mingw_64/include/QtTest -IC:/Qt/6.5.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../KriticalHit_App/mainwindow.h -o debug/moc_mainwindow.cpp
@@ -560,7 +560,6 @@ debug/moc_newtemplatemenu.cpp: ../KriticalHit_App/newtemplatemenu.h \
 		../KriticalHit_App/setup.h \
 		../KriticalHit_App/Entity.h \
 		../KriticalHit_App/moveLibrary.h \
-		../KriticalHit_App/rulesmenu.h \
 		../KriticalHit_App/database.h \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
@@ -580,6 +579,7 @@ debug/moc_newtemplatemenu.cpp: ../KriticalHit_App/newtemplatemenu.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
+		../KriticalHit_App/rulesmenu.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.5.2/mingw_64/bin/moc.exe
 	'C:\Qt\6.5.2\mingw_64\bin\moc.exe' $(DEFINES) --include 'C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/build-KriticalHit_App-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.5.2/mingw_64/mkspecs/win32-g++ -I'C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App' -IC:/Qt/6.5.2/mingw_64/include -IC:/Qt/6.5.2/mingw_64/include/QtWidgets -IC:/Qt/6.5.2/mingw_64/include/QtGui -IC:/Qt/6.5.2/mingw_64/include/QtSql -IC:/Qt/6.5.2/mingw_64/include/QtTest -IC:/Qt/6.5.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../KriticalHit_App/newtemplatemenu.h -o debug/moc_newtemplatemenu.cpp
@@ -947,6 +947,25 @@ debug/moc_simulationmenu.cpp: ../KriticalHit_App/simulationmenu.h \
 		../KriticalHit_App/setup.h \
 		../KriticalHit_App/Entity.h \
 		../KriticalHit_App/moveLibrary.h \
+		../KriticalHit_App/database.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QDir \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdir.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfile.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfiledevice.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfileinfo.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
 		debug/moc_predefs.h \
 		C:/Qt/6.5.2/mingw_64/bin/moc.exe
 	'C:\Qt\6.5.2\mingw_64\bin\moc.exe' $(DEFINES) --include 'C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/build-KriticalHit_App-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.5.2/mingw_64/mkspecs/win32-g++ -I'C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App' -IC:/Qt/6.5.2/mingw_64/include -IC:/Qt/6.5.2/mingw_64/include/QtWidgets -IC:/Qt/6.5.2/mingw_64/include/QtGui -IC:/Qt/6.5.2/mingw_64/include/QtSql -IC:/Qt/6.5.2/mingw_64/include/QtTest -IC:/Qt/6.5.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../KriticalHit_App/simulationmenu.h -o debug/moc_simulationmenu.cpp
@@ -1134,7 +1153,6 @@ debug/moc_templatemainmenu.cpp: ../KriticalHit_App/templatemainmenu.h \
 		../KriticalHit_App/setup.h \
 		../KriticalHit_App/Entity.h \
 		../KriticalHit_App/moveLibrary.h \
-		../KriticalHit_App/rulesmenu.h \
 		../KriticalHit_App/database.h \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
@@ -1154,6 +1172,7 @@ debug/moc_templatemainmenu.cpp: ../KriticalHit_App/templatemainmenu.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
+		../KriticalHit_App/rulesmenu.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.5.2/mingw_64/bin/moc.exe
 	'C:\Qt\6.5.2\mingw_64\bin\moc.exe' $(DEFINES) --include 'C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/build-KriticalHit_App-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.5.2/mingw_64/mkspecs/win32-g++ -I'C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App' -IC:/Qt/6.5.2/mingw_64/include -IC:/Qt/6.5.2/mingw_64/include/QtWidgets -IC:/Qt/6.5.2/mingw_64/include/QtGui -IC:/Qt/6.5.2/mingw_64/include/QtSql -IC:/Qt/6.5.2/mingw_64/include/QtTest -IC:/Qt/6.5.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../KriticalHit_App/templatemainmenu.h -o debug/moc_templatemainmenu.cpp
@@ -1620,7 +1639,6 @@ debug/main.o: ../KriticalHit_App/main.cpp ../KriticalHit_App/mainwindow.h \
 		../KriticalHit_App/setup.h \
 		../KriticalHit_App/Entity.h \
 		../KriticalHit_App/moveLibrary.h \
-		../KriticalHit_App/rulesmenu.h \
 		../KriticalHit_App/database.h \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
@@ -1640,6 +1658,7 @@ debug/main.o: ../KriticalHit_App/main.cpp ../KriticalHit_App/mainwindow.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
+		../KriticalHit_App/rulesmenu.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
@@ -1861,7 +1880,6 @@ debug/mainwindow.o: ../KriticalHit_App/mainwindow.cpp ../KriticalHit_App/mainwin
 		../KriticalHit_App/setup.h \
 		../KriticalHit_App/Entity.h \
 		../KriticalHit_App/moveLibrary.h \
-		../KriticalHit_App/rulesmenu.h \
 		../KriticalHit_App/database.h \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
@@ -1881,57 +1899,8 @@ debug/mainwindow.o: ../KriticalHit_App/mainwindow.cpp ../KriticalHit_App/mainwin
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
+		../KriticalHit_App/rulesmenu.h \
 		ui_mainwindow.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGridLayout \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QMenuBar \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qmenu.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QSpacerItem \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStackedWidget \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstackedwidget.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStatusBar \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QToolBar \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qtoolbar.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QStorageInfo \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qstorageinfo.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/QPixmap
@@ -2121,7 +2090,6 @@ debug/newtemplatemenu.o: ../KriticalHit_App/newtemplatemenu.cpp ../KriticalHit_A
 		../KriticalHit_App/setup.h \
 		../KriticalHit_App/Entity.h \
 		../KriticalHit_App/moveLibrary.h \
-		../KriticalHit_App/rulesmenu.h \
 		../KriticalHit_App/database.h \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
@@ -2141,43 +2109,8 @@ debug/newtemplatemenu.o: ../KriticalHit_App/newtemplatemenu.cpp ../KriticalHit_A
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
-		ui_newtemplatemenu.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStackedWidget \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstackedwidget.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QVBoxLayout \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgridlayout.h
+		../KriticalHit_App/rulesmenu.h \
+		ui_newtemplatemenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/newtemplatemenu.o ../KriticalHit_App/newtemplatemenu.cpp
 
 debug/rulesmenu.o: ../KriticalHit_App/rulesmenu.cpp ../KriticalHit_App/rulesmenu.h \
@@ -2357,48 +2290,17 @@ debug/rulesmenu.o: ../KriticalHit_App/rulesmenu.cpp ../KriticalHit_App/rulesmenu
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
-		ui_rulesmenu.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QCheckBox \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qcheckbox.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h
+		ui_rulesmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/rulesmenu.o ../KriticalHit_App/rulesmenu.cpp
 
 debug/setup.o: ../KriticalHit_App/setup.cpp ../KriticalHit_App/Setup.h \
 		../KriticalHit_App/capacity.h \
 		../KriticalHit_App/Entity.h \
 		../KriticalHit_App/moveLibrary.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qdebug.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qcontainerfwd.h \
+		../KriticalHit_App/database.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsqlglobal.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qglobal.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qtversionchecks.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qconfig.h \
@@ -2415,6 +2317,7 @@ debug/setup.o: ../KriticalHit_App/setup.cpp ../KriticalHit_App/Setup.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qtclasshelpermacros.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qtversion.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qtypeinfo.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qsysinfo.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlogging.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qflags.h \
@@ -2440,8 +2343,9 @@ debug/setup.o: ../KriticalHit_App/setup.cpp ../KriticalHit_App/Setup.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qtresource.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qttranslation.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qversiontagging.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qtextstream.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qiodevicebase.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qstring.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qchar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qstringview.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qbytearray.h \
@@ -2460,24 +2364,22 @@ debug/setup.o: ../KriticalHit_App/setup.cpp ../KriticalHit_App/Setup.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/q20type_traits.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qstringliteral.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qstringalgorithms.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qscopedpointer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qstringconverter_base.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qstring.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qanystringview.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qutf8stringview.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qstringtokenizer.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qstringbuilder.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qcontiguouscache.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qshareddata.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qhashfunctions.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qvariant.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qmetatype.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcompare.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qiodevicebase.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qfloat16.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qmath.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qhashfunctions.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qiterable.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qmetacontainer.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcontainerinfo.h \
@@ -2485,6 +2387,13 @@ debug/setup.o: ../KriticalHit_App/setup.cpp ../KriticalHit_App/Setup.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qobjectdefs.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qscopeguard.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qstringconverter_base.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlist.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qiterator.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qbytearraylist.h \
@@ -2495,7 +2404,23 @@ debug/setup.o: ../KriticalHit_App/setup.cpp ../KriticalHit_App/Setup.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qset.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qhash.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qvarlengtharray.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/q20memory.h
+		C:/Qt/6.5.2/mingw_64/include/QtCore/q20memory.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qobject_impl.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qbindingstorage.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QDir \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdir.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfile.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfiledevice.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qiodevice.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfileinfo.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/setup.o ../KriticalHit_App/setup.cpp
 
 debug/simulationmenu.o: ../KriticalHit_App/simulationmenu.cpp ../KriticalHit_App/simulationmenu.h \
@@ -2680,43 +2605,26 @@ debug/simulationmenu.o: ../KriticalHit_App/simulationmenu.cpp ../KriticalHit_App
 		../KriticalHit_App/setup.h \
 		../KriticalHit_App/Entity.h \
 		../KriticalHit_App/moveLibrary.h \
-		ui_simulationmenu.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
+		../KriticalHit_App/database.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QDir \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdir.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfile.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfiledevice.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfileinfo.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsView \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsview.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainter.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qscrollarea.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
+		ui_simulationmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/simulationmenu.o ../KriticalHit_App/simulationmenu.cpp
 
 debug/templatemainmenu.o: ../KriticalHit_App/templatemainmenu.cpp ../KriticalHit_App/templatemainmenu.h \
@@ -2902,7 +2810,6 @@ debug/templatemainmenu.o: ../KriticalHit_App/templatemainmenu.cpp ../KriticalHit
 		../KriticalHit_App/setup.h \
 		../KriticalHit_App/Entity.h \
 		../KriticalHit_App/moveLibrary.h \
-		../KriticalHit_App/rulesmenu.h \
 		../KriticalHit_App/database.h \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/QSqlDatabase \
 		C:/Qt/6.5.2/mingw_64/include/QtSql/qsqldatabase.h \
@@ -2922,10 +2829,23 @@ debug/templatemainmenu.o: ../KriticalHit_App/templatemainmenu.cpp ../KriticalHit
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
+		../KriticalHit_App/rulesmenu.h \
 		ui_templatemainmenu.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/QSignalSpy \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qsignalspy.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qmetaobject.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qtesteventloop.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestglobal.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestlib-config.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestexports.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qtestcase.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtemporarydir.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qxpfunctional.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/q23functional.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/q20functional.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qeventloop.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
@@ -2936,36 +2856,9 @@ debug/templatemainmenu.o: ../KriticalHit_App/templatemainmenu.cpp ../KriticalHit
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qresultstore.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture_impl.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qrunnable.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStackedWidget \
-		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstackedwidget.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/QSignalSpy \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qsignalspy.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qmetaobject.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qtesteventloop.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestglobal.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestlib-config.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestexports.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qtestcase.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qtemporarydir.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/q23functional.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/q20functional.h
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/templatemainmenu.o ../KriticalHit_App/templatemainmenu.cpp
 
 debug/qrc_qmake_qmake_qm_files.o: debug/qrc_qmake_qmake_qm_files.cpp 

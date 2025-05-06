@@ -55,7 +55,13 @@ void TemplateMainMenu::moveTemplateMenu()
 
 void TemplateMainMenu::on_simulation_Button_clicked()
 {
-    ui->stackedWidget3->setCurrentIndex(1);
+    //ui->stackedWidget3->setCurrentIndex(1);
+
+    if (ui->stackedWidget3->count() > 1 && ui->stackedWidget3->widget(1)) {
+        ui->stackedWidget3->setCurrentIndex(1);
+    } else {
+        qDebug() << "ERROR: Page at index 1 is missing or null!";
+    }
 }
 
 

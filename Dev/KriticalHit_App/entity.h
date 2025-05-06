@@ -23,7 +23,7 @@ protected:
 
 public:
     Entity();
-    Entity(std::string, int, const std::vector<int>&, const std::array<capacity, 4>&, int);
+    Entity(const std::string, int, const std::vector<int>&, const std::array<capacity, 4>&, int);
 
     // --- Setters ---
     void setName(std::string);

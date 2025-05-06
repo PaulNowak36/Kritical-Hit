@@ -6,6 +6,8 @@ SimulationMenu::SimulationMenu(QWidget *parent) :
     ui(new Ui::SimulationMenu),
     scene(nullptr)
 {
+
+    qDebug() << "SimulationMenu constructor called";
     ui->setupUi(this);
 
     //display the player sprite
@@ -302,7 +304,8 @@ void SimulationMenu::newCheckAttack(int move)
     bool playerGoesFirst = player->getAttackOrder() < opponent->getAttackOrder();
 
     // Perform the move for the character who goes first
-    auto firstTurn = playerGoesFirst ? playerTurn(move) : opponentTurn(move);
+    //auto firstTurn = playerGoesFirst ? playerTurn(move) : opponentTurn(move);
+    auto firstTurn = playerGoesFirst ? playerTurn(move) : enemyTurn();
 
     // If the battle ends after the first move (e.g., opponent defeated), stop here
     if (!firstTurn.continueBattle)
@@ -441,7 +444,8 @@ void SimulationMenu::goToNextTurn()
 void SimulationMenu::secondCharacterPerform(bool isPlayer, int move)
 {
     QTimer::singleShot(2000, this, [=]() {
-        MoveResultState result = isPlayer ? playerTurn(move) : opponentTurn(move);
+        //MoveResultState result = isPlayer ? playerTurn(move) : opponentTurn(move);
+        MoveResultState result = isPlayer ? playerTurn(move) : enemyTurn();
 
         if (!result.continueBattle)
         {
@@ -472,6 +476,24 @@ MoveResultState SimulationMenu::opponentTurn(int attack)
     Battle::EffectResult result = battle->performMove(opponent, player, attack);
     showNewInfo(opponent, attack);
     std::shared_ptr<capacity> chosenSkill = std::make_shared<capacity>(opponent->getNewSkill(attack));
+    return handleMoveResult(opponent, player, result, chosenSkill);
+}
+
+MoveResultState SimulationMenu::enemyTurn()
+{
+    // Get random move index
+    int moveIndex = battle->randomMoveIndex();
+
+    // Perform move using AI logic
+    Battle::EffectResult result = battle->performMove(opponent, player, moveIndex);
+
+    // Display opponent's move info
+    showNewInfo(opponent, moveIndex);
+
+    // Get the chosen skill
+    std::shared_ptr<capacity> chosenSkill = std::make_shared<capacity>(opponent->getNewSkill(moveIndex));
+
+    // Handle the result of the move
     return handleMoveResult(opponent, player, result, chosenSkill);
 }
 

@@ -3,6 +3,7 @@
 
 #include "entity.h"
 #include "capacity.h"
+#include <random>
 
 class Battle {
 
@@ -56,7 +57,9 @@ public:
         short int speedBoost = 0;
     };
 
-    EffectResult performMove(Entity* attacker, Entity* defender, int attackIndex);
+    EffectResult performMove(Entity*, Entity*, int);
+    //EffectResult performMoveAI(Entity*, Entity*);
+    int randomMoveIndex();
 
     // Effects (extension)
     static int healEffect(Entity* target, const capacity* healingMove);

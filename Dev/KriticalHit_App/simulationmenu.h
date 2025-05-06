@@ -65,6 +65,7 @@ public:
     void secondCharacterPerform(bool, int);
     MoveResultState playerTurn(int);
     MoveResultState opponentTurn(int);
+    MoveResultState enemyTurn();
     void resetBattle();
     void initializeBattle();
     void updateButtonVisibility();

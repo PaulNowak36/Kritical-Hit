@@ -45,6 +45,25 @@ Battle::EffectResult Battle::performMove(Entity* attacker, Entity* defender, int
     return result;
 }
 
+/*Battle::EffectResult Battle::performMoveAI(Entity* attacker, Entity* defender)
+{
+    int moveIndex = randomMoveIndex();
+    return performMove(attacker, defender, moveIndex);
+}*/
+
+// Helps the AI choose hazardly one of his 4 moves with 25% chance each
+int Battle::randomMoveIndex()
+{
+    // Create a random device and a Mersenne Twister generator
+    static std::random_device rd;
+    static std::mt19937 gen(rd()); // Seeds only once
+
+    // Define a uniform distribution between 0 and 3 (inclusive)
+    std::uniform_int_distribution<> distrib(0, 3);
+
+    return distrib(gen);
+}
+
 Battle::BattleState Battle::getState() const
 {
     if (state == BattleState::WaitingForPlayer) {
@@ -133,7 +152,15 @@ int Battle::healEffect(Entity* target, const capacity* healingMove) {
 Battle::EffectResult Battle::applyStatModifiers(Entity* target, const std::vector<StatModifier>& mods) {
     EffectResult result;
 
+    qDebug() << "[applyStatModifiers] Applying stat modifiers to" << QString::fromStdString(target->getName());
+
+    qDebug() << "Modifiers count:" << mods.size();
+    for (const auto& m : mods) {
+        qDebug() << "Modifier stat:" << static_cast<int>(m.stat) << "amount:" << m.amount;
+    }
+
     for (const auto& mod : mods) {
+         qDebug() << "For loop called ";
         StatType stat = mod.stat;
         int originalStage = target->getStatStage(stat);
         int newStage = originalStage + mod.amount;
@@ -149,6 +176,7 @@ Battle::EffectResult Battle::applyStatModifiers(Entity* target, const std::vecto
         case StatType::Strength:
             result.attackBoost = newStage - originalStage;
             //target->setStrength(static_cast<int>(target->getStrength() * multiplier));
+            qDebug() << "Old Strength =" << target->getStrength();
             target->setStrength(static_cast<int>(target->getBaseStats()[1] * multiplier));
             qDebug() << "New Strength =" << target->getStrength();
             break;
@@ -172,6 +200,8 @@ Battle::EffectResult Battle::applyStatModifiers(Entity* target, const std::vecto
 
 Battle::EffectResult Battle::applyEffect(Entity* user, Entity* target, const capacity* move) {
     EffectResult result;
+
+    qDebug() << "[applyEffect] Move: " << QString::fromStdString(move->getAttackName());
 
     for (EffectType effect : move->getEffects()) {
         switch (effect) {

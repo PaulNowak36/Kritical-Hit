@@ -47,8 +47,10 @@ protected:
 
 public:
     capacity();
-    capacity(std::string name, int power, MoveCategory category, std::vector<EffectType> effects);
-    capacity(std::string name, int power, int PP, MoveCategory category, std::vector<EffectType> effects);
+    //capacity(std::string name, int power, MoveCategory category, std::vector<EffectType> effects);
+    //capacity(std::string name, int power, int PP, MoveCategory category, std::vector<EffectType> effects);
+    capacity(const std::string name, int power, int PP, MoveCategory category, const std::vector<EffectType> effects);
+
 
     // Setters
     void setAttackName(std::string);

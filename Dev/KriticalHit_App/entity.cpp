@@ -19,7 +19,7 @@ Entity::Entity()
     setAttackOrder(0);
 }
 
-Entity::Entity(std::string name, int level, const std::vector<int>& baseStats, const std::array<capacity, 4>& moves, int order)
+Entity::Entity(const std::string name, int level, const std::vector<int>& baseStats, const std::array<capacity, 4>& moves, int order)
     : _name(name), _baseStats(baseStats), _level(level), _skillList(moves), _attackOrder(order)
 {
     // Copy base stats into battle stats

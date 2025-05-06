@@ -3,10 +3,10 @@
 
 capacity::capacity() : _attackName(""), _attackPower(0), _powerPoints(40), _category(MoveCategory::Physical), _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
 
-capacity::capacity(std::string name, int power, MoveCategory category, std::vector<EffectType> effects)
-    : _attackName(name), _attackPower(power), _category(category), _effects(effects), _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
+/*capacity::capacity(std::string name, int power, MoveCategory category, std::vector<EffectType> effects)
+    : _attackName(name), _attackPower(power), _category(category), _effects(effects), _healPercent(0), _buffAmount(0), _debuffAmount(0) {}*/
 
-capacity::capacity(std::string name, int power, int PP, MoveCategory category, std::vector<EffectType> effects)
+capacity::capacity(const std::string name, int power, int PP, MoveCategory category, const std::vector<EffectType> effects)
     : _attackName(name), _attackPower(power), _powerPoints(PP), _maxPowerPoints(PP), _category(category), _effects(effects), _healPercent(0), _buffAmount(0), _debuffAmount(0) {}
 
 
@@ -22,6 +22,7 @@ void capacity::setBuffAmount(int amount) { _buffAmount = amount; }
 void capacity::setDebuffAmount(int amount) { _debuffAmount = amount; }
 
 void capacity::setStatModifiers(StatType stat, int amount) {
+    _statModifiers.clear(); // Wipe out previous modifiers
     _statModifiers.push_back({stat, amount});
 }
 
