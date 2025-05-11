@@ -3,7 +3,7 @@
 | Author        | Paul NOWAK |
 |---------------|------------ |
 | Created       | 03/25/2024  |
-| Last Modified | 06/10/2024  |
+| Last Modified | 05/11/2025  |
 
 
 ## Table of Contents
@@ -54,13 +54,17 @@
 This document has been written to provide the functional specification of a Moonshot Project named Kritical Hit. In fact, the Moonshot Project is a final evaluation imposed by the ALGOSUP school to create our own unique and professional project through the whole scolarity and to validate our Master level in Software development.
 
 ### 1.2 Context
-Video games have always been a huge domain in the entertainment industry, generating nowadays around 180 billions of american dollars. Indeed, the market is still in constant evolution due to the improvement of video game hardwares and softwares, especially thanks to the rise of the game engines. While they are also used in other varieties of industries, they brought an innovative approach to create more sophisticated games due to the complexity of the most modern iterations.
+Video games have long been a cornerstone of the entertainment industry, generating approximately $180 billion annually. The market continues to evolve rapidly, driven by advancements in both hardware and software—particularly through the rise of powerful game engines. While these engines are also utilized across various industries, they have revolutionized game development by enabling the creation of more complex and sophisticated interactive experiences.
 
-However, the development of a video game has always been a long and minutious task for many software engineers. Due to the development of the new technologies and the evolution of the general audience tastes, video games need to reach a good level of performance and quality to be appealing and marketable.
+Despite these innovations, developing a video game remains a time-consuming and detail-oriented task for software engineers. With the rise of new technologies and changing audience expectations, modern games are expected to meet high standards in performance, quality, and depth to remain competitive and marketable.
 
-As an instance, the role-playing represent a unique genre in the video game industry that is greatly loved by players. Though, this genre require several features to be taken into account, notably the battle system that represent the charm of RPGs and draw diverse players. That's why game design softwares are used to build them up.
+Among all genres, role-playing games (RPGs) hold a special place in the industry. They offer immersive storytelling, rich character progression, and strategic battle systems that attract a wide and loyal audience. 
 
-The problem is that these kinds of software, despite the freedom they provide, either have limited resources or doesn't look appealing enough for new gamemakers. Furthermore, installing plugins to improve these "helpful" tools would be too time consuming for amateurs and game designers.
+A prime example is the Pokémon franchise, which exemplifies the global appeal and commercial success of RPGs. As of 2023, Pokémon is the highest-grossing entertainment media franchise in the world, having earned over 150 billion dollars in total revenue. This includes 30 billion dollars from video games alone and over 100 billion dollars from licensed merchandise. The core games in the Pokémon series follow a classic RPG structure, where players assume the role of a customizable trainer who captures, trains, and battles Pokémon with the ultimate goal of becoming the Pokémon Champion.
+
+Building such RPGs often requires dedicated game design tools, particularly for crafting engaging battle mechanics and managing complex character systems. However, current game design software tools often fall short—they may either lack essential resources or present interfaces that are not welcoming to new developers. Moreover, extending their functionality by adding plugins can be too time-consuming or technically demanding for amateurs or solo designers.
+
+This highlights a critical gap in the tools available for designing high-quality RPG systems, especially for developers inspired by franchises like Pokémon but lacking the means or technical expertise to implement similarly rich gameplay experiences.
 
 ### 1.3 RPG Domain
 
@@ -74,23 +78,33 @@ Each player chooses a character, whether completely create him or emboding a def
 ## 2. Product Goal
 
 ### 2.1 Project Scope
-In order to assist either game design amateurs or professional developpers, the goal will be to conceive a desktop application quite similar to a game engine. 
+To support both amateur game designers and professional developers, the goal of this project is to design a desktop application functioning similarly to a lightweight game engine.
 
-In fact, it will be a software implemented with a user-friendly interface that will assist people to set up the battle system rules for a future RPG game in development. It will allow the user to express his creativity and allow him the freedom to create countless variations of RPG battle templates.
+This software will feature an intuitive, user-friendly interface to help users define and configure battle system rules for RPGs in development. It aims to foster creativity and give users the flexibility to create a wide variety of RPG battle templates with ease.
 
-Eventually, these are the expected main features that will complete the product:
+Inspired by iconic titles like Pokémon, the application will include a simulation interface that replicates the feel of a classic Pokémon battle, allowing users to test their systems in a familiar and engaging way.
 
-  - The software will allow the user to navigate through the different menus with an understandable and colorful interface similar to the game Super Mario Maker.
-  - The software must be able to contain a large database of data including many battle templates.
-  - The user must be able to create RPG characters and test his own battle template by simulating an RPG fight using these characters.
-  - The user will have the possibility to decide how are calculated damages, and how work the different stats, skills and statuses.
+The following are the key features envisioned for the final product:
+
+- The software will allow the user to navigate through the different menus with an understandable and colorful interface, similar to the game Super Mario Maker.
+
+- Users will be able to simulate a turn-based Pokémon-style battle between two sides, each selecting one of four available Pokémon before the fight begins.
+
+- The system will include an integrated battle interface reminiscent of the original Pokémon games, allowing users to interactively test how their fight logic and rules behave in a turn-based simulation.
+
+- A rules menu will allow users to enable or disable specific mechanics—such as turn order logic, stat caps, or critical hit chance—before starting a new simulation.
+
+- Battle moves inspired by Pokémon will be available, including damaging attacks, healing actions, buffs (stat increases), and debuffs (stat reductions), offering a diverse range of effects to test.
+
 
 ### 2.2 Constraints
-First of all, this project will be accomplished by someone who has never created a single software on his own ever before. Indeed, this Moonshot Project has to be realized individually, without any active assistance from other students, teachers or professional alike. 
+First and foremost, this project will be developed by a single individual with no prior experience in creating complete software independently. As part of the Moonshot Project, it must be completed alone, without active assistance from other students, teachers, or professionals.
 
-As a consequence, investments are impossible, so this project must only rely on limited local budget, hardware equipment and software tools.
+Due to this context, no financial investments are possible. The project will rely entirely on a limited local budget, as well as the available hardware and software tools.
 
-Furthermore, the product's development will be realized by a single contributor who will accomplish the entirety of the scheduled tasks with limited help, but also with limited work time due to his current studies. In fact, the contributor needs to accomplish this Moonshot Project to validate his degree, but without any clear deadline, he will need to adapt his task schedule depending on his studies' progression.
+Additionally, the product will be developed under time constraints, as the contributor must balance this project alongside ongoing academic commitments. Although the Moonshot Project is required to validate the contributor’s degree, it does not follow a fixed deadline—task scheduling must therefore remain flexible and adapt to the progression of the contributor’s studies.
+
+Finally, as the project now focuses specifically on implementing gameplay mechanics inspired by Pokémon battles, this design choice inherently limits the versatility and creative freedom users may have when testing other types of combat systems. At least in the planned final version, the simulation will be tailored to turn-based, Pokémon-style encounters, potentially reducing support for broader RPG battle variations.
 
 ### 2.3 Risks and Assumptions
 
