@@ -57,11 +57,13 @@ public:
 "}\n"
 "\n"
 "QPushButton.templateButton {\n"
-"    font: 8pt \"Press Start 2P\";	\n"
+"    font: 7pt \"Press Start 2P\";	\n"
 "    color: rgb(255, 255, 255);\n"
 "    background-color: orange; \n"
 "    border: 2px solid #000000;\n"
 "    border-radius: 10px;\n"
+"	min-width: 120px;\n"
+"    max-width:120px;\n"
 "}\n"
 "\n"
 "QProgressBar {\n"
@@ -89,22 +91,22 @@ public:
         statusLabel->setStyleSheet(QString::fromUtf8(""));
         quitButton = new QPushButton(SimulationMenu);
         quitButton->setObjectName("quitButton");
-        quitButton->setGeometry(QRect(680, 10, 101, 41));
+        quitButton->setGeometry(QRect(620, 20, 41, 41));
         opponentLabel = new QLabel(SimulationMenu);
         opponentLabel->setObjectName("opponentLabel");
-        opponentLabel->setGeometry(QRect(20, 10, 301, 121));
+        opponentLabel->setGeometry(QRect(20, 10, 301, 101));
         opponentLabel->setStyleSheet(QString::fromUtf8(""));
         graphicsView = new QGraphicsView(SimulationMenu);
         graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(0, 0, 800, 480));
+        graphicsView->setGeometry(QRect(-20, 0, 800, 480));
         graphicsView->setStyleSheet(QString::fromUtf8("border-image: url(\"C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Prototypes/Simulation_Test1/Images/BattleBackground.jpeg\") 100% stretch;\n"
 ""));
         attackButton_1 = new QPushButton(SimulationMenu);
         attackButton_1->setObjectName("attackButton_1");
-        attackButton_1->setGeometry(QRect(440, 340, 131, 51));
+        attackButton_1->setGeometry(QRect(440, 320, 111, 51));
         playerLabel = new QLabel(SimulationMenu);
         playerLabel->setObjectName("playerLabel");
-        playerLabel->setGeometry(QRect(480, 210, 301, 121));
+        playerLabel->setGeometry(QRect(480, 210, 301, 101));
         playerLabel->setStyleSheet(QString::fromUtf8(""));
         graphicsView_2 = new QGraphicsView(SimulationMenu);
         graphicsView_2->setObjectName("graphicsView_2");
@@ -124,21 +126,21 @@ public:
         opponentSprite->setGeometry(QRect(490, 40, 201, 161));
         opponentHP = new QProgressBar(SimulationMenu);
         opponentHP->setObjectName("opponentHP");
-        opponentHP->setGeometry(QRect(100, 100, 204, 24));
+        opponentHP->setGeometry(QRect(100, 80, 204, 24));
         opponentHP->setValue(24);
         playerHP = new QProgressBar(SimulationMenu);
         playerHP->setObjectName("playerHP");
-        playerHP->setGeometry(QRect(560, 300, 204, 24));
+        playerHP->setGeometry(QRect(560, 280, 204, 24));
         playerHP->setValue(24);
         attackButton_2 = new QPushButton(SimulationMenu);
         attackButton_2->setObjectName("attackButton_2");
-        attackButton_2->setGeometry(QRect(600, 340, 131, 51));
+        attackButton_2->setGeometry(QRect(600, 320, 111, 51));
         attackButton_3 = new QPushButton(SimulationMenu);
         attackButton_3->setObjectName("attackButton_3");
-        attackButton_3->setGeometry(QRect(440, 400, 131, 51));
+        attackButton_3->setGeometry(QRect(440, 380, 111, 51));
         attackButton_4 = new QPushButton(SimulationMenu);
         attackButton_4->setObjectName("attackButton_4");
-        attackButton_4->setGeometry(QRect(600, 400, 131, 51));
+        attackButton_4->setGeometry(QRect(600, 380, 111, 51));
         graphicsView->raise();
         attackButton_1->raise();
         playerLabel->raise();

@@ -22,29 +22,45 @@
      <height>491</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton.templateButton {
+    font-family: &quot;Press Start 2P&quot;;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    background-color: orange; 
+    border: 2px solid #000000;
+    border-radius: 10px;
+	min-width: 170px;
+    max-width: 170px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+QPushButton#logOut_Button2 {
+	background-color: rgb(148, 148, 148);
+}
+
+QPushButton#rules_Button {
+	 background-color: rgb(85, 85, 255);
+}
+
+QPushButton#simulation_Button {
+	background-color: rgb(255, 85, 0);
+}
+
+QLabel {
+	font: 16pt &quot;Press Start 2P&quot;;
+}
+</string>
+   </property>
    <widget class="QWidget" name="templatePokemon_page">
-    <widget class="QLabel" name="templateName_Label1">
-     <property name="geometry">
-      <rect>
-       <x>260</x>
-       <y>20</y>
-       <width>261</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 900 30pt &quot;Segoe UI&quot;;
-color: rgb(0, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string>Pokemon Template</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="logOut_Button2">
      <property name="geometry">
       <rect>
-       <x>650</x>
-       <y>10</y>
+       <x>620</x>
+       <y>40</y>
        <width>121</width>
        <height>51</height>
       </rect>
@@ -53,69 +69,56 @@ color: rgb(0, 0, 0);</string>
       <string>LOG OUT</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="newTemplate_Button2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>91</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>New +</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="loadTemplate_Button2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>110</y>
-       <width>91</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Load +</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="saveTemplate_Button">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>210</y>
-       <width>91</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Save</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="simulation_Button">
      <property name="geometry">
       <rect>
-       <x>450</x>
-       <y>170</y>
-       <width>121</width>
+       <x>260</x>
+       <y>340</y>
+       <width>301</width>
        <height>51</height>
       </rect>
      </property>
      <property name="text">
-      <string>Test Battle Template</string>
+      <string>SIMULATE BATTLE</string>
      </property>
     </widget>
     <widget class="QPushButton" name="rules_Button">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>100</y>
+       <x>120</x>
+       <y>120</y>
        <width>121</width>
        <height>51</height>
       </rect>
      </property>
      <property name="text">
       <string>RULES</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="vs_Label">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>170</y>
+       <width>71</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="templateMenu_Label">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>20</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TEMPLATE MENU</string>
      </property>
     </widget>
    </widget>

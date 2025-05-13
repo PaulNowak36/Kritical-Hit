@@ -23,13 +23,11 @@ class Ui_TemplateMainMenu
 public:
     QStackedWidget *stackedWidget3;
     QWidget *templatePokemon_page;
-    QLabel *templateName_Label1;
     QPushButton *logOut_Button2;
-    QPushButton *newTemplate_Button2;
-    QPushButton *loadTemplate_Button2;
-    QPushButton *saveTemplate_Button;
     QPushButton *simulation_Button;
     QPushButton *rules_Button;
+    QLabel *vs_Label;
+    QLabel *templateMenu_Label;
     QWidget *page_2;
 
     void setupUi(QWidget *TemplateMainMenu)
@@ -40,31 +38,54 @@ public:
         stackedWidget3 = new QStackedWidget(TemplateMainMenu);
         stackedWidget3->setObjectName("stackedWidget3");
         stackedWidget3->setGeometry(QRect(0, 0, 801, 491));
+        stackedWidget3->setStyleSheet(QString::fromUtf8("QPushButton.templateButton {\n"
+"    font-family: \"Press Start 2P\";\n"
+"    font-size: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: orange; \n"
+"    border: 2px solid #000000;\n"
+"    border-radius: 10px;\n"
+"	min-width: 170px;\n"
+"    max-width: 170px;\n"
+"    padding-top: 10px;\n"
+"    padding-bottom: 10px;\n"
+"    padding-left: 6px;\n"
+"    padding-right: 6px;\n"
+"}\n"
+"\n"
+"QPushButton#logOut_Button2 {\n"
+"	background-color: rgb(148, 148, 148);\n"
+"}\n"
+"\n"
+"QPushButton#rules_Button {\n"
+"	 background-color: rgb(85, 85, 255);\n"
+"}\n"
+"\n"
+"QPushButton#simulation_Button {\n"
+"	background-color: rgb(255, 85, 0);\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"	font: 16pt \"Press Start 2P\";\n"
+"}\n"
+""));
         templatePokemon_page = new QWidget();
         templatePokemon_page->setObjectName("templatePokemon_page");
-        templateName_Label1 = new QLabel(templatePokemon_page);
-        templateName_Label1->setObjectName("templateName_Label1");
-        templateName_Label1->setGeometry(QRect(260, 20, 261, 41));
-        templateName_Label1->setStyleSheet(QString::fromUtf8("font: 900 30pt \"Segoe UI\";\n"
-"color: rgb(0, 0, 0);"));
         logOut_Button2 = new QPushButton(templatePokemon_page);
         logOut_Button2->setObjectName("logOut_Button2");
-        logOut_Button2->setGeometry(QRect(650, 10, 121, 51));
-        newTemplate_Button2 = new QPushButton(templatePokemon_page);
-        newTemplate_Button2->setObjectName("newTemplate_Button2");
-        newTemplate_Button2->setGeometry(QRect(10, 10, 91, 81));
-        loadTemplate_Button2 = new QPushButton(templatePokemon_page);
-        loadTemplate_Button2->setObjectName("loadTemplate_Button2");
-        loadTemplate_Button2->setGeometry(QRect(10, 110, 91, 81));
-        saveTemplate_Button = new QPushButton(templatePokemon_page);
-        saveTemplate_Button->setObjectName("saveTemplate_Button");
-        saveTemplate_Button->setGeometry(QRect(10, 210, 91, 81));
+        logOut_Button2->setGeometry(QRect(620, 40, 121, 51));
         simulation_Button = new QPushButton(templatePokemon_page);
         simulation_Button->setObjectName("simulation_Button");
-        simulation_Button->setGeometry(QRect(450, 170, 121, 51));
+        simulation_Button->setGeometry(QRect(260, 340, 301, 51));
         rules_Button = new QPushButton(templatePokemon_page);
         rules_Button->setObjectName("rules_Button");
-        rules_Button->setGeometry(QRect(180, 100, 121, 51));
+        rules_Button->setGeometry(QRect(120, 120, 121, 51));
+        vs_Label = new QLabel(templatePokemon_page);
+        vs_Label->setObjectName("vs_Label");
+        vs_Label->setGeometry(QRect(370, 170, 71, 131));
+        templateMenu_Label = new QLabel(templatePokemon_page);
+        templateMenu_Label->setObjectName("templateMenu_Label");
+        templateMenu_Label->setGeometry(QRect(310, 20, 211, 51));
         stackedWidget3->addWidget(templatePokemon_page);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
@@ -78,13 +99,11 @@ public:
     void retranslateUi(QWidget *TemplateMainMenu)
     {
         TemplateMainMenu->setWindowTitle(QCoreApplication::translate("TemplateMainMenu", "Form", nullptr));
-        templateName_Label1->setText(QCoreApplication::translate("TemplateMainMenu", "Pokemon Template", nullptr));
         logOut_Button2->setText(QCoreApplication::translate("TemplateMainMenu", "LOG OUT", nullptr));
-        newTemplate_Button2->setText(QCoreApplication::translate("TemplateMainMenu", "New +", nullptr));
-        loadTemplate_Button2->setText(QCoreApplication::translate("TemplateMainMenu", "Load +", nullptr));
-        saveTemplate_Button->setText(QCoreApplication::translate("TemplateMainMenu", "Save", nullptr));
-        simulation_Button->setText(QCoreApplication::translate("TemplateMainMenu", "Test Battle Template", nullptr));
+        simulation_Button->setText(QCoreApplication::translate("TemplateMainMenu", "SIMULATE BATTLE", nullptr));
         rules_Button->setText(QCoreApplication::translate("TemplateMainMenu", "RULES", nullptr));
+        vs_Label->setText(QCoreApplication::translate("TemplateMainMenu", "TextLabel", nullptr));
+        templateMenu_Label->setText(QCoreApplication::translate("TemplateMainMenu", "TEMPLATE MENU", nullptr));
     } // retranslateUi
 
 };

@@ -62,7 +62,8 @@ void MainWindow::on_loginButton_clicked()
     if (Username == "algoPaul" && Password == "IPlayPKMNGo")
     {
         QMessageBox::information(this, Username, "Login success.");
-        ui->stackedWidget->setCurrentIndex(1);
+        ui->stackedWidget->setCurrentIndex(3);
+        //ui->stackedWidget->setCurrentIndex(1);
     }
     else
     {

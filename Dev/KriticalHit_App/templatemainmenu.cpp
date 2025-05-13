@@ -17,6 +17,14 @@ TemplateMainMenu::TemplateMainMenu(QWidget *parent) :
 
     connect(&_simInfo, SIGNAL(battleFinished()), this, SLOT(moveTemplateMenu()));
     connect(&_rulesInfo, SIGNAL(rulesConfirmed()), this, SLOT(moveTemplateMenu()));
+
+    ui->rules_Button->setProperty("class", "templateButton");
+    ui->simulation_Button->setProperty("class", "templateButton");
+    ui->logOut_Button2->setProperty("class", "templateButton");
+
+    QPixmap vs("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/Vs.png"); // <- path to image file
+    ui->vs_Label->setPixmap(vs);
+    ui->vs_Label->setScaledContents(true);
 }
 
 TemplateMainMenu::~TemplateMainMenu()

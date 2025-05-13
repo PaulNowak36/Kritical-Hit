@@ -28,11 +28,13 @@ QLabel#playerSprite, QLabel#opponentSprite {
 }
 
 QPushButton.templateButton {
-    font: 8pt &quot;Press Start 2P&quot;;	
+    font: 7pt &quot;Press Start 2P&quot;;	
     color: rgb(255, 255, 255);
     background-color: orange; 
     border: 2px solid #000000;
     border-radius: 10px;
+	min-width: 120px;
+    max-width:120px;
 }
 
 QProgressBar {
@@ -74,9 +76,9 @@ QProgressBar::chunk {
   <widget class="QPushButton" name="quitButton">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>10</y>
-     <width>101</width>
+     <x>620</x>
+     <y>20</y>
+     <width>41</width>
      <height>41</height>
     </rect>
    </property>
@@ -90,7 +92,7 @@ QProgressBar::chunk {
      <x>20</x>
      <y>10</y>
      <width>301</width>
-     <height>121</height>
+     <height>101</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -103,7 +105,7 @@ QProgressBar::chunk {
   <widget class="QGraphicsView" name="graphicsView">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-20</x>
      <y>0</y>
      <width>800</width>
      <height>480</height>
@@ -118,8 +120,8 @@ QProgressBar::chunk {
    <property name="geometry">
     <rect>
      <x>440</x>
-     <y>340</y>
-     <width>131</width>
+     <y>320</y>
+     <width>111</width>
      <height>51</height>
     </rect>
    </property>
@@ -133,7 +135,7 @@ QProgressBar::chunk {
      <x>480</x>
      <y>210</y>
      <width>301</width>
-     <height>121</height>
+     <height>101</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -201,7 +203,7 @@ border: none;</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>100</y>
+     <y>80</y>
      <width>204</width>
      <height>24</height>
     </rect>
@@ -214,7 +216,7 @@ border: none;</string>
    <property name="geometry">
     <rect>
      <x>560</x>
-     <y>300</y>
+     <y>280</y>
      <width>204</width>
      <height>24</height>
     </rect>
@@ -227,8 +229,8 @@ border: none;</string>
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>340</y>
-     <width>131</width>
+     <y>320</y>
+     <width>111</width>
      <height>51</height>
     </rect>
    </property>
@@ -240,8 +242,8 @@ border: none;</string>
    <property name="geometry">
     <rect>
      <x>440</x>
-     <y>400</y>
-     <width>131</width>
+     <y>380</y>
+     <width>111</width>
      <height>51</height>
     </rect>
    </property>
@@ -253,8 +255,8 @@ border: none;</string>
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>400</y>
-     <width>131</width>
+     <y>380</y>
+     <width>111</width>
      <height>51</height>
     </rect>
    </property>

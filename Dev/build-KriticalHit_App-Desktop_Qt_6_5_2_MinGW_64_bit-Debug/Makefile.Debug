@@ -1901,6 +1901,56 @@ debug/mainwindow.o: ../KriticalHit_App/mainwindow.cpp ../KriticalHit_App/mainwin
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
 		../KriticalHit_App/rulesmenu.h \
 		ui_mainwindow.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qeventloop.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfutureinterface.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qmutex.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtsan_impl.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qresultstore.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture_impl.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qthreadpool.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qrunnable.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qexception.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGridLayout \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLineEdit \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextcursor.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextformat.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextoption.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QMenuBar \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qmenubar.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qmenu.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QSpacerItem \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstackedwidget.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStatusBar \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstatusbar.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QToolBar \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qtoolbar.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QStorageInfo \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qstorageinfo.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/QPixmap
@@ -2110,7 +2160,43 @@ debug/newtemplatemenu.o: ../KriticalHit_App/newtemplatemenu.cpp ../KriticalHit_A
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
 		../KriticalHit_App/rulesmenu.h \
-		ui_newtemplatemenu.h
+		ui_newtemplatemenu.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qeventloop.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfutureinterface.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qmutex.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtsan_impl.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qresultstore.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture_impl.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qthreadpool.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qrunnable.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qexception.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstackedwidget.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QVBoxLayout \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/newtemplatemenu.o ../KriticalHit_App/newtemplatemenu.cpp
 
 debug/rulesmenu.o: ../KriticalHit_App/rulesmenu.cpp ../KriticalHit_App/rulesmenu.h \
@@ -2290,7 +2376,39 @@ debug/rulesmenu.o: ../KriticalHit_App/rulesmenu.cpp ../KriticalHit_App/rulesmenu
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
-		ui_rulesmenu.h
+		ui_rulesmenu.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qeventloop.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfutureinterface.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qmutex.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtsan_impl.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qresultstore.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture_impl.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qthreadpool.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qrunnable.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qexception.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QCheckBox \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/rulesmenu.o ../KriticalHit_App/rulesmenu.cpp
 
 debug/setup.o: ../KriticalHit_App/setup.cpp ../KriticalHit_App/Setup.h \
@@ -2624,7 +2742,42 @@ debug/simulationmenu.o: ../KriticalHit_App/simulationmenu.cpp ../KriticalHit_App
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
-		ui_simulationmenu.h
+		ui_simulationmenu.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qeventloop.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfutureinterface.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qmutex.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtsan_impl.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qresultstore.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture_impl.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qthreadpool.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qrunnable.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qexception.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QGraphicsView \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qpainter.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextoption.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/simulationmenu.o ../KriticalHit_App/simulationmenu.cpp
 
 debug/templatemainmenu.o: ../KriticalHit_App/templatemainmenu.cpp ../KriticalHit_App/templatemainmenu.h \
@@ -2831,21 +2984,9 @@ debug/templatemainmenu.o: ../KriticalHit_App/templatemainmenu.cpp ../KriticalHit
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QDebug \
 		../KriticalHit_App/rulesmenu.h \
 		ui_templatemainmenu.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/QSignalSpy \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qsignalspy.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qmetaobject.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qtesteventloop.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestglobal.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestlib-config.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestexports.h \
-		C:/Qt/6.5.2/mingw_64/include/QtTest/qtestcase.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qtemporarydir.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/q23functional.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/q20functional.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qeventloop.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
@@ -2856,9 +2997,36 @@ debug/templatemainmenu.o: ../KriticalHit_App/templatemainmenu.cpp ../KriticalHit
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qresultstore.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qfuture_impl.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qthreadpool.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qthread.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qelapsedtimer.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qrunnable.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qpromise.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qinputmethod.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstackedwidget.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/QSignalSpy \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qsignalspy.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qmetaobject.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qtesteventloop.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestglobal.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestlib-config.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qttestexports.h \
+		C:/Qt/6.5.2/mingw_64/include/QtTest/qtestcase.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qtemporarydir.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/qxpfunctional.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/q23functional.h \
+		C:/Qt/6.5.2/mingw_64/include/QtCore/q20functional.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/templatemainmenu.o ../KriticalHit_App/templatemainmenu.cpp
 
 debug/qrc_qmake_qmake_qm_files.o: debug/qrc_qmake_qmake_qm_files.cpp 
