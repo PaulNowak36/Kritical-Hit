@@ -37,6 +37,10 @@ QPushButton.templateButton {
     max-width:120px;
 }
 
+QPushButton:hover, QPushButton:clicked {
+	background-color: rgb(194, 65, 0);
+}
+
 QProgressBar {
 	background-color: black;
     border: 2px solid black;

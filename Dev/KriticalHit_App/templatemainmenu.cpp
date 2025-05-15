@@ -22,9 +22,20 @@ TemplateMainMenu::TemplateMainMenu(QWidget *parent) :
     ui->simulation_Button->setProperty("class", "templateButton");
     ui->logOut_Button2->setProperty("class", "templateButton");
 
-    QPixmap vs("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/Vs.png"); // <- path to image file
+    QPixmap vs("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/Vs.png");
+    QPixmap poke("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/pokeball.png");
+
     ui->vs_Label->setPixmap(vs);
     ui->vs_Label->setScaledContents(true);
+
+    ui->pokePicture1->setPixmap(poke);
+    ui->pokePicture1->setScaledContents(true);
+
+    QPixmap pokeFlipped = poke.transformed(QTransform().scale(-1, 1));
+    ui->pokePicture2->setPixmap(pokeFlipped);
+    ui->pokePicture2->setScaledContents(true);
+
+
 }
 
 TemplateMainMenu::~TemplateMainMenu()
