@@ -3,7 +3,7 @@
 | Author        | Paul NOWAK |
 |---------------|------------ |
 | Created       | 03/25/2024  |
-| Last Modified | 05/11/2025  |
+| Last Modified | 05/17/2025  |
 
 
 ## Table of Contents
@@ -154,413 +154,156 @@ AAA
 
 ## 4. List of Features
 
-The software contain a variety of features, that belong to 5 big domains:
-
-- **Template Creation**: The features involving the set up of our own battle mechanics for a rpg battle, the use of different tools to customize them, and their simulation.
-
-- **Character Creation**: The features allowing to create a particular character class as an "actor" for a targeted battle system.
-
-- **Stats Creation**: The features to create and modify the stats for a particular battle system and its characters.
-
-- **Skills Creation**: The features to set up the different skills and abilities of a battle system and its characters.
-
-- **Status Creation**: The features to set up new status effects which will influence the gameplay of the battle system and its character.
-
-
-In fact, many of these functionalities could be challenging to be implemented during the development. So, the MoSCoW matrix method will also be used to sort each features and sub-sub features by how likely they will be implemented.
-
-### 4.1. Must-Have
-These features are mandatory and non-negotiable needs for this project.
-
-#### 4.1.1. Template Creation:
-
-- **Template Management**: Allow the user to create and organize his battle mechanics templates.
-  - Creating a template: Allow the user to create a new template.
-  - Modifying a template: Allow the user to load a template which already exist.
-  - Deleting a template: Allow the user to delete a template which already exist.
-
-- **Setting up Battle System**: Allow the user to set up the rules of its battle system and detail how they work.
-  - Choosing Characters: Help the user select the characters which will be used for the battle system.
-  - Choosing Stats: Help the user select the stats which will be used for the battle system.
-
-- **RPG Style**: Allow the user to choose what kind of RPG style he want for his battle system.
-  - Default Style: Allow the user to choose an RPG style similar to an existing game. A few choices will be proposed to the user.
-    - Final Fantasy: The battle system is similar to the 7th opus of the series. 
-
-  - Custom Style: Allow the user to create an original battle template from scratch and express his creativity.
-    - Turn-based type: Each character attack turn by turn.
-      - Active mode: Each fighter select their action and perform it directly.  
-
-- **Additional Game Mechanic**: Allow the user to implement additional game mechanics as extra battle rules.
-  - Attack Order System: Rule to decide in which order the characters can act.
-    - Default types: Possibility to choose an order system based on pre-existing games.
-      - The character's order turn can be from the fastest to the lowest.
-
-- **Battle System Simulation**: Allow the user to test his battle system by simulating a fight using its rules.
-  - Testing battle system: Allow the user to start the simulation and play the fight as a character.
-    - We choose a battle system, the character involved, their stats and skills, and the number of enemies.
-    - All characters start at full HP.
-    - We choose our characters' actions and we play as we want.
-    - We can leave the simulation at any moment.
-    - We can test the simulator with a default battle template and default characters to get familiarized with it.
-   
-
-#### 4.1.2. Character Creation:
-- **Character Management**: Allow the user to create and organize his characters.
-  - Creating Character: Allow the user to create a new character.
-  - Load Character: Allow the user to load a character which already exist.
-  - Delete Character: Allow the user to delete a character which already exist.
-
-- **Character Set Up**: Allows the user to set up his character and his abilities.
-  - Default Character: Select a default character already created in the app's database.
-    - Default set up: The character has already have stats and skills applied to him, making him ready to test in the simulation.
-    - Template selection: Permits the user to connect a character with a battle system to test it.
-    - Stats selection: Permits the user to decide a character's stats depending on the selected Stats Tree.
-    
-#### 4.1.3. Stats Creation:
-- **Stats Trees Management**: Allows the user to organize his state tree templates which represent a list of stats connected at each other.
-  - Stats Tree Creation: Allow the user to create a new Stats Tree.
-  - Stats Tree Loading: Allow the user to load a Stats Tree to modify it.
-  - Stats tree Deletion: Allow the user to delete a Stats Tree.
-
-- **Setting up a Stat tree**: Allows the user to set up his Stats Tree and decide the involved stats.
-  - Default stats: Classic stats used in class RPG games:
-    - Attack, Defense, Speed, and HP are mandatory stats.
-    - Other have been set up but their use are optional: SP and Critical. If those secondary stats are ignored, they are the same for everyone.
-  - Damage Calculator selection: Allow to select the damage calculator which will be applied to the Stats trees.
-    - The damage calculator database can be found in the Stats Trees set up page.
-  - Template selection: Permits the user to connect a Stats Tree with a battle system to test it.
-    - We choose an existing Battle System which will use the Stats Tree when tested.
-    - We can connect the same Stats Tree to several Battle Systems, but we cannot connect a single template to several Stats Trees.
-
-- **Damage Calculator**: Allows the user to set up his own damage calculator and decide about the formula.
-  - Default version: The one already used to calculate damage from default RPG battle systems. It can be based from games but also be modified slightly.
-  - Custom version: We have to set up the inputs we need for creating the damage formula.
-    - The Attack and Defense will be required for the formula.
-    - The damages of an attack can depend on a skill's power.
-    - The buffs, nerfs and hazards will be used as modifiers.
-    - It's possible to decide the operations and mathematic formulas required for creating the calculator.
-    - For calculating the Critical Hit bonus, we can set an additional modifier.
-
-- **Stat Set Up**: Set up the rules for a certain stat.
-  - General: Basic rules a stat can possess.
-    - By default, a stat can be buffed and nerfed.
-  - Stat limit: Add a limit to put the stat within a range.
-    - A stat can have a fixed limit ( 5, 10, 99, 999...)
-  - Attack and Defense: How these stats are used in the battle system.
-    - We can decide to split them in physical and special damage or no.
-  
-
-#### 4.1.4. Skills Creation:
-- **Skills Trees Management**: Allows the user to organize his Skills Trees which represent a list of attacks and skills.
-  - Skills Tree Creation: Allow the user to create a new Skills Tree.
-  - Skills Tree Loading: Allow the user to load a Skills Tree to modify it.
-  - Skills tree Deletion: Allow the user to delete a Skills Tree.
-
-- **Skills Tree Set up**: Allows the user to set up his Skills Tree and decide the involved stats.
-  - Default skills will be set up by the software to allow the user testing them in the battle simulation.
-  - We can connect a Skills Tree to an existing battle template to test it.
-
-- **Skills Creation**: Allow the user to set up a skill that will be used for his battle system.
-  - Simple attacks: Create Basic attacks that doesn't require SP and without real side effects.
-    - They can give damages depending on the character's Attack and/or other stats.
-  - Special skills: Create skills that also trigger special effects either on enemies or the player/
-    - They can be offensive attacks or just trigger skills effects.
-    - Effects can be buff/nerf, statuses and healing.
-    - Effects can last during a certain number of turns or become permanent.
-
-
-#### 4.1.5. Status Creation:
-- **Statuses Trees Management**: Allows the user to organize his Statuses Trees which are series of statuses.
-  - Statuses Tree Creation: Allow the user to create a new Statuses Tree.
-  - Statuses Tree Modification: Allow the user to load an existing Statuses Tree.
-  - Statuses tree Deletion: Allow the user to delete an existing Statuses Tree.
-
-- **Statuses Tree Set up**: Allows the user to set up his Statuses List and decide which statuses are used.
-  - Default statuses will be set up by the software to allow the user testing them in the battle simulation.
-  - Several trees can share the same statuses.
-  - We can connect a Statuses Tree to an existing battle template to test it.
-  - If possible, a Statuses tree can be used for several battle templates.
-
-- **Statuses Creation**: Allow the user to create a new status in his Statuses List.
-  - We can set up a status' effects and its duration.
-  - We can decide if only players, enemies or both can get statuses effects or not.
-  - We can decide which attacks can give statuses.
-
-
-### 4.2. Should-Have
-These features are essential to the product, but they don't represent a vital part.
-
-#### 4.2.1. Template Creation:
-- **Template Management**: 
-  - Cloning a template: Allow the user to create a new template which is a copy of an existing template.
-
-- **Setting up Battle System**:
-  - Choosing Skills: Help the user select the skills which will be used for the battle system.
-  - Choosing Statuses: Help the user select the statuses which will be used for the battle system.
-
-- **RPG Style**: 
-  - Default style:
-    - Pokemon style: The battle system will be based on the rules of the latest Pokemon mainline game.
-    - New default style: Possibility to create a new default style from other battle system templates we created so far.
-
-- **Additional Game Mechanic**: 
-  - Counter: Allow the user to add a counter that can be used for a specific game element, like a bonus granted to a character.
-    - Limited counter: A counter cannot reach a certain number between 0 and 99.
-      - It's possible to assign a minimal value N.
-      - As a condition, we can get N points per turn, and prevent to receive them when we use 1 or more in the previous turn.
-      - Using 1 or several can grant bonus to our skills (damages, increased duration for bonuses, number of attack per turn). A new action will be unlocked in the menu to allow the player using it.
-      - The number of times we can uses points to increase our skills can be limited for the entire battle.
-  - Attack Order System: 
-    - Default type: 
-      - The Turn Order can be absolute or changed by priority skills.
-  - Defend system: Allow the player to put a defensive state during his turn and to receive less damage.
-    - The damages received is reduced, and the reduction is calculated with the character's Defense stat.
-  - Weakness System: Applies a mechanic where enemies can be weaker to certain attacks and receive more damage.
-    - Classic: Basic rules of the Weakness System.
-      - An enemy can get more damages from skills of specific elements.
-      - A system of Strengths and Weaknesses is implemented in the Skills part of the Battle Template.
-  - Action Menu: Help the user creating a list of all the possible actions (attack, magic, object, etc...) that the player can do in battle.
-    - Classic actions like "Attack", "Magic", "Special" and "Defend" represent default actions in the default action menu. 
-    - We can merge the "Magic" and "Special" actions together, and ignore the "Defend" action if we don't need it.
-    - Other actions like "Run", "Use Weapon" or "Heal" can be added.
-
-- **Battle System Simulation**: 
-  - Testing battle system: 
-    - We can save the test simulation set up for next use.
-    - We can restart the battle again from the beginning.   
-
-#### 4.2.2. Character Creation:
-- **Character Management**: 
-  - Cloning Character: Allow the user to create a new character which is a copy of an existing one. 
-
-- **Character Set Up**: 
-  - Skills selection: Permits the user to set a character' skills.
-  - Attributes selection: Permits the user to set a character's attributes (special abilities, elements...).
-  - Custom Character: Create and set up a new character from scratch.
-    - As long as we have set up other features like Battle Templates, Stats Trees or Skills Trees, we can apply each of them to our character.
-    - It's possible to name the character.
-
-#### 4.2.3. Stats Creation:
-- **Stats Trees Management**:
-  - Stats Tree Cloning: Allow the user to clone an existing Stats Tree and create a copy.
-
-- **Setting up a Stat tree**: 
-  - Default stats: 
-    - Some stats can be ignored for this battle test.
-  - New stats:
-    - Presence of database for using potential stats (Accuracy, Evasion, etc...).
-    - Each stat can have a personalized emblem.
-  - Stat Tree description:
-    - We can write a description about the tree.
-  - Template selection: 
-      - We can connect the same Stats Tree to several Battle Systems, but we cannot connect a single template to several Stats Trees.
-
-- **Damage Calculator**: 
-  - Custom version: 
-    - If the damage result is 0, we can decide to make 1 the minimum value.
-    
-- **Stat Set Up**: Set up the rules for a certain stat.
-  - General:
-    - We can decide if a stat can be buffed and/or nerfed. 
-    - A stat or more can influence the value of another stat, using some kind of formula.
-    - We can choose if some stats depend on main stats values, like "Evasion" depending on the speed's stat.
-    - If we change or delete a stat, we might get a coordination error depending on the other stats.
-    - We can add a little description for a stat. 
-  - Attack and Defense: 
-    - If we only split one of these 2 stats in physical and elemental type, the other will be the same for both type.
-    - If none or them are used, the damage will be calculated on the skill's power and/or other stats.
-  
-
-#### 4.2.4. Skills Creation:
-- **Skills Trees Management**:
-  - Skills Tree Clonage: Allow the user to clone an existing Skills Tree and create a copy.
-
-- **Skills Tree Set up**:
-  - Skills Tree Organization: Helps the user organize the skills present within the list.
-    - Skills can be sorted (attack, special...).
-    - A list can be used for several battle templates.
-    - We can get a connection error if we use an attack that isn't compatible with a target battle template.
-
-- **Skills Creation**:
-  - Simple attacks:
-    - These attacks can be used a certain number of time if the battle system use an action counter.
-  - Emblem attribution: an emblem giving element attribute to an attack can be applied.
-
-- **Special Abilities Creation**: Allow the user to create and manage special abilities that act as support skills for a character.
-  - Setting up list: Allow the user to set up a list of special abilities that will be used for a battle template.
-    - We can decide if we need special abilities or not.
-    - A list can be used for several Skills Trees if compatible.
-  - Ability creation: Permits the user to set up a special ability for characters.
-    - Can give a bonus (countable value, percentage) to a character.
-    - Conditions of activation can be chosen (Remaining HP, Enemy killed, Hazard...)
-    - Can automatically deals damages or trigger a nerf/status when hit by an enemy (can depends on Attack's element).
-
-- **Elements Creation**: Allow the user to create and manage Elements that distinct Character and Skills, and also give them various bonus.
-  - Setting up Element list: Create a list of Elements that could be used for the battle system.
-    - We can decide if our battle template will need them or not and how much elements we can have.
-    - We can decide if we can connect them to characters, skills and special abilities.
-  - Element Creation: Helps creating an element that will provides attributes to a character, a skill or a special ability.
-    - Can provide a bonus to our character.
-    - Enemies can possess one too. 
-    - Can influence other elements, like Water element dealing more damage to Fire element.
-    - We can use a database of elements logo for representation.
-      
-#### 4.2.5. Status Creation:
-- **Statuses Trees Management**:
-  - Statuses Tree Cloning: Allow the user to clone an existing Statuses Lists and create a copy.
-
-- **Statuses Tree Set up**:
-  - We can decide if several statuses can be active on a single character or not.
-
-
-- **Statuses Creation**:
-  - It could be possible if a status can be cured by certain skills, or if some statuses are permanent during the whole battle.
-
-- **Hazard Creation**: Allow the user to create and manage the battle's hazards which will influence the characters depending on the place's environment.
-  - Setting up Hazard List: Allows the user to set up an hazard list.
-    - Default hazard lists (Rain, Sunshine, Wind, etc...) are already present in the Hazard list database.
-    - A global database of Hazards List is used where, if compatible, it's possible that a same list is used for several battle systems.
-    - Each list can share some hazards.
-  - Hazard Creation: Permits the user to create a hazard event and decide its rules.
-    - The event affects the whole battlefield.
-    - We decide the effects, and the duration of a hazard event.
-    - Some characters can be immunized depending on conditions (special ability, etc...).
-    - We select which skills and abilities can trigger a hazard event.
-
-### 4.3. Could-Have
-These features aren't necessary to the core product and have a much smaller impact if left out, but they are considered as "nice-to-have".
-
-#### 4.3.1. Template Creation:
-- **Template Management**: 
-  - Renaming a template: Allows the user to rename a certain template he has already created.
-  - Managing template: The managing system is improved, allowing to sort and filter (alphabetically, date updated, type of battle system, etc...) all battle templates created so far. 
-
-- **RPG Style**: 
-  - Default style:
-    - EarthBound style: The battle system will be based on the rules of the SNES game name Earthbound, released in 1994.
-  - Custom Style: 
-    - Turn-based type: 
-      - Classic mode: All party members select their action before they perform it.
-      - Multi-turn mode: All fighter has a "Turn value", and the one with the highest value starts.
-        - Once a character performed all of his action in his turn, his Turn value goes back to 0 and all other characters have their Turn values increased.
-    - Active Time type: Each fighter can perform an action if their TimeBar is filled enough.
-      - A gauge named "Timebar" is applied to the player and charges itself over time: if he perform an action, it causes the gauge to empty. The cycle repeat until the battle ends.
-      - The TimeBar can be randomly filled or depends on the character's values.
-      - Displays the action menu of a character when he reaches a certain TimeBar value.
-      - You can set the max value of a TimeBar in general.
-s.
-
-
-- **Additional Game Mechanic**: 
-  - Counter: 
-    - Limited counter: 
-      - We can increase the counter depending the number of times we attack/kill an enemy, or if we use certain skills.
-      - When used to grant bonuses, a certain fixed number of points can only be used for certain skills.
-      - Some skills can only be unlocked with enough points used.
-      - It's possible to earn/lose counter points with certain skills, and even to share them with allies.
-    - Special counter: this counter is different because the limit of points can be way bigger (100, 1000, etc...).
-      - There is no way to lose these points by default.
-      - Can grant bonuses and/or unlock skills when a certain number is reached.
-      - We obtain some at each turn.
-  - Attack Order System: 
-    - Default type: 
-      - At each turn, each character's speed can be increased by a randomized percentage value put in a range.
-    - Custom type: The user choose a different way to determine the turn order.
-      - The order can involves another stat other than Speed.
-  - Defend system:
-    - The character can gets the priority in next turn after his defense state.
-    - The defend system can completely cancel the damages received.
-    - At the next turn, the damages dealt by an enemy will be increased.
-    - When attacked, we can deal damages back to the attacker.
-    - We can decide if the defend system can block Critical Hits or not.
-    - The Defend action can only be performed under conditions (HPs, MPs, dead ally...).
-  - Weakness System: 
-    - Classic: 
-      - Our characters can also have weaknesses.
-      - A system of resistance is implemented to allow characters resisting specific attacks.
-    - Special: Additional features to make the system unique.
-      - The enemy has a specific HP/counter bar where he takes damages from STRONG attacks.
-      - When his defense is broken, either the monster cannot act next turn and/or his defense is lowered.
-      - He can retrieves his full weakness gauge at next turn.
-      - We can include a Body Parts system, where enemies are more sensible to certain areas like Head, Leg, Body, or Hand.
-      - Multi-targets attacks can aim either 1 specific part per monster, or all parts for a specific enemy.
-  - Multiplayer Mode: It would be possible to test a battle system with several characters, and allow the user to manage his party.
-    - We can choose the complete size of our party (up to 6 characters), and how much members are active in battle (up to 4).
-    - We can add a new action named "SWITCH" to change active party members during battle.
-    - Enemies can also have a limited numbers of characters in their party.
-    - Both players and enemies can attack several characters at the same time.
-    - Characters can perform skills on their allies, and even some attacks.
-     
-- **Battle System Simulation**: 
-  - Testing battle system: 
-    - We can add a certain hazard during battle test.
-    - Monster stats can be auto-generated depending on the player's stats. 
-    - We can start the simulation where the player has already lost HPs.
-  - Viewing Results: Show information about the simulation fight (average damage dealt to enemies, number of turns until the end of the fight, etc...) to the user.
-    - The results shows data regarding the fight like the numbers of turns, the damages dealt per characters, and a resume of all actions performed by each characters per turn.
-    - The results also display a ratio of how well each characters performed, depending on the damages they dealt and received.
-   
-#### 4.3.2. Character Creation:
-- **Character Management**: 
-  - Renaming a character: Allows the user to rename a certain character he has already created.
-  - Managing characters database: Allow the user to organize his characters database differently (alphabetically, date updated, etc...). 
-
-#### 4.3.3. Stats Creation:
-- **Stats Trees Management**:
-  - Renaming a Stats Tree: Allows the user to rename an existing Stats Tree.
-  - Managing Stats Trees: Allow the user to organize his Stats Trees database differently, using the sort and filter features(alphabetically, date updated, etc...). 
-
-- **Setting up a Stat tree**: 
-  - Template selection: 
-    - We can both connect and disconnect the selected Battle Templates we want.
-
-- **Damage Calculator**: 
-  - Custom version: 
-    - We can add a random value put in a range to alter the formula.
-    - The damage calculator feature contain a simulation where a character attacks a monster and the final damages he deals. 
-
-- **Stat Set Up**: Set up the rules for a certain stat.
-  - General:
-    - We can use other secondary stats like Sharpness or Luck.
-
-
-#### 4.3.4. Skills Creation:
-- **Skills Trees Management**:
-  - Renaming a Skills Tree: Allows the user to rename an existing Skills Tree.
-  - Managing Skills Trees: Allow the user to reorganize his Skills Trees database using the sort and filter features(alphabetically, date updated, etc...).
-
-- **Skills Tree Set up**:
-  - Skills Tree Organization: Helps the user organize the skills present within the list.
-    - Each Skills Tree can share some skills.
-
-- **Skills Creation**:
-  - Simple attacks:
-    - Some attacks can give constant damages or they could be based on percents (based on Attack Stat for example).
-    - We can switch weapons during battle and modify the weapon emblem for the player's next melee attack.
-
-- **Special Abilities Creation**:
-  - Setting up list:
-    - Enemies can also have a special ability.
-  - Ability creation:
-    - Some Special Abilities can have an emblem for increasing specific attacks.
-    - They can also bring drawbacks to their user (HPs lost, Stats nerf, etc...) and we can decide at which turn they trigger.
-    - Player can lose HPs while attacking an enemy with a Special Ability.
-
-- **Elements Creation**
-  - Element Creation:
-    - Elements can be influenced by stats if compatible (like lightning attacks increased by Speed for example).
-
-#### 4.3.5. Status Creation:
-- **Statuses Trees Management**:
-  - Renaming a Statuses Tree: Allows the user to rename an existing Statuses Tree.
-  - Managing Statuses Trees: Allow the user to reorganize his Skills Trees database using the sort and filter features(alphabetically, date updated, etc...).
-
-- **Hazard Creation**:
-  - Setting up Hazard List: 
-    - We can decide if our battle template can trigger one or several hazard events at the same time or not. For the latter case, triggering another hazard event will replace the previous one.
-  - Hazard Creation:
-    - We can decide if Hazards can be deactivated by some character's Skills and/or Special Abilities.
+The software includes a wide range of features, many of which may be difficult to implement during development. Therefore, the MoSCoW matrix method will be used to prioritize each feature and sub-feature based on their likelihood of being implemented.
+
+### 4.1. User-Friendly Application
+#### 4.1.1 User Login System
+
+| **Feature**                | **Description**                              | **Priority** |
+| :------------------------- | :------------------------------------------- | :----------- |
+| **User Login**             | Implement a login system for users           | N/A          |
+| ↳ **Validate Credentials** | Ensure user credentials are checked properly | N/A          |
+| ↳ **Error Messages**       | Display error messages when login fails      | N/A          |
+
+#### 4.1.2 Main Menu Page
+
+| **Feature**                     | **Description**                                     | **Priority** |
+| :------------------------------ | :-------------------------------------------------- | :----------- |
+| **Main Menu UI**                | Build the main menu page                            | N/A          |
+| ↳ **Go to Simulation Page**     | Allow navigation to the battle simulation interface | N/A          |
+| ↳ **Go to Rules Menu**          | Allow access to the rules customization menu        | N/A          |
+| ↳ **Go to Character Selection** | Navigate to Pokémon/character selection screen      | N/A          |
+| ↳ **Logout Button**             | Add a logout option to exit the user session        | N/A          |
+
+#### 4.1.3 Responsive Design
+
+| **Feature**           | **Description**                                 | **Priority** |
+| :-------------------- | :---------------------------------------------- | :----------- |
+| **Full-Screen Mode**  | Enable full-screen display for better immersion | N/A          |
+| **Responsive Layout** | Ensure each page adapts to various screen sizes | N/A          |
+
+
+### 4.2. Battle Interface & Flow Simulation
+
+#### 4.2.1 Battle Interface Design
+
+| **Feature**                      | **Description**                                              | **Priority** |
+| :------------------------------- | :----------------------------------------------------------- | :----------- |
+| **Design Battle Interface**      | Create the UI for the battle screen                          | N/A          |
+| ↳ **Show Pokémon & HP Bars**     | Display both Pokémon on screen with visual HP bars           | N/A          |
+| ↳ **Display Battle Text**        | Show relevant messages and narration during battle           | N/A          |
+| ↳ ↳ *"What will you do?"* Prompt | Display the classic player turn prompt                       | N/A          |
+| ↳ ↳ *Move Usage Text*            | Show messages like "Pikachu uses Thunderbolt!"               | N/A          |
+| ↳ ↳ *Healing Text*               | Display messages for healing moves (e.g. "Bulbasaur heals!") | N/A          |
+| ↳ ↳ *Buff Text*                  | Display stat increase messages (e.g. "Attack rose!")         | N/A          |
+| ↳ ↳ *Debuff Text*                | Display stat decrease messages (e.g. "Defense fell!")        | N/A          |
+| ↳ **Implement Move Buttons**     | Show four move buttons the player can click                  | N/A          |
+| ↳ **Update UI Elements**         | Dynamically update HP bars, text, and states after actions   | N/A          |
+
+#### 4.2.2 Enemy AI System
+
+| **Feature**                 | **Description**                                 | **Priority** |
+| :-------------------------- | :---------------------------------------------- | :----------- |
+| **Enemy AI**                | Automate opponent's decisions during battle     | N/A          |
+| ↳ **Random Move Selection** | Enemy chooses a move randomly                   | N/A          |
+| ↳ **Check for PP**          | Prevent enemy from choosing moves with 0 PP     | N/A          |
+| ↳ **HP-Based Decisions**    | Make smarter move choices based on remaining HP | N/A          |
+
+
+#### 4.2.3 Quitting the Battle
+
+| **Feature**               | **Description**                               | **Priority** |
+| :------------------------ | :-------------------------------------------- | :----------- |
+| **Quit Battle Handling**  | Manage quitting mid-battle                    | N/A          |
+| ↳ **Confirmation Popup**  | Show confirmation before exiting the battle   | N/A          |
+| ↳ **Return to Main Menu** | Navigate back to the main menu after quitting | N/A          |
+
+
+#### 4.2.4 Battle End Conditions
+
+| **Feature**                   | **Description**                                   | **Priority** |
+| :---------------------------- | :------------------------------------------------ | :----------- |
+| **Detect Battle End**         | Determine when the battle is over                 | N/A          |
+| ↳ **Pokémon Fainting**        | Detect when a Pokémon’s HP reaches 0              | N/A          |
+| ↳ **Display Outcome Message** | Show win/lose message and return to the main menu | N/A          |
+
+### 4.3. Battle Mechanics System
+
+#### 4.3.1 Combat Turn System
+
+| **Feature**                         | **Description**                                          | **Priority** |
+| :---------------------------------- | :------------------------------------------------------- | :----------- |
+| **Turn-Based Combat**               | Two Pokémon engage in a turn-based fight                 | N/A          |
+| **Stat-Based Turn Order & Outcome** | Uses stats (HP, Attack, Defense, Speed) to resolve turns | N/A          |
+
+#### 4.3.2 Move Selection & Usage
+
+| **Feature**              | **Description**                                | **Priority** |
+| :----------------------- | :--------------------------------------------- | :----------- |
+| **List Available Moves** | Display list of usable moves for each Pokémon  | N/A          |
+| **PP System**            | Manages move usage based on remaining PP       | N/A          |
+| ↳ Reduce PP on Use       | Deducts 1 PP when a move is used               | N/A          |
+| ↳ Block When PP = 0      | Prevents using moves that have no PP remaining | N/A          |
+| ↳ Trigger Game Over      | Ends game if no available moves remain         | N/A          |
+
+#### 4.3.3 Move Effects System
+
+| **Feature**                 | **Description**                                                     | **Priority** |
+| :-------------------------- | :------------------------------------------------------------------ | :----------- |
+| **Move Effects System**     | Handles the outcome of moves used in battle                         | N/A          |
+| **Damage-Dealing Moves**    | Executes damage-based calculations during combat                    | N/A          |
+| ↳ Apply Base Damage Formula | Uses a formula to compute base damage output                        | N/A          |
+| ↳ Critical Hit Mechanic     | Applies critical hit chance and multiplier                          | N/A          |
+| ↳ STAB Bonus                | Applies Same-Type Attack Bonus if move type matches user’s type     | N/A          |
+| ↳ Type Effectiveness        | Adjusts damage based on move vs. opponent type (e.g., fire > grass) | N/A          |
+| ↳ Implement Limited Types   | Includes basic types: Fire, Water, Grass, Electric                  | N/A          |
+| **Healing Move**            | Heals 50% of user’s base HP                                         | N/A          |
+| **Buffing Stat Move**       | Increases a selected stat (e.g., Attack, Defense)                   | N/A          |
+| **Nerfing Stat Move**       | Decreases opponent’s stat (e.g., Speed, Defense)                    | N/A          |
+
+
+
+### 4.4. Set Up Battle
+
+#### 4.4.1 Set Up Characters
+
+| **Feature**                   | **Description**                             | **Priority** |
+| :---------------------------- | :------------------------------------------ | :----------- |
+| **Create Selectable Pokémon** | List of 6 available Pokémon to choose from  | N/A          |
+| **Load/Select Pokémon**       | Load data from database or list             | N/A          |
+| **Display Pokémon Data**      | Show name, stats, and types of each Pokémon | N/A          |
+
+
+#### 4.4.2 Assign Capacities (Movesets)
+
+| **Feature**                    | **Description**                                                 | **Priority** |
+| :----------------------------- | :-------------------------------------------------------------- | :----------- |
+| **Set Up Capacities Database** | Create a list/database of all possible moves                    | N/A          |
+| **Assign Moveset to Pokémon**  | Assign 4 moves to each Pokémon                                  | N/A          |
+| ↳ Same Moveset for All         | All Pokémon share the same 4 moves                              | N/A          |
+| ↳ Different Movesets           | Each Pokémon has unique moves                                   | N/A          |
+| **Assign Move Types**          | Ensure each move has a type (e.g., Fire, Water, Electric, etc.) | N/A          |
+
+#### 4.4.3 Choose Rules
+
+| **Feature**                  | **Description**                                 | **Priority** |
+| :--------------------------- | :---------------------------------------------- | :----------- |
+| **Select Ruleset**           | Choose which special rules will apply in battle | N/A          |
+| ↳ No Healing Move Rule       | Prevents healing moves from being used          | N/A          |
+| ↳ No Buffing Move Rule       | Disables stat-increasing moves                  | N/A          |
+| ↳ No Nerfing Move Rule       | Disables stat-decreasing moves                  | N/A          |
+| ↳ No PP System Rule          | Turns off PP management                         | N/A          |
+| ↳ No Type Table Rule         | Disables type effectiveness system              | N/A          |
+| ↳ Different STAB Coefficient | Adjusts multiplier for Same-Type Attack Bonus   | N/A          |
+| **Save Ruleset**             | Store selected rules for use during the battle  | N/A          |
+
+#### 4.4.4 Choose Characters for Battle
+
+| **Feature**                 | **Description**                              | **Priority** |
+| :-------------------------- | :------------------------------------------- | :----------- |
+| **Select Player Pokémon**   | Choose which Pokémon the player will use     | N/A          |
+| **Select Opponent Pokémon** | Choose which Pokémon the opponent will use   | N/A          |
+| **Confirm Selection**       | Display final choice and prompt confirmation | N/A          |
 
 
 ## 5. Product Details
@@ -614,6 +357,14 @@ Severals features were considered but they won't be implemented in the product:
 - Possibility to save videos of simulation within the app's database.
 - Connection of different attacks, where the user create links between certain skills and set up potential combos and bonuses.
 - Creation of an XP calculator, similar to the damage calculator, and useful to calculate the experience earned by the player when defeating a certain enemy.
+
+- **Stats Creation**: The features to create and modify the stats for a particular battle system and its characters.
+
+- **Skills Creation**: The features to set up the different skills and abilities of a battle system and its characters.
+
+- **Status Creation**: The features to set up new status effects which will influence the gameplay of the battle system and its character.
+
+
 
 ## 6. User Interface & User Experience
 
