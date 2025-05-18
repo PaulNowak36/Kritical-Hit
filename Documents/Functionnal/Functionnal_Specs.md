@@ -154,33 +154,43 @@ AAA
 
 ## 4. List of Features
 
-The software includes a wide range of features, many of which may be difficult to implement during development. Therefore, the MoSCoW matrix method will be used to prioritize each feature and sub-feature based on their likelihood of being implemented.
+The software includes a wide range of features, many of which may be difficult to implement during development. 
+
+Therefore, the MoSCoW matrix method will be used to prioritize each feature and sub-feature based on their likelihood of being implemented.
+
+- **MUST-HAVE**: These features are mandatory and non-negotiable needs for this project.
+
+- *SHOULD-HAVE*: These features are essential to the product, but they don't represent a vital part.
+
+- COULD-HAVE: These features aren't necessary to the core product and have a much smaller impact if left out, but they are considered as "nice-to-have".
+
+
 
 ### 4.1. User-Friendly Application
 #### 4.1.1 User Login System
 
 | **Feature**                | **Description**                              | **Priority** |
 | :------------------------- | :------------------------------------------- | :----------- |
-| **User Login**             | Implement a login system for users           | N/A          |
-| ↳ **Validate Credentials** | Ensure user credentials are checked properly | N/A          |
-| ↳ **Error Messages**       | Display error messages when login fails      | N/A          |
+| **User Login**             | Implement a login system for users           | COULD-HAVE         |
+| ↳ **Validate Credentials** | Ensure user credentials are checked properly | COULD-HAVE           |
+| ↳ **Error Messages**       | Display error messages when login fails      | COULD-HAVE           |
 
 #### 4.1.2 Main Menu Page
 
 | **Feature**                     | **Description**                                     | **Priority** |
 | :------------------------------ | :-------------------------------------------------- | :----------- |
-| **Main Menu UI**                | Build the main menu page                            | N/A          |
-| ↳ **Go to Simulation Page**     | Allow navigation to the battle simulation interface | N/A          |
-| ↳ **Go to Rules Menu**          | Allow access to the rules customization menu        | N/A          |
-| ↳ **Go to Character Selection** | Navigate to Pokémon/character selection screen      | N/A          |
-| ↳ **Logout Button**             | Add a logout option to exit the user session        | N/A          |
+| **Main Menu UI**                | Build the main menu page                            | **MUST-HAVE**          |
+| ↳ **Go to Simulation Page**     | Allow navigation to the battle simulation interface | **MUST-HAVE**         |
+| ↳ **Go to Rules Menu**          | Allow access to the rules customization menu        | **MUST-HAVE**          |
+| ↳ **Go to Character Selection** | Navigate to Pokémon/character selection screen      | COULD-HAVE          |
+| ↳ **Logout Button**             | Add a logout option to exit the user session        | COULD-HAVE          |
 
 #### 4.1.3 Responsive Design
 
 | **Feature**           | **Description**                                 | **Priority** |
 | :-------------------- | :---------------------------------------------- | :----------- |
-| **Full-Screen Mode**  | Enable full-screen display for better immersion | N/A          |
-| **Responsive Layout** | Ensure each page adapts to various screen sizes | N/A          |
+| **Full-Screen Mode**  | Enable full-screen display for better immersion | COULD-HAVE           |
+| **Responsive Layout** | Ensure each page adapts to various screen sizes | COULD-HAVE          |
 
 
 ### 4.2. Battle Interface & Flow Simulation
@@ -189,43 +199,43 @@ The software includes a wide range of features, many of which may be difficult t
 
 | **Feature**                      | **Description**                                              | **Priority** |
 | :------------------------------- | :----------------------------------------------------------- | :----------- |
-| **Design Battle Interface**      | Create the UI for the battle screen                          | N/A          |
-| ↳ **Show Pokémon & HP Bars**     | Display both Pokémon on screen with visual HP bars           | N/A          |
-| ↳ **Display Battle Text**        | Show relevant messages and narration during battle           | N/A          |
-| ↳ ↳ *"What will you do?"* Prompt | Display the classic player turn prompt                       | N/A          |
-| ↳ ↳ *Move Usage Text*            | Show messages like "Pikachu uses Thunderbolt!"               | N/A          |
-| ↳ ↳ *Healing Text*               | Display messages for healing moves (e.g. "Bulbasaur heals!") | N/A          |
-| ↳ ↳ *Buff Text*                  | Display stat increase messages (e.g. "Attack rose!")         | N/A          |
-| ↳ ↳ *Debuff Text*                | Display stat decrease messages (e.g. "Defense fell!")        | N/A          |
-| ↳ **Implement Move Buttons**     | Show four move buttons the player can click                  | N/A          |
-| ↳ **Update UI Elements**         | Dynamically update HP bars, text, and states after actions   | N/A          |
+| **Design Battle Interface**      | Create the UI for the battle screen                          | **MUST-HAVE**         |
+| ↳ **Show Pokémon & HP Bars**     | Display both Pokémon on screen with visual HP bars           | **MUST-HAVE**         |
+| ↳ **Display Battle Text**        | Show relevant messages and narration during battle           | *SHOULD-HAVE*          |
+| ↳ ↳ *"What will you do?"* Prompt | Display the classic player turn prompt                       | *SHOULD-HAVE*          |
+| ↳ ↳ *Move Usage Text*            | Show messages like "Pikachu uses Thunderbolt!"               | *SHOULD-HAVE*          |
+| ↳ ↳ *Healing Text*               | Display messages for healing moves (e.g. "Bulbasaur heals!") | COULD-HAVE          |
+| ↳ ↳ *Buff Text*                  | Display stat increase messages (e.g. "Attack rose!")         | COULD-HAVE           |
+| ↳ ↳ *Debuff Text*                | Display stat decrease messages (e.g. "Defense fell!")        | COULD-HAVE           |
+| ↳ **Implement Move Buttons**     | Show four move buttons the player can click                  | **MUST-HAVE**          |
+| ↳ **Update UI Elements**         | Dynamically update HP bars, text, and states after actions   | **MUST-HAVE**          |
 
 #### 4.2.2 Enemy AI System
 
 | **Feature**                 | **Description**                                 | **Priority** |
 | :-------------------------- | :---------------------------------------------- | :----------- |
-| **Enemy AI**                | Automate opponent's decisions during battle     | N/A          |
-| ↳ **Random Move Selection** | Enemy chooses a move randomly                   | N/A          |
-| ↳ **Check for PP**          | Prevent enemy from choosing moves with 0 PP     | N/A          |
-| ↳ **HP-Based Decisions**    | Make smarter move choices based on remaining HP | N/A          |
+| **Enemy AI**                | Automate opponent's decisions during battle     | **MUST-HAVE**          |
+| ↳ **Random Move Selection** | Enemy chooses a move randomly                   | **MUST-HAVE**          |
+| ↳ **Check for PP**          | Prevent enemy from choosing moves with 0 PP     | *SHOULD-HAVE*          |
+| ↳ **HP-Based Decisions**    | Make smarter move choices based on remaining HP | COULD-HAVE           |
 
 
 #### 4.2.3 Quitting the Battle
 
 | **Feature**               | **Description**                               | **Priority** |
 | :------------------------ | :-------------------------------------------- | :----------- |
-| **Quit Battle Handling**  | Manage quitting mid-battle                    | N/A          |
-| ↳ **Confirmation Popup**  | Show confirmation before exiting the battle   | N/A          |
-| ↳ **Return to Main Menu** | Navigate back to the main menu after quitting | N/A          |
+| **Quit Battle Handling**  | Manage quitting mid-battle                    | *SHOULD-HAVE*          |
+| ↳ **Confirmation Popup**  | Show confirmation before exiting the battle   | *SHOULD-HAVE*          |
+| ↳ **Return to Main Menu** | Navigate back to the main menu after quitting | *SHOULD-HAVE*         |
 
 
 #### 4.2.4 Battle End Conditions
 
 | **Feature**                   | **Description**                                   | **Priority** |
 | :---------------------------- | :------------------------------------------------ | :----------- |
-| **Detect Battle End**         | Determine when the battle is over                 | N/A          |
-| ↳ **Pokémon Fainting**        | Detect when a Pokémon’s HP reaches 0              | N/A          |
-| ↳ **Display Outcome Message** | Show win/lose message and return to the main menu | N/A          |
+| **Detect Battle End**         | Determine when the battle is over                 | **MUST-HAVE**          |
+| ↳ **Pokémon Fainting**        | Detect when a Pokémon’s HP reaches 0              | **MUST-HAVE**          |
+| ↳ **Display Outcome Message** | Show win/lose message and return to the main menu | **MUST-HAVE**          |
 
 ### 4.3. Battle Mechanics System
 
@@ -233,33 +243,33 @@ The software includes a wide range of features, many of which may be difficult t
 
 | **Feature**                         | **Description**                                          | **Priority** |
 | :---------------------------------- | :------------------------------------------------------- | :----------- |
-| **Turn-Based Combat**               | Two Pokémon engage in a turn-based fight                 | N/A          |
-| **Stat-Based Turn Order & Outcome** | Uses stats (HP, Attack, Defense, Speed) to resolve turns | N/A          |
+| **Turn-Based Combat**               | Two Pokémon engage in a turn-based fight                 | **MUST-HAVE**          |
+| **Stat-Based Turn Order & Outcome** | Uses stats (HP, Attack, Defense, Speed) to resolve turns | **MUST-HAVE**          |
 
 #### 4.3.2 Move Selection & Usage
 
 | **Feature**              | **Description**                                | **Priority** |
 | :----------------------- | :--------------------------------------------- | :----------- |
-| **List Available Moves** | Display list of usable moves for each Pokémon  | N/A          |
-| **PP System**            | Manages move usage based on remaining PP       | N/A          |
-| ↳ Reduce PP on Use       | Deducts 1 PP when a move is used               | N/A          |
-| ↳ Block When PP = 0      | Prevents using moves that have no PP remaining | N/A          |
-| ↳ Trigger Game Over      | Ends game if no available moves remain         | N/A          |
+| **List Available Moves** | Display list of usable moves for the player's Pokemon  | **MUST-HAVE**          |
+| **PP System**            | Manages move usage based on remaining PP       | *SHOULD-HAVE*          |
+| ↳ Reduce PP on Use       | Deducts 1 PP when a move is used               | *SHOULD-HAVE*          |
+| ↳ Block When PP = 0      | Prevents using moves that have no PP remaining | *SHOULD-HAVE*          |
+| ↳ Trigger Game Over      | Ends game if no available moves remain         | COULD-HAVE           |
 
 #### 4.3.3 Move Effects System
 
 | **Feature**                 | **Description**                                                     | **Priority** |
 | :-------------------------- | :------------------------------------------------------------------ | :----------- |
-| **Move Effects System**     | Handles the outcome of moves used in battle                         | N/A          |
-| **Damage-Dealing Moves**    | Executes damage-based calculations during combat                    | N/A          |
-| ↳ Apply Base Damage Formula | Uses a formula to compute base damage output                        | N/A          |
-| ↳ Critical Hit Mechanic     | Applies critical hit chance and multiplier                          | N/A          |
-| ↳ STAB Bonus                | Applies Same-Type Attack Bonus if move type matches user’s type     | N/A          |
-| ↳ Type Effectiveness        | Adjusts damage based on move vs. opponent type (e.g., fire > grass) | N/A          |
-| ↳ Implement Limited Types   | Includes basic types: Fire, Water, Grass, Electric                  | N/A          |
-| **Healing Move**            | Heals 50% of user’s base HP                                         | N/A          |
-| **Buffing Stat Move**       | Increases a selected stat (e.g., Attack, Defense)                   | N/A          |
-| **Nerfing Stat Move**       | Decreases opponent’s stat (e.g., Speed, Defense)                    | N/A          |
+| **Move Effects System**     | Handles the outcome of moves used in battle                         | **MUST-HAVE**          |
+| **Damage-Dealing Moves**    | Executes damage-based calculations during combat                    | **MUST-HAVE**          |
+| ↳ Apply Base Damage Formula | Uses a formula to compute base damage output                        | **MUST-HAVE**          |
+| ↳ Critical Hit Mechanic     | Applies critical hit chance and multiplier                          | COULD-HAVE           |
+| ↳ STAB Bonus                | Applies Same-Type Attack Bonus if move type matches user’s type     | COULD-HAVE          |
+| ↳ Type Effectiveness        | Adjusts damage based on move vs. opponent type (e.g., fire > grass) | COULD-HAVE           |
+| ↳ Implement Limited Types   | Includes basic types: Fire, Water, Grass, Electric                  | COULD-HAVE           |
+| **Healing Move**            | Heals 50% of user’s base HP                                         | *SHOULD-HAVE*          |
+| **Buffing Stat Move**       | Increases a selected stat (e.g., Attack, Defense)                   | *SHOULD-HAVE*          |
+| **Nerfing Stat Move**       | Decreases opponent’s stat (e.g., Speed, Defense)                    | *SHOULD-HAVE*          |
 
 
 
@@ -269,56 +279,59 @@ The software includes a wide range of features, many of which may be difficult t
 
 | **Feature**                   | **Description**                             | **Priority** |
 | :---------------------------- | :------------------------------------------ | :----------- |
-| **Create Selectable Pokémon** | List of 6 available Pokémon to choose from  | N/A          |
-| **Load/Select Pokémon**       | Load data from database or list             | N/A          |
-| **Display Pokémon Data**      | Show name, stats, and types of each Pokémon | N/A          |
+| **Create Selectable Pokémon** | List of 6 available Pokémon to choose from  | *SHOULD-HAVE*         |
+| **Load/Select Pokémon**       | Load data from database or list             | *SHOULD-HAVE*         |
+| **Display Pokémon Data**      | Show name, stats, and types of each Pokémon | COULD-HAVE           |
 
 
 #### 4.4.2 Assign Capacities (Movesets)
 
 | **Feature**                    | **Description**                                                 | **Priority** |
 | :----------------------------- | :-------------------------------------------------------------- | :----------- |
-| **Set Up Capacities Database** | Create a list/database of all possible moves                    | N/A          |
-| **Assign Moveset to Pokémon**  | Assign 4 moves to each Pokémon                                  | N/A          |
-| ↳ Same Moveset for All         | All Pokémon share the same 4 moves                              | N/A          |
-| ↳ Different Movesets           | Each Pokémon has unique moves                                   | N/A          |
-| **Assign Move Types**          | Ensure each move has a type (e.g., Fire, Water, Electric, etc.) | N/A          |
+| **Set Up Capacities Database** | Create a list/database of all possible moves                    | **MUST-HAVE**          |
+| **Assign Moveset to Pokémon**  | Assign 4 moves to each Pokémon                                  | **MUST-HAVE**          |
+| ↳ Same Moveset for All         | All Pokémon share the same 4 moves                              | **MUST-HAVE**          |
+| ↳ Different Movesets           | Each Pokémon has unique moves                                   | *SHOULD-HAVE*          |
+| **Assign Move Types**          | Ensure each move has a type (e.g., Fire, Water, Electric, etc.) | COULD-HAVE           |
 
 #### 4.4.3 Choose Rules
 
 | **Feature**                  | **Description**                                 | **Priority** |
 | :--------------------------- | :---------------------------------------------- | :----------- |
-| **Select Ruleset**           | Choose which special rules will apply in battle | N/A          |
-| ↳ No Healing Move Rule       | Prevents healing moves from being used          | N/A          |
-| ↳ No Buffing Move Rule       | Disables stat-increasing moves                  | N/A          |
-| ↳ No Nerfing Move Rule       | Disables stat-decreasing moves                  | N/A          |
-| ↳ No PP System Rule          | Turns off PP management                         | N/A          |
-| ↳ No Type Table Rule         | Disables type effectiveness system              | N/A          |
-| ↳ Different STAB Coefficient | Adjusts multiplier for Same-Type Attack Bonus   | N/A          |
-| **Save Ruleset**             | Store selected rules for use during the battle  | N/A          |
+| **Select Ruleset**           | Choose which special rules will apply in battle | **MUST-HAVE**          |
+| ↳ No Healing Move Rule       | Prevents healing moves from being used          | **MUST-HAVE**         |
+| ↳ No Buffing Move Rule       | Disables stat-increasing moves                  | **MUST-HAVE**         |
+| ↳ No Nerfing Move Rule       | Disables stat-decreasing moves                  | *SHOULD-HAVE*          |
+| ↳ No PP System Rule          | Turns off PP management                         | *SHOULD-HAVE*         |
+| ↳ No Type Table Rule         | Disables type effectiveness system              | COULD-HAVE           |
+| ↳ Different Critical Hit Coefficient | Adjusts multiplier for Critical Hit Bonus   | COULD-HAVE           |
+| ↳ Different STAB Coefficient | Adjusts multiplier for Same-Type Attack Bonus   | COULD-HAVE           |
+| **Save Ruleset**             | Store selected rules for use during the battle  | **MUST-HAVE**          |
 
 #### 4.4.4 Choose Characters for Battle
 
 | **Feature**                 | **Description**                              | **Priority** |
 | :-------------------------- | :------------------------------------------- | :----------- |
-| **Select Player Pokémon**   | Choose which Pokémon the player will use     | N/A          |
-| **Select Opponent Pokémon** | Choose which Pokémon the opponent will use   | N/A          |
-| **Confirm Selection**       | Display final choice and prompt confirmation | N/A          |
+| **Select Player Pokémon**   | Choose which Pokémon the player will use     | *SHOULD-HAVE*         |
+| **Select Opponent Pokémon** | Choose which Pokémon the opponent will use   | *SHOULD-HAVE*         |
+| **Confirm Selection**       | Display final choice and prompt confirmation | *SHOULD-HAVE*          |
 
 
 ## 5. Product Details
 
 ### 5.1 Minimum Viable Product
-|   **Phase**  |   **Added features** |  **Version**  |                     
-|   :-------  |   :--------- |  :-------------  |
-|   **Phase 1**  |   App squeleton + Simple background + template menu |  0.1 |
-|   **Phase 2**  |   Rules menu |  0.2 |
-|   **Phase 3**  |   Simple UI effects + simulation menu + Additional backgrounds  |  0.4 (Alpha) |
-|   **Phase 4**  |   Template gallery + Character menu |  0.6 |
-|   **Phase 5**  |   Stats menu + Damage calculator + extra UI effects + Additional backgrounds |  0.7 (Beta) |
-|   **Phase 6**  |   Skills menu |  0.8 |
-|   **Phase 7**  |   Status menu + Additional backgrounds and UI effects + Advanced simulation|  0.9 |
-|   **Phase 8**  |   Code conversion + settings |  1.0 |
+
+The project will be developed progressively through a Minimum Viable Product (MVP) approach, organized into distinct phases. In other words, each phase corresponds to a specific stage of development based on the features implemented and the version released. Furthermore, every phase is expected to be functional and designed with a user-friendly interface.
+
+| **Phase**   | **Added Features**                                                                                          | **Version** |
+| ----------- | ----------------------------------------------------------------------------------------------------------- | ----------- |
+| **Phase 1** | App skeleton, login menu, main template menu, basic simulation with 2 preset Pokémon (same attacks & stats) | 0.2         |
+| **Phase 2** | Custom Pokémon stats, attack order system, classic-style damage calculator, attack delay system             | 0.5         |
+| **Phase 3** | Rules menu, healing and buffing moves, PP system, support for 4 attacks per Pokémon                         | 1.0         |
+| **Phase 4** | Nerfing moves, critical hits, 4-type system with effectiveness chart, custom movesets                       | 1.5         |
+| **Phase 5** | Character selection menu, expanded stats (evasion, accuracy), support for 6 types                           | 2.0         |
+
+
 
 
 ### 5.2 Non-Functional Requirements
@@ -342,12 +355,11 @@ The software includes a wide range of features, many of which may be difficult t
 ### 5.3 Acceptance Criterias
 In order to determine this IT project as successful, Kritical Hit must meet all the following criterias:
 
-- The user is able to navigate through the app and interact with the different UI elements without important lagging issues.
-- The user can create his own battle template and test it on a simulator.
-- The user can save at least 10 battle templates in the app's database.
-- The app does not present any forms of crash or bugs that could hinder the quality of the app.
-- The app does not return any error after being launched.
-- The player using the simulator to test his template must not know any latency and feels like he is playing a game.
+- The user can seamlessly navigate the application and interact with all UI components without experiencing significant lag or input delay.
+- Users are able to create their own custom battle rules using the provided tools and test them within the built-in simulator.
+- The application runs without crashing and does not exhibit any critical bugs that would negatively impact the user experience.
+- The app launches cleanly without throwing errors, regardless of the platform or device used.
+- The simulator offers a responsive, fluid experience where users testing their templates perceive it as playing an actual game, with no noticeable latency.
 
 ### 5.4 Out of Scope
 Severals features were considered but they won't be implemented in the product:
