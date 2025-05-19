@@ -362,19 +362,30 @@ In order to determine this IT project as successful, Kritical Hit must meet all 
 - The simulator offers a responsive, fluid experience where users testing their templates perceive it as playing an actual game, with no noticeable latency.
 
 ### 5.4 Out of Scope
-Severals features were considered but they won't be implemented in the product:
+The following features were originally considered but will not be part of the final product:
 
-- An Equipment creation menu: it would allow the user to set up an equipment menu which will create slots for objects to give bonuses/maluses for a character while using a certain battle system. Indeed, it would also the possibility to create objects (potions, weapons), and to set up trees of achievements.
-- 2 other types of RPG style: real-time battle (every character select and perform their action whenever and wherever) and phase battle (2 factions of enemies are fighting, and each faction perform their action when it's their phase turn).
-- Possibility to save videos of simulation within the app's database.
-- Connection of different attacks, where the user create links between certain skills and set up potential combos and bonuses.
-- Creation of an XP calculator, similar to the damage calculator, and useful to calculate the experience earned by the player when defeating a certain enemy.
+- **General-purpose 2D game simulation**: including a level editor, event manager, and support for various gameplay modes beyond RPG.
 
-- **Stats Creation**: The features to create and modify the stats for a particular battle system and its characters.
+- **Advanced RPG systems**: such as real-time battle mechanics, combo attack linking, and versatile simulation styles similar to games like Final Fantasy or EarthBound.
 
-- **Skills Creation**: The features to set up the different skills and abilities of a battle system and its characters.
+- **Complex customization tools**:
 
-- **Status Creation**: The features to set up new status effects which will influence the gameplay of the battle system and its character.
+  - Stat and damage calculator editors.
+
+  - Skill and ability creators with emblem and element tagging.
+
+  - Status effect and hazard systems (e.g., weather effects).
+
+  - Equipment and inventory management, including bonuses/maluses, item crafting, and achievement trees.
+
+- **Additional utilities**:
+
+  - Experience point calculators.
+
+  - In-app simulation video recording and saving.
+
+These were excluded to maintain a clear scope focused on creating a functional, user-friendly turn-based RPG battle simulator.
+
 
 
 
