@@ -183,6 +183,7 @@ Therefore, the MoSCoW matrix method will be used to prioritize each feature and 
 | ↳ **Go to Simulation Page**     | Allow navigation to the battle simulation interface | **MUST-HAVE**         |
 | ↳ **Go to Rules Menu**          | Allow access to the rules customization menu        | **MUST-HAVE**          |
 | ↳ **Go to Character Selection** | Navigate to Pokémon/character selection screen      | COULD-HAVE          |
+| ↳ **Go to Damage Calculator** | Navigate to Damage Calculator editor screen      | COULD-HAVE          |
 | ↳ **Logout Button**             | Add a logout option to exit the user session        | COULD-HAVE          |
 
 #### 4.1.3 Responsive Design
@@ -255,6 +256,9 @@ Therefore, the MoSCoW matrix method will be used to prioritize each feature and 
 | ↳ Reduce PP on Use       | Deducts 1 PP when a move is used               | *SHOULD-HAVE*          |
 | ↳ Block When PP = 0      | Prevents using moves that have no PP remaining | *SHOULD-HAVE*          |
 | ↳ Trigger Game Over      | Ends game if no available moves remain         | COULD-HAVE           |
+| **Accuracy and Evasion**    | Uses an algorithm to determine how likely each move can succeed in hitting the target, depending on the user's accuracy and the target's evasiveness.         | *SHOULD-HAVE*          |
+| ↳ Setting move accuracy      | Set an accuracy for each move and deals with move failure. | *SHOULD-HAVE*            |
+| ↳ Boosting Accuracy/Evasiveness     | Creates moves allowing to buff and/or nerf the general Accuracy and Evasion of a Pokemon       | COULD-HAVE           |
 
 #### 4.3.3 Move Effects System
 
@@ -266,7 +270,7 @@ Therefore, the MoSCoW matrix method will be used to prioritize each feature and 
 | ↳ Critical Hit Mechanic     | Applies critical hit chance and multiplier                          | COULD-HAVE           |
 | ↳ STAB Bonus                | Applies Same-Type Attack Bonus if move type matches user’s type     | COULD-HAVE          |
 | ↳ Type Effectiveness        | Adjusts damage based on move vs. opponent type (e.g., fire > grass) | COULD-HAVE           |
-| ↳ Implement Limited Types   | Includes basic types: Fire, Water, Grass, Electric                  | COULD-HAVE           |
+| ↳ Implement Limited Types   | Includes at least 4 basic types: Fire, Water, Grass, Electric                  | COULD-HAVE           |
 | **Healing Move**            | Heals 50% of user’s base HP                                         | *SHOULD-HAVE*          |
 | **Buffing Stat Move**       | Increases a selected stat (e.g., Attack, Defense)                   | *SHOULD-HAVE*          |
 | **Nerfing Stat Move**       | Decreases opponent’s stat (e.g., Speed, Defense)                    | *SHOULD-HAVE*          |
@@ -317,6 +321,26 @@ Therefore, the MoSCoW matrix method will be used to prioritize each feature and 
 | **Confirm Selection**       | Display final choice and prompt confirmation | *SHOULD-HAVE*          |
 
 
+#### 4.4.5 Setting Up Battle Template
+
+| **Feature**                    | **Description**                                                             | **Priority** |
+| :----------------------------- | :-------------------------------------------------------------------------- | :----------- |
+| **Create New Battle Template** | Generate a new battle template that adds a custom rule set to the database. | COULD-HAVE   |
+| **Load Battle Template**       | Retrieve and use an existing battle template from the database.             | COULD-HAVE   |
+| **Delete Battle Template**     | Remove a selected battle template from the database.                        | COULD-HAVE   |
+
+
+
+#### 4.4.6 Changing Damage Calculator
+
+| **Feature**                | **Description**                                     | **Priority** |
+| :------------------------- | :-------------------------------------------------- | :----------- |
+| **Edit Damage Calculator** | Open and edit the logic behind damage calculations. | COULD-HAVE   |
+| ↳ **Adjust Coefficients**  | Modify individual calculation values.               | COULD-HAVE   |
+| ↳ **Replace Formula**      | Overwrite the entire calculation formula.           | COULD-HAVE   |
+
+
+
 ## 5. Product Details
 
 ### 5.1 Minimum Viable Product
@@ -330,6 +354,7 @@ The project will be developed progressively through a Minimum Viable Product (MV
 | **Phase 3** | Rules menu, healing and buffing moves, PP system, support for 4 attacks per Pokémon                         | 1.0         |
 | **Phase 4** | Nerfing moves, critical hits, 4-type system with effectiveness chart, custom movesets                       | 1.5         |
 | **Phase 5** | Character selection menu, expanded stats (evasion, accuracy), support for 6 types                           | 2.0         |
+| **Phase 6** | Save/load custom battle templates, 8-type system with immunities, damage calculator menu                    | 2.5         |
 
 
 
