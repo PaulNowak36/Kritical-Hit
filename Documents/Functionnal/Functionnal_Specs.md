@@ -444,27 +444,26 @@ The user flowchart, created using the *AI Flowchart Generator* tool, illustrates
 
 <img src="Images/KriticalHit_Updated_UserFlowchart.png" style="height: 1600px">
 
-
+*Note*: This flowchart is based on the 2.5 version of the Kritical Hit project.
 
 ### 6.3. UI Elements
 
-Some UI Elements will be commonly used through the different menus of Kritical Hit to assist the user in the making of a Battle Template. This includes:
+Thanks to Qt Creator’s built-in UI tools, we can easily integrate essential interface elements that help users set up and simulate a Pokémon battle. These elements are not only simple to add but also fully customizable through stylesheets—allowing adjustments to colors, sizes, font families, and more—to ensure they remain visually distinct and intuitive to use.
 
-- Buttons: Often provided with an oval form and accompanied by a small symbol, this classic UI element draws the attention of the user who can clik on it to navigate through the app and make various choices.
+The key UI components include:
 
-- Galleries: Used to store database of Battle Templates, Characters, Stats Trees, and more. The user can scroll up and down (or from left to right) to find the element of his choice and load it.
+- **PushButtons**: Typically styled with a rounded or oval shape and often accompanied by icons, push buttons are essential for user interaction. They guide navigation and allow players to make selections throughout the application.
 
-- Pop-Up menu: Appears as a window that can be small or big depending on its content. Indeed, the small sized versions are used to display valuable information for the user, like an advice or a warning, while the large pop-ups take most of the screen and incite the user to spend his times choosing settings, like the rules for a Battle Template for example.
+- **Checkboxes**: Simple yet effective, checkboxes allow users to toggle settings such as battle rules or special conditions. Their clarity and familiarity make them user-friendly and accessible.
 
-- Checkboxes: Enables the user to focus their attention on them, so they could make selections for various settings, like the rules of a Battle Template, or other specific conditions. 
+The **Simulation Menu Interface**, inspired by the classic Pokémon games, is composed of several key visual elements:
 
-- Range Sliders: Used occasionally to help fix a precise value, like a bonus given by a Skill, or make range of values, like the minimum and maximum values of a Stat for example. 
+- **Battle Sprites**: 2D character sprites are positioned on elliptical battle platforms, clearly separated from the background to help define each Pokémon’s position during combat.
 
-- Damage Calculator: Takes the form of a customizable mathematical formula that will be used to calculate damages depending of various inputs (Characters Stats, Bonuses, Maluses, fixed values...).
+- **Pokémon Info Panels**: These display each Pokémon’s name and remaining HP, including a dynamically updating HP bar that reflects damage taken after each turn.
 
-- Tree: As its name implies, this UI element takes the form of a tree. Indeed, it will be used to represent a Stats Trees like an actual tree, and its branches and leaves represent the different involved Stats used to complete a Battle Template.
+- **Battle Log**: This area communicates turn-based events such as move selections, effects, or prompts asking the player to choose their next action.
 
-- Simulation Screen: Represents a small window with 2 characters: the playable character and an enemy. When the simulation is activated, a fight will occur between the 2 characters where the user can view a menu for the hero's possible actions, and the remaining HPs and SPs of each entity.
 
 ### 6.4. Colors
 
@@ -475,19 +474,26 @@ Here are each main colors used in the software:
 - Green (#09BC71): represents the main menu of the software. Also used for the main background of the Battle Template screen, and for buttons to confirm a choice and create a new feature.
 - Red (#FF0000): represents the Template Creation menu, but it's also used for a button to unconfirm a choice.
 - Orange(#FF9900): represents the Characters Creation menu.
-- Yellow(#EAE340): represents the Stats Creation menu.
-- Blue(#407AEA): represents the Skills Creation menu.
-- Purple(#EA40E3): represents the Statuses Creation menu.
-
-### 6.5. Prototype
-
-Before building the app, a prototype of app which goal is to test the proposed interface has been created. Indeed, we can just navigate through the different pages of the app but it provides an interesting preview about what users will expect:
-
-[PROTOTYPE 1](TBD)<br> 
 
 
-### 6.6. Changes made
-TBD
+### 6.5. Prototypes
+
+Before building the full application, several prototypes were created using the Qt Creator framework. The goal was to test and validate the proposed interface designs while becoming more familiar with the development environment. Rather than developing a single unified prototype, we focused on creating multiple smaller prototypes, each targeting specific features or interface components that required testing.
+
+The following prototypes have been developed so far:
+
+[Interface_Prototype_1](TBD)<br> Basic navigation through the app's main pages.
+
+[Interface_Prototype_2](TBD)<br> Improved layout and interaction elements.
+
+[Simulation_Test1](TBD)<br> Initial simulation screen displaying battle setup and interaction.
+
+[Database_Prototype_1](TBD)<br> Early test for database connectivity and data retrieval.
+
+[Rules_Prototype1](TBD)<br> Prototype to test rule selection and checkbox interactions.
+
+These prototypes provided valuable insight into user interaction flow, layout clarity, and feature behavior, helping us refine the interface before full implementation.
+
 
 ## 7. Glossary
 
