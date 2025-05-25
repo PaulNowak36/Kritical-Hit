@@ -3,7 +3,7 @@
 | Author        | Paul NOWAK |
 |---------------|------------ |
 | Created       | 03/25/2024  |
-| Last Modified | 05/17/2025  |
+| Last Modified | 05/25/2025  |
 
 
 ## Table of Contents
@@ -96,6 +96,8 @@ The following are the key features envisioned for the final product:
 
 - Battle moves inspired by Pokémon will be available, including damaging attacks, healing actions, buffs (stat increases), and debuffs (stat reductions), offering a diverse range of effects to test.
 
+- User can also create and load several many battle templates in the application's database to save a variety of battle rules.
+
 
 ### 2.2 Constraints
 First and foremost, this project will be developed by a single individual with no prior experience in creating complete software independently. As part of the Moonshot Project, it must be completed alone, without active assistance from other students, teachers, or professionals.
@@ -167,6 +169,9 @@ Therefore, the MoSCoW matrix method will be used to prioritize each feature and 
 
 
 ### 4.1. User-Friendly Application
+
+These features were designed to ensure the interactive appeal of *Kritical Hit* and allowed users to navigate seamlessly through the various menus.
+
 #### 4.1.1 User Login System
 
 | **Feature**                | **Description**                              | **Priority** |
@@ -195,6 +200,8 @@ Therefore, the MoSCoW matrix method will be used to prioritize each feature and 
 
 
 ### 4.2. Battle Interface & Flow Simulation
+
+These features focus on delivering a functional and immersive battle experience, simulating turn-based combat flow with responsive UI and basic enemy AI.
 
 #### 4.2.1 Battle Interface Design
 
@@ -240,6 +247,8 @@ Therefore, the MoSCoW matrix method will be used to prioritize each feature and 
 
 ### 4.3. Battle Mechanics System
 
+This section defines the core logic behind battles, focusing on turn resolution, move execution, and stat-based outcomes to ensure strategic depth.
+
 #### 4.3.1 Combat Turn System
 
 | **Feature**                         | **Description**                                          | **Priority** |
@@ -278,6 +287,8 @@ Therefore, the MoSCoW matrix method will be used to prioritize each feature and 
 
 
 ### 4.4. Set Up Battle
+
+This section covers how players configure battles by selecting Pokémon, assigning moves, defining rules, and customizing templates or calculation systems.
 
 #### 4.4.1 Set Up Characters
 
@@ -356,7 +367,7 @@ The project will be developed progressively through a Minimum Viable Product (MV
 | **Phase 5** | Character selection menu, expanded stats (evasion, accuracy), support for 6 types                           | 2.0         |
 | **Phase 6** | Save/load custom battle templates, 8-type system with immunities, damage calculator menu                    | 2.5         |
 
-
+Two specific versions of the Kritical Hit project will be presented to the jury: version 1.0 during the first oral exam scheduled for June 24th, 2025, and version 2.0 — or possibly 2.5 — during the second oral presentation (unknown date).
 
 
 ### 5.2 Non-Functional Requirements
@@ -395,7 +406,7 @@ The following features were originally considered but will not be part of the fi
 
 - **Complex customization tools**:
 
-  - Stat and damage calculator editors.
+  - Stat editors, creating new stats and updating existing ones.
 
   - Skill and ability creators with emblem and element tagging.
 
@@ -410,8 +421,6 @@ The following features were originally considered but will not be part of the fi
   - In-app simulation video recording and saving.
 
 These were excluded to maintain a clear scope focused on creating a functional, user-friendly turn-based RPG battle simulator.
-
-
 
 
 ## 6. User Interface & User Experience
@@ -429,15 +438,13 @@ Similarly, the **Pokémon** series provides a great example of effective UI/UX i
 **Kritical Hit** can replicate this level of UI flexibility and clarity thanks to **Qt Creator’s built-in UI design tools**, which allow for the creation of clean, modular, and intuitive interfaces without requiring extensive UI programming knowledge. This empowers designers to prototype and build user-friendly layouts that reflect familiar gaming interfaces while maintaining high usability across a wide audience.
 
 
-### 6.2. Mock-Ups
+### 6.2. User Flowchart
 
-The following link show the Concept Arts for each menu of the software made by Figma:
+The user flowchart, created using the *AI Flowchart Generator* tool, illustrates the various paths a user must follow to test different features while navigating through the application.
 
-[Kritical Hit's Concept Arts](https://www.figma.com/design/tOh9vWgijZAMVSdAd2oILU/KriticalHit-Concept-Arts?node-id=0-3&t=zXnhpB73msD4rEtD-1)<br>
+<img src="Images/KriticalHit_Updated_UserFlowchart.png" style="height: 1600px">
 
-The User Flowchart map show the different paths the user must take to test the different features while navigating through the app:
 
-<img src="Images/UserFlowchart_Map.png" style="height: 400px">
 
 ### 6.3. UI Elements
 
