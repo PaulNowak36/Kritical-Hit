@@ -3,7 +3,7 @@
 | Author        | Paul NOWAK |
 |---------------|------------ |
 | Created       | 03/25/2024  |
-| Last Modified | 05/25/2025  |
+| Last Modified | 05/26/2025  |
 
 
 ## Table of Contents
@@ -440,7 +440,7 @@ Similarly, the **Pokémon** series provides a great example of effective UI/UX i
 
 ### 6.2. User Flowchart
 
-The user flowchart, created using the *AI Flowchart Generator* tool, illustrates the various paths a user must follow to test different features while navigating through the application.
+The User Flowchart, created using the *AI Flowchart Generator* tool, illustrates the various paths a user must follow to test different features while navigating through the application.
 
 <img src="Images/KriticalHit_Updated_UserFlowchart.png" style="height: 1600px">
 
@@ -465,18 +465,7 @@ The **Simulation Menu Interface**, inspired by the classic Pokémon games, is co
 - **Battle Log**: This area communicates turn-based events such as move selections, effects, or prompts asking the player to choose their next action.
 
 
-### 6.4. Colors
-
-In order to make the interface easier to understand for the user, I decided to implement a color code to differentiate each section of the code. Furthermore, each menu of KriticalHit has a backkground with a representative color.
-
-Here are each main colors used in the software:
-
-- Green (#09BC71): represents the main menu of the software. Also used for the main background of the Battle Template screen, and for buttons to confirm a choice and create a new feature.
-- Red (#FF0000): represents the Template Creation menu, but it's also used for a button to unconfirm a choice.
-- Orange(#FF9900): represents the Characters Creation menu.
-
-
-### 6.5. Prototypes
+### 6.4. Prototypes
 
 Before building the full application, several prototypes were created using the Qt Creator framework. The goal was to test and validate the proposed interface designs while becoming more familiar with the development environment. Rather than developing a single unified prototype, we focused on creating multiple smaller prototypes, each targeting specific features or interface components that required testing.
 
@@ -514,6 +503,7 @@ These prototypes provided valuable insight into user interaction flow, layout cl
 | **Modifiers** |   Factors influencing a battle that allow the calculation of several attributes, like the total damage, or a specific stat.   |
 | **Nerf** |    Also called "debuff", it's a skill, ability or other game mechanic that decrease a character's capabilities to reduce his effectiveness.    |
 | **Party** |    Group of characters teaming up during various adventures in a role-play game.    |
+| **Pokemon** |    Fictional creatures from the Pokémon franchise, which players can catch, train, and battle with in various games, often characterized by unique abilities, types, and evolutions.     |
 | **S.P.** |   Abbreviation for "Skill Points" and also called "mana", a limited quantity of points possessed by a character allowing him to uses a particular skill at the cost of a few of them.     |
 | **Skill** |   Particular action performed by a character during a battle. It allows to either attack the enemy, provides an effect or both, sometimes at the cost of a few SPs.   |
 | **Special Ability** |   Abilities characterized as game mechanics which provide a passive effect to a character in battle, like an immunity to an element.    |
@@ -522,9 +512,20 @@ These prototypes provided valuable insight into user interaction flow, layout cl
 
 ### 7.2. Miscallenous
 
-|         Term         |                  Definition                   |  
-| :------------------: | :------------------------------------------: | 
-| **Game Design** |   Processus of creation and development of rules and other constituent elements of a video game.    |
-| **Plugin** |   Software conceived to be implemented in another software through an interface and bringing new features to the latter.    |
-| **Prototype** |   Trial version and/or simulation of a software product made to provide a preview before its final version.    |
+|            Term            |                                                                       Definition                                                                       |
+| :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
+|           **Bar**          |           A graphical element in a user interface used to display information or provide controls (e.g., health bar, menu bar, progress bar).          |
+|       **Game Design**      |                              The process of creating the structure, rules, content, and gameplay systems of a video game.                              |
+|       **Game Engine**      | A software framework used for the creation and development of video games, offering tools such as rendering, physics, scripting, and asset management. |
+|         **Layout**         |               The arrangement of visual elements and interface components in a screen or scene, contributing to usability and aesthetics.              |
+|           **Log**          |            A record of events, actions, or errors that occur during the execution of a game or application, used for debugging and analysis.           |
+|        **Mechanics**       |                 The rules and systems that define the gameplay, including how players interact with the game and how the game responds.                |
+|         **MoSCoW**         |        A prioritization method used in project management that categorizes requirements into Must have, Should have, Could have, and Won’t have.       |
+|         **Plugin**         |             A software component designed to add specific features or functionality to an existing application through a defined interface.            |
+|        **Prototype**       |                  An early sample, model, or simulation of a game or application used to test and refine ideas before full development.                 |
+|         **Sprite**         |                      A 2D image or animation integrated into a game scene, typically representing characters, objects, or effects.                     |
+|        **Template**        |            A pre-designed structure or format used as a starting point for creating consistent content or features in a game or application.           |
+|  **U.I. (User Interface)** |                   The set of visual elements (buttons, menus, icons, etc.) that allow the player to interact with a game or software.                  |
+| **U.X. (User Experience)** |   The overall experience and satisfaction a user has when interacting with a game or application, including usability, accessibility, and enjoyment.   |
+
 
