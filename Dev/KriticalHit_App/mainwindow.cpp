@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->logOut_Button->setIcon(QIcon("C:/Users/PaulNOWAK/Desktop/Algosup/Moonshot Project/Kritical-Hit/Dev/KriticalHit_App/Images/logout.png"));
 
-    //printRootDriveInfo();
+    printRootDriveInfo();
 
     ui->username_Edit->setPlaceholderText("Username");
     ui->password_Edit->setPlaceholderText("Password");

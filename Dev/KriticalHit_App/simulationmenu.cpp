@@ -186,7 +186,7 @@ void SimulationMenu::showDynamicStatusMessage(DynamicStatusMessage type, const s
     switch (type)
     {
     case MSG_ATTACK_ACTION:
-        message = actorName + " uses " + skillName + " !";
+        message = actorName + " used \n" + skillName + " !";
         break;
 
     case MSG_HEAL_ACTION:
@@ -194,15 +194,15 @@ void SimulationMenu::showDynamicStatusMessage(DynamicStatusMessage type, const s
         break;
 
     case MSG_BUFF_ACTION_1:
-        message = actorName + "'s " + statName + " rose !";
+        message = actorName + "'s " + statName + "\n" + " rose !";
         break;
 
     case MSG_BUFF_ACTION_2:
-        message = actorName + "'s " + statName + " rose sharply !";
+        message = actorName + "'s " + statName + " rose " + "\n" + " sharply !";
         break;
 
     case MSG_BUFF_ACTION_3:
-        message = actorName + "'s " + statName + " rose drastically !";
+        message = actorName + "'s " + statName +  " rose " + "\n" + " drastically !";
         break;
 
     default:
