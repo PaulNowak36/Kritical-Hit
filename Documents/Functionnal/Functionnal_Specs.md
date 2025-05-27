@@ -1,9 +1,17 @@
 # Moonshot Project: KriticalHit - Functional Specifications
 
+// Consider adding:
+- Version history table at the beginning
+- Document approval section
+- Reference section for related documents
+- List of stakeholders
+- Change management process
+
+
 | Author        | Paul NOWAK |
 |---------------|------------ |
 | Created       | 03/25/2024  |
-| Last Modified | 05/26/2025  |
+| Last Modified | 05/27/2025  |
 
 
 ## Table of Contents
@@ -19,33 +27,38 @@
    - [2.1 Project Scope](#21-project-scope)
    - [2.2 Constraints](#22-constraints)
    - [2.3 Risks and Assumptions](#23-risks-and-assumptions)
- - [3. Audience study](#3-audience-study)
-   - [3.1 User Personas](#31-user-personas)
-     - [3.1.1 Henri Hollais](#311-henri-hollais)
-     - [3.1.2 Violet Hitgoh](#312-violet-hitgoh)
-     - [3.1.3 Arun Reddy](#313-arun-reddy)
-     - [3.1.4 Luke Atmadohg](#314-luke-atmadohg)
-     - [3.1.5 Katrina Ladalh](#315-katrina-ladalh)
-   - [3.2 Survey](#32-survey)
+ - [3. User Personas](#31-user-personas)
+   - [3.1 Henri Hollais](#311-henri-hollais)
+   - [3.2 Violet Hitgoh](#312-violet-hitgoh)
+   - [3.3 Arun Reddy](#313-arun-reddy)
+   - [3.4 Luke Atmadohg](#314-luke-atmadohg)
+   - [3.5 Katrina Ladalh](#315-katrina-ladalh)
  - [4. List of features](#4-list-of-features)
-   - [4.1 Must-Have](#41-must-have)
-   - [4.2 Should-Have](#42-should-have)
-   - [4.3 Could-Have](#43-could-have)
+   - [4.1 User-Friendly Application](#41-must-have)
+   - [4.2 Battle Inteface and flow simulation](#42-should-have)
+   - [4.3 Battle Mechanics System](#43-could-have)
+   - [4.4 Set Up Battle](#43-could-have)
  - [5. Product Details](#5-product-details)
    - [5.1 Minimum Viable Product](#51-minimum-viable-product)
    - [5.2 Non-Functional Requirements](#52-non-functional-requirements)
    - [5.3 Acceptance Criterias](#53-acceptance-criterias)
    - [5.4 Out of Scope](#54-out-of-scope)
- - [6. User Interface & User Experience](#6-user-interface-&-user-experience)
-   - [6.1 Importance](#61-importance)
-   - [6.2 Mock-Ups](#62-mock-ups)
-   - [6.3 UI Elements](#63-ui-elements)
-   - [6.4 Colors](#64-colors)
-   - [6.5 Prototype](#65-prototype)
- - [7. Glossary](#7-glossary)
-   - [7.1 RPG Lexical Field](#71-rpg-lexical-field)
-   - [7.2 Miscallenous](#72-miscallenous)
- - [8. Sources](#8-sources)
+ - [6. Technical Stack & Requirements](#6-technical-stack--requirements) // NEW: Brief overview of technical needs
+   - [6.1 Development Environment](#61-development-environment)
+   - [6.2 Database Overview](#62-database-overview)
+   - [6.3 System Requirements](#63-system-requirements)
+ - [7. Testing Strategy Overview](#7-testing-strategy-overview) // NEW: High-level testing approach
+   - [7.1 Testing Objectives](#71-testing-objectives)
+   - [7.2 Testing Scope](#72-testing-scope)
+ - [8. User Interface & User Experience](#8-user-interface--user-experience) // Previously section 6
+   - [8.1 Importance](#61-importance)
+   - [8.2 Mock-Ups](#62-mock-ups)
+   - [8.3 UI Elements](#63-ui-elements)
+   - [8.4 Prototypes](#64-prototypes)
+ - [9. Glossary](#7-glossary)
+   - [9.1 RPG Lexical Field](#71-rpg-lexical-field)
+   - [9.2 Miscallenous](#72-miscallenous)
+
 </details>
 
 # 1. Overview
@@ -108,6 +121,14 @@ Additionally, the product will be developed under time constraints, as the contr
 
 Finally, as the project now focuses specifically on implementing gameplay mechanics inspired by Pokémon battles, this design choice inherently limits the versatility and creative freedom users may have when testing other types of combat systems. At least in the planned final version, the simulation will be tailored to turn-based, Pokémon-style encounters, potentially reducing support for broader RPG battle variations.
 
+#### Technical, Database, and Performance Constraints
+
+The development environment being used is unfamiliar to the contributor, who is working with this tool for the first time. As such, the contributor may face difficulties understanding how the environment handles memory, manages technical specifications, and deals with performance and database interactions. These challenges could impact the stability and efficiency of the application during development.
+
+The project will be developed and tested exclusively on a single computer. Any technical limitations of this machine—including available RAM, processor capability, and storage—may directly influence development speed, build size, and runtime performance. Hardware issues or system-specific bugs may also go unnoticed due to the absence of cross-platform testing or deployment.
+
+Moreover, the contributor lacks experience in designing, configuring, and integrating databases within applications. This unfamiliarity may lead to inefficient database structures, suboptimal query handling, and potentially poor data management practices. Such issues could hinder the application's performance, especially if real-time data access or scalability becomes necessary during later stages of development.
+
 ### 2.3 Risks and Assumptions
 
 ### 2.3.1 Risks 
@@ -126,33 +147,27 @@ Finally, as the project now focuses specifically on implementing gameplay mechan
 |   **Interactive tutorial**  |   A tutorial could be added to help the user get familiarized with the product |  Search how to implement a tutorial in an app  |
 |   **Battle systems RPG**  |   RPG battle systems are various and unique, so we need to make sure the user gets enough creativity for his own taste|  Several battle systems must be tested out   |
 
+## 3 User Personas
 
-## 3. Audience study
-
-### 3.1 User Personas
-
-#### 3.1.1 Henri Hollais
+### 3.1 Henri Hollais
 
 <img src="Images/Persona_1.png" style="height: 400px">
 
-#### 3.1.2 Violet Hitgoh
+### 3.2 Violet Hitgoh
 
 <img src="Images/Persona_2.png" style="height: 400px">
 
-#### 3.1.3 Arun Reddy
+### 3.3 Arun Reddy
 
 <img src="Images/Persona_3.png" style="height: 400px">
 
-#### 3.1.4 Luke Atmadohg
+### 3.4 Luke Atmadohg
 
 <img src="Images/Persona_4.png" style="height: 400px">
 
-#### 3.1.5 Katrina Ladalh
+### 3.5 Katrina Ladalh
 
 <img src="Images/Persona_5.png" style="height: 400px">
-
-#### 3.2 Survey
-AAA
 
 ## 4. List of Features
 
@@ -166,11 +181,15 @@ Therefore, the MoSCoW matrix method will be used to prioritize each feature and 
 
 - COULD-HAVE: These features aren't necessary to the core product and have a much smaller impact if left out, but they are considered as "nice-to-have".
 
-
-
 ### 4.1. User-Friendly Application
 
 These features were designed to ensure the interactive appeal of *Kritical Hit* and allowed users to navigate seamlessly through the various menus.
+
+// Consider adding:
+- Error handling for user interactions
+- Loading time expectations
+- Offline functionality requirements
+
 
 #### 4.1.1 User Login System
 
@@ -356,6 +375,11 @@ This section covers how players configure battles by selecting Pokémon, assigni
 
 ### 5.1 Minimum Viable Product
 
+// Include:
+- Performance benchmarks for each phase
+- Data migration between versions
+- Backward compatibility considerations
+
 The project will be developed progressively through a Minimum Viable Product (MVP) approach, organized into distinct phases. In other words, each phase corresponds to a specific stage of development based on the features implemented and the version released. Furthermore, every phase is expected to be functional and designed with a user-friendly interface.
 
 | **Phase**   | **Added Features**                                                                                          | **Version** |
@@ -371,6 +395,13 @@ Two specific versions of the Kritical Hit project will be presented to the jury:
 
 
 ### 5.2 Non-Functional Requirements
+
+// Consider adding:
+- Performance metrics (specific response times)
+- Data backup frequency
+- Maximum concurrent users supported
+- Memory usage limits
+- Browser/device compatibility details
 
 - **Accessibility**: The User Interface of this product must be accessible to people unfamiliar with RPG games or computer software in general. Indeed, Kritical Hit’s range of capacities must bring a satisfaction rate around 95% of users. 
 
@@ -389,6 +420,14 @@ Two specific versions of the Kritical Hit project will be presented to the jury:
 - **Usability**: The software’s interface must be simple to understand and appealing enough to encourage people to use it. 
 
 ### 5.3 Acceptance Criterias
+
+// Add specific criteria for:
+- Load time thresholds
+- Error rate tolerances
+- Data consistency checks
+- UI responsiveness metrics
+
+
 In order to determine this IT project as successful, Kritical Hit must meet all the following criterias:
 
 - The user can seamlessly navigate the application and interact with all UI components without experiencing significant lag or input delay.
@@ -422,10 +461,54 @@ The following features were originally considered but will not be part of the fi
 
 These were excluded to maintain a clear scope focused on creating a functional, user-friendly turn-based RPG battle simulator.
 
+## 6. Technical Stack & Requirements
 
-## 6. User Interface & User Experience
+### 6.1 Development Environment
+// Add:
+- Primary development framework (Qt Creator)
+- Programming language requirements
+- Version control system
+- IDE and tools needed
 
-### 6.1. Importance
+### 6.2 Database Overview
+// Add:
+- Type of database needed (SQL/NoSQL)
+- Main data entities to store
+- Basic relationships between data
+- Estimated data volume
+
+### 6.3 System Requirements
+// Add:
+- Minimum hardware requirements
+- Operating system compatibility
+- Network requirements (if any)
+- Storage requirements
+
+## 7. Testing Strategy Overview
+
+### 7.1 Testing Objectives
+// Add:
+- User acceptance criteria
+- Performance goals
+- Compatibility requirements
+
+### 7.2 Testing Scope
+// Add:
+- Features requiring testing
+- User interface testing
+- Battle system validation
+
+## 8. User Interface & User Experience
+
+// Consider adding:
+- Accessibility standards compliance
+- Color scheme requirements
+- Minimum touch target sizes
+- Error message guidelines
+- Loading state indicators
+
+
+### 8.1. Importance
 
 One of the most essential features of **Kritical Hit** is its ability to appeal to a wide range of users—whether they are experienced with software tools, familiar with Pokémon games, or completely new to video games in general.
 
@@ -438,7 +521,7 @@ Similarly, the **Pokémon** series provides a great example of effective UI/UX i
 **Kritical Hit** can replicate this level of UI flexibility and clarity thanks to **Qt Creator’s built-in UI design tools**, which allow for the creation of clean, modular, and intuitive interfaces without requiring extensive UI programming knowledge. This empowers designers to prototype and build user-friendly layouts that reflect familiar gaming interfaces while maintaining high usability across a wide audience.
 
 
-### 6.2. User Flowchart
+### 8.2. User Flowchart
 
 The User Flowchart, created using the *AI Flowchart Generator* tool, illustrates the various paths a user must follow to test different features while navigating through the application.
 
@@ -446,7 +529,7 @@ The User Flowchart, created using the *AI Flowchart Generator* tool, illustrates
 
 *Note*: This flowchart is based on the 2.5 version of the Kritical Hit project.
 
-### 6.3. UI Elements
+### 8.3. UI Elements
 
 Thanks to Qt Creator’s built-in UI tools, we can easily integrate essential interface elements that help users set up and simulate a Pokémon battle. These elements are not only simple to add but also fully customizable through stylesheets—allowing adjustments to colors, sizes, font families, and more—to ensure they remain visually distinct and intuitive to use.
 
@@ -465,28 +548,34 @@ The **Simulation Menu Interface**, inspired by the classic Pokémon games, is co
 - **Battle Log**: This area communicates turn-based events such as move selections, effects, or prompts asking the player to choose their next action.
 
 
-### 6.4. Prototypes
+### 8.4. Prototypes
 
-Before building the full application, several prototypes were created using the Qt Creator framework. The goal was to test and validate the proposed interface designs while becoming more familiar with the development environment. Rather than developing a single unified prototype, we focused on creating multiple smaller prototypes, each targeting specific features or interface components that required testing.
+// Comment: Consider moving detailed prototype implementation details to Technical Specifications document.
+// Keep only high-level prototype goals and user experience findings in this document.
+
+
+Before building the full application, several prototypes were created using the Qt Creator framework. The goal was to test and validate the proposed interface designs while becoming more familiar with the development environment. 
+
+Rather than developing a single unified prototype, we focused on creating multiple smaller prototypes, each targeting specific features or interface components that required testing.
 
 The following prototypes have been developed so far:
 
-[Interface_Prototype_1](TBD)<br> Basic navigation through the app's main pages.
+- **Interface_Prototype_1**: Basic navigation through the app's main pages.
 
-[Interface_Prototype_2](TBD)<br> Improved layout and interaction elements.
+- **Interface_Prototype_2**: Improved layout and interaction elements.
 
-[Simulation_Test1](TBD)<br> Initial simulation screen displaying battle setup and interaction.
+- **Simulation_Test1**: Initial simulation screen displaying battle setup and interaction.
 
-[Database_Prototype_1](TBD)<br> Early test for database connectivity and data retrieval.
+- **Database_Prototype_1**: Early test for database connectivity and data retrieval.
 
-[Rules_Prototype1](TBD)<br> Prototype to test rule selection and checkbox interactions.
+- **Rules_Prototype1**: Prototype to test rule selection and checkbox interactions.
 
 These prototypes provided valuable insight into user interaction flow, layout clarity, and feature behavior, helping us refine the interface before full implementation.
 
 
-## 7. Glossary
+## 9. Glossary
 
-### 7.1. RPG Lexical Field
+### 9.1. RPG Lexical Field
 
 |         Term         |                  Definition                   |  
 | :------------------: | :------------------------------------------: | 
@@ -510,22 +599,32 @@ These prototypes provided valuable insight into user interaction flow, layout cl
 | **Stat** |   Numerical value that applies to a character's ability (Attack, Defense, Speed...).    |
 | **Status** |   Specific state affected to a character, generally negative, causing effects such as losing HPs each turn (poison) or being slowed down (paralyzis).    |
 
-### 7.2. Miscallenous
+### 9.2. Miscallenous
 
 |            Term            |                                                                       Definition                                                                       |
 | :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
-|           **Bar**          |           A graphical element in a user interface used to display information or provide controls (e.g., health bar, menu bar, progress bar).          |
-|       **Game Design**      |                              The process of creating the structure, rules, content, and gameplay systems of a video game.                              |
-|       **Game Engine**      | A software framework used for the creation and development of video games, offering tools such as rendering, physics, scripting, and asset management. |
-|         **Layout**         |               The arrangement of visual elements and interface components in a screen or scene, contributing to usability and aesthetics.              |
-|           **Log**          |            A record of events, actions, or errors that occur during the execution of a game or application, used for debugging and analysis.           |
-|        **Mechanics**       |                 The rules and systems that define the gameplay, including how players interact with the game and how the game responds.                |
-|         **MoSCoW**         |        A prioritization method used in project management that categorizes requirements into Must have, Should have, Could have, and Won’t have.       |
-|         **Plugin**         |             A software component designed to add specific features or functionality to an existing application through a defined interface.            |
-|        **Prototype**       |                  An early sample, model, or simulation of a game or application used to test and refine ideas before full development.                 |
-|         **Sprite**         |                      A 2D image or animation integrated into a game scene, typically representing characters, objects, or effects.                     |
-|        **Template**        |            A pre-designed structure or format used as a starting point for creating consistent content or features in a game or application.           |
-|  **U.I. (User Interface)** |                   The set of visual elements (buttons, menus, icons, etc.) that allow the player to interact with a game or software.                  |
+| **API** | Application Programming Interface - A set of rules and protocols that allows different software applications to communicate with each other. |
+| **Backend** | The server-side portion of an application that handles data processing, business logic, and database operations. |
+| **Bar** |           A graphical element in a user interface used to display information or provide controls (e.g., health bar, menu bar, progress bar).          |
+| **Database Schema** | The structure that represents the logical configuration of all or part of a relational database. |
+| **Frontend** | The client-side portion of an application that users interact with directly. |
+| **Framework** | A platform for developing software applications that provides a foundation on which software developers can build programs. |
+| **Game Design** | The process of creating the structure, rules, content, and gameplay systems of a video game. |
+| **Game Engine** | A software framework used for the creation and development of video games, offering tools such as rendering, physics, scripting, and asset management. |
+| **GUI** | Graphical User Interface - The visual elements through which users interact with electronic devices. |
+| **Layout** | The arrangement of visual elements and interface components in a screen or scene, contributing to usability and aesthetics.              |
+| **Log** | A record of events, actions, or errors that occur during the execution of a game or application, used for debugging and analysis. |
+| **Mechanics** | The rules and systems that define the gameplay, including how players interact with the game and how the game responds. |
+| **MoSCoW** | A prioritization method used in project management that categorizes requirements into Must have, Should have, Could have, and Won’t have. |
+| **Plugin** | A software component designed to add specific features or functionality to an existing application through a defined interface. |
+| **Prototype** | An early sample, model, or simulation of a game or application used to test and refine ideas before full development. |
+| **Responsive Design** | A design approach that makes web pages render well on different devices and window/screen sizes. |
+| **Sprite** | A 2D image or animation integrated into a game scene, typically representing characters, objects, or effects.                     |
+| **Template** | A pre-designed structure or format used as a starting point for creating consistent content or features in a game or application. |
+| **Turn-based** | A game system where players take alternating turns when playing. |
+| **U.I. (User Interface)** | The set of visual elements (buttons, menus, icons, etc.) that allow the player to interact with a game or software. |
 | **U.X. (User Experience)** |   The overall experience and satisfaction a user has when interacting with a game or application, including usability, accessibility, and enjoyment.   |
+| **Unit Testing** | A software testing method where individual units or components of software are tested. |
+| **Version Control** | A system that records changes to a file or set of files over time so that specific versions can be recalled later. |
 
 
