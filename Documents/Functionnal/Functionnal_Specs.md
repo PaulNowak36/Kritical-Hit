@@ -185,12 +185,6 @@ Therefore, the MoSCoW matrix method will be used to prioritize each feature and 
 
 These features were designed to ensure the interactive appeal of *Kritical Hit* and allowed users to navigate seamlessly through the various menus.
 
-// Consider adding:
-- Error handling for user interactions
-- Loading time expectations
-- Offline functionality requirements
-
-
 #### 4.1.1 User Login System
 
 | **Feature**                | **Description**                              | **Priority** |
@@ -375,23 +369,18 @@ This section covers how players configure battles by selecting Pokémon, assigni
 
 ### 5.1 Minimum Viable Product
 
-// Include:
-- Performance benchmarks for each phase
-- Data migration between versions
-- Backward compatibility considerations
-
 The project will be developed progressively through a Minimum Viable Product (MVP) approach, organized into distinct phases. In other words, each phase corresponds to a specific stage of development based on the features implemented and the version released. Furthermore, every phase is expected to be functional and designed with a user-friendly interface.
 
-| **Phase**   | **Added Features**                                                                                          | **Version** |
-| ----------- | ----------------------------------------------------------------------------------------------------------- | ----------- |
-| **Phase 1** | App skeleton, login menu, main template menu, basic simulation with 2 preset Pokémon (same attacks & stats) | 0.2         |
-| **Phase 2** | Custom Pokémon stats, attack order system, classic-style damage calculator, attack delay system             | 0.5         |
-| **Phase 3** | Rules menu, healing and buffing moves, PP system, support for 4 attacks per Pokémon                         | 1.0         |
-| **Phase 4** | Nerfing moves, critical hits, 4-type system with effectiveness chart, custom movesets                       | 1.5         |
-| **Phase 5** | Character selection menu, expanded stats (evasion, accuracy), support for 6 types                           | 2.0         |
-| **Phase 6** | Save/load custom battle templates, 8-type system with immunities, damage calculator menu                    | 2.5         |
+| **Phase**   | **Added Features**                                                                                          | **Performance Benchmarks**                                                                                                                                               | **Version** |
+| ----------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| **Phase 1** | App skeleton, login menu, main template menu, basic simulation with 2 preset Pokémon (same attacks & stats) | Simulation loads in under 1 second; attacks execute within 100 ms and update both HP bars.                                                                               | 0.2         |
+| **Phase 2** | Custom Pokémon stats, attack order system, classic-style damage calculator, attack delay system             | Delay between attacks below 2 seconds; each character’s HP bar updates within 100 ms of their turn.                                                                      | 0.5         |
+| **Phase 3** | Rules menu, healing and buffing moves, PP system, support for 4 attacks per Pokémon                         | Rules menu opens in under 1 second; updates occur with a 100 ms interval; exiting menu takes less than 200 ms, even after multiple updates.                              | 1.0         |
+| **Phase 4** | Nerfing moves, critical hits, 4-type system with effectiveness chart, custom movesets                       | Simulation menu loads in under 1 second, even with 8 capacity objects saved in the database.                                                                             | 1.5         |
+| **Phase 5** | Character selection menu, expanded stats (evasion, accuracy), support for 6 types                           | Character selection opens in under 1 second; interface updates occur every 100 ms; exiting takes less than 200 ms.                                                       | 2.0         |
+| **Phase 6** | Save/load custom battle templates, 8-type system with immunities, damage calculator menu                    | Calculator menu opens in under 1 second; updates every 100 ms; exiting within 200 ms; app remains responsive with 5 battle templates saved; new template loads < 500 ms. | 2.5         |
 
-Two specific versions of the Kritical Hit project will be presented to the jury: version 1.0 during the first oral exam scheduled for June 24th, 2025, and version 2.0 — or possibly 2.5 — during the second oral presentation (unknown date).
+Two specific versions of the Kritical Hit project will be presented to the jury: version 1.0 during the first oral exam scheduled for June 24th, 2025, and version 2.0 — or possibly 2.5 — during the second oral presentation (date TBD).
 
 
 ### 5.2 Non-Functional Requirements
