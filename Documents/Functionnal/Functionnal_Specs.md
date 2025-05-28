@@ -382,31 +382,42 @@ The project will be developed progressively through a Minimum Viable Product (MV
 
 Two specific versions of the Kritical Hit project will be presented to the jury: version 1.0 during the first oral exam scheduled for June 24th, 2025, and version 2.0 — or possibly 2.5 — during the second oral presentation (date TBD).
 
+#### Data Migration and Backward Compatibility
+
+As new features are introduced across MVP phases, particular attention will be paid to ensuring that saved data, configurations, and battle templates remain functional and forward-compatible. Specific strategies include:
+
+- **Phase 3 → Phase 4**: Entity objects, Capacity objects and their classes will be updated to integrate new type attributes without breaking existing data.
+
+- **Phase 4 → Phase 5**: The transition from a 4-type to a 6-type system will be handled by updating the effectiveness structure. Existing custom moves and Pokémon will adapt to new type definitions.
+
+- **Phase 5 → Phase 6**: Templates created in previous versions (including pre-save/load support) will remain usable. The system will support legacy loading with internal migration logic to upgrade their data format silently.
+
+- Across versions, older configurations will not require user intervention to remain usable in newer versions unless critical incompatibilities are detected.
+
 
 ### 5.2 Non-Functional Requirements
 
-// Consider adding:
-- Performance metrics (specific response times)
-- Data backup frequency
-- Maximum concurrent users supported
-- Memory usage limits
-- Browser/device compatibility details
+### 5.2 Non-Functional Requirements
 
-- **Accessibility**: The User Interface of this product must be accessible to people unfamiliar with RPG games or computer software in general. Indeed, Kritical Hit’s range of capacities must bring a satisfaction rate around 95% of users. 
+- **Accessibility**: The User Interface of this product must be accessible to users unfamiliar with RPG games or software. Kritical Hit’s design must maintain an intuitive experience, ensuring that at least 95% of users report satisfaction during usability testing.
 
-- **Configurability**: The software must allow different settings that could be freely personalized by the user when he uses any feature. 
+- **Configurability**: The software must allow customizable settings for all available features. Users should be able to tailor configurations (e.g., battle parameters, UI layout) to suit personal or project needs.
 
-- **Flexibility**: The software must have room to add new potential features to improve the creativity of the battle systems. Indeed, any update of the application shouldn’t require too much effort for the software engineer. 
+- **Flexibility**: The software must support the easy integration of new features to enable creative expansion of battle systems. Updates to core functionalities should not require significant rework or refactoring by the development team.
 
-- **Responsiveness**: Most user inputs (button, selection) and interactions effects (button growing when mouse hovering, etc...) must be fast. The maximum response time for them should be 100ms to ensure user-friendly interactivity.  
+- **Responsiveness**: Interface feedback must be fast. Button clicks should respond within 100 ms, menu navigation should not exceed 200 ms, and loading a new battle template must occur within 500 ms. The simulation menu — the application's core — must support real-time updates and quick interface reactions to maintain usability.
 
-- **Re-usability**: The software’s interface could be reused as a model for any future software requiring a user-friendly interface. 
+- **Re-usability**: The software’s interface design should be modular and well-structured, allowing it to be reused in future software projects requiring accessible and intuitive system creation interfaces.
 
-- **Scalability**: The software must be able to contain a large database of battle system templates, and its performance shouldn’t be too highly impacted by the amount of data used. 
+- **Scalability**: The software must be capable of handling a growing collection of battle system templates with stable performance. While exact data size thresholds are to be determined, the system must remain responsive as data accumulates.
 
-- **Security**: The user’s personal data must be protected from any cyberattack when he is logged in. Furthermore, the software should prevent any leak from the template’s database. 
+- **Security**: Any personal data saved by the user must be protected from unauthorized access or tampering. Template files must be safeguarded from unintended overwrites, deletion, or corruption.
 
-- **Usability**: The software’s interface must be simple to understand and appealing enough to encourage people to use it. 
+- **Usability**: The interface must be easy to understand and visually appealing, enabling users to navigate menus and complete tasks without extensive documentation. Visual feedback (e.g., hover effects) must enhance clarity without clutter.
+
+- **Reliability**: Users must always be able to load their most recently saved battle templates. While automated backup isn’t a current priority, manual saves should be fully reliable and restorable.
+
+- **Compatibility**: The application is primarily developed for Windows desktop systems. It must remain operable on typical Windows school/university computers, and should support future testing on alternative platforms (e.g., Mac OS). 
 
 ### 5.3 Acceptance Criterias
 
