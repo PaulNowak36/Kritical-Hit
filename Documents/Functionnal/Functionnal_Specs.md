@@ -419,22 +419,40 @@ As new features are introduced across MVP phases, particular attention will be p
 
 - **Compatibility**: The application is primarily developed for Windows desktop systems. It must remain operable on typical Windows school/university computers, and should support future testing on alternative platforms (e.g., Mac OS). 
 
-### 5.3 Acceptance Criterias
+### 5.3 Acceptance Criteria
 
-// Add specific criteria for:
-- Load time thresholds
-- Error rate tolerances
-- Data consistency checks
-- UI responsiveness metrics
+To be considered functionally complete and successful, **Kritical Hit** must meet the following **acceptance criteria**:
 
+- **UI Responsiveness**: All user interface actions must respond within strict thresholds:
+  - **Button interactions** (click, hover, selection): under **100 ms**
+  - **Menu navigation**: under **100 ms**, or **200 ms** when loading user data or applying internal settings
+  - **Visual feedback effects** (hover glow, color change): perceived as **instantaneous**
 
-In order to determine this IT project as successful, Kritical Hit must meet all the following criterias:
+- **Startup Time**: The application must **fully launch and display the login menu within 2 seconds** of execution on a standard desktop system.
 
-- The user can seamlessly navigate the application and interact with all UI components without experiencing significant lag or input delay.
-- Users are able to create their own custom battle rules using the provided tools and test them within the built-in simulator.
-- The application runs without crashing and does not exhibit any critical bugs that would negatively impact the user experience.
-- The app launches cleanly without throwing errors, regardless of the platform or device used.
-- The simulator offers a responsive, fluid experience where users testing their templates perceive it as playing an actual game, with no noticeable latency.
+- **Simulation Experience**: The built-in simulator must respond fluidly and offer the feel of a real-time RPG combat system.  
+  - **Battle logs** must update progressively with **no freeze or lag** during execution  
+  - Visual transitions such as **HP bar decreases** must feel natural  
+  - A **minimum effective refresh rate** (approx. **30–60 Hz**) should be maintained to ensure clarity and consistency, especially if progressive UI animations (e.g., log updates or stat effects) are implemented
+
+- **Data Persistence**: All user-created battle system templates must be **accurately saved and fully restored** after application restarts  
+  - A saved project must be **reloaded identically** upon reopening the app  
+  - **No data loss or corruption** is acceptable during normal use  
+  - Crashes or shutdowns must not erase the **latest saved state**
+
+- **Crash Tolerance**: The application must **not crash** during:
+  - Navigation between menus, especially transitions into the **simulation interface**
+  - Execution of simulations with any template configuration  
+  - Normal editing and saving of **custom battle rules**
+
+- **Bug Tolerance**: Minor, **non-blocking UI visual glitches** (e.g., misplaced button, flicker) are acceptable as long as they:
+  - Do **not prevent functional use** of the affected feature  
+  - Do **not interfere with user comprehension** or smooth navigation
+
+- **Cross-Platform Consistency**: On supported platforms (e.g., **Windows**, **macOS**), the software must:
+  - **Maintain the same structure and functionality**
+  - **Tolerate minor layout or visual differences**, provided they do not affect usability or access to any feature
+
 
 ### 5.4 Out of Scope
 The following features were originally considered but will not be part of the final product:
