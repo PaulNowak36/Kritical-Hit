@@ -477,30 +477,118 @@ The following features were originally considered but will not be part of the fi
 
   - In-app simulation video recording and saving.
 
-These were excluded to maintain a clear scope focused on creating a functional, user-friendly turn-based RPG battle simulator.
+These were excluded to maintain a clear scope focused on creating a funcstional, user-friendly turn-based RPG battle simulator.
 
 ## 6. Technical Stack & Requirements
 
-### 6.1 Development Environment
-// Add:
-- Primary development framework (Qt Creator)
-- Programming language requirements
-- Version control system
-- IDE and tools needed
+### **6.1 Development Environment**
+
+The development of this desktop application relies primarily on **Qt Creator** as the main integrated development environment. It enables the complete design and implementation of both the application's logic and its graphical interface. **Qt Creator** provides built-in tools to manage project structure, integrate interface elements, preview layouts, test functionality, and deploy executable versions using appropriate development kits.
+
+The project is developed using the **C++ programming language**, supported natively by Qt Creator for building responsive and visually structured desktop applications. 
+
+For version control and progress tracking, the project is maintained through **GitHub**, using both the GitHub web platform and its dedicated **GitHub Desktop** application to manage changes, synchronize versions, and ensure code history is safely stored.
+
+Other supporting tools are occasionally used:
+- **Visual Studio Code**: for drafting technical documentation.
+- **Microsoft Office Suite**: for writing monthly reports and documenting progress.
+- **DB Browser for SQLite**: to manually manage and inspect database tables used within the app.
+- **ChatGPT**: as a support assistant for rewriting documentation segments and resolving technical uncertainties.
+
+When a version of the app is packaged for testing, end users simply download the release archive, extract it, and launch the application via the included executable — **no installation of additional tools or libraries is required**.
+
+The choice of **Qt Creator** was guided by its strong support for building visually structured interfaces, its integration with **C++**, and its practical suite of tools for managing, debugging, and deploying desktop applications.
 
 ### 6.2 Database Overview
-// Add:
-- Type of database needed (SQL/NoSQL)
-- Main data entities to store
-- Basic relationships between data
-- Estimated data volume
 
-### 6.3 System Requirements
-// Add:
-- Minimum hardware requirements
-- Operating system compatibility
-- Network requirements (if any)
-- Storage requirements
+The application currently uses a local relational database (SQLite) to support core data management. SQLite was chosen for its ease of use, low setup overhead, and compatibility with tutorial material used during development. It allows for straightforward handling of simple data types like strings and numbers.
+
+Although SQLite is sufficient for the current single-user structure, the system remains open to migrating to more scalable solutions (e.g., PostgreSQL or MySQL) in future versions if features like user accounts or shared data become necessary.
+
+#### Type of Database
+- **SQLite (Relational)**
+- Optimized for small-scale, local applications
+- Easy to manage within Qt Creator integration
+- May be upgraded later if larger or concurrent data handling is needed
+
+#### Main Data Entities to Store
+
+The application revolves around a few fundamental types of gameplay data:
+
+- **Entities**: Characters with stats and attributes, created specifically for one Battle Template
+- **Capacities**: Skills or abilities used by Entities during battles (e.g., "Tackle", "Sword Dance")
+- **Battle Templates**: Defined setups that include two selected Entities and their four associated Capacities
+
+*Entities are currently stored in the code and are tied to their specific battle template. Capacities are more flexible — they can be reused or remain in a "library" without being linked.*
+
+#### Basic Relationships Between Data
+
+- Each **Battle Template** contains **two Entities**
+- Each **Entity** has **four Capacities**
+- **Capacities** may be shared across multiple Entities
+- A **Capacity** can exist independently (i.e., not yet assigned)
+- **Entities** are **not shared** across Battle Templates — they are unique to the template
+
+#### Estimated Data Volume
+
+| Data Type        | Expected Quantity (per user) | Notes                                               |
+|------------------|-----------------------------|-----------------------------------------------------|
+| **Battle Templates** | 2–5                          | Most users will only create a few test templates    |
+| **Entities**         | 2 per template               | Created fresh for each template                    |
+| **Capacities**       | Shared pool of 10–20         | Some may be unlinked ("library" style)             |
+| **Simulation Logs**  | 0                            | No logs are stored in this version                 |
+| **Media Assets**     | Few dozen images/fonts       | Stored externally, not in the database             |
+
+*Large media files like sounds or images are handled outside the database system. Future updates may consider audio support, but this is out of scope for now.*
+
+
+
+## 6.3 System Requirements
+
+This section outlines the system requirements for running the application in its current development phase. Since the project is still under development, some specifications are subject to change as features evolve or performance is optimized.
+
+#### Minimum Hardware Requirements
+
+- **Target Platform**: Standard university-issued laptop computers.
+- **Tested Hardware Example**:
+  - **CPU**: Intel® Core™ i7-1065G7 @ 1.30GHz (up to 1.50 GHz)
+  - **RAM**: 16 GB installed (6 GB used during app tests)
+  - **Operating System**: Windows 11 Pro (64-bit)
+- **Recommended RAM**: 6 GB minimum for stable use, 8 GB or more for headroom.
+- **Graphics**: No dedicated GPU required. Application uses 2D pixel graphics with minimal animation and does not rely on GPU acceleration.
+- **Storage**: ~100–200 MB estimated for application binaries and assets.
+
+#### Operating System Compatibility
+
+- **Primary OS Tested**: Windows 11 Pro (64-bit)
+- **Compatibility**: May be compatible with other Windows versions and macOS, though not yet tested.
+- **Architecture**: 64-bit systems recommended.
+
+#### Display Requirements
+
+- **Display Scaling**: Developed and tested at **150%** display scaling (Windows default for many laptops).
+- **UI Style**: Considered **compact**, featuring a clean background, large buttons, and user-friendly navigation similar to *Super Mario Maker*.
+- **Minimum Resolution**: Not formally defined. Current version runs in a windowed mode. Tentative recommendation: **1280×720** minimum for future fullscreen support.
+
+#### Performance Considerations
+
+- **Stability**: No slowdowns, crashes, or freezing observed in the current Phase 3 version.
+- **Known Issues**: A prior crash occurred during simulation testing with excessive static `Capacity` object creation in `.h` files. This issue is under investigation and does not affect the current version.
+- **Multi-App Use**: No noticeable performance issues when used alongside apps such as Chrome, VSCode, or GitHub Desktop. Not yet tested alongside media players or heavy background processes.
+
+#### Storage Requirements
+
+- **Installation Footprint**: Lightweight. Primary space used for image assets and font files.
+- **Asset Handling**:
+  - Images are stored in an external folder within the project directory and loaded at runtime.
+  - Fonts are stored in the build folder and referenced accordingly.
+- **Data Import/Export**: Not currently supported. Templates are internally managed and may be stored in a database in future versions.
+
+#### Network Requirements
+
+- **Connectivity**: No internet or local network required for current functionality.
+- **Future Plans**: Potential for online template sharing or remote battle functionality in later development phases.
+
 
 ## 7. Testing Strategy Overview
 
