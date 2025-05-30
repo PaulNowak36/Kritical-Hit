@@ -541,9 +541,7 @@ The application revolves around a few fundamental types of gameplay data:
 
 *Large media files like sounds or images are handled outside the database system. Future updates may consider audio support, but this is out of scope for now.*
 
-
-
-## 6.3 System Requirements
+### 6.3 System Requirements
 
 This section outlines the system requirements for running the application in its current development phase. Since the project is still under development, some specifications are subject to change as features evolve or performance is optimized.
 
@@ -593,16 +591,74 @@ This section outlines the system requirements for running the application in its
 ## 7. Testing Strategy Overview
 
 ### 7.1 Testing Objectives
-// Add:
-- User acceptance criteria
-- Performance goals
-- Compatibility requirements
+
+The primary objective of the testing process is to ensure that the application meets its defined requirements, behaves reliably across common scenarios, and delivers a smooth and satisfying user experience. The testing approach includes both functional and non-functional goals.
+
+#### **User Acceptance Criteria**
+
+- The user can navigate the application without critical bugs or crashes.
+- All major features (battle system setup, simulation menu, and user interface) must behave as expected under normal use.
+- Templates created by users must be retrievable, modifiable, and saved correctly.
+- The interface must be user-friendly, intuitive, and provide clear visual feedback when interacted with.
+- External users must be able to test the application with minimal instruction and complete core tasks (e.g., simulate a battle, configure set of rules).
+- Testing participants will complete a feedback form to assess satisfaction and usability.
+- The final version must be stable enough to allow informal external testing.
+
+#### **Performance Goals**
+
+- **Application launch time**: under 2 seconds on a typical test machine.
+- **UI responsiveness**: under 100 ms for button interactions and 200 ms for menu transitions.
+- **Simulation behavior**: runs without freezing or crashing during battle processing.
+- **Database operations**: retrieving, updating, and deleting battle templates must complete under 500 ms from the user’s point of view.
+- The app must remain usable even when other standard software (browser, text editor, etc.) is running in the background.
+
+#### **Compatibility Requirements**
+
+- The application must run on **Windows 11 Pro** systems (primary target).
+- Future testing on **macOS** is planned to ensure compatibility and layout consistency.
+- Basic testing should be done at **150% display scaling**, with UI elements readable and accessible.
+- A mouse-based interface is assumed; no touchscreen or special hardware is required.
+- The application must function correctly in offline mode with no network dependency.
+
+
 
 ### 7.2 Testing Scope
-// Add:
-- Features requiring testing
-- User interface testing
-- Battle system validation
+
+The purpose of this testing scope is to define the functional areas and system behaviors that will be evaluated during the testing process. Testing will focus on ensuring a smooth user experience, correct battle mechanics, and stable data handling across core features.
+
+#### **Core Features Requiring Testing**
+
+- **Simulation Menu**: The most critical component of the application. The simulation must run without crashes, bugs, or severe slowdowns. The player must be able to execute a full battle scenario under different rule settings.
+- **Battle Configuration (Rules Menu)**: Must allow users to set up valid battle conditions before launching a simulation. Includes testing default rule sets and user-defined rule configurations.
+- **Character Menu**: Must allow for entity selection and association with capacities for simulation.
+- **Damage Calculator Menu**: If integrated, must retrieve and apply correct damage values based on user selections and settings.
+- **Battle Template System**: Must support creating, saving, loading, and updating templates. Functionality must work correctly with both predefined and user-customized values.
+- All components depending on **database interaction** must be tested with insertion, modification, and deletion operations to ensure data integrity.
+
+#### **User Interface Testing**
+
+- **Buttons and Menus**: All interactive UI components (e.g., buttons, tabs, and navigation menus) must respond correctly to user input.
+- **Navigation**: Users must be able to switch between menus and pages easily without confusion or error.
+- **Simulation Interface**: Must be clear, intuitive, and capable of displaying battle progress in real-time.
+- **Visual Feedback**: Basic visual effects such as hover and click animations will be tested for completeness but are not prioritized over core functionality.
+- **Fullscreen Display**: Will be tested as an optional enhancement if implemented.
+
+#### **Battle System Validation**
+
+- **Win/Loss Conditions**:
+  - A battle ends when one entity’s HP reaches 0.
+  - If both entities are unable to attack due to depleted PP, the winner is determined by who has the higher remaining HP.
+  - A turn limit may be introduced as a configurable rule (e.g., 10 or 20 turns), though it is not required by default.
+
+- **Edge Cases**:
+  - Entities with extremely high stat values (e.g., up to 999) will be tested for correct handling.
+  - Entities must always have at least one capacity assigned. Configurations with fewer than 4 capacities may be allowed but must be tested to prevent simulation crashes.
+  - Invalid setups (e.g., entities with 0 in any stat) are considered out of scope and must be prevented by input validation.
+
+- **Battle Log Accuracy**:
+  - Battle progress must be displayed clearly during simulation using a real-time text log.
+  - Each log entry must correctly describe which entity is acting, which move is being used, and the resulting outcome.
+
 
 ## 8. User Interface & User Experience
 
