@@ -58,52 +58,52 @@
 # 1. Overview
 
 ### 1.1 Document Purpose
-This document has been written to provide the functional specification of a Moonshot Project named Kritical Hit. In fact, the Moonshot Project is a final evaluation imposed by the ALGOSUP school to create our own unique and professional project through the whole scolarity and to validate our Master level in Software development.
+This document has been written to provide the functional specification of a Moonshot Project named Kritical Hit. The Moonshot Project is a final evaluation imposed by the ALGOSUP school staff to create our unique and professional project through the whole scolarity and validate our Master's level in Software development.
 
 ### 1.2 Context
-Video games have long been a cornerstone of the entertainment industry, generating approximately $180 billion annually. The market continues to evolve rapidly, driven by advancements in both hardware and software—particularly through the rise of powerful game engines. While these engines are also utilized across various industries, they have revolutionized game development by enabling the creation of more complex and sophisticated interactive experiences.
+Video games have long been a cornerstone of the entertainment industry, generating approximately $180 billion annually. The market continues to evolve rapidly, driven by advancements in both hardware and software—particularly through the rise of powerful <sup><a href="#39">[39]</a></sup> game engines. While these engines are also utilized across various industries, they have revolutionized <sup><a href="#38">[38]</a></sup> game design by enabling the creation of more complex and sophisticated interactive experiences.
 
 Despite these innovations, developing a video game remains a time-consuming and detail-oriented task for software engineers. With the rise of new technologies and changing audience expectations, modern games are expected to meet high standards in performance, quality, and depth to remain competitive and marketable.
 
-Among all genres, role-playing games (RPGs) hold a special place in the industry. They offer immersive storytelling, rich character progression, and strategic battle systems that attract a wide and loyal audience. 
+Among all genres, <sup><a href="#22">[22]</a></sup> role-playing games (RPGs) hold a special place in the industry. They offer immersive storytelling, rich <sup><a href="#5">[5]</a></sup> character progression, and strategic battle systems that attract a wide and loyal audience.
 
-A prime example is the Pokémon franchise, which exemplifies the global appeal and commercial success of RPGs. As of 2023, Pokémon is the highest-grossing entertainment media franchise in the world, having earned over 150 billion dollars in total revenue. This includes 30 billion dollars from video games alone and over 100 billion dollars from licensed merchandise. The core games in the Pokémon series follow a classic RPG structure, where players assume the role of a customizable trainer who captures, trains, and battles Pokémon with the ultimate goal of becoming the Pokémon Champion.
+A prime example is the <sup><a href="#20">[20]</a></sup> Pokémon franchise, which exemplifies the global appeal and commercial success of <sup><a href="#22">[22]</a></sup> RPGs. As of 2023, Pokémon is the highest-grossing entertainment media franchise in the world, having earned over 150 billion dollars in total revenue. This includes 30 billion dollars from video games alone and over 100 billion dollars from licensed merchandise. The core games in the Pokémon series follow a classic <sup><a href="#22">[22]</a></sup> RPG structure, where players assume the roles of <sup><a href="#5">[5]</a></sup> characters who captures, trains, and battles Pokémon with the ultimate goal of becoming the Pokémon Champion.
 
-Building such RPGs often requires dedicated game design tools, particularly for crafting engaging battle mechanics and managing complex character systems. However, current game design software tools often fall short—they may either lack essential resources or present interfaces that are not welcoming to new developers. Moreover, extending their functionality by adding plugins can be too time-consuming or technically demanding for amateurs or solo designers.
+Building such <sup><a href="#22">[22]</a></sup> RPGs often requires dedicated <sup><a href="#38">[38]</a></sup> game design tools, particularly for crafting engaging battle <sup><a href="#43">[43]</a></sup> mechanics and managing complex character systems. However, current <sup><a href="#39">[39]</a></sup> game engine software tools often fall short—they may either lack essential resources or present interfaces that are not welcoming to new developers. Moreover, extending their functionality by adding <sup><a href="#45">[45]</a></sup> plugins can be too time-consuming or technically demanding for amateurs or solo designers.
 
-This highlights a critical gap in the tools available for designing high-quality RPG systems, especially for developers inspired by franchises like Pokémon but lacking the means or technical expertise to implement similarly rich gameplay experiences.
+This highlights a critical gap in the tools available for designing high-quality <sup><a href="#22">[22]</a></sup> RPG systems, especially for developers inspired by franchises like Pokémon but lacking the means or technical expertise to implement similarly rich gameplay experiences.
 
 ### 1.3 RPG Domain
 
-An RPG (Role-Play Game) is a game where the player embodies a fictional character that will evolve, often alongside other characters, where he will accomplish diverse quests, fight enemies and explore a more or less imaginary world. Indeed, RPGs are based on a point system and experience level that can be increased and allow the player to get stronger and receive new abilities. 
+An <sup><a href="#22">[22]</a></sup> RPG (Role-Play Game) is a game where the player embodies a fictional <sup><a href="#5">[5]</a></sup> character that will evolve, often alongside other characters, where he will accomplish diverse quests, fight enemies and explore a more or less imaginary world. Indeed, RPGs are based on a point system and experience level that can be increased and allow the player to get stronger and receive new <sup><a href="#0">[0]</a></sup> abilities.
 
-Inspired by several sources like the Dungeon and Dragons pen-and-paper games and fantasy writings authors like J. R. R. Tolkien, RPGs bring a whole new concept of entertainment with the success of Franchises like Pokemon, Final Fantasy, and Dragon Quest. Throughout time, they differienced themselves in subgenres like Action RPG (including action gameplay) and MMORPG (online role-playing).
+Inspired by several sources like the Dungeon and Dragons pen-and-paper games and fantasy writings by authors like J. R. R. Tolkien, <sup><a href="#22">[22]</a></sup> RPGs bring a whole new concept of entertainment with the success of Franchises like Pokemon, Final Fantasy, and Dragon Quest. Throughout time, they have distinguished themselves in subgenres like Action RPG (including action gameplay) and MMORPG (online role-playing).
 
-Each player chooses a character, whether completely create him or emboding a defined one (like Cloud from Final Fantasy VII), and have the freedom to change its appearance (clothes, weapons, magic powers) and its statistics (strength, agility, vitality...).
+Each player chooses a <sup><a href="#5">[5]</a></sup> character, whether completely create him or embodying a defined one (like Cloud from Final Fantasy VII), and have the freedom to change its appearance (clothes, weapons, magic powers) and its <sup><a href="#26">[26]</a></sup> stats (strength, agility, vitality...).
 
 
 ## 2. Product Goal
 
 ### 2.1 Project Scope
-To support both amateur game designers and professional developers, the goal of this project is to design a desktop application functioning similarly to a lightweight game engine.
+To support both amateur <sup><a href="#38">[38]</a></sup> game design and professional developers, the goal of this project is to design a desktop application functioning similarly to a lightweight <sup><a href="#39">[39]</a></sup> game engine.
 
-This software will feature an intuitive, user-friendly interface to help users define and configure battle system rules for RPGs in development. It aims to foster creativity and give users the flexibility to create a wide variety of RPG battle templates with ease.
+This software will feature an intuitive, user-friendly <sup><a href="#51">[51]</a></sup> UI to help users define and configure battle system rules for <sup><a href="#22">[22]</a></sup> RPGs in development. It aims to foster creativity and give users the flexibility to create a wide variety of RPG battle <sup><a href="#49">[49]</a></sup> templates with ease.
 
-Inspired by iconic titles like Pokémon, the application will include a simulation interface that replicates the feel of a classic Pokémon battle, allowing users to test their systems in a familiar and engaging way.
+Inspired by iconic titles like <sup><a href="#20">[20]</a></sup> Pokémon, the application will include a <sup><a href="#29">[29]</a></sup> simulation interface that replicates the feel of a classic Pokémon battle, allowing users to test their systems familiarly and engagingly.
 
 The following are the key features envisioned for the final product:
 
 - The software will allow the user to navigate through the different menus with an understandable and colorful interface, similar to the game Super Mario Maker.
 
-- Users will be able to simulate a turn-based Pokémon-style battle between two sides, each selecting one of four available Pokémon before the fight begins.
+- Users will be able to simulate a <sup><a href="#50">[50]</a></sup> turn-based Pokémon-style battle between two sides, each selecting one of four available Pokémon before the fight begins.
 
-- The system will include an integrated battle interface reminiscent of the original Pokémon games, allowing users to interactively test how their fight logic and rules behave in a turn-based simulation.
+- The system will include an integrated battle interface reminiscent of the original Pokémon games, allowing users to interactively test how their fight logic and rules behave in a <sup><a href="#50">[50]</a></sup> turn-based <sup><a href="#29">[29]</a></sup> simulation.
 
-- A rules menu will allow users to enable or disable specific mechanics—such as turn order logic, stat caps, or critical hit chance—before starting a new simulation.
+- A rules menu will allow users to enable or disable specific <sup><a href="#43">[43]</a></sup> mechanics—such as turn order logic, <sup><a href="#26">[26]</a></sup> stat caps, or <sup><a href="#6">[6]</a></sup> critical hit chance—before starting a new simulation.
 
-- Battle moves inspired by Pokémon will be available, including damaging attacks, healing actions, buffs (stat increases), and debuffs (stat reductions), offering a diverse range of effects to test.
+- Battle <sup><a href="#17">[17]</a></sup> moves inspired by Pokémon will be available, including damaging attacks, healing actions, <sup><a href="#3">[3]</a></sup> buffs (<sup><a href="#26">[26]</a></sup> stat increases), and <sup><a href="#18">[18]</a></sup> nerfs (<sup><a href="#26">[26]</a></sup> stat reductions), offering a diverse range of effects to test.
 
-- User can also create and load several many battle templates in the application's database to save a variety of battle rules.
+- User can also create and load several many battle <sup><a href="#49">[49]</a></sup> templates in the application's <sup><a href="#35">[35]</a></sup> database to save a variety of battle rules.
 
 
 ### 2.2 Constraints
@@ -113,33 +113,33 @@ Due to this context, no financial investments are possible. The project will rel
 
 Additionally, the product will be developed under time constraints, as the contributor must balance this project alongside ongoing academic commitments. Although the Moonshot Project is required to validate the contributor’s degree, it does not follow a fixed deadline—task scheduling must therefore remain flexible and adapt to the progression of the contributor’s studies.
 
-Finally, as the project now focuses specifically on implementing gameplay mechanics inspired by Pokémon battles, this design choice inherently limits the versatility and creative freedom users may have when testing other types of combat systems. At least in the planned final version, the simulation will be tailored to turn-based, Pokémon-style encounters, potentially reducing support for broader RPG battle variations.
+Finally, as the project now focuses specifically on implementing gameplay <sup><a href="#43">[43]</a></sup> mechanics inspired by Pokémon battles, this <sup><a href="#38">[38]</a></sup> game design choice inherently limits the versatility and creative freedom users may have when testing other types of combat systems. At least in the planned final version, the <sup><a href="#29">[29]</a></sup> simulation will be tailored to <sup><a href="#50">[50]</a></sup> turn-based, Pokémon-style encounters, potentially reducing support for broader <sup><a href="#22">[22]</a></sup> RPG battle variations.
 
 #### Technical, Database, and Performance Constraints
 
-The development environment being used is unfamiliar to the contributor, who is working with this tool for the first time. As such, the contributor may face difficulties understanding how the environment handles memory, manages technical specifications, and deals with performance and database interactions. These challenges could impact the stability and efficiency of the application during development.
+The development environment being used is unfamiliar to the contributor, who is working with this tool for the first time. As such, the contributor may face difficulties understanding how the environment handles memory, manages technical specifications, and deals with performance and <sup><a href="#35">[35]</a></sup> database interactions. These challenges could impact the stability and efficiency of the application during development.
 
 The project will be developed and tested exclusively on a single computer. Any technical limitations of this machine—including available RAM, processor capability, and storage—may directly influence development speed, build size, and runtime performance. Hardware issues or system-specific bugs may also go unnoticed due to the absence of cross-platform testing or deployment.
 
-Moreover, the contributor lacks experience in designing, configuring, and integrating databases within applications. This unfamiliarity may lead to inefficient database structures, suboptimal query handling, and potentially poor data management practices. Such issues could hinder the application's performance, especially if real-time data access or scalability becomes necessary during later stages of development.
+Moreover, the contributor lacks experience in designing, configuring, and integrating <sup><a href="#35">[35]</a></sup> databases within applications. This unfamiliarity may lead to inefficient <sup><a href="#34">[34]</a></sup> database schema structures, suboptimal query handling, and potentially poor data management practices. Such issues could hinder the application's performance, especially if real-time data access or scalability becomes necessary during later stages of development.
 
 ### 2.3 Risks and Assumptions
 
-### 2.3.1 Risks 
+#### 2.3.1 Risks 
 |   **Risk**  |   **Impact** |  **Mitigation**  |                     
 |   :-------  |   :--------- |  :-------------  |
-|   **Insuffisant app responsive speed**  |   The computer's performance might not be fast enough to allow the user to test the app properly |  Extended researches about app's speed and responsiveness must be performed  |
-|  **User-friendly interface bad outcomes**  |   Focusing on a simplified interactivity with the software can create limits of its potential and functionality  |  Highlighting the importance of testing UI prototypes to balance usability and simplicity   |
-|   **Complex UI effects** |   Some planned UI widgets may be too difficult and complex to implement in the software and could decrease its responsiveness   |  Creation of UI prototypes   |
-|   **Heavy database** |   The software's response could be slow due to the required amount of database stored in back-end  |  Further studies of database app storage   |
+|   **Insufficient app responsive speed**  |   The computer's performance might not be fast enough to allow the user to test the app properly |  Extended research about the app's speed and responsiveness must be performed  |
+|  **User-friendly interface bad outcomes**  |   Highlighting the importance of testing <sup><a href="#51">[51]</a></sup> UI <sup><a href="#46">[46]</a></sup> prototypes to balance usability and simplicity   |
+|   **Complex UI effects** |   Some planned <sup><a href="#51">[51]</a></sup> UI widgets may be too difficult and complex to implement in the software and could decrease its responsiveness   |  Creation of <sup><a href="#51">[51]</a></sup> UI <sup><a href="#46">[46]</a></sup> prototypes   |
+|   **Heavy database** |   The software's response could be slow due to the required amount of <sup><a href="#35">[35]</a></sup> database stored in <sup><a href="#32">[32]</a></sup> backend  |  Further studies of <sup><a href="#35">[35]</a></sup> database app storage   |
 
-### 2.3.2 Assumptions 
+#### 2.3.2 Assumptions 
 |   **Assumption**  |   **Impact** |  **Mitigation**  |                     
 |   :-------  |   :--------- |  :-------------  |
-|   **2D character models**  |   To simulate RPG battle, 2D characters should be represented as they required less space in the memory than 3D ones |  Finding how to integrate 2D sprites in an app and make them react  |
-|   **Tree representations**  |   It could bring visibility to the user to have a clearier view on certain features such as stats |  Research on tree-like representation UI models  |
+|   **2D character models**  |   To simulate RPG battle, 2D <sup><a href="#48">[48]</a></sup> sprites should be represented as they require less space in the memory than 3D ones |  Finding how to integrate 2D <sup><a href="#48">[48]</a></sup> sprites in an app and make them react  |
+|   **Tree representations**  |   It could bring visibility to the user to have a clearer view on certain features such as <sup><a href="#26">[26]</a></sup> stats |  Research on tree-like representation <sup><a href="#51">[51]</a></sup> UI models  |
 |   **Interactive tutorial**  |   A tutorial could be added to help the user get familiarized with the product |  Search how to implement a tutorial in an app  |
-|   **Battle systems RPG**  |   RPG battle systems are various and unique, so we need to make sure the user gets enough creativity for his own taste|  Several battle systems must be tested out   |
+|   **Battle systems RPG**  |   <sup><a href="#22">[22]</a></sup> RPG battle systems are various and unique, so we need to make sure the user gets enough creativity for his taste|  Several battle systems must be tested out   |
 
 ## 3 User Personas
 
@@ -167,13 +167,13 @@ Moreover, the contributor lacks experience in designing, configuring, and integr
 
 The software includes a wide range of features, many of which may be difficult to implement during development. 
 
-Therefore, the MoSCoW matrix method will be used to prioritize each feature and sub-feature based on their likelihood of being implemented.
+Therefore, the <sup><a href="#44">[44]</a></sup> MoSCoW matrix method will be used to prioritize each feature and sub-feature based on their likelihood of being implemented.
 
 - **MUST-HAVE**: These features are mandatory and non-negotiable needs for this project.
 
 - *SHOULD-HAVE*: These features are essential to the product, but they don't represent a vital part.
 
-- COULD-HAVE: These features aren't necessary to the core product and have a much smaller impact if left out, but they are considered as "nice-to-have".
+- COULD-HAVE: These features aren't necessary to the core product and have a much smaller impact if left out, but they are considered "nice to have".
 
 ### 4.1. User-Friendly Application
 
@@ -191,11 +191,11 @@ These features were designed to ensure the interactive appeal of *Kritical Hit* 
 
 | **Feature**                     | **Description**                                     | **Priority** |
 | :------------------------------ | :-------------------------------------------------- | :----------- |
-| **Main Menu UI**                | Build the main menu page                            | **MUST-HAVE**          |
-| ↳ **Go to Simulation Page**     | Allow navigation to the battle simulation interface | **MUST-HAVE**         |
+| **Main Menu <sup><a href="#51">[51]</a></sup>UI**                | Build the main menu page                            | **MUST-HAVE**          |
+| ↳ **Go to <sup><a href="#29">[29]</a></sup> Simulation Page**     | Allow navigation to the battle <sup><a href="#29">[29]</a></sup> simulation interface | **MUST-HAVE**         |
 | ↳ **Go to Rules Menu**          | Allow access to the rules customization menu        | **MUST-HAVE**          |
-| ↳ **Go to Character Selection** | Navigate to Pokémon/character selection screen      | COULD-HAVE          |
-| ↳ **Go to Damage Calculator** | Navigate to Damage Calculator editor screen      | COULD-HAVE          |
+| ↳ **Go to <sup><a href="#5">[5]</a></sup> Character Selection** | Navigate to Pokémon/<sup><a href="#5">[5]</a></sup> character selection screen      | COULD-HAVE          |
+| ↳ **Go to <sup><a href="#7">[7]</a></sup> Damage Calculator** | Navigate to <sup><a href="#7">[7]</a></sup> Damage Calculator editor screen      | COULD-HAVE          |
 | ↳ **Logout Button**             | Add a logout option to exit the user session        | COULD-HAVE          |
 
 #### 4.1.3 Responsive Design
@@ -203,36 +203,36 @@ These features were designed to ensure the interactive appeal of *Kritical Hit* 
 | **Feature**           | **Description**                                 | **Priority** |
 | :-------------------- | :---------------------------------------------- | :----------- |
 | **Full-Screen Mode**  | Enable full-screen display for better immersion | COULD-HAVE           |
-| **Responsive Layout** | Ensure each page adapts to various screen sizes | COULD-HAVE          |
+| **<sup><a href="#47">[47]</a></sup> Responsive Layout** | Ensure each page adapts to various screen sizes | COULD-HAVE          |
 
 
 ### 4.2. Battle Interface & Flow Simulation
 
-These features focus on delivering a functional and immersive battle experience, simulating turn-based combat flow with responsive UI and basic enemy AI.
+These features focus on delivering a functional and immersive battle experience, simulating <sup><a href="#50">[50]</a></sup> turn-based combat flow with responsive <sup><a href="#51">[51]</a></sup> UI and basic enemy AI.
 
 #### 4.2.1 Battle Interface Design
 
 | **Feature**                      | **Description**                                              | **Priority** |
 | :------------------------------- | :----------------------------------------------------------- | :----------- |
-| **Design Battle Interface**      | Create the UI for the battle screen                          | **MUST-HAVE**         |
-| ↳ **Show Pokémon & HP Bars**     | Display both Pokémon on screen with visual HP bars           | **MUST-HAVE**         |
+| **Design Battle Interface**      | Create the <sup><a href="#51">[51]</a></sup> UI for the battle screen                          | **MUST-HAVE**         |
+| ↳ **Show Pokémon & <sup><a href="#12">[12]</a></sup> HP Bars**     | Display both Pokémon on-screen with visual <sup><a href="#12">[12]</a></sup> HP bars           | **MUST-HAVE**         |
 | ↳ **Display Battle Text**        | Show relevant messages and narration during battle           | *SHOULD-HAVE*          |
-| ↳ ↳ *"What will you do?"* Prompt | Display the classic player turn prompt                       | *SHOULD-HAVE*          |
-| ↳ ↳ *Move Usage Text*            | Show messages like "Pikachu uses Thunderbolt!"               | *SHOULD-HAVE*          |
-| ↳ ↳ *Healing Text*               | Display messages for healing moves (e.g. "Bulbasaur heals!") | COULD-HAVE          |
-| ↳ ↳ *Buff Text*                  | Display stat increase messages (e.g. "Attack rose!")         | COULD-HAVE           |
-| ↳ ↳ *Debuff Text*                | Display stat decrease messages (e.g. "Defense fell!")        | COULD-HAVE           |
-| ↳ **Implement Move Buttons**     | Show four move buttons the player can click                  | **MUST-HAVE**          |
-| ↳ **Update UI Elements**         | Dynamically update HP bars, text, and states after actions   | **MUST-HAVE**          |
+| ↳ ↳ *"What will you do?"* Prompt | Display the classic player <sup><a href="#30">[30]</a></sup> turn prompt                       | *SHOULD-HAVE*          |
+| ↳ ↳ *<sup><a href="#17">[17]</a></sup> Move Usage Text*            | Show messages like "Pikachu uses Thunderbolt!"               | *SHOULD-HAVE*          |
+| ↳ ↳ *Healing Text*               | Display messages for healing <sup><a href="#17">[17]</a></sup> moves (e.g. "Bulbasaur heals!") | COULD-HAVE          |
+| ↳ ↳ *<sup><a href="#3">[3]</a></sup> Buff Text*                  | Display <sup><a href="#26">[26]</a></sup> stat increase messages (e.g. "Attack rose!")         | COULD-HAVE           |
+| ↳ ↳ *<sup><a href="#18">[18]</a></sup> Nerf Text*                | Display <sup><a href="#26">[26]</a></sup> stat decrease messages (e.g. "Defense fell!")        | COULD-HAVE           |
+| ↳ **Implement <sup><a href="#17">[17]</a></sup> Move Buttons**     | Show four <sup><a href="#17">[17]</a></sup> move buttons the player can click                  | **MUST-HAVE**          |
+| ↳ **Update <sup><a href="#51">[51]</a></sup> UI Elements**         | Dynamically update <sup><a href="#12">[12]</a></sup> HP bars, text, and states after actions   | **MUST-HAVE**          |
 
 #### 4.2.2 Enemy AI System
 
 | **Feature**                 | **Description**                                 | **Priority** |
 | :-------------------------- | :---------------------------------------------- | :----------- |
 | **Enemy AI**                | Automate opponent's decisions during battle     | **MUST-HAVE**          |
-| ↳ **Random Move Selection** | Enemy chooses a move randomly                   | **MUST-HAVE**          |
-| ↳ **Check for PP**          | Prevent enemy from choosing moves with 0 PP     | *SHOULD-HAVE*          |
-| ↳ **HP-Based Decisions**    | Make smarter move choices based on remaining HP | COULD-HAVE           |
+| ↳ **Random <sup><a href="#17">[17]</a></sup> Move Selection** | Enemy chooses a <sup><a href="#17">[17]</a></sup> move randomly                   | **MUST-HAVE**          |
+| ↳ **Check for <sup><a href="#21">[21]</a></sup> PP**          | Prevent enemy from choosing <sup><a href="#17">[17]</a></sup> moves with 0 <sup><a href="#21">[21]</a></sup> PP     | *SHOULD-HAVE*          |
+| ↳ **<sup><a href="#13">[13]</a></sup> HP-Based Decisions**    | Make smarter <sup><a href="#17">[17]</a></sup> move choices based on remaining <sup><a href="#13">[13]</a></sup> HP | COULD-HAVE           |
 
 
 #### 4.2.3 Quitting the Battle
@@ -249,85 +249,84 @@ These features focus on delivering a functional and immersive battle experience,
 | **Feature**                   | **Description**                                   | **Priority** |
 | :---------------------------- | :------------------------------------------------ | :----------- |
 | **Detect Battle End**         | Determine when the battle is over                 | **MUST-HAVE**          |
-| ↳ **Pokémon Fainting**        | Detect when a Pokémon’s HP reaches 0              | **MUST-HAVE**          |
+| ↳ **Pokémon Fainting**        | Detect when a Pokémon's <sup><a href="#13">[13]</a></sup> HP reaches 0              | **MUST-HAVE**          |
 | ↳ **Display Outcome Message** | Show win/lose message and return to the main menu | **MUST-HAVE**          |
+
 
 ### 4.3. Battle Mechanics System
 
-This section defines the core logic behind battles, focusing on turn resolution, move execution, and stat-based outcomes to ensure strategic depth.
+This section defines the core logic behind battles, focusing on <sup><a href="#30">[30]</a></sup> turn resolution, <sup><a href="#17">[17]</a></sup> move execution, and <sup><a href="#26">[26]</a></sup> stat-based outcomes to ensure strategic depth.
 
 #### 4.3.1 Combat Turn System
 
 | **Feature**                         | **Description**                                          | **Priority** |
 | :---------------------------------- | :------------------------------------------------------- | :----------- |
-| **Turn-Based Combat**               | Two Pokémon engage in a turn-based fight                 | **MUST-HAVE**          |
-| **Stat-Based Turn Order & Outcome** | Uses stats (HP, Attack, Defense, Speed) to resolve turns | **MUST-HAVE**          |
+| **<sup><a href="#50">[50]</a></sup> Turn-Based Combat**               | Two Pokémon engage in a <sup><a href="#50">[50]</a></sup> turn-based fight                 | **MUST-HAVE**          |
+| **<sup><a href="#26">[26]</a></sup> Stat-Based Turn Order & Outcome** | Uses <sup><a href="#26">[26]</a></sup> stats (<sup><a href="#13">[13]</a></sup> HP, Attack, Defense, Speed) to resolve turns | **MUST-HAVE**          |
 
 #### 4.3.2 Move Selection & Usage
 
 | **Feature**              | **Description**                                | **Priority** |
 | :----------------------- | :--------------------------------------------- | :----------- |
-| **List Available Moves** | Display list of usable moves for the player's Pokemon  | **MUST-HAVE**          |
-| **PP System**            | Manages move usage based on remaining PP       | *SHOULD-HAVE*          |
-| ↳ Reduce PP on Use       | Deducts 1 PP when a move is used               | *SHOULD-HAVE*          |
-| ↳ Block When PP = 0      | Prevents using moves that have no PP remaining | *SHOULD-HAVE*          |
-| ↳ Trigger Game Over      | Ends game if no available moves remain         | COULD-HAVE           |
-| **Accuracy and Evasion**    | Uses an algorithm to determine how likely each move can succeed in hitting the target, depending on the user's accuracy and the target's evasiveness.         | *SHOULD-HAVE*          |
-| ↳ Setting move accuracy      | Set an accuracy for each move and deals with move failure. | *SHOULD-HAVE*            |
-| ↳ Boosting Accuracy/Evasiveness     | Creates moves allowing to buff and/or nerf the general Accuracy and Evasion of a Pokemon       | COULD-HAVE           |
+| **List Available <sup><a href="#17">[17]</a></sup> Moves** | Display list of usable <sup><a href="#17">[17]</a></sup> moves for the player's Pokemon  | **MUST-HAVE**          |
+| **<sup><a href="#21">[21]</a></sup> PP System**            | Manages <sup><a href="#17">[17]</a></sup> move usage based on remaining <sup><a href="#21">[21]</a></sup> PP       | *SHOULD-HAVE*          |
+| ↳ Reduce <sup><a href="#21">[21]</a></sup> PP on Use       | Deducts 1 <sup><a href="#21">[21]</a></sup> PP when a <sup><a href="#17">[17]</a></sup> move is used               | *SHOULD-HAVE*          |
+| ↳ Block When <sup><a href="#21">[21]</a></sup> PP = 0      | Prevents using <sup><a href="#17">[17]</a></sup> moves that have no <sup><a href="#21">[21]</a></sup> PP remaining | *SHOULD-HAVE*          |
+| ↳ Trigger Game Over      | Ends game if no available <sup><a href="#17">[17]</a></sup> moves remain         | COULD-HAVE           |
+| **<sup><a href="#1">[1]</a></sup> Accuracy and <sup><a href="#11">[11]</a></sup> Evasion**    | Uses an algorithm to determine how likely each <sup><a href="#17">[17]</a></sup> move can succeed in hitting the target, depending on the user's <sup><a href="#1">[1]</a></sup> accuracy and the target's <sup><a href="#11">[11]</a></sup> evasiveness.         | *SHOULD-HAVE*          |
+| ↳ Setting <sup><a href="#17">[17]</a></sup> move <sup><a href="#1">[1]</a></sup> accuracy      | Set an <sup><a href="#1">[1]</a></sup> accuracy for each <sup><a href="#17">[17]</a></sup> move and deals with <sup><a href="#17">[17]</a></sup> move failure. | *SHOULD-HAVE*            |
+| ↳ Boosting <sup><a href="#1">[1]</a></sup> Accuracy/<sup><a href="#11">[11]</a></sup> Evasiveness     | Creates <sup><a href="#17">[17]</a></sup> moves allowing to <sup><a href="#3">[3]</a></sup> buff and/or <sup><a href="#18">[18]</a></sup> nerf the general <sup><a href="#1">[1]</a></sup> Accuracy and <sup><a href="#11">[11]</a></sup> Evasion of a Pokemon       | COULD-HAVE           |
 
 #### 4.3.3 Move Effects System
 
 | **Feature**                 | **Description**                                                     | **Priority** |
 | :-------------------------- | :------------------------------------------------------------------ | :----------- |
-| **Move Effects System**     | Handles the outcome of moves used in battle                         | **MUST-HAVE**          |
-| **Damage-Dealing Moves**    | Executes damage-based calculations during combat                    | **MUST-HAVE**          |
-| ↳ Apply Base Damage Formula | Uses a formula to compute base damage output                        | **MUST-HAVE**          |
-| ↳ Critical Hit Mechanic     | Applies critical hit chance and multiplier                          | COULD-HAVE           |
-| ↳ STAB Bonus                | Applies Same-Type Attack Bonus if move type matches user’s type     | COULD-HAVE          |
-| ↳ Type Effectiveness        | Adjusts damage based on move vs. opponent type (e.g., fire > grass) | COULD-HAVE           |
+| **<sup><a href="#17">[17]</a></sup> Move Effects System**     | Handles the outcome of <sup><a href="#17">[17]</a></sup> moves used in battle                         | **MUST-HAVE**          |
+| **<sup><a href="#7">[7]</a></sup> Damage-Dealing <sup><a href="#17">[17]</a></sup> Moves**    | Executes <sup><a href="#7">[7]</a></sup> damage-based calculations during combat                    | **MUST-HAVE**          |
+| ↳ Apply Base <sup><a href="#7">[7]</a></sup> Damage Formula | Uses a formula to compute base <sup><a href="#7">[7]</a></sup> damage output                        | **MUST-HAVE**          |
+| ↳ <sup><a href="#6">[6]</a></sup> Critical Hit Mechanic     | Applies <sup><a href="#6">[6]</a></sup> critical hit chance and multiplier                          | COULD-HAVE           |
+| ↳ <sup><a href="#28">[28]</a></sup> STAB Bonus                | Applies Same-Type Attack Bonus if <sup><a href="#17">[17]</a></sup> move type matches user's type     | COULD-HAVE          |
+| ↳ Type <sup><a href="#10">[10]</a></sup> Effectiveness        | Adjusts <sup><a href="#7">[7]</a></sup> damage based on <sup><a href="#17">[17]</a></sup> move vs. opponent type (e.g., fire > grass) | COULD-HAVE           |
 | ↳ Implement Limited Types   | Includes at least 4 basic types: Fire, Water, Grass, Electric                  | COULD-HAVE           |
-| **Healing Move**            | Heals 50% of user’s base HP                                         | *SHOULD-HAVE*          |
-| **Buffing Stat Move**       | Increases a selected stat (e.g., Attack, Defense)                   | *SHOULD-HAVE*          |
-| **Nerfing Stat Move**       | Decreases opponent’s stat (e.g., Speed, Defense)                    | *SHOULD-HAVE*          |
-
-
+| **Healing <sup><a href="#17">[17]</a></sup> Move**            | Heals 50% of user's base <sup><a href="#13">[13]</a></sup> HP                                         | *SHOULD-HAVE*          |
+| **Buffing <sup><a href="#26">[26]</a></sup> Stat <sup><a href="#17">[17]</a></sup> Move**       | Increases a selected <sup><a href="#26">[26]</a></sup> stat (e.g., Attack, Defense)                   | *SHOULD-HAVE*          |
+| **Nerfing <sup><a href="#26">[26]</a></sup> Stat <sup><a href="#17">[17]</a></sup> Move**       | Decreases opponent's <sup><a href="#26">[26]</a></sup> stat (e.g., Speed, Defense)                    | *SHOULD-HAVE*          |
 
 ### 4.4. Set Up Battle
 
-This section covers how players configure battles by selecting Pokémon, assigning moves, defining rules, and customizing templates or calculation systems.
+This section covers how players configure battles by selecting <sup><a href="#20">[20]</a></sup> Pokémon, assigning <sup><a href="#17">[17]</a></sup> moves, defining rules, and customizing <sup><a href="#49">[49]</a></sup> templates or calculation systems.
 
 #### 4.4.1 Set Up Characters
 
 | **Feature**                   | **Description**                             | **Priority** |
 | :---------------------------- | :------------------------------------------ | :----------- |
 | **Create Selectable Pokémon** | List of 6 available Pokémon to choose from  | *SHOULD-HAVE*         |
-| **Load/Select Pokémon**       | Load data from database or list             | *SHOULD-HAVE*         |
-| **Display Pokémon Data**      | Show name, stats, and types of each Pokémon | COULD-HAVE           |
+| **Load/Select Pokémon**       | Load data from <sup><a href="#35">[35]</a></sup> database or list             | *SHOULD-HAVE*         |
+| **Display Pokémon Data**      | Show name, <sup><a href="#26">[26]</a></sup> stats, and types of each Pokémon | COULD-HAVE           |
 
 
 #### 4.4.2 Assign Capacities (Movesets)
 
 | **Feature**                    | **Description**                                                 | **Priority** |
 | :----------------------------- | :-------------------------------------------------------------- | :----------- |
-| **Set Up Capacities Database** | Create a list/database of all possible moves                    | **MUST-HAVE**          |
-| **Assign Moveset to Pokémon**  | Assign 4 moves to each Pokémon                                  | **MUST-HAVE**          |
-| ↳ Same Moveset for All         | All Pokémon share the same 4 moves                              | **MUST-HAVE**          |
-| ↳ Different Movesets           | Each Pokémon has unique moves                                   | *SHOULD-HAVE*          |
-| **Assign Move Types**          | Ensure each move has a type (e.g., Fire, Water, Electric, etc.) | COULD-HAVE           |
+| **Set Up <sup><a href="#4">[4]</a></sup> Capacities <sup><a href="#35">[35]</a></sup> Database** | Create a list/<sup><a href="#35">[35]</a></sup> database of all possible <sup><a href="#17">[17]</a></sup> moves                    | **MUST-HAVE**          |
+| **Assign Moveset to Pokémon**  | Assign 4 <sup><a href="#17">[17]</a></sup> moves to each Pokémon                                  | **MUST-HAVE**          |
+| ↳ Same Moveset for All         | All Pokémon share the same 4 <sup><a href="#17">[17]</a></sup> moves                              | **MUST-HAVE**          |
+| ↳ Different Movesets           | Each Pokémon has unique <sup><a href="#17">[17]</a></sup> moves                                   | *SHOULD-HAVE*          |
+| **Assign Move Types**          | Ensure each <sup><a href="#17">[17]</a></sup> move has a type (e.g., Fire, Water, Electric, etc.) | COULD-HAVE           |
 
 #### 4.4.3 Choose Rules
 
 | **Feature**                  | **Description**                                 | **Priority** |
 | :--------------------------- | :---------------------------------------------- | :----------- |
 | **Select Ruleset**           | Choose which special rules will apply in battle | **MUST-HAVE**          |
-| ↳ No Healing Move Rule       | Prevents healing moves from being used          | **MUST-HAVE**         |
-| ↳ No Buffing Move Rule       | Disables stat-increasing moves                  | **MUST-HAVE**         |
-| ↳ No Nerfing Move Rule       | Disables stat-decreasing moves                  | *SHOULD-HAVE*          |
-| ↳ No PP System Rule          | Turns off PP management                         | *SHOULD-HAVE*         |
-| ↳ No Type Table Rule         | Disables type effectiveness system              | COULD-HAVE           |
-| ↳ Different Critical Hit Coefficient | Adjusts multiplier for Critical Hit Bonus   | COULD-HAVE           |
-| ↳ Different STAB Coefficient | Adjusts multiplier for Same-Type Attack Bonus   | COULD-HAVE           |
+| ↳ No Healing Move Rule       | Prevents healing <sup><a href="#17">[17]</a></sup> moves from being used          | **MUST-HAVE**         |
+| ↳ No Buffing Move Rule       | Disables <sup><a href="#26">[26]</a></sup> stat-increasing <sup><a href="#17">[17]</a></sup> moves                  | **MUST-HAVE**         |
+| ↳ No Nerfing Move Rule       | Disables <sup><a href="#26">[26]</a></sup> stat-decreasing <sup><a href="#17">[17]</a></sup> moves                  | *SHOULD-HAVE*          |
+| ↳ No <sup><a href="#21">[21]</a></sup> PP System Rule          | Turns off <sup><a href="#21">[21]</a></sup> PP management                         | *SHOULD-HAVE*         |
+| ↳ No Type Table Rule         | Disables type <sup><a href="#10">[10]</a></sup> effectiveness system              | COULD-HAVE           |
+| ↳ Different <sup><a href="#6">[6]</a></sup> Critical Hit Coefficient | Adjusts multiplier for <sup><a href="#6">[6]</a></sup> Critical Hit Bonus   | COULD-HAVE           |
+| ↳ Different <sup><a href="#28">[28]</a></sup> STAB Coefficient | Adjusts multiplier for Same-Type Attack Bonus   | COULD-HAVE           |
 | **Save Ruleset**             | Store selected rules for use during the battle  | **MUST-HAVE**          |
 
 #### 4.4.4 Choose Characters for Battle
@@ -343,21 +342,18 @@ This section covers how players configure battles by selecting Pokémon, assigni
 
 | **Feature**                    | **Description**                                                             | **Priority** |
 | :----------------------------- | :-------------------------------------------------------------------------- | :----------- |
-| **Create New Battle Template** | Generate a new battle template that adds a custom rule set to the database. | COULD-HAVE   |
-| **Load Battle Template**       | Retrieve and use an existing battle template from the database.             | COULD-HAVE   |
-| **Delete Battle Template**     | Remove a selected battle template from the database.                        | COULD-HAVE   |
-
+| **Create New Battle <sup><a href="#49">[49]</a></sup> Template** | Generate a new battle <sup><a href="#49">[49]</a></sup> template that adds a custom rule set to the <sup><a href="#35">[35]</a></sup> database. | COULD-HAVE   |
+| **Load Battle <sup><a href="#49">[49]</a></sup> Template**       | Retrieve and use an existing battle <sup><a href="#49">[49]</a></sup> template from the <sup><a href="#35">[35]</a></sup> database.             | COULD-HAVE   |
+| **Delete Battle <sup><a href="#49">[49]</a></sup> Template**     | Remove a selected battle <sup><a href="#49">[49]</a></sup> template from the <sup><a href="#35">[35]</a></sup> database.                        | COULD-HAVE   |
 
 
 #### 4.4.6 Changing Damage Calculator
 
 | **Feature**                | **Description**                                     | **Priority** |
 | :------------------------- | :-------------------------------------------------- | :----------- |
-| **Edit Damage Calculator** | Open and edit the logic behind damage calculations. | COULD-HAVE   |
+| **Edit <sup><a href="#7">[7]</a></sup> Damage Calculator** | Open and edit the logic behind <sup><a href="#7">[7]</a></sup> damage calculations. | COULD-HAVE   |
 | ↳ **Adjust Coefficients**  | Modify individual calculation values.               | COULD-HAVE   |
 | ↳ **Replace Formula**      | Overwrite the entire calculation formula.           | COULD-HAVE   |
-
-
 
 ## 5. Product Details
 
@@ -380,7 +376,7 @@ Two specific versions of the Kritical Hit project will be presented to the jury:
 
 As new features are introduced across MVP phases, particular attention will be paid to ensuring that saved data, configurations, and battle templates remain functional and forward-compatible. Specific strategies include:
 
-- **Phase 3 → Phase 4**: Entity objects, Capacity objects and their classes will be updated to integrate new type attributes without breaking existing data.
+- **Phase 3 → Phase 4**: Entity objects, Capacity objects, and their classes will be updated to integrate new type attributes without breaking existing data.
 
 - **Phase 4 → Phase 5**: The transition from a 4-type to a 6-type system will be handled by updating the effectiveness structure. Existing custom moves and Pokémon will adapt to new type definitions.
 
@@ -388,8 +384,6 @@ As new features are introduced across MVP phases, particular attention will be p
 
 - Across versions, older configurations will not require user intervention to remain usable in newer versions unless critical incompatibilities are detected.
 
-
-### 5.2 Non-Functional Requirements
 
 ### 5.2 Non-Functional Requirements
 
@@ -411,7 +405,7 @@ As new features are introduced across MVP phases, particular attention will be p
 
 - **Reliability**: Users must always be able to load their most recently saved battle templates. While automated backup isn’t a current priority, manual saves should be fully reliable and restorable.
 
-- **Compatibility**: The application is primarily developed for Windows desktop systems. It must remain operable on typical Windows school/university computers, and should support future testing on alternative platforms (e.g., Mac OS). 
+- **Compatibility**: The application is primarily developed for Windows desktop systems. It must remain operable on typical Windows school/university computers and should support future testing on alternative platforms (e.g., Mac OS). 
 
 ### 5.3 Acceptance Criteria
 
@@ -471,7 +465,7 @@ The following features were originally considered but will not be part of the fi
 
   - In-app simulation video recording and saving.
 
-These were excluded to maintain a clear scope focused on creating a funcstional, user-friendly turn-based RPG battle simulator.
+These were excluded to maintain a clear scope focused on creating a functional, user-friendly turn-based RPG battle simulator.
 
 ## 6. Technical Stack & Requirements
 
@@ -547,7 +541,7 @@ This section outlines the system requirements for running the application in its
   - **RAM**: 16 GB installed (6 GB used during app tests)
   - **Operating System**: Windows 11 Pro (64-bit)
 - **Recommended RAM**: 6 GB minimum for stable use, 8 GB or more for headroom.
-- **Graphics**: No dedicated GPU required. Application uses 2D pixel graphics with minimal animation and does not rely on GPU acceleration.
+- **Graphics**: No dedicated GPU required. The application uses 2D pixel graphics with minimal animation and does not rely on GPU acceleration.
 - **Storage**: ~100–200 MB estimated for application binaries and assets.
 
 #### Operating System Compatibility
@@ -560,7 +554,7 @@ This section outlines the system requirements for running the application in its
 
 - **Display Scaling**: Developed and tested at **150%** display scaling (Windows default for many laptops).
 - **UI Style**: Considered **compact**, featuring a clean background, large buttons, and user-friendly navigation similar to *Super Mario Maker*.
-- **Minimum Resolution**: Not formally defined. Current version runs in a windowed mode. Tentative recommendation: **1280×720** minimum for future fullscreen support.
+- **Minimum Resolution**: Not formally defined. The current version runs in a windowed mode. Tentative recommendation: **1280×720** minimum for future fullscreen support.
 
 #### Performance Considerations
 
@@ -578,7 +572,7 @@ This section outlines the system requirements for running the application in its
 
 #### Network Requirements
 
-- **Connectivity**: No internet or local network required for current functionality.
+- **Connectivity**: No internet or local network is required for current functionality.
 - **Future Plans**: Potential for online template sharing or remote battle functionality in later development phases.
 
 
@@ -594,7 +588,7 @@ The primary objective of the testing process is to ensure that the application m
 - All major features (battle system setup, simulation menu, and user interface) must behave as expected under normal use.
 - Templates created by users must be retrievable, modifiable, and saved correctly.
 - The interface must be user-friendly, intuitive, and provide clear visual feedback when interacted with.
-- External users must be able to test the application with minimal instruction and complete core tasks (e.g., simulate a battle, configure set of rules).
+- External users must be able to test the application with minimal instruction and complete core tasks (e.g., simulate a battle, configure a set of rules).
 - Testing participants will complete a feedback form to assess satisfaction and usability.
 - The final version must be stable enough to allow informal external testing.
 
@@ -603,7 +597,7 @@ The primary objective of the testing process is to ensure that the application m
 - **Application launch time**: under 2 seconds on a typical test machine.
 - **UI responsiveness**: under 100 ms for button interactions and 200 ms for menu transitions.
 - **Simulation behavior**: runs without freezing or crashing during battle processing.
-- **Database operations**: retrieving, updating, and deleting battle templates must complete under 500 ms from the user’s point of view.
+- **Database operations**: retrieving, updating, and deleting battle templates must be completed under 500 ms from the user’s point of view.
 - The app must remain usable even when other standard software (browser, text editor, etc.) is running in the background.
 
 #### **Compatibility Requirements**
@@ -658,7 +652,7 @@ The purpose of this testing scope is to define the functional areas and system b
 
 ### 8.1. Importance
 
-One of the most essential features of **Kritical Hit** is its ability to appeal to a wide range of users—whether they are experienced with software tools, familiar with Pokémon games, or completely new to video games in general.
+One of the most essential features of **Kritical Hit** is the possibility to appeal to a wide range of users—whether they are experienced with software tools, familiar with Pokémon games, or completely new to video games in general.
 
 Traditional game engines often come with powerful but complex user interfaces designed for maximum flexibility. While these interfaces allow developers to create virtually any kind of game, they typically have a steep learning curve. Mastering them can be time-consuming, and only a limited number of users manage to do so fully.
 
@@ -715,11 +709,11 @@ The app is designed to provide clear, simple messages and transitions that help 
   - *“Wrong email or password. Please try again.”*
   - *“Please, write a valid email/password.”*
 - **End-of-battle feedback** offers a personalized, game-inspired experience:
-  - *“Congratulations! You won the battle! What was your thoughts on this fight?”*
-  - *“Game Over! What was your thoughts on this fight?”*
+  - *“Congratulations! You won the battle! What were your thoughts on this fight?”*
+  - *“Game Over! What were your thoughts on this fight?”*
 - **Quit confirmation**:
   - *“Are you sure you want to leave?”*
-  - *“What was your thoughts on this fight?”*
+  - *“What were your thoughts on this fight?”*
 
 A **loading indicator** may be added to visualize progress during processes such as simulation startup or data loading.
 
@@ -738,57 +732,58 @@ A **loading indicator** may be added to visualize progress during processes such
 | <span id="6">**Critical Hit**</span>                  | Successful attack dealing greater damage than a normal attack which occurs generally depending on the player's luck. Also nicknamed "Crit".                                                                                              |
 | <span id="7">**Damage**</span>                        | In game, any form of pain that decreases a character’s life due to an attack is expressed as damage.                                                                                                                                     |
 | <span id="8">**Defend**</span>                        | Also called "Guard", action performed by a character to protect himself from an oncoming attack, generally to reduce the damage received.                                                                                                |
-| <span id="9">**Element**</span>                       | An attribute given to a character that refers to a type of attribute that can be applied to a skill, an effect or a character itself. Several can be used to create strengths and weaknesses for the different actors of the RPG battle. |
+| <span id="9">**Element**</span>                       | An attribute is given to a character that refers to a type of attribute that can be applied to a skill, an effect, or a character itself. Several can be used to create strengths and weaknesses for the different actors of the RPG battle. |
 | <span id="10">**Effectiveness**</span>                 | A mechanic that determines how effective a move is based on the types of the user and the opponent. For example, water moves are more effective against fire types.                                                                      |
 | <span id="11">**Evasion**</span>                       | A stat that represents a character’s ability to avoid being hit. Higher evasion means a lower chance of receiving an attack.                                                                                                             |
-| <span id="12">**HP Bar**</span>                        | A visual UI element representing a character’s remaining health points. It updates in real time during battles.                                                                                                                          |
+| <span id="12">**HP Bar**</span>                        | A visual UI element representing a character’s remaining health points. It updates in real-time during battles.                                                                                                                          |
 | <span id="13">**H.P.**</span>                          | Abbreviation for "Hit Points", represents how much damage a character can take before being knocked out.                                                                                                                                 |
 | <span id="14">**Hazard**</span>                        | Passive effect affecting the entire battlefield in a fight that can hinder (or benefit) all characters.                                                                                                                                  |
 | <span id="15">**K.O.**</span>                          | Abbreviation for "Knocked Out", state when a character has lost all of their HPs and is unable to fight.                                                                                                                                 |
 | <span id="16">**Modifiers**</span>                     | Factors influencing a battle that allow the calculation of several attributes, like the total damage, or a specific stat.                                                                                                                |
 | <span id="17">**Move**</span>                          | An action executed during battle that can deal damage, heal, or apply effects like buffs or debuffs. Equivalent to Pokémon’s “attack” or “ability”.                                                                                      |
-| <span id="18">**Nerf**</span>                          | Also called "debuff", it’s a skill, ability or other game mechanic that decreases a character’s capabilities to reduce his effectiveness.                                                                                                |
-| <span id="19">**Party**</span>                         | Group of characters teaming up during various adventures in a role-play game.                                                                                                                                                            |
-| <span id="20">**Pokemon**</span>                       | Fictional creatures from the Pokémon franchise, which players can catch, train, and battle with in various games, often characterized by unique abilities, types, and evolutions.                                                        |
+| <span id="18">**Nerf**</span>                          | Also called "debuff", it’s a skill, ability, or another game mechanic that decreases a character’s capabilities to reduce his effectiveness.                                                                                                |
+| <span id="19">**Party**</span>                         | Group of characters teaming up during various adventures in a role-playing game.                                                                                                                                                            |
+| <span id="20">**Pokemon**</span>                       | Refers either to the Pokémon franchise—a series of games centered around capturing, training, and battling creatures—or to the individual fictional creatures themselves, each with unique abilities, types, and evolutions.                                                         |
 | <span id="21">**PP (Power Points)**</span>             | The number of times a move can be used in a battle. Decreases with each use and is restored outside of battle.                                                                                                                           |
-| <span id="22">**S.P.**</span>                          | Abbreviation for "Skill Points" and also called "mana", a limited quantity of points possessed by a character allowing him to use a particular skill at the cost of a few of them.                                                       |
-| <span id="23">**Skill**</span>                         | Particular action performed by a character during a battle. It allows to either attack the enemy, provide an effect or both, sometimes at the cost of a few SPs.                                                                         |
-| <span id="24">**Special Ability**</span>               | Abilities characterized as game mechanics which provide a passive effect to a character in battle, like an immunity to an element.                                                                                                       |
-| <span id="25">**Stat**</span>                          | Numerical value that applies to a character’s ability (Attack, Defense, Speed...).                                                                                                                                                       |
-| <span id="26">**Status**</span>                        | Specific state affected to a character, generally negative, causing effects such as losing HPs each turn (poison) or being slowed down (paralysis).                                                                                      |
-| <span id="27">**STAB (Same-Type Attack Bonus)**</span> | A damage bonus applied when a move’s type matches the type of the character using it.                                                                                                                                                    |
-| <span id="28">**Simulation**</span>                    | A test battle within the application that replicates the flow of a turn-based RPG encounter based on selected rules and configurations.                                                                                                  |
-| <span id="29">**Turn**</span>                          | A cycle of actions where each combatant performs one move. The order is determined by stats such as Speed.                                                                                                                               |
+| <span id="22">**RPG (Role-Playing Game)**</span>   | A genre of game where players assume the roles of characters in a fictional setting, often involving story-driven quests, character progression, turn-based or real-time combat, and decision-making that influences the game world or narrative. |
+| <span id="23">**S.P.**</span>                          | Abbreviation for "Skill Points" and also called "mana", a limited quantity of points possessed by a character allowing him to use a particular skill at the cost of a few of them.                                                       |
+| <span id="24">**Skill**</span>                         | Particular action performed by a character during a battle. It allows one to attack the enemy, provide an effect or both, sometimes at the cost of a few SPs.                                                                         |
+| <span id="25">**Special Ability**</span>               | Abilities that are characterized as game mechanics that provide a passive effect to a character in battle, like immunity to an element.                                                                                                       |
+| <span id="26">**Stat**</span>                          | Numerical value that applies to a character’s ability (Attack, Defense, Speed...).                                                                                                                                                       |
+| <span id="27">**Status**</span>                        | Specific state affected to a character, generally negative, causing effects such as losing HPs each turn (poison) or being slowed down (paralysis).                                                                                      |
+| <span id="28">**STAB (Same-Type Attack Bonus)**</span> | A damage bonus is applied when a move’s type matches the type of the character using it.                                                                                                                                                    |
+| <span id="29">**Simulation**</span>                    | A test battle within the application that replicates the flow of a turn-based RPG encounter based on selected rules and configurations.                                                                                                  |
+| <span id="30">**Turn**</span>                          | A cycle of actions where each combatant performs one move. The order is determined by stats such as Speed.                                                                                                                               |
                                                                            |
 
-### 9.2. Miscallenous
+### 9.2. Miscellaneous
 
 | **Terms**                  | **Definitions**                                                                                                                                             |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="30">**API**</span>                    | Application Programming Interface – A set of rules and protocols that allows different software applications to communicate with each other.                |
-| <span id="31">**Backend**</span>                | The server-side portion of an application that handles data processing, business logic, and database operations.                                            |
-| <span id="32">**Bar**</span>                    | A graphical element in a user interface used to display information or provide controls (e.g., health bar, menu bar, progress bar).                         |
-| <span id="33">**Database Schema**</span>        | The structure that represents the logical configuration of all or part of a relational database.                                                            |
-| <span id="34">**Database**</span>               | A structured system for storing and managing data used by the application, such as characters, moves, and templates.                                        |
-| <span id="35">**Frontend**</span>               | The client-side portion of an application that users interact with directly.                                                                                |
-| <span id="36">**Framework**</span>              | A platform for developing software applications that provides a foundation on which software developers can build programs.                                 |
-| <span id="37">**Game Design**</span>            | The process of creating the structure, rules, content, and gameplay systems of a video game.                                                                |
-| <span id="38">**Game Engine**</span>            | A software framework used for the creation and development of video games, offering tools such as rendering, physics, scripting, and asset management.      |
-| <span id="39">**GUI**</span>                    | Graphical User Interface – The visual elements through which users interact with electronic devices.                                                        |
-| <span id="40">**Layout**</span>                 | The arrangement of visual elements and interface components in a screen or scene, contributing to usability and aesthetics.                                 |
-| <span id="41">**Log**</span>                    | A record of events, actions, or errors that occur during the execution of a game or application, used for debugging and analysis.                           |
-| <span id="42">**Mechanics**</span>              | The rules and systems that define the gameplay, including how players interact with the game and how the game responds.                                     |
-| <span id="43">**MoSCoW**</span>                 | A prioritization method used in project management that categorizes requirements into Must have, Should have, Could have, and Won’t have.                   |
-| <span id="44">**Plugin**</span>                 | A software component designed to add specific features or functionality to an existing application through a defined interface.                             |
-| <span id="45">**Prototype**</span>              | An early sample, model, or simulation of a game or application used to test and refine ideas before full development.                                       |
-| <span id="46">**Responsive Design**</span>      | A design approach that makes applications render well on different devices and screen sizes.                                                                |
-| <span id="47">**Sprite**</span>                 | A 2D image or animation integrated into a game scene, typically representing characters, objects, or effects.                                               |
-| <span id="48">**Template**</span>               | A pre-designed structure or format used as a starting point for creating consistent content or features in a game or application. See also Battle Template. |
-| <span id="49">**Turn-based**</span>             | A game system where players take alternating turns when playing.                                                                                            |
-| <span id="50">**U.I. (User Interface)**</span>  | The set of visual elements (buttons, menus, icons, etc.) that allow the player to interact with a game or software.                                         |
-| <span id="51">**U.X. (User Experience)**</span> | The overall experience and satisfaction a user has when interacting with a game or application, including usability, accessibility, and enjoyment.          |
-| <span id="52">**Unit Testing**</span>           | A software testing method where individual units or components of software are tested.                                                                      |
-| <span id="53">**Version Control**</span>        | A system that records changes to a file or set of files over time so that specific versions can be recalled later.                                          |
-| <span id="54">**Qt Creator**</span>             | The main development environment used to build this project, supporting C++ programming and UI design.                                                      |
-| <span id="55">**SQLite**</span>                  | A lightweight relational database engine used to store characters, capacities, and templates.                                                               |
+| <span id="31">**API**</span>                    | Application Programming Interface – A set of rules and protocols that allows different software applications to communicate with each other.                |
+| <span id="32">**Backend**</span>                | The server-side portion of an application that handles data processing, business logic, and database operations.                                            |
+| <span id="33">**Bar**</span>                    | A graphical element in a user interface used to display information or provide controls (e.g., health bar, menu bar, progress bar).                         |
+| <span id="34">**Database Schema**</span>        | The structure that represents the logical configuration of all or part of a relational database.                                                            |
+| <span id="35">**Database**</span>               | A structured system for storing and managing data used by the application, such as characters, moves, and templates.                                        |
+| <span id="36">**Frontend**</span>               | The client-side portion of an application that users interact with directly.                                                                                |
+| <span id="37">**Framework**</span>              | A platform for developing software applications that provide a foundation on which software developers can build programs.                                 |
+| <span id="38">**Game Design**</span>            | The process of creating the structure, rules, content, and gameplay systems of a video game.                                                                |
+| <span id="39">**Game Engine**</span>            | A software framework used for the creation and development of video games, offering tools such as rendering, physics, scripting, and asset management.      |
+| <span id="40">**GUI**</span>                    | Graphical User Interface – The visual elements through which users interact with electronic devices.                                                        |
+| <span id="41">**Layout**</span>                 | The arrangement of visual elements and interface components in a screen or scene, contributes to usability and aesthetics.                                 |
+| <span id="42">**Log**</span>                    | A record of events, actions, or errors that occur during the execution of a game or application, used for debugging and analysis.                           |
+| <span id="43">**Mechanics**</span>              | The rules and systems that define the gameplay, including how players interact with the game and how the game responds.                                     |
+| <span id="44">**MoSCoW**</span>                 | A prioritization method used in project management that categorizes requirements into Must have, Should have, Could have, and Won’t have.                   |
+| <span id="45">**Plugin**</span>                 | A software component designed to add specific features or functionality to an existing application through a defined interface.                             |
+| <span id="46">**Prototype**</span>              | An early sample, model, or simulation of a game or application used to test and refine ideas before full development.                                       |
+| <span id="47">**Responsive Design**</span>      | A design approach that makes applications render well on different devices and screen sizes.                                                                |
+| <span id="48">**Sprite**</span>                 | A 2D image or animation integrated into a game scene, typically representing characters, objects, or effects.                                               |
+| <span id="49">**Template**</span>               | A pre-designed structure or format used as a starting point for creating consistent content or features in a game or application. See also Battle Template. |
+| <span id="50">**Turn-based**</span>             | A game system where players take alternating turns when playing.                                                                                            |
+| <span id="51">**U.I. (User Interface)**</span>  | The set of visual elements (buttons, menus, icons, etc.) that allow the player to interact with a game or software.                                         |
+| <span id="52">**U.X. (User Experience)**</span> | The overall experience and satisfaction a user has when interacting with a game or application, including usability, accessibility, and enjoyment.          |
+| <span id="53">**Unit Testing**</span>           | A software testing method where individual units or components of software are tested.                                                                      |
+| <span id="54">**Version Control**</span>        | A system that records changes to a file or set of files over time so that specific versions can be recalled later.                                          |
+| <span id="55">**Qt Creator**</span>             | The main development environment used to build this project, supporting C++ programming and UI design.                                                      |
+| <span id="56">**SQLite**</span>                  | A lightweight relational database engine used to store characters, capacities, and templates.                                                               |
 
