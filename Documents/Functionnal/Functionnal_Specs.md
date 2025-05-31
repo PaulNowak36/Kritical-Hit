@@ -721,54 +721,66 @@ A **loading indicator** may be added to visualize progress during processes such
 
 ### 9.1. RPG Lexical Field
 
-|         Term         |                  Definition                   |  
-| :------------------: | :------------------------------------------: | 
-| **Ability** |   Also called "Trait", it's a specific characteristic of a character, generally allowing him to provide advantages during certain situations in battle.    |
-| **Buff** |   A skill, ability or other game mechanic that improves a character's capabilities to increase his effectiveness.    |
-| **Character** |   Persona created with characteristics embodied by a player within the context of the game.    |
-| **Critical Hit** |   Successful attack dealing greater damage than a normal attack which occurs generally depending on the player's luck. Also nicknamed "Crit".    |
-| **Damage** |   In game, any form of pain that decrease a character's life due to an attack is expressed as a damage.    |
-|**Defend** |   Also called "Guard", action performed by a character to protect himself from an oncoming attack, generally to reduce the damage received.    |
-| **Element** |   An attribute given to a character that refers to a type of attribute that can be applied to a skill, an effect or a character itself. Several can be used to create strengths and weaknesses for the different actors of the RPG battle. |
-| **H.P.** |   Abbreviation for "Hit Points", represents how much damage a character can take before being knocked out.     |
-| **Hazard** |   Passive effect affecting the entire battlefield in a fight that can hinders (or benefit) all characters.    |
-| **K.O.** |   Abbreviation for "Knocked Out", state when a character have lost all of his HPs and is unable to fight.    |
-| **Modifiers** |   Factors influencing a battle that allow the calculation of several attributes, like the total damage, or a specific stat.   |
-| **Nerf** |    Also called "debuff", it's a skill, ability or other game mechanic that decrease a character's capabilities to reduce his effectiveness.    |
-| **Party** |    Group of characters teaming up during various adventures in a role-play game.    |
-| **Pokemon** |    Fictional creatures from the Pokémon franchise, which players can catch, train, and battle with in various games, often characterized by unique abilities, types, and evolutions.     |
-| **S.P.** |   Abbreviation for "Skill Points" and also called "mana", a limited quantity of points possessed by a character allowing him to uses a particular skill at the cost of a few of them.     |
-| **Skill** |   Particular action performed by a character during a battle. It allows to either attack the enemy, provides an effect or both, sometimes at the cost of a few SPs.   |
-| **Special Ability** |   Abilities characterized as game mechanics which provide a passive effect to a character in battle, like an immunity to an element.    |
-| **Stat** |   Numerical value that applies to a character's ability (Attack, Defense, Speed...).    |
-| **Status** |   Specific state affected to a character, generally negative, causing effects such as losing HPs each turn (poison) or being slowed down (paralyzis).    |
+| **Terms**                         | **Definitions**                                                                                                                                                                                                                          |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Ability**                       | Also called "Trait", it's a specific characteristic of a character, generally allowing him to provide advantages during certain situations in battle.                                                                                    |
+| **Accuracy**                      | A stat that determines how likely a move is to hit the target. Can be affected by buffs or debuffs.                                                                                                                                      |
+| **Battle Template**               | A predefined configuration in the application that includes two characters, their movesets, and battle rules. Used to simulate a custom RPG battle scenario.                                                                             |
+| **Buff**                          | A skill, ability or other game mechanic that improves a character’s capabilities to increase his effectiveness.                                                                                                                          |
+| **Capacity**                      | Another term for “Move” or “Skill” used in battle. Each character has up to four capacities they can use during a simulation.                                                                                                            |
+| **Character**                     | Persona created with characteristics embodied by a player within the context of the game.                                                                                                                                                |
+| **Critical Hit**                  | Successful attack dealing greater damage than a normal attack which occurs generally depending on the player's luck. Also nicknamed "Crit".                                                                                              |
+| **Damage**                        | In game, any form of pain that decreases a character’s life due to an attack is expressed as damage.                                                                                                                                     |
+| **Defend**                        | Also called "Guard", action performed by a character to protect himself from an oncoming attack, generally to reduce the damage received.                                                                                                |
+| **Element**                       | An attribute given to a character that refers to a type of attribute that can be applied to a skill, an effect or a character itself. Several can be used to create strengths and weaknesses for the different actors of the RPG battle. |
+| **Effectiveness**                 | A mechanic that determines how effective a move is based on the types of the user and the opponent. For example, water moves are more effective against fire types.                                                                      |
+| **Evasion**                       | A stat that represents a character’s ability to avoid being hit. Higher evasion means a lower chance of receiving an attack.                                                                                                             |
+| **HP Bar**                        | A visual UI element representing a character’s remaining health points. It updates in real time during battles.                                                                                                                          |
+| **H.P.**                          | Abbreviation for "Hit Points", represents how much damage a character can take before being knocked out.                                                                                                                                 |
+| **Hazard**                        | Passive effect affecting the entire battlefield in a fight that can hinder (or benefit) all characters.                                                                                                                                  |
+| **K.O.**                          | Abbreviation for "Knocked Out", state when a character has lost all of their HPs and is unable to fight.                                                                                                                                 |
+| **Modifiers**                     | Factors influencing a battle that allow the calculation of several attributes, like the total damage, or a specific stat.                                                                                                                |
+| **Move**                          | An action executed during battle that can deal damage, heal, or apply effects like buffs or debuffs. Equivalent to Pokémon’s “attack” or “ability”.                                                                                      |
+| **Nerf**                          | Also called "debuff", it’s a skill, ability or other game mechanic that decreases a character’s capabilities to reduce his effectiveness.                                                                                                |
+| **Party**                         | Group of characters teaming up during various adventures in a role-play game.                                                                                                                                                            |
+| **Pokemon**                       | Fictional creatures from the Pokémon franchise, which players can catch, train, and battle with in various games, often characterized by unique abilities, types, and evolutions.                                                        |
+| **PP (Power Points)**             | The number of times a move can be used in a battle. Decreases with each use and is restored outside of battle.                                                                                                                           |
+| **S.P.**                          | Abbreviation for "Skill Points" and also called "mana", a limited quantity of points possessed by a character allowing him to use a particular skill at the cost of a few of them.                                                       |
+| **Skill**                         | Particular action performed by a character during a battle. It allows to either attack the enemy, provide an effect or both, sometimes at the cost of a few SPs.                                                                         |
+| **Special Ability**               | Abilities characterized as game mechanics which provide a passive effect to a character in battle, like an immunity to an element.                                                                                                       |
+| **Stat**                          | Numerical value that applies to a character’s ability (Attack, Defense, Speed...).                                                                                                                                                       |
+| **Status**                        | Specific state affected to a character, generally negative, causing effects such as losing HPs each turn (poison) or being slowed down (paralysis).                                                                                      |
+| **STAB (Same-Type Attack Bonus)** | A damage bonus applied when a move’s type matches the type of the character using it.                                                                                                                                                    |
+| **Simulation**                    | A test battle within the application that replicates the flow of a turn-based RPG encounter based on selected rules and configurations.                                                                                                  |
+| **Turn**                          | A cycle of actions where each combatant performs one move. The order is determined by stats such as Speed.                                                                                                                               |
 
 ### 9.2. Miscallenous
 
-|            Term            |                                                                       Definition                                                                       |
-| :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **API** | Application Programming Interface - A set of rules and protocols that allows different software applications to communicate with each other. |
-| **Backend** | The server-side portion of an application that handles data processing, business logic, and database operations. |
-| **Bar** |           A graphical element in a user interface used to display information or provide controls (e.g., health bar, menu bar, progress bar).          |
-| **Database Schema** | The structure that represents the logical configuration of all or part of a relational database. |
-| **Frontend** | The client-side portion of an application that users interact with directly. |
-| **Framework** | A platform for developing software applications that provides a foundation on which software developers can build programs. |
-| **Game Design** | The process of creating the structure, rules, content, and gameplay systems of a video game. |
-| **Game Engine** | A software framework used for the creation and development of video games, offering tools such as rendering, physics, scripting, and asset management. |
-| **GUI** | Graphical User Interface - The visual elements through which users interact with electronic devices. |
-| **Layout** | The arrangement of visual elements and interface components in a screen or scene, contributing to usability and aesthetics.              |
-| **Log** | A record of events, actions, or errors that occur during the execution of a game or application, used for debugging and analysis. |
-| **Mechanics** | The rules and systems that define the gameplay, including how players interact with the game and how the game responds. |
-| **MoSCoW** | A prioritization method used in project management that categorizes requirements into Must have, Should have, Could have, and Won’t have. |
-| **Plugin** | A software component designed to add specific features or functionality to an existing application through a defined interface. |
-| **Prototype** | An early sample, model, or simulation of a game or application used to test and refine ideas before full development. |
-| **Responsive Design** | A design approach that makes web pages render well on different devices and window/screen sizes. |
-| **Sprite** | A 2D image or animation integrated into a game scene, typically representing characters, objects, or effects.                     |
-| **Template** | A pre-designed structure or format used as a starting point for creating consistent content or features in a game or application. |
-| **Turn-based** | A game system where players take alternating turns when playing. |
-| **U.I. (User Interface)** | The set of visual elements (buttons, menus, icons, etc.) that allow the player to interact with a game or software. |
-| **U.X. (User Experience)** |   The overall experience and satisfaction a user has when interacting with a game or application, including usability, accessibility, and enjoyment.   |
-| **Unit Testing** | A software testing method where individual units or components of software are tested. |
-| **Version Control** | A system that records changes to a file or set of files over time so that specific versions can be recalled later. |
-
-
+| **Terms**                  | **Definitions**                                                                                                                                             |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **API**                    | Application Programming Interface – A set of rules and protocols that allows different software applications to communicate with each other.                |
+| **Backend**                | The server-side portion of an application that handles data processing, business logic, and database operations.                                            |
+| **Bar**                    | A graphical element in a user interface used to display information or provide controls (e.g., health bar, menu bar, progress bar).                         |
+| **Database Schema**        | The structure that represents the logical configuration of all or part of a relational database.                                                            |
+| **Database**               | A structured system for storing and managing data used by the application, such as characters, moves, and templates.                                        |
+| **Frontend**               | The client-side portion of an application that users interact with directly.                                                                                |
+| **Framework**              | A platform for developing software applications that provides a foundation on which software developers can build programs.                                 |
+| **Game Design**            | The process of creating the structure, rules, content, and gameplay systems of a video game.                                                                |
+| **Game Engine**            | A software framework used for the creation and development of video games, offering tools such as rendering, physics, scripting, and asset management.      |
+| **GUI**                    | Graphical User Interface – The visual elements through which users interact with electronic devices.                                                        |
+| **Layout**                 | The arrangement of visual elements and interface components in a screen or scene, contributing to usability and aesthetics.                                 |
+| **Log**                    | A record of events, actions, or errors that occur during the execution of a game or application, used for debugging and analysis.                           |
+| **Mechanics**              | The rules and systems that define the gameplay, including how players interact with the game and how the game responds.                                     |
+| **MoSCoW**                 | A prioritization method used in project management that categorizes requirements into Must have, Should have, Could have, and Won’t have.                   |
+| **Plugin**                 | A software component designed to add specific features or functionality to an existing application through a defined interface.                             |
+| **Prototype**              | An early sample, model, or simulation of a game or application used to test and refine ideas before full development.                                       |
+| **Responsive Design**      | A design approach that makes applications render well on different devices and screen sizes.                                                                |
+| **Sprite**                 | A 2D image or animation integrated into a game scene, typically representing characters, objects, or effects.                                               |
+| **Template**               | A pre-designed structure or format used as a starting point for creating consistent content or features in a game or application. See also Battle Template. |
+| **Turn-based**             | A game system where players take alternating turns when playing.                                                                                            |
+| **U.I. (User Interface)**  | The set of visual elements (buttons, menus, icons, etc.) that allow the player to interact with a game or software.                                         |
+| **U.X. (User Experience)** | The overall experience and satisfaction a user has when interacting with a game or application, including usability, accessibility, and enjoyment.          |
+| **Unit Testing**           | A software testing method where individual units or components of software are tested.                                                                      |
+| **Version Control**        | A system that records changes to a file or set of files over time so that specific versions can be recalled later.                                          |
+| **Qt Creator**             | The main development environment used to build this project, supporting C++ programming and UI design.                                                      |
+| **SQLite**                 | A lightweight relational database engine used to store characters, capacities, and templates.                                                               |
