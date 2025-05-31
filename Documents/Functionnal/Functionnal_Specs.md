@@ -662,14 +662,6 @@ The purpose of this testing scope is to define the functional areas and system b
 
 ## 8. User Interface & User Experience
 
-// Consider adding:
-- Accessibility standards compliance
-- Color scheme requirements
-- Minimum touch target sizes
-- Error message guidelines
-- Loading state indicators
-
-
 ### 8.1. Importance
 
 One of the most essential features of **Kritical Hit** is its ability to appeal to a wide range of users—whether they are experienced with software tools, familiar with Pokémon games, or completely new to video games in general.
@@ -678,10 +670,9 @@ Traditional game engines often come with powerful but complex user interfaces de
 
 By focusing specifically on the **battle system** aspect of RPGs, **Kritical Hit** has the opportunity to adopt a more game-inspired user interface. This approach can take cues from Nintendo titles such as *Super Mario Maker* and *Super Smash Bros. Ultimate*. For instance, *Super Mario Maker* is often praised for its intuitive UX design, which empowers users to build levels creatively using tools that are simple, visual, and easy to understand.
 
-Similarly, the **Pokémon** series provides a great example of effective UI/UX in action. The battle interface in Pokémon games is distinct from the overworld and serves as the franchise’s core gameplay component. During battles, the player's Pokémon faces off against a wild Pokémon or another trainer's Pokémon. Despite being rooted in traditional RPG mechanics, Pokémon stands out for its streamlined and accessible interface—most notably the use of a four-move menu. This clear, concise system ensures that players have all the critical information they need at a glance, enabling them to focus on strategy without feeling overwhelmed.
+Similarly, the **Pokémon** series provides a great example of effective UI/UX in action. The battle interface in Pokémon games is distinct from the overworld and serves as the franchise’s core gameplay component. Despite being rooted in traditional RPG mechanics, Pokémon stands out for its streamlined and accessible interface—most notably the use of a four-move menu. This clear, concise system ensures that players have all the critical information they need at a glance, enabling them to focus on strategy without feeling overwhelmed.
 
 **Kritical Hit** can replicate this level of UI flexibility and clarity thanks to **Qt Creator’s built-in UI design tools**, which allow for the creation of clean, modular, and intuitive interfaces without requiring extensive UI programming knowledge. This empowers designers to prototype and build user-friendly layouts that reflect familiar gaming interfaces while maintaining high usability across a wide audience.
-
 
 ### 8.2. User Flowchart
 
@@ -695,45 +686,36 @@ The User Flowchart, created using the *AI Flowchart Generator* tool, illustrates
 
 Thanks to Qt Creator’s built-in UI tools, we can easily integrate essential interface elements that help users set up and simulate a Pokémon battle. These elements are not only simple to add but also fully customizable through stylesheets—allowing adjustments to colors, sizes, font families, and more—to ensure they remain visually distinct and intuitive to use.
 
-The key UI components include:
+#### **Core Components**
 
-- **PushButtons**: Typically styled with a rounded or oval shape and often accompanied by icons, push buttons are essential for user interaction. They guide navigation and allow players to make selections throughout the application.
+- **PushButtons**: Styled with rounded shapes and sometimes icons, these enable user actions and app navigation.
+- **Checkboxes**: Allow users to toggle rules or conditions during battle setup.
+- **Battle Sprites**: 2D characters placed on elliptical battle platforms to separate them from the background.
+- **Pokémon Info Panels**: Display entity names and dynamic HP bars that update during battle.
+- **Battle Log**: Turn-by-turn summary of the ongoing battle (e.g., actions taken, HP changes).
 
-- **Checkboxes**: Simple yet effective, checkboxes allow users to toggle settings such as battle rules or special conditions. Their clarity and familiarity make them user-friendly and accessible.
+### 8.4. Accessibility and Responsiveness
 
-The **Simulation Menu Interface**, inspired by the classic Pokémon games, is composed of several key visual elements:
+- The application targets a **general audience**, including casual players and developers. Its interface design emphasizes **clarity, large buttons**, and familiar gaming structures.
+- **Keyboard navigation** may be supported in some screens. Mouse-based interaction is prioritized.
+- While the app is desktop-focused, future consideration may be given to **touchscreens or tablets**. No minimum touch target size is currently defined.
+- Display scaling at **150%** is supported and tested under Windows 11.
 
-- **Battle Sprites**: 2D character sprites are positioned on elliptical battle platforms, clearly separated from the background to help define each Pokémon’s position during combat.
+### 8.5. Visual Feedback and Error Handling
 
-- **Pokémon Info Panels**: These display each Pokémon’s name and remaining HP, including a dynamically updating HP bar that reflects damage taken after each turn.
+The app is designed to provide clear, simple messages and transitions that help the user understand what’s happening:
 
-- **Battle Log**: This area communicates turn-based events such as move selections, effects, or prompts asking the player to choose their next action.
+- **Error messages** guide users when input is missing or incorrect:
+  - *“Wrong email or password. Please try again.”*
+  - *“Please, write a valid email/password.”*
+- **End-of-battle feedback** offers a personalized, game-inspired experience:
+  - *“Congratulations! You won the battle! What was your thoughts on this fight?”*
+  - *“Game Over! What was your thoughts on this fight?”*
+- **Quit confirmation**:
+  - *“Are you sure you want to leave?”*
+  - *“What was your thoughts on this fight?”*
 
-
-### 8.4. Prototypes
-
-// Comment: Consider moving detailed prototype implementation details to Technical Specifications document.
-// Keep only high-level prototype goals and user experience findings in this document.
-
-
-Before building the full application, several prototypes were created using the Qt Creator framework. The goal was to test and validate the proposed interface designs while becoming more familiar with the development environment. 
-
-Rather than developing a single unified prototype, we focused on creating multiple smaller prototypes, each targeting specific features or interface components that required testing.
-
-The following prototypes have been developed so far:
-
-- **Interface_Prototype_1**: Basic navigation through the app's main pages.
-
-- **Interface_Prototype_2**: Improved layout and interaction elements.
-
-- **Simulation_Test1**: Initial simulation screen displaying battle setup and interaction.
-
-- **Database_Prototype_1**: Early test for database connectivity and data retrieval.
-
-- **Rules_Prototype1**: Prototype to test rule selection and checkbox interactions.
-
-These prototypes provided valuable insight into user interaction flow, layout clarity, and feature behavior, helping us refine the interface before full implementation.
-
+A **loading indicator** may be added to visualize progress during processes such as simulation startup or data loading.
 
 ## 9. Glossary
 
