@@ -1000,18 +1000,37 @@ Progress Tracking:
 
 ## 10. Risks and Assumptions
 
-### 10.1 Risk Matrix
+### 10.1 Testing Risk Matrix
 
-| Risk | Impact | Mitigation Strategy |
-|------|---------|-------------------|
-| Limited testing time | High | Prioritize critical features |
-| Performance issues | Medium | Optimize code and assets |
-| Simulation crashes | High | Implement robust error handling |
-| UI rendering issues | Medium | Simplify complex elements |
-| Database integration | Medium | Implement efficient queries |
+| Risk | Impact | Probability | Mitigation Strategy |
+|------|---------|------------|-------------------|
+| **Limited testing time** | High | High | - Focus on battle system and navigation testing first<br>- Prioritize critical test cases<br>- Reduce scope if necessary |
+| **Performance issues** | Medium | Medium | - Regular performance testing during development<br>- Optimize code when issues detected<br>- Document performance baselines |
+| **Simulation crashes** | High | Medium | - Implement error logging<br>- Regular stability testing<br>- Document crash conditions |
+| **UI rendering issues** | Medium | Low | - Regular UI testing across different screens<br>- Simplify complex UI elements<br>- Document visual requirements |
+| **Database integration** | Medium | Medium | - Separate test database tables<br>- Test data integrity regularly<br>- Document database operations |
+| **External user confusion** | Medium | High | - Provide clear testing instructions<br>- Document common user errors<br>- Simplify test procedures |
 
-### 10.2 Assumptions
-- Development environment stability
-- Resource availability
-- Team expertise
-- Timeline feasibility
+### 10.2 Testing Assumptions
+
+#### Environment Assumptions
+1. Testing Tools
+   - Qt Creator debug tools will be available
+   - Database testing tools will be accessible
+   - Screen recording software will be available when needed
+
+2. Test Data
+   - Separate database tables for testing
+   - Test data can be easily reset
+   - Data integrity can be maintained
+
+#### Testing Process Assumptions
+1. Time Management
+   - Core features can be tested within timeline
+   - Critical bugs can be addressed quickly
+   - External testers will be available
+
+2. Test Coverage
+   - Battle system testing is highest priority
+   - Navigation testing is second priority
+   - Other features tested as time permits
