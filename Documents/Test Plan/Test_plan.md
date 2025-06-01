@@ -358,98 +358,359 @@ Progress Tracking:
 ## 4. Main Features to Test
 
 ### 4.1 Battle System Configuration
-<!-- Consider adding:
-- Database operation test cases
-- Template management scenarios
-- Rule configuration validation
-- Character stat verification -->
 
-#### Database Operations
-- Template CRUD operations
-- Character data management
-- Move set configurations
-- Rule set persistence
+#### Database Operations Testing
 
-#### Battle Mechanics
-- Turn resolution
-- Damage calculation
-- Status effect application
-- Win/loss condition validation
+1. CRUD Operations Validation
+   - Create Operations:
+     - Battle Template creation
+     - Battle instance creation
+   - Read Operations:
+     - Battle Template retrieval
+     - Entity data access
+     - Capacity information
+     - Damage Calculator configuration
+     - RuleSet verification
+   - Update Operations:
+     - Battle Template modification
+     - Damage Calculator adjustments
+     - RuleSet changes
+   - Delete Operations:
+     - Battle Template removal
+     - Battle instance cleanup
+
+2. Character Data Validation
+   - Stat Range Verification:
+     - HP: 0 to max HP
+     - Level: 1 to 100
+     - Base Stats: 1 to 999 (Attack, Defense, Speed)
+   - Stat Modification Tracking:
+     - Buff/Nerf limits (-6 to +6 from base)
+     - STAB bonus calculation
+   - Move Management:
+     - PP tracking per move
+     - Move availability verification
+   - Display Verification:
+     - Character name
+     - Current HP
+     - Four moves display
+
+3. Rule Configuration Testing
+   - Minimum 8 rule combinations
+   - Rule interaction verification
+   - Rule persistence testing
+
+#### Battle Mechanics Testing
+
+1. Damage Calculation Validation
+   Components to test:
+   - Attacker Level
+   - Attack Stat
+   - Move Power
+   - Defender's Defense
+   - STAB Bonus
+   - Critical Hit Bonus
+
+2. Turn Order System
+   - Speed-based priority
+   - Tie-break random selection (50/50)
+   - Turn execution order
+
+3. Win/Loss Conditions
+   - HP depletion (0 HP)
+   - PP depletion scenario
+   - Optional turn limit rule
 
 ### 4.2 Simulation Interface
-<!-- Consider adding:
-- Real-time update verification
-- Animation timing tests
-- Battle log accuracy
-- Error handling scenarios -->
 
-#### Core Functionality
-- Battle initialization
-- Turn execution
-- Move selection and validation
-- HP bar updates
-- Battle conclusion handling
+#### Core Functionality Testing
+
+1. Battle Initialization
+   - Screen transition (100-200ms)
+   - Initial state setup
+   - Character display
+   - Move selection interface
+
+2. Turn Execution Validation
+   - Player move selection
+   - AI move selection
+   - Action resolution
+   - State updates
+   - Continuation check
+
+3. HP Management
+   - HP bar visual updates
+   - Numerical HP display
+   - Damage/healing reflection
 
 #### Performance Metrics
-- Interface response times
-- Animation smoothness
-- Resource utilization
-- Memory management
+
+1. Response Time Testing
+   - Menu transitions: ≤200ms
+   - Button interactions: ≤100ms
+   - Battle state updates: ≤100ms
+
+2. Resource Management
+   - Memory usage monitoring
+   - System resource tracking
+   - Performance optimization verification
 
 ### 4.3 User Interface
-<!-- Consider adding:
-- Accessibility testing criteria
-- Input validation scenarios
-- Error message verification
-- Visual consistency checks -->
 
 #### Navigation Testing
-- Menu transitions
-- Button functionality
-- Screen flow validation
-- Error handling
 
-#### Visual Elements
-- UI scaling
-- Element alignment
-- Color scheme consistency
-- Animation effects
+1. Menu Flow Validation
+   Primary Transitions:
+   - Login ↔ Main Menu
+   - Main Template Menu ↔ Simulation Menu
+   - Main Template Menu ↔ Rules Menu
+   - Main Template Menu ↔ Character Menu
+   - Main Template Menu ↔ Damage Calculator
+   - Main Menu ↔ Template Gallery
+   - Main Menu ↔ New Template Menu
+   - Template Gallery ↔ Main Template Menu
+   - New Template Menu ↔ Main Template Menu
+
+2. Error Handling
+   - Login validation messages
+   - Input verification
+   - Error message display
+   - Error recovery flow
+
+#### Visual Elements Testing
+
+1. UI Component Validation
+   - Button scaling verification
+   - Menu layout consistency
+   - Element positioning
+   - Visual hierarchy
+
+2. Display Testing
+   - Screen resolution adaptation
+   - Element scaling
+   - Text readability
+   - Interface clarity
 
 ## 5. Out of Scope Features
-<!-- Consider adding:
-- Rationale for exclusion
-- Future implementation possibilities
-- Impact on current testing scope -->
 
-- Account creation and security
-- Alternative RPG battle systems
-- Tutorial system
-- Advanced skill management
-- Status effect system
+### 5.1 Feature Exclusion Overview
+
+#### Currently Excluded Features
+1. General-Purpose 2D Game Simulation
+   - Level editor functionality
+   - Event management system
+   - Multiple gameplay mode support
+
+2. Advanced RPG Systems
+   - Real-time battle mechanics
+   - Combo attack system
+   - Alternative battle styles (Final Fantasy, EarthBound)
+
+3. Complex Customization Tools
+   - Stat editor interface
+   - Advanced skill creation system
+   - Status effect management
+   - Equipment and inventory systems
+
+4. Additional Utilities
+   - Experience point calculations
+   - Battle recording functionality
+   - Multi-user account system
+
+#### Exclusion Rationale
+- Time constraints for initial development
+- Focus on Pokémon-style battle system expertise
+- Maintaining clear, manageable project scope
+- Prioritizing core battle mechanics quality
+
+### 5.2 Future Implementation Possibilities
+
+#### Planned Future Features (Post v2.5)
+1. Battle System Expansions
+   - Complete type effectiveness table
+   - Enhanced stats management
+   - Comprehensive skills system
+   - Status effect implementation
+
+2. User Experience Improvements
+   - Battle template code export
+   - Multi-user support system
+   - Enhanced customization options
+
+#### Extensibility Considerations
+- Current type system supports future expansion
+- Character system allows additional Pokémon
+- Move system can accommodate new attacks
+- User feedback will guide priority features
+
+### 5.3 Testing Impact Analysis
+
+#### Current Testing Boundaries
+1. Scope Limitation Benefits
+   - Focused testing approach
+   - Concentrated quality assurance
+   - Streamlined validation process
+
+2. Feature Dependencies
+   - Type table → Current type system
+   - Stats menu ↔ Damage calculator
+   - Character menu → Multiple feature dependencies
+     - Stats system
+     - Rules configuration
+     - Skills management
+     - Status effects
+
+#### Future Testing Considerations
+1. Integration Requirements
+   - Regression testing for existing features
+   - Compatibility verification
+   - New feature integration testing
+
+2. Test Case Evolution
+   - Current test case adaptation
+   - New test case development
+   - Integration test expansion
+
+### 5.4 Documentation and Communication
+
+#### Feature Status Communication
+1. Update Channels
+   - GitHub repository updates
+   - Social media announcements
+   - Email notifications
+   - Documentation updates
+
+2. Bug Report Management
+   - Classification of out-of-scope reports
+   - Feature request tracking
+   - Future implementation consideration
+
+3. Boundary Documentation
+   - Functional specification updates
+   - Clear feature limitation documentation
+   - Future roadmap maintenance
+
+### 5.5 Testing Preparation for Future Features
+
+1. Current System Preparation
+   - Modular test structure
+   - Extensible test frameworks
+   - Clear documentation of test boundaries
+
+2. Future Testing Strategy
+   - Test case template preparation
+   - Integration test planning
+   - Performance benchmark updates
+
+3. Quality Assurance Evolution
+   - Test coverage expansion plans
+   - Testing tool adaptation strategy
+   - Documentation update procedures
 
 ## 6. Hardware Requirements
-<!-- Consider adding:
-- Detailed hardware specifications for test environments
-- Performance monitoring tools
-- Storage requirements for test data
-- Network configuration needs -->
+ 
+### 6.1 Testing Environment Specifications
 
-### 6.1 Primary Test Environment
-- Lenovo Windows 11 Pro
-  - CPU: Intel® Core™ i7-1065G7 @ 1.30GHz
-  - RAM: 16 GB
-  - Display: 150% scaling support
-  - Storage: Minimum 200MB free space
+#### Primary Test Environment
+1. Hardware Configuration
+   - System: Lenovo Windows 11 Pro (64-bit)
+   - CPU: Intel® Core™ i7-1065G7 @ 1.30GHz (up to 1.50 GHz)
+   - RAM: 16 GB installed
+     - Minimum required: 6 GB
+     - Recommended: 8 GB or more
+   - Storage: 100-200 MB total space
+     - Application binaries
+     - Asset files
+     - Test data storage
 
-### 6.2 Secondary Test Environments
-- macOS system (specifications TBD)
-- Alternative Windows configurations
-- Various screen resolutions
+2. Display Requirements
+   - Minimum resolution: 1280×720
+   - Display scaling: 150% support
+   - No dedicated GPU required
+   - 2D graphics rendering capability
 
-### 6.3 Input Devices
-- Mouse required
-- Keyboard for development testing
-- No touchscreen support required
+3. Performance Monitoring Tools
+   - Windows Task Manager for CPU/Memory tracking
+   - Qt Creator performance analysis tools
+   - System resource monitors
+   - Display response monitoring
+
+### 6.2 Test Environment Variations
+
+#### Secondary Test Configurations
+1. Operating Systems
+   - Windows 11 Pro (Primary)
+   - Future macOS testing planned
+   - Additional Windows versions TBD
+
+2. Display Testing Matrix
+   - Multiple screen resolutions
+     - Starting from 1280×720
+     - Various aspect ratios
+   - Different laptop display sizes
+   - Scaling configurations
+
+### 6.3 Input Device Testing
+
+#### Required Input Devices
+1. Mouse/Touchpad Requirements
+   - Basic functionality testing
+   - UI element interaction verification
+   - Cursor response validation
+   - Click recognition testing
+
+2. Keyboard Testing Requirements
+   - Character input validation (login)
+   - Special key functionality
+     - Arrow keys
+     - Space bar
+     - Escape key
+   - Input response verification
+
+#### Out of Scope Input Testing
+- Touchscreen functionality
+- Alternative input methods
+- Specialized gaming peripherals
+
+### 6.4 Performance Testing Tools
+
+#### Resource Monitoring
+1. CPU Usage Tracking
+   - Windows Task Manager
+   - Qt Creator profiling tools
+   - Performance baseline establishment
+   - Usage pattern analysis
+
+2. Memory Management
+   - RAM usage monitoring
+   - Memory leak detection
+   - Resource allocation tracking
+   - Peak usage measurement
+
+3. Display Performance
+   - UI responsiveness testing
+   - Frame rate monitoring
+   - Screen scaling verification
+   - Visual clarity assessment
+
+### 6.5 Testing Metrics
+
+#### Performance Benchmarks
+1. Response Times
+   - UI interaction: ≤100ms
+   - Menu transitions: ≤200ms
+   - Battle system updates: real-time
+
+2. Resource Usage Limits
+   - RAM: 6 GB minimum
+   - Storage: 200 MB maximum
+   - CPU: Baseline measurements TBD
+
+3. Display Requirements
+   - Minimum resolution support
+   - Scaling functionality
+   - Visual element clarity
+   - UI consistency across configurations
 
 ## 7. Environment Requirements
 <!-- Consider adding:
