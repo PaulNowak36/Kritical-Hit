@@ -713,24 +713,117 @@ Progress Tracking:
    - UI consistency across configurations
 
 ## 7. Environment Requirements
-<!-- Consider adding:
-- Version control procedures
-- Build automation setup
-- Test data management
-- Environment restoration procedures -->
 
-### 7.1 Development Tools
-- Qt Creator (latest stable version)
-- Visual Studio Code
-- GitHub Desktop
-- SQLite Browser
+### 7.1 Development Environment Setup
 
-### 7.2 Testing Tools
-- Qt Test framework
-- Database testing tools
-- Performance monitoring utilities
-- Screen recording software for usability tests
+#### Core Development Tools
+1. Qt Environment
+   - Qt Version: 6.5.2
+   - Qt Creator: 11.0.2 Community
+   - Primary development IDE
+   - Testing framework integration
 
+2. Documentation Tools
+   - Visual Studio Code
+     - Test case documentation
+     - Bug tracking documentation
+     - General documentation management
+
+3. Version Control System
+   - GitHub Desktop
+     - Commit management
+     - Branch switching
+     - Branch merging
+     - Push operations
+
+4. Database Management
+   - SQLite Browser
+     - Database table verification
+     - Data reading/updating
+     - Test data validation
+
+### 7.2 Testing Framework Configuration
+
+#### Testing Tools Integration
+1. Qt Testing Framework
+   - Framework familiarization required
+   - Unit test implementation
+   - Integration test support
+   - Performance test capability
+
+2. Database Testing
+   - SQLite Browser for data verification
+   - Table structure validation
+   - Data integrity checking
+   - Query testing
+
+3. Performance Monitoring
+   - Qt Creator built-in tools
+   - System resource monitoring
+   - Response time tracking
+
+### 7.3 Version Control Strategy
+
+#### Repository Management
+1. Commit Strategy
+   - Frequency: 1-5 commits daily
+   - Feature-based commits
+   - Bug fix documentation
+   - Test case updates
+
+2. Branch Structure
+   - Main branch (stable releases)
+   - Development branch (active development)
+   - Feature branches (specific implementations)
+   - Documentation branch
+
+3. Testing Documentation
+   - Test case tracking
+   - Results documentation
+   - Change verification
+   - Bug tracking
+
+### 7.4 Test Environment Management
+
+#### Environment Setup
+1. Testing Conditions
+   - Quiet, controlled environment
+   - Minimal background applications
+   - Required tools activated as needed
+   - Resource monitoring active
+
+2. Cross-Platform Consistency
+   - Machine-specific conditions documented
+   - Code adaptations for different platforms
+   - Configuration standardization
+   - Test case adaptation as needed
+
+3. Testing Workflow
+   - Environment preparation checklist
+   - Tool initialization sequence
+   - Test execution protocol
+   - Results documentation process
+
+### 7.5 Quality Assurance Procedures
+
+#### Testing Protocol
+1. Pre-Test Setup
+   - Environment verification
+   - Tool availability check
+   - Database state confirmation
+   - Documentation preparation
+
+2. Test Execution
+   - Systematic test case execution
+   - Result recording
+   - Issue documentation
+   - Performance monitoring
+
+3. Post-Test Procedures
+   - Results validation
+   - Documentation update
+   - Environment restoration
+   - Issue tracking update
 ## 8. External User Testing
 <!-- Consider adding:
 - Participant selection criteria
