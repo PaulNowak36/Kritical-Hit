@@ -824,25 +824,145 @@ Progress Tracking:
    - Documentation update
    - Environment restoration
    - Issue tracking update
+
 ## 8. External User Testing
-<!-- Consider adding:
-- Participant selection criteria
-- Test session duration
-- Data collection methods
-- Privacy considerations -->
 
-### 8.1 Test Environment Setup
-- Quiet, controlled room
-- Standard desk setup
-- Proper lighting
-- Recording equipment (if needed)
+### 8.1 Participant Selection
 
-### 8.2 Testing Protocol
-1. Environment preparation
-2. User briefing
-3. Task execution
-4. Feedback collection
-5. Data analysis
+#### Tester Demographics
+1. Target Audience
+   - Age range: 8+ years
+   - Mix of technical and non-technical users
+   - Basic computer literacy required
+   - RPG gaming familiarity needed
+
+2. Tester Categories
+   - Technical Users
+     - Computer science students
+     - Software engineering background
+   - Non-Technical Users
+     - Family members
+     - General gaming enthusiasts
+
+3. Selection Criteria
+   - Availability for testing
+   - Gaming experience level
+   - Computer proficiency
+   - Willingness to provide detailed feedback
+
+### 8.2 Test Environment Setup
+
+#### Physical Environment
+1. Room Requirements
+   - Quiet, closed space
+   - Adequate desk space
+   - Proper lighting
+   - Minimal distractions
+
+2. Equipment Setup
+   - Standard computer model
+   - Working mouse
+   - Power supply
+   - Desk and chair
+
+#### Session Parameters
+- Duration: 5-20 minutes
+- One-on-one observation
+- Controlled testing conditions
+- Immediate feedback capability
+
+### 8.3 Testing Protocol
+
+#### Test Sequence (V1.0)
+1. Login Process
+   - Provided temporary credentials
+   - Authentication verification
+
+2. Basic Simulation Testing
+   - Navigate to simulation
+   - Complete default battle
+   - Observe win/loss conditions
+
+3. Rules Configuration
+   - Access rules menu
+   - Modify specific settings (e.g., Healing rule)
+   - Verify rule changes
+
+4. Modified Battle Testing
+   - Execute battle with new rules
+   - Observe gameplay differences
+   - Verify feature functionality
+
+#### Task Documentation
+1. Observer Notes
+   - User behavior tracking
+   - Issue identification
+   - Time tracking
+   - User comments
+
+2. User Instructions
+   - Test default settings
+   - Explore configuration options
+   - Evaluate UI experience
+   - Report bugs encountered
+   - Suggest improvements
+
+### 8.4 Data Collection and Analysis
+
+#### Feedback Collection
+1. Survey Implementation
+   - Google Forms platform
+   - Structured questions
+   - Rating scales
+   - Open-ended feedback
+
+2. Data Categories
+   - UI responsiveness
+   - Feature functionality
+   - User experience
+   - Bug reports
+   - Feature suggestions
+
+#### Results Analysis
+1. Satisfaction Metrics
+   - Interface usability
+   - Task completion success
+   - Feature effectiveness
+   - Overall experience
+
+2. Issue Prioritization
+   - Bug frequency
+   - Feature request patterns
+   - Performance concerns
+   - UI/UX improvements
+
+### 8.5 Testing Management
+
+#### Session Organization
+1. Scheduling
+   - Based on development progress
+   - Tester availability
+   - Version readiness
+   - Resource availability
+
+2. Technical Support
+   - Issue documentation
+   - Bug reproduction steps
+   - Solution tracking
+   - Version documentation
+
+#### Data Management
+1. Survey Results
+   - Google Forms analytics
+   - Response categorization
+   - Trend identification
+   - Priority assessment
+
+2. Implementation Planning
+   - Feature prioritization
+   - Bug fix scheduling
+   - Version planning
+   - Update documentation
 
 ## 9. Problem Reporting
 <!-- Consider adding:
