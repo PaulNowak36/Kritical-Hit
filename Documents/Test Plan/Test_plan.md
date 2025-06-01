@@ -42,26 +42,64 @@
 ## 1. Introduction
 
 ### 1.1 Document Purpose
-<!-- Consider adding:
-- More specific details about QA methodology
-- Reference to industry standards for game testing
-- Mention of specific testing tools and frameworks to be used
-- Clear success criteria for the testing phase -->
 
-Meets defined requirements, test various user scenarios, and anticipate the most common bugs and glitches.
-Must assist QA to build a testing strategy + ensure product correctness.
+This test plan document outlines the testing strategy and methodology for the KriticalHit project, a desktop application for simulating RPG battle systems. The document serves multiple purposes:
+
+- Establish a structured approach to verify that the application meets its defined requirements
+- Define testing procedures for both developer testing and external user testing
+- Provide a framework for identifying and documenting potential issues
+- Ensure the quality and reliability of core features before release
+
+The testing approach will primarily rely on:
+- Manual testing by the developer
+- Automated unit testing through Qt Creator's framework
+- Beta testing phase with external users (post v1.0)
+- Performance monitoring through Qt Creator's analysis tools
+
+Success criteria will be measured through:
+- Feature functionality verification
+- Performance metrics (response times under 100-200ms)
+- User satisfaction surveys
+- Bug severity assessment
 
 ### 1.2 Objectives
-<!-- Consider adding:
-- Specific version targets (v1.0 for June 24th, 2025)
-- Detailed timeline for testing phases
-- Clear metrics for measuring testing success
-- Reference to the MoSCoW prioritization from functional specs -->
 
-- Explain project goal
-- Remind main tools and technologies used
-- Showcase product main features
-- Project date of completion and in which version
+#### Version Targets
+- Version 1.0 release date: June 9th, 2025
+- One primary testing cycle per development phase
+- Additional testing following significant feature implementations
+- Beta testing phase immediately preceding v1.0 release
+
+#### Core Testing Priorities
+1. Battle Simulation System
+   - Combat mechanics
+   - Turn resolution
+   - Win/loss conditions
+
+2. User Interface
+   - Menu navigation
+   - Visual feedback
+   - Response times (≤100ms for interactions)
+
+3. Rules Configuration
+   - Database updates
+   - Rule application
+   - System integration
+
+#### Testing Environment
+- Primary development and testing on Qt Creator
+- Unit testing through Qt's testing framework
+- Performance analysis using Qt's built-in tools
+- Manual state monitoring through debug outputs
+
+#### Quality Metrics
+Success will be determined by:
+- Core features functioning without critical bugs
+- UI response times meeting target thresholds
+- Positive user feedback during beta testing
+- Stable database operations for rule management
+
+Testing will be conducted iteratively, with priority given to critical features essential for the v1.0 release. External testing will be introduced in later versions, incorporating feedback from both technical users (computer science students) and non-technical users (family members) to ensure broad usability.
 
 ## 2. Testing Strategy
 
