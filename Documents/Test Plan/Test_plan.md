@@ -104,89 +104,256 @@ Testing will be conducted iteratively, with priority given to critical features 
 ## 2. Testing Strategy
 
 ### 2.1 Functional Testing
-<!-- Consider adding:
-- Specific test scenarios for battle mechanics
-- Database CRUD operation tests
-- UI component validation tests
-- Test coverage targets -->
 
 #### Unit Testing
-Individual units/parts of the software are tested separately from the rest of the systems. They can focus on a specific function, method, class, or a module. Automated.
+Unit tests will focus on core functionality components using Qt's testing framework. Primary test targets include:
+
+1. Battle Mechanics Components:
+   - Damage calculation system
+     - Base damage computation
+     - STAB bonus application
+     - Critical hit calculations
+   - Turn order determination
+   - HP management system
+
+2. Class Functionality:
+   - Entity class creation and management
+   - Capacity class implementation
+   - Battle class operations
+
+3. Rule System:
+   - Individual rule activation/deactivation
+   - Rule interaction verification
+   - Rule persistence testing
+
+4. UI Component Testing:
+   - Button functionality
+   - Display update mechanisms
+   - Battle text generation
 
 #### Integration Testing
-Different parts/modules of the app are tested together. Identify issues that are caused when coupling multiple components together, and ensure the system work as a whole.
+
+Priority will be given to testing critical component interactions:
+
+1. Battle System Integration:
+   - Complete attack sequence testing
+     - Move selection → damage calculation → HP update
+     - Multiple modifier application
+     - Move effect processing
+   
+2. Database Integration:
+   - Rule configuration persistence
+   - Battle template management
+   - Character/move data retrieval
+   - Real-time database updates during battles
+
+3. UI-Backend Integration:
+   - Menu navigation with state preservation
+   - Battle state visualization
+   - Real-time data display updates
 
 #### System Testing
-Ensure the entire app work as a whole + meets functional and non-functional requirements. Test the app in various scenarios and under various conditions, including normal and abnormal usage, making sure it handle different situations correctly.
 
-#### Acceptance Testing
-Check if app meets acceptance criteria and is ready for development. Tested by other users before version release.
+Main test scenarios include:
+
+1. Complete Battle Flows:
+   - Default configuration battles
+   - Custom rule set battles
+   - Modified character loadouts
+   - Alternative damage calculator implementations
+
+2. Battle Conditions:
+   - Pre-scripted AI scenarios for specific testing
+   - Various rule combinations
+   - Different character configurations
+
+3. Edge Case Testing:
+   - Maximum stat values (999)
+   - Incomplete movesets (1-3 moves)
+   - PP depletion scenarios
+   - Multiple rule interactions
 
 ### 2.2 Non-Functional Testing
-<!-- Consider adding:
-- Specific performance benchmarks from functional specs (e.g., UI response under 100ms)
-- Load testing for database operations
-- Memory usage monitoring during battle simulations
-- Screen resolution and scaling tests (150% display scaling) -->
 
 #### Performance Testing
-- Assess performance and response time under different workloads
-- Test scenarios:
-  - Multiple battle templates loaded
-  - Rapid UI interactions
-  - Continuous battle simulations
-  - Database operations under load
+1. Response Time Targets:
+   - UI interactions: ≤100ms
+   - Database operations: 100-500ms
+   - Menu transitions: ≤200ms
+
+2. Load Testing:
+   - Multiple battle template management (up to 5)
+   - Continuous battle execution
+   - Rapid UI interaction sequences
+
+3. Memory Management:
+   - Battle system resource monitoring
+   - Database operation memory tracking
+   - Long-session stability testing
 
 #### Usability Testing
-- Evaluate User Interface and User Experience
-- Focus areas:
-  - Menu navigation flow
-  - Battle interface clarity
-  - Rule configuration accessibility
-  - Visual feedback effectiveness
+
+1. Interface Elements:
+   - Button responsiveness
+   - HP bar visibility and updates
+   - Battle text readability
+   - Checkbox clarity and function
+
+2. Visual Feedback Criteria:
+   - Response timing
+   - State change visibility
+   - Color scheme consistency
+   - Font and image clarity
+   - Glitch identification and tracking
 
 #### Compatibility Testing
-- Windows 11 Pro (primary platform)
-- macOS compatibility testing
-- Display scaling variations
-- Different hardware configurations
+- Primary: Windows 11 Pro environment
+- Future: macOS compatibility assessment
+- Display scaling verification (150%)
+- Hardware variation testing
 
 ### 2.3 Regression Testing
-<!-- Consider adding:
-- Automated test suite configuration
-- Critical path testing scenarios
-- Version control integration
-- Release testing checklist -->
+
+Testing Schedule:
+- Major version releases (v1.0, v2.0)
+- Feature addition verification
+- Bug fix validation
 
 Testing Summary Table:
 
 | Test Batch | Date | Tests Performed | Bugs Found | Tests Completed |
 |------------|------|-----------------|------------|-----------------|
-| Initial    | TBD  | 0              | 0          | 0              |
 | Pre-v1.0   | TBD  | 0              | 0          | 0              |
+| Pre-v1.5   | TBD  | 0              | 0          | 0              |
 | Pre-v2.0   | TBD  | 0              | 0          | 0              |
 
+Progress Tracking:
+- Qt debugger for performance monitoring
+- Manual test case logging
+- Bug report documentation
+- Feature completion verification
+
 ## 3. Testing Process
-<!-- Consider adding:
-- Test environment setup procedures
-- Continuous Integration workflow
-- Bug tracking system details
-- Test documentation templates -->
 
-### 3.1 Test Development
-- Writing unit tests for core battle mechanics
-- Integration tests for database operations
-- System test scenarios for complete battle flows
-- Usability test scripts for external testers
+### 3.1 Environment Setup
 
-### 3.2 Test Execution Flow
-1. Automated unit testing
-2. Integration testing of connected components
-3. System testing of complete features
-4. Performance benchmarking
-5. Cross-platform compatibility verification
-6. External user testing
-7. Regression testing before release
+#### Software Configuration
+- Qt Creator 11.0.2 (Community)
+- DB Browser for SQLite Version 3.13.1
+- Windows 11 Pro (Primary OS)
+
+#### Testing Environment Requirements
+1. Debug Mode Configuration:
+   - Qt Creator in debug mode
+   - Minimal running applications
+   - DB Browser for database monitoring
+
+2. Database Management:
+   - Dedicated test tables in main database
+   - Separate test data sets
+   - Database state verification between tests
+
+### 3.2 Test Development Structure
+
+#### Test Organization
+1. Source Code Testing:
+   - Unit test files
+   - Integration test files
+   - All tests contained in main code folder
+
+2. Test Documentation:
+   - Test case templates
+   - Bug report templates
+   - External tester instructions
+
+#### Test Prioritization
+1. Critical Features (High Priority):
+   - Battle system functionality
+   - Database operations
+   - Core UI components
+
+2. Secondary Features:
+   - Enhanced UI elements
+   - Optional features
+   - Performance optimizations
+
+### 3.3 Test Execution Flow
+
+1. Development Testing Phase:
+   - Unit testing after each feature implementation
+   - Integration testing for connected components
+   - Commit-triggered test execution
+   - Pre-release comprehensive testing
+
+2. Testing Schedule:
+   - New feature testing: 1-2 hours per feature
+   - Release testing: Comprehensive test suite
+   - Regular testing during development cycles
+
+### 3.4 External Testing Protocol
+
+#### Tester Management
+- Target: 5-10 external testers
+- Mix of technical and non-technical users
+- Scheduled testing sessions
+
+#### Testing Materials
+1. Distribution Package:
+   - Executable in ZIP format
+   - Installation instructions
+   - Testing guidelines
+
+2. Feedback Collection:
+   - Google Forms survey
+   - Structured questionnaire
+   - User experience evaluation
+
+### 3.5 Bug Tracking System
+
+#### Bug Documentation
+1. Bug Report Elements:
+   - Bug identifier
+   - Description
+   - Related test case
+   - Discovery conditions
+   - Discovery date
+   - Current status
+   - Resolution date
+   - Fix methodology
+
+2. Priority Classification:
+   - Critical: Affects core functionality
+   - High: Impacts main features
+   - Medium: Affects secondary features
+   - Low: Minor visual/cosmetic issues
+
+#### Bug Resolution Flow
+1. Discovery and Documentation
+2. Priority Assessment
+3. Resolution Planning
+4. Fix Implementation
+5. Verification Testing
+6. Resolution Documentation
+
+### 3.6 Test Execution Checklist
+
+1. Pre-Test Setup:
+   - Environment configuration
+   - Database preparation
+   - Test case documentation ready
+
+2. Testing Sequence:
+   - Unit tests execution
+   - Integration testing
+   - System testing
+   - Performance verification
+   - External user testing (when applicable)
+
+3. Post-Test Activities:
+   - Results documentation
+   - Bug reporting
+   - Fix prioritization
+   - Test report generation
 
 ## 4. Main Features to Test
 
