@@ -68,7 +68,7 @@
 
 ## Test Case Template
 
-| ID  | Description | Priority | Pre-requisites | Procedure | Exp | Out | Status |
+| ID  | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
 |-----|-------------|----------|----------------|-----------|-----|-----|--------|
 |     |             |          |                |           |     |     |        |
 
@@ -78,9 +78,13 @@
 ### 1.1. Unit Tests
 
 #### 1.1.1 Entity Creation Tests
-- ID: 1111; Create and Verify Entity (name, level, stats, type, etc...)
-- ID: 1112; Check Remaining HP
-- ID: 1113; MockUp Moveset Set Up
+| ID       | Description                                                                                  | Priority | Pre-requisites                                                                                   | Procedure                                                                                              | Exp                            | Out | Status       |
+|----------|----------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|--------------------------------|-----|--------------|
+| UNT_1111 | Verify that the `Entity` class can be instantiated and correctly initialized with values for name, level, stats, and type. Ensure all properties are properly assigned and retrievable. | Critical | 1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br />   2. Initialize an `Entity` object with test values.  <br /> 3. Use assertions to verify each member is correctly set | The unit test should pass, confirming all properties are correctly initialized and retrievable | N/A | To be tested |
+| UNT_1112 | Check the remaining number of HP of the Entity Class | Critical |1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. write unit test 2. initialize entity object 3. use assertions| unit test is passed| N/A | To be tested |
+| UNT_1113 | MockUp Moveset Set Up | High |                |           |     |     | To be tested |
+
+
 
 #### 1.1.2 Capacity Creation Tests
 - ID: 1121; Create and Verify Capacity (all attributes)
