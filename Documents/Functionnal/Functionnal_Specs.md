@@ -608,8 +608,6 @@ The primary objective of the testing process is to ensure that the application m
 - A mouse-based interface is assumed; no touchscreen or special hardware is required.
 - The application must function correctly in offline mode with no network dependency.
 
-
-
 ### 7.2 Testing Scope
 
 The purpose of this testing scope is to define the functional areas and system behaviors that will be evaluated during the testing process. Testing will focus on ensuring a smooth user experience, correct battle mechanics, and stable data handling across core features.

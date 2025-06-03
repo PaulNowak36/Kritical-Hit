@@ -3,7 +3,7 @@
 | Author | Paul NOWAK |
 |--------|------------|
 | Created | June 1st 2025 |
-| Last Modified | June 1st 2025 |
+| Last Modified | June 2nd 2025 |
 | Document Deadline | June 9th 2025 |
 
 ---
@@ -13,29 +13,56 @@
 <summary>📖 Table of content</summary>
 
 - [Introduction](#introduction)
-- [1. Objectives](#1-objectives)
+  - [1.1 Document Purpose](#11-document-purpose)
+  - [1.2 Objectives](#12-objectives)
 - [2. Testing Strategy](#2-testing-strategy)
-  - [2-1 Functional Testing](#2-1-functional-testing)
-  - [2-2 Performance Testing](#2-2-performance-testing)
-  - [2-3 Stress Testing](#2-3-stress-testing)
-  - [2-4 Hardware Testing](#2-4-hardware-testing)
-  - [2-5 User Interface Testing](#2-5-user-interface-testing)
-  - [2-6 Regression Testing](#2-6-regression-testing)
-- [3. Features to test](#3-features-to-test)
-  - [3-1 Functional Testing](#3-1-functional-testing)
-  - [3-2 Performance Testing](#3-2-performance-testing)
-  - [3-3 Stress Testing](#3-3-stress-testing)
-  - [3-4 Hardware Testing](#3-4-hardware-testing)
-  - [3-5 User Interface Testing](#3-5-user-interface-testing)
-  - [3-6 Regression Testing](#3-6-regression-testing)
-- [4. Features to not test](#4-features-to-not-test)
-- [5. Hardware Requirements](#5-hardware-requirements)
-- [6. Environment Requirements](#6-environment-requirements)
-- [7. Problem Reporting](#7-problem-reporting)
-- [8. Risks & Assumptions](#8-risks--assumptions)
-- [9. Approvals](#9-approvals)
+  - [2.1 Functional Testing](#21-functional-testing)
+  - [2.2 Non-Functional Testing](#22-non-functional-testing)
+  - [2.3 Regression Testing](#23-regression-testing)
+- [3. Testing Process](#3-testing-process)
+  - [3.1 Environment Setup](#31-environment-setup)
+  - [3.2 Test Development Structure](#32-test-development-structure)
+  - [3.3 Test Execution Flow](#33-test-execution-flow)
+  - [3.4 External Testing Protocol](#34-external-testing-protocol)
+  - [3.5 Bug Tracking System](#35-bug-tracking-system)
+  - [3.6 Test Execution Checklist](#36-test-execution-checklist)
+- [4. Main Features to Test](#4-main-features-to-test)
+  - [4.1 Battle System Configuration](#41-battle-system-configuration)
+  - [4.2 Simulation Interface](#42-simulation-interface)
+  - [4.3 User Interface](#43-user-interface)
+- [5. Out of Scope Features](#5-out-of-scope-features)
+  - [5.1 Feature Exclusion Overview](#51-feature-exclusion-overview)
+  - [5.2 Future Implementation Possibilities](#52-future-implementation-possibilities)
+  - [5.3 Testing Impact Analysis](#53-testing-impact-analysis)
+  - [5.4 Documentation and Communication](#54-documentation-and-communication)
+  - [5.5 Testing Preparation for Future Features](#55-testing-preparation-for-future-features)
+- [6. Hardware Requirements](#6-hardware-requirements)
+  - [6.1 Testing Environment Specifications](#61-testing-environment-specifications)
+  - [6.2 Test Environment Variations](#62-test-environment-variations)
+  - [6.3 Input Device Testing](#63-input-device-testing)
+  - [6.4 Performance Testing Tools](#64-performance-testing-tools)
+  - [6.5 Testing Metrics](#65-testing-metrics)
+- [7. Environment Requirements](#7-environment-requirements)
+  - [7.1 Development Environment Setup](#71-development-environment-setup)
+  - [7.2 Testing Framework Configuration](#72-testing-framework-configuration)
+  - [7.3 Version Control Strategy](#73-version-control-strategy)
+  - [7.4 Test Environment Management](#74-test-environment-management)
+  - [7.5 Quality Assurance Procedures](#75-quality-assurance-procedures)
+- [8. External User Testing](#8-external-user-testing)
+  - [8.1 Participant Selection](#81-participant-selection)
+  - [8.2 Test Environment Setup](#82-test-environment-setup)
+  - [8.3 Testing Protocol](#83-testing-protocol)
+  - [8.4 Data Collection and Analysis](#84-data-collection-and-analysis)
+  - [8.5 Testing Management](#85-testing-management)
+- [9. Problem Reporting](#9-problem-reporting)
+  - [9.1 Bug Classification System](#91-bug-classification-system)
+  - [9.2 Documentation Process](#92-documentation-process)
+- [10. Risks and Assumptions](#10-risks-and-assumptions)
+  - [10.1 Testing Risk Matrix](#101-testing-risk-matrix)
+  - [10.2 Testing Assumptions](#102-testing-assumptions)
 
 </details>
+
 
 ---
 
