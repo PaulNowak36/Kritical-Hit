@@ -80,7 +80,7 @@
 #### 1.1.1 Entity Creation Tests
 | ID       | Description                                                                                  | Priority | Pre-requisites                                                                                   | Procedure                                                                                              | Exp                                                                                     | Out | Status       |
 |----------|----------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----|--------------|
-| UNT_1111 | Verify that the `Entity` class can be instantiated and correctly initialized with values for name, level, stats, and type. Ensure all properties are properly assigned and retrievable. | Critical | 1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize an `Entity` object with test values.  <br /> 3. Use assertions to verify each member is correctly set. | The unit test should pass, confirming all properties are correctly initialized and retrievable. | N/A | To be tested |
+| UNT_1111 | Verify that the `Entity` class can be instantiated and correctly initialized with values such as name, level, stats, and type. Ensure all properties are properly assigned and retrievable. | Critical | 1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize an `Entity` object with test values.  <br /> 3. Use assertions to verify each member is correctly set. | The unit test should pass, confirming all properties are correctly initialized and retrievable. | N/A | To be tested |
 | UNT_1112 | Verify that the current HP of an `Entity` instance is correctly tracked and returned. Test proper initialization and retrieval of remaining HP. | Critical | 1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize an `Entity` object with a known HP value.  <br /> 3. Use assertions to verify that the remaining HP is correctly returned. | The unit test should pass, confirming the correct initialization and access to remaining HP. | N/A | To be tested |
 | UNT_1113 | Verify that an `Entity` instance can be assigned a moveset composed of 4 mock `Capacity` objects. Ensure each move is stored and accessible. | High | 1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize an `Entity` object.  <br /> 3. Create 4 mock `Capacity` instances and store them in a list or array.  <br /> 4. Assign the moveset to the entity and use assertions to verify each move. | The unit test should pass, confirming the moveset is correctly assigned and all 4 capacities are accessible. | N/A | To be tested |
 | UNT_1135  | Verify that the `Entity` class can randomly select one of four mock `Capacity` instances from its moveset, with equal probability (25% each). This simulates a basic AI decision-making process. | Medium   | 1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Create an `Entity` instance.  <br /> 3. Create four mock `Capacity` instances and store them in a list or array.  <br /> 4. Assign the moveset to the entity.  <br /> 5. Call the selection function multiple times and verify that all four capacities are chosen over time with roughly equal distribution. | Unit test should pass, confirming that each `Capacity` has an equal chance of being selected. | N/A    | To be tested |
@@ -89,7 +89,7 @@
 #### 1.1.2 Capacity Creation Tests
 | ID       | Description                                                                                  | Priority | Pre-requisites                                                                                   | Procedure                                                                                              | Expected                                                                                 | Output | Status       |
 |----------|----------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------|--------------|
-| UNT_1121 | Verify that the `Capacity` class can be instantiated and correctly initialized with values for name, attack power, power points, category, and effect type. Ensure all properties are properly assigned and retrievable. | Critical | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object with test values.  <br /> 3. Use assertions to verify each member is correctly set. | Unit test should pass, confirming all properties are correctly initialized and retrievable. | N/A    | To be tested |
+| UNT_1121 | Verify that the `Capacity` class can be instantiated and correctly initialized with values sucg as name, attack power, power points, category, and effect type. Ensure all properties are properly assigned and retrievable. | Critical | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object with test values.  <br /> 3. Use assertions to verify each member is correctly set. | Unit test should pass, confirming all properties are correctly initialized and retrievable. | N/A    | To be tested |
 | UNT_1122 | Verify that the remaining power points (PP) of a `Capacity` object are correctly tracked and retrievable. Ensure accurate initialization and access. | High     | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object with a known PP value.  <br /> 3. Use assertions to verify the remaining PP is correctly returned. | Unit test should pass, confirming correct tracking and retrieval of PP.                  | N/A    | To be tested |
 | UNT_1123 | Verify that a `Capacity` object can be assigned a stat modifier structure and that all modifier values are correctly stored and accessible. | Medium   | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object.  <br /> 3. Create a stat modifier structure.  <br /> 4. Assign it and use assertions to verify each value. | Unit test should pass, confirming the stat modifier is correctly assigned and accessible. | N/A    | To be tested |
 
@@ -275,42 +275,65 @@
 ### 2.1. Unit Tests
 
 #### 2.1.1 Window Creation Tests
-- ID: 2111; Authentication Window (Login)
-- ID: 2112; Battle-Related Windows (Battle Simulation, Character Selection)
-- ID: 2113; Template Management Windows (Template Menu, Gallery, New Template)
-- ID: 2114; Configuration Windows (Rules, Damage Calculator)
+| ID       | Description                                                                                  | Priority | Pre-requisites                                                                                   | Procedure                                                                                              | Exp                                                                                     | Out | Status       |
+|----------|----------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----|--------------|
+| UNT_2111 | Verify that the `AuthenticationMenu` window (Login) can be instantiated and displayed from its corresponding `.ui` file. Ensure the widget loads and becomes visible. | Medium   | 1. The `.ui` file for the Login window must exist.  <br /> 2. The corresponding class must be generated and properly set up. | 1. Instantiate the Login window class. <br /> 2. Use Qt functions to check if the widget is valid and visible. | UI widget is successfully created and appears visible.                                 | N/A | To be tested |
+| UNT_2112  | Verify that both `simulationMenu` (**Critical**) and `CharacterSelectionMenu` (**Medium**) windows are correctly created and visible upon instantiation. | Mixed     | 1. Both `.ui` files must exist.  <br /> 2. Corresponding classes must be implemented.                  | 1. Instantiate both windows.  <br /> 2. Verify visibility and proper rendering of each.                    | Both widgets are successfully created and displayed.                         | N/A    | To be tested |
+| UNT_2113  | Ensure that all Template Management windows are properly created and visible: <br />– `MainTemplateMenu` (**Critical**) <br />– `NewTemplateMenu` (**Medium**) <br />– `TemplateGalleryMenu` (**Low**) | Mixed    | 1. `.ui` files for all three windows must exist. <br /> 2. Each corresponding class must be implemented and compilable. | 1. Instantiate each of the three window classes. <br /> 2. Confirm that each UI widget appears correctly. | All three windows are correctly instantiated and visible on screen.             | N/A    | To be tested |
+| UNT_2114  | Confirm that Configuration windows are properly created and visible: <br />– `rulesmenu` (**High**) <br />– `DamageCalculatorMenu` (**Low**) | Mixed    | 1. Corresponding `.ui` files and their respective classes must be available and compilable.                   | 1. Instantiate both `rulesmenu` and `DamageCalculatorMenu` classes. <br /> 2. Verify visibility of each. | Both configuration windows are successfully loaded and shown on screen.       | N/A    | To be tested |
+
 
 #### 2.1.2 Button Tests
-- ID: 2121; Button Creation and Visual Properties
-- ID: 2122; Button Click Signal Emission
-- ID: 2123; Button State Management
+| ID       | Description                                                                                         | Priority | Pre-requisites                                                                                           | Procedure                                                                                                                                                                                 | Expected Result                                                                                  | Output | Status       |
+|----------|-----------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2121 | Verify that a button can be created and its visual properties (text, size, style, color) adjusted. | Critical | 1. Qt Creator must be open with a working project.                                                       | 1. Create a `.ui` file in the project. <br /> 2. Use the UI editor to add a button widget. <br /> 3. Run the project to verify the button appears. <br /> 4. Modify the button’s text, size, and style properties in the UI editor. <br /> 5. Re-run and observe changes. | The button appears on the interface with the specified text, size, and style formatting.         | N/A    | To be tested |
+| UNT_2122 | Verify that a button emits the `clicked()` signal when clicked.                                     | Critical | 1. The `.ui` file must exist and contain a QPushButton element.                                          | 1. Access the button using `findChild<QPushButton*>()`. <br /> 2. Use `QTest::mouseClick()` to simulate a click. <br /> 3. Use `QSignalSpy` to check signal emissions.                      | The `clicked()` signal is emitted exactly once upon simulated click.                            | N/A    | To be tested |
+| UNT_2123 | Verify that the button's state (visible/hidden, enabled/disabled) can be changed programmatically.  | Medium   | 1. A `.ui` file with a QPushButton must be created and available.                                        | 1. Locate the button using `findChild<QPushButton*>()`. <br /> 2. Programmatically change its visibility (`setVisible(false)`), then check state. <br /> 3. Change `setEnabled(false)` and check. | Button becomes hidden/disabled as expected, and changes are accurately reflected in the UI.     | N/A    | To be tested |
+
 
 #### 2.1.3 Label Tests
-- ID: 2131; Label Creation and Display
-- ID: 2132; Label Text Update
+| ID       | Description                                                                                       | Priority | Pre-requisites                                                                                         | Procedure                                                                                                                                                                                     | Expected Result                                                                      | Output | Status       |
+|----------|---------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2131 | Verify that a QLabel is created and displays the expected text with correct formatting.          | Critical | 1. Qt Creator must be open with a working project. <br /> 2. QLabel widget must be available in `.ui`.  | 1. Create a `.ui` file and add a QLabel using the UI editor. <br /> 2. Set sample text, font size, and style via the property panel. <br /> 3. Run the project and confirm the label appears as configured. | QLabel is visible and displays the correct text with defined size and style.          | N/A    | To be tested |
+| UNT_2132 | Verify that QLabel text can be updated dynamically via code.                                      | High     | 1. The `.ui` file must exist and contain a QLabel element.                                              | 1. Locate the QLabel using `findChild<QLabel*>()`. <br /> 2. Use `setText("New Text")` to update its text. <br /> 3. Use an assertion to confirm the text has been updated (`label->text()`).    | QLabel's text is updated in the interface to the new value programmatically.          | N/A    | To be tested |
 
-#### 2.1.4 Input Field Tests
-- ID: 2141; Text Input Field Creation and Validation
-- ID: 2142; Input Field Security Features
-- ID: 2143; Input Field Error Management
+
+#### 2.1.4 Login Input Field Tests
+| ID       | Description                                                                                             | Priority | Pre-requisites                                                                                           | Procedure                                                                                                                                                                                                                      | Expected Result                                                                                  | Output | Status       |
+|----------|---------------------------------------------------------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2141 | Verify creation of login and password input fields using `QLineEdit` and validate basic layout behavior. | Medium   | 1. Qt Creator must be open with a working project. <br /> 2. `QLineEdit` widgets must be placed in the `.ui` file. | 1. Create a `.ui` file and add two `QLineEdit` widgets for login and password. <br /> 2. Add a `QPushButton` for login confirmation. <br /> 3. Run the UI and ensure fields are visible and editable.                         | Input fields for login and password are displayed correctly and accept user input.              | N/A    | To be tested |
+| UNT_2142 | Verify that the password input field hides characters as the user types.                                 | Medium   | 1. `.ui` file must contain a `QLineEdit` configured for password entry.                                   | 1. Locate the password input field using `findChild<QLineEdit*>()`. <br /> 2. Set its echo mode using `setEchoMode(QLineEdit::Password)`. <br /> 3. Simulate user typing.                                                       | Characters typed into the password field are visually hidden (e.g., replaced by dots).          | N/A    | To be tested |
+| UNT_2143 | Verify input field error handling for incorrect login or password submission.                           | Medium   | 1. `.ui` file must contain login form fields and a submit button.                                         | 1. Access login and password `QLineEdit` widgets in code. <br /> 2. Set up logic with `if/else` to compare input against correct values. <br /> 3. Simulate incorrect input and press the button. <br /> 4. Display error label. | When incorrect data is submitted, an error message or visual indicator is shown to the user.    | N/A    | To be tested |
+
 
 #### 2.1.5 Image Tests
-- ID: 2151; Image Creation and Insertion
-- ID: 2152; Image Visual Properties Management
+| ID       | Description                                                                                 | Priority | Pre-requisites                                                                                      | Procedure                                                                                                                                                                                                 | Expected Result                                                                               | Output | Status       |
+|----------|---------------------------------------------------------------------------------------------|----------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2151 | Verify that an image can be inserted and displayed in the UI using a QLabel.               | Medium   | 1. Qt Creator must be open with a working project. <br /> 2. An `images/` folder must exist next to the project. | 1. Create a `.ui` file and add a `QLabel` to hold the image. <br /> 2. Place the image file in the `images/` folder. <br /> 3. In code, use `QPixmap` and `setPixmap()` to load and insert the image into the label. <br /> 4. Run the project to verify. | The image is displayed in the `QLabel` on the UI as expected.                               | N/A    | To be tested |
+| UNT_2152 | Verify that visual properties of the inserted image (size, alignment, scaling) are applied correctly. | Medium   | 1. A `.ui` file must exist with a `QLabel` displaying an image. <br /> 2. The image source must still be present. | 1. Locate the image label using `findChild<QLabel*>()`. <br /> 2. Apply visual changes using methods like `setFixedSize()`, `setAlignment()`, or `setScaledContents(true)`. <br /> 3. Run the project to observe the effects.                       | The image is displayed with the specified size, alignment, and scaling properties.            | N/A    | To be tested |
 
 #### 2.1.6 Checkbox/Radio Tests
-- ID: 2161; Checkbox Creation and Display
-- ID: 2162; Checkbox Behavior Management
+| ID       | Description                                                                     | Priority | Pre-requisites                                                                                       | Procedure                                                                                                                                                                       | Expected Result                                                                                  | Output | Status       |
+|----------|----------------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2161 | Verify that a checkbox can be created and displayed in the UI.                  | High     | 1. Qt Creator must be open with a working project.                                                    | 1. Create a `.ui` file. <br /> 2. Add a `QCheckBox` widget to the form using the UI editor. <br /> 3. Run the project.                                                          | The `QCheckBox` is visible in the UI and can be checked or unchecked.                            | N/A    | To be tested |
+| UNT_2162 | Verify that the checkbox emits signals correctly when toggled.                  | High     | 1. A `.ui` file must be created and must contain a `QCheckBox` widget.                                | 1. Locate the checkbox in code using `findChild<QCheckBox*>()`. <br /> 2. Connect its `stateChanged(int)` or `toggled(bool)` signal to a slot or test handler. <br /> 3. Simulate check/uncheck and observe the signal behavior. | The checkbox emits appropriate signals when its state changes (checked/unchecked).                | N/A    | To be tested |
+
 
 #### 2.1.7 Display Element Tests
-- ID: 2171; HP Bar Creation and Management
-- ID: 2172; Pokémon Info Display Management
-- ID: 2173; Battle Text System Management
-- ID: 2174; Pop-Up Message System
+| ID        | Description                                                                       | Priority | Pre-requisites                                                                                               | Procedure                                                                                                                                                                                                                 | Expected Result                                                                                                  | Output | Status       |
+|-----------|------------------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2171  | Validate creation and dynamic update of the HP bar based on HP/max HP values.     | Critical | 1. Qt Creator must be open with a working project.                                                           | 1. Create a `.ui` file. <br /> 2. Add a progress bar or custom gauge widget to represent HP. <br /> 3. In code, initialize it with test values for current and max HP. <br /> 4. Run the project. <br /> 5. Modify HP value and observe update. | The HP bar is displayed, accurately reflecting current HP in proportion to the max value, and updates dynamically. | N/A    | To be tested |
+| UNT_2172  | Verify display of Pokémon details (name, sprite, and numeric HP).                 | High     | 1. Qt Creator must be open. <br /> 2. Pokémon sprite image must exist in the project’s image folder.         | 1. Create a `.ui` file. <br /> 2. Add a `QLabel` for the name and HP, and an image display widget. <br /> 3. Load and assign a test Pokémon name, sprite, and HP. <br /> 4. Run the project. <br /> 5. Change HP in code and observe the update. | The UI correctly displays the Pokémon’s name, sprite, and HP, and updates the HP value when changed in code.       | N/A    | To be tested |
+| UNT_2173  | Verify correct display and updating of capacity (attack) buttons with PP values.  | Critical | 1. Qt Creator must be open with a working project.                                                           | 1. Create a `.ui` file. <br /> 2. Add a `QPushButton` to represent a move. <br /> 3. Set the button text to show the move’s name and remaining PP. <br /> 4. Run the project. <br /> 5. Simulate PP decrease and update button text.          | The button shows the move name and PP, and updates correctly after a simulated use (PP -1).                        | N/A    | To be tested |
+| UNT_2174  | Validate the dynamic update of battle text in a label widget.                     | Medium   | 1. Qt Creator must be open with a working project.                                                           | 1. Create a `.ui` file. <br /> 2. Add a `QLabel` to hold battle narration. <br /> 3. Run the project to confirm visibility. <br /> 4. Programmatically update the label’s text. <br /> 5. Run and verify updated text appears as expected.       | Battle narration is shown inside the label and updates successfully as the text changes.                          | N/A    | To be tested |
+| UNT_2175  | Validate that pop-up message windows can be triggered and displayed properly.     | Medium   | 1. Qt Creator must be open with a working project.                                                           | 1. Create a `.ui` file. <br /> 2. Implement a message box or custom popup dialog in code. <br /> 3. Trigger the popup from a simulated event. <br /> 4. Run the project and confirm popup is displayed.                              | A message popup appears when triggered, showing the desired content or alert.                                     | N/A    | To be tested |
 
 #### 2.1.8 Menu Component Tests
-- ID: 2181; Menu Creation with Items
-- ID: 2182; Menu Interaction Management (signals, stacked widget)
+| ID        | Description                                                                       | Priority | Pre-requisites                                                                                          | Procedure                                                                                                                                                                                                                                  | Expected Result                                                                                                 | Output | Status       |
+|-----------|------------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2181  | Verify creation of a main menu with UI elements.                                  | Critical | 1. Qt Creator must be open with a working project.                                                        | 1. Create a new `.ui` file. <br /> 2. Use the UI editor to add a QWidget window. <br /> 3. Insert various UI elements (e.g., buttons, labels) into the window. <br /> 4. Run the project and ensure the widget window appears as expected.   | The QWidget window is displayed with all added UI elements properly visible and interactive.                    | N/A    | To be tested |
+| UNT_2182  | Validate navigation between pages using a QStackedWidget and button signals.       | High     | 1. A `.ui` file with a QStackedWidget has been created.                                                   | 1. Add a `QStackedWidget` with two pages. <br /> 2. On Page 1, add unique UI elements including a navigation button. <br /> 3. On Page 2, add different UI elements and another button. <br /> 4. Implement signal-slot connections in code so each button switches between the two pages. <br /> 5. Run the project. <br /> 6. Click the button on Page 1 to go to Page 2. <br /> 7. On Page 2, click the button to return to Page 1. | Buttons successfully switch between Page 1 and Page 2 of the QStackedWidget, each displaying different content. | N/A    | To be tested |
+
 
 ### 2.2. Integration Tests
 
@@ -395,46 +418,46 @@
 ### 3.1. Unit Tests
 
 #### 3.1.1 Database Management
-- ID: 3111; Database Creation, Connection and Verification
-- ID: 3112; Read Database Values
-- ID: 3113; Update Database Values
-- ID: 3114; Delete Database Values
+- ID: 3111; Database Creation, Connection and Verification;;;;;N/A;To be tested
+- ID: 3112; Read Database Values;;;;;N/A;To be tested
+- ID: 3113; Update Database Values;;;;;N/A;To be tested
+- ID: 3114; Delete Database Values;;;;;N/A;To be tested
 
 #### 3.1.2 Rules Management
-- ID: 3121; Retrieve Rule State
-- ID: 3122; Detect Rules Activation/Deactivation (checked)
-- ID: 3123; Delete Rules Value Change (if specific number needed)
-- ID: 3124; Retrieve set of rules combination
+- ID: 3121; Retrieve Rule State;;;;;N/A;To be tested
+- ID: 3122; Detect Rules Activation/Deactivation (checked);;;;;N/A;To be tested
+- ID: 3123; Delete Rules Value Change (if specific number needed);;;;;N/A;To be tested
+- ID: 3124; Retrieve set of rules combination;;;;;N/A;To be tested
 
 #### 3.1.3 Characters Management
-- ID: 3131; Retrieve 6 Characters and their data (stat, moveset, type, name, level)
-- ID: 3132; Detect Character selected/unselected
-- ID: 3123; Retrieve 2 selected characters List
+- ID: 3131; Retrieve 6 Characters and their data (stat, moveset, type, name, level);;;;;N/A;To be tested
+- ID: 3132; Detect Character selected/unselected;;;;;N/A;To be tested
+- ID: 3123; Retrieve 2 selected characters List;;;;;N/A;To be tested
 
 #### 3.1.4 Template Management
-- ID: 3141; Create Battle Template
-- ID: 3142; Modify Template Settings with fake characters, set of rules, damage calculator and name
-- ID: 3143; Delete Template
-- ID: 3144; Load created template (get its data)
+- ID: 3141; Create Battle Template;;;;;N/A;To be tested
+- ID: 3142; Modify Template Settings with fake characters, set of rules, damage calculator and name;;;;;N/A;To be tested
+- ID: 3143; Delete Template;;;;;N/A;To be tested
+- ID: 3144; Load created template (get its data);;;;;N/A;To be tested
 
 #### 3.1.5 Damage Calculator Management
-- ID: 3151; Get Damage Calculator Settings
-- ID: 3152; Modify Calculator Input values
-- ID: 3153; Retrieve Original Calculator Setup
-- ID: 3154; Modify Calculator Formula
-- ID: 3155; Formula Validation Tests
+- ID: 3151; Get Damage Calculator Settings;;;;;N/A;To be tested
+- ID: 3152; Modify Calculator Input values;;;;;N/A;To be tested
+- ID: 3153; Retrieve Original Calculator Setup;;;;;N/A;To be tested
+- ID: 3154; Modify Calculator Formula;;;;;N/A;To be tested
+- ID: 3155; Formula Validation Tests;;;;;N/A;To be tested
   * Verify rejection of invalid mathematical operators
   * Check for proper parentheses matching
   * Test handling of invalid variable names
   * Verify rejection of division by zero scenarios
 
-- ID: 3156; Input Boundary Tests
+- ID: 3156; Input Boundary Tests;;;;;N/A;To be tested
   * Test handling of negative numbers
   * Verify maximum value limitations
   * Check decimal number handling
   * Test empty input handling
 
-- ID: 3157; Formula Error Message Tests
+- ID: 3157; Formula Error Message Tests;;;;;N/A;To be tested
   * Verify appropriate error message for syntax errors
   * Check error message for invalid variables
   * Test error message for mathematical impossibilities
