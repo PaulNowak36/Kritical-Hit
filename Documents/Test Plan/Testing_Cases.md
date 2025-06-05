@@ -5,15 +5,8 @@
 | Created | June 3rd 2025 |
 | Last Modified | June 3rd 2025 |
 | Document Deadline | June 9th 2025 |
-
-
-Total Unit Tests: 60
-Total Integration Tests: 15
-Total System Tests: 15
-Total Performance Tests: 16
-Grand Total: 106 test cases
-
-
+| Test Cases Written | 106 |
+| Test Cases Cimpleted | 0 |
 
 ---
 
@@ -21,57 +14,54 @@ Grand Total: 106 test cases
 
 <summary>📖 Table of content</summary>
 
-- [Introduction](#introduction)
-  - [1.1 Document Purpose](#11-document-purpose)
-  - [1.2 Objectives](#12-objectives)
-- [2. Testing Strategy](#2-testing-strategy)
-  - [2.1 Functional Testing](#21-functional-testing)
-  - [2.2 Non-Functional Testing](#22-non-functional-testing)
-  - [2.3 Regression Testing](#23-regression-testing)
-- [3. Testing Process](#3-testing-process)
-  - [3.1 Environment Setup](#31-environment-setup)
-  - [3.2 Test Development Structure](#32-test-development-structure)
-  - [3.3 Test Execution Flow](#33-test-execution-flow)
-  - [3.4 External Testing Protocol](#34-external-testing-protocol)
-  - [3.5 Bug Tracking System](#35-bug-tracking-system)
-  - [3.6 Test Execution Checklist](#36-test-execution-checklist)
-- [4. Main Features to Test](#4-main-features-to-test)
-  - [4.1 Battle System Configuration](#41-battle-system-configuration)
-  - [4.2 Simulation Interface](#42-simulation-interface)
-  - [4.3 User Interface](#43-user-interface)
-- [5. Out of Scope Features](#5-out-of-scope-features)
-  - [5.1 Feature Exclusion Overview](#51-feature-exclusion-overview)
-  - [5.2 Future Implementation Possibilities](#52-future-implementation-possibilities)
-  - [5.3 Testing Impact Analysis](#53-testing-impact-analysis)
-  - [5.4 Documentation and Communication](#54-documentation-and-communication)
-  - [5.5 Testing Preparation for Future Features](#55-testing-preparation-for-future-features)
-- [6. Hardware Requirements](#6-hardware-requirements)
-  - [6.1 Testing Environment Specifications](#61-testing-environment-specifications)
-  - [6.2 Test Environment Variations](#62-test-environment-variations)
-  - [6.3 Input Device Testing](#63-input-device-testing)
-  - [6.4 Performance Testing Tools](#64-performance-testing-tools)
-  - [6.5 Testing Metrics](#65-testing-metrics)
-- [7. Environment Requirements](#7-environment-requirements)
-  - [7.1 Development Environment Setup](#71-development-environment-setup)
-  - [7.2 Testing Framework Configuration](#72-testing-framework-configuration)
-  - [7.3 Version Control Strategy](#73-version-control-strategy)
-  - [7.4 Test Environment Management](#74-test-environment-management)
-  - [7.5 Quality Assurance Procedures](#75-quality-assurance-procedures)
-- [8. External User Testing](#8-external-user-testing)
-  - [8.1 Participant Selection](#81-participant-selection)
-  - [8.2 Test Environment Setup](#82-test-environment-setup)
-  - [8.3 Testing Protocol](#83-testing-protocol)
-  - [8.4 Data Collection and Analysis](#84-data-collection-and-analysis)
-  - [8.5 Testing Management](#85-testing-management)
-- [9. Problem Reporting](#9-problem-reporting)
-  - [9.1 Bug Classification System](#91-bug-classification-system)
-  - [9.2 Documentation Process](#92-documentation-process)
-- [10. Risks and Assumptions](#10-risks-and-assumptions)
-  - [10.1 Testing Risk Matrix](#101-testing-risk-matrix)
-  - [10.2 Testing Assumptions](#102-testing-assumptions)
+- [Test Case Template](#test-case-template)
+- [1. Battle Simulation](#1-battle-simulation)
+  - [1.1. Unit Tests](#11-unit-tests)
+    - [1.1.1 Entity Creation Tests](#1111-entity-creation-tests)
+    - [1.1.2 Capacity Creation Tests](#1112-capacity-creation-tests)
+    - [1.1.3 Battle Creation Tests](#1113-battle-creation-tests)
+    - [1.1.4 Damage Calculation Tests](#1114-damage-calculation-tests)
+    - [1.1.5 HP Management Tests](#1115-hp-management-tests)
+    - [1.1.6 Stat Change Tests](#1116-stat-change-tests)
+    - [1.1.7 Win/Lose Condition Tests](#1117-winlose-condition-tests)
+  - [1.2. Integration Tests](#12-integration-tests)
+    - [1.2.1 Battle System & UI Integration](#1211-battle-system--ui-integration)
+    - [1.2.2 Battle Flow Integration](#1221-battle-flow-integration)
+  - [1.3. System Tests](#13-system-tests)
+    - [1.3.1 Complete Battle Flows](#1311-complete-battle-flows)
+    - [1.3.2 Edge Cases](#1321-edge-cases)
+  - [1.4. Performance Tests](#14-performance-tests)
+    - [1.4.1 Response Time Tests](#1411-response-time-tests)
+    - [1.4.2 Resource Usage Tests](#1421-resource-usage-tests)
+    - [1.4.3 Load Tests](#1431-load-tests)
+- [2. Interface](#2-interface)
+  - [2.1. Unit Tests](#21-unit-tests)
+    - [2.1.1 Window Creation Tests](#2111-window-creation-tests)
+    - [2.1.2 Button Tests](#2121-button-tests)
+    - [2.1.3 Label Tests](#2131-label-tests)
+    - [2.1.4 Login Input Field Tests](#2141-login-input-field-tests)
+    - [2.1.5 Image Tests](#2151-image-tests)
+    - [2.1.6 Checkbox/Radio Tests](#2161-checkboxradio-tests)
+    - [2.1.7 Display Element Tests](#2171-display-element-tests)
+    - [2.1.8 Menu Component Tests](#2181-menu-component-tests)
+  - [2.2. Integration Tests](#22-integration-tests)
+    - [2.2.1 Window Navigation Flow](#2211-window-navigation-flow)
+    - [2.2.2 UI Component Interaction](#2221-ui-component-interaction)
+  - [2.3. System Tests](#23-system-tests)
+    - [2.3.1 Complete UI Workflows](#2311-complete-ui-workflows)
+    - [2.3.2 Error Handling](#2321-error-handling)
+  - [2.4. Performance Tests](#24-performance-tests)
+    - [2.4.1 UI Response Times](#2411-ui-response-times)
+    - [2.4.2 Resource Management](#2421-resource-management)
+- [3. Template Configuration](#3-template-configuration)
+  - [3.1. Unit Tests](#31-unit-tests)
+    - [3.1.1 Database Management](#3111-database-management)
+    - [3.1.2 Rules Management](#3121-rules-management)
+    - [3.1.3 Characters Management](#3131-characters-management)
+    - [3.1.4 Template Management](#3141-template-management)
+    - [3.1.5 Damage Calculator Management](#3151-damage-calculator-management)
 
 </details>
-
 
 ---
 
