@@ -89,10 +89,9 @@
 #### 1.1.2 Capacity Creation Tests
 | ID       | Description                                                                                  | Priority | Pre-requisites                                                                                   | Procedure                                                                                              | Expected                                                                                 | Output | Status       |
 |----------|----------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------|--------------|
-| UNT_1121 | Verify that the `Capacity` class can be instantiated and correctly initialized with values sucg as name, attack power, power points, category, and effect type. Ensure all properties are properly assigned and retrievable. | Critical | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object with test values.  <br /> 3. Use assertions to verify each member is correctly set. | Unit test should pass, confirming all properties are correctly initialized and retrievable. | N/A    | To be tested |
+| UNT_1121 | Verify that the `Capacity` class can be instantiated and correctly initialized with values such as name, attack power, power points, category, and effect type. Ensure all properties are properly assigned and retrievable. | Critical | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object with test values.  <br /> 3. Use assertions to verify each member is correctly set. | Unit test should pass, confirming all properties are correctly initialized and retrievable. | N/A    | To be tested |
 | UNT_1122 | Verify that the remaining power points (PP) of a `Capacity` object are correctly tracked and retrievable. Ensure accurate initialization and access. | High     | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object with a known PP value.  <br /> 3. Use assertions to verify the remaining PP is correctly returned. | Unit test should pass, confirming correct tracking and retrieval of PP.                  | N/A    | To be tested |
 | UNT_1123 | Verify that a `Capacity` object can be assigned a stat modifier structure and that all modifier values are correctly stored and accessible. | Medium   | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object.  <br /> 3. Create a stat modifier structure.  <br /> 4. Assign it and use assertions to verify each value. | Unit test should pass, confirming the stat modifier is correctly assigned and accessible. | N/A    | To be tested |
-
 
 #### 1.1.3 Battle Creation Tests
 
@@ -142,39 +141,19 @@
 ### 1.2. Integration Tests
 
 #### 1.2.1 Battle System & UI Integration
-- ID: INT_1211; Battle Initialization & UI Update  
-  * Verify battle creation triggers proper UI elements (HP bars, move buttons)  
-  * Check if entity stats are correctly displayed  
-  * Ensure initial battle state is properly reflected in UI  
-
-- ID: INT_1212; Combat Action & Visual Feedback  
-  * Verify attack selection updates battle text  
-  * Check if damage calculation reflects in HP bar update  
-  * Ensure stat changes are visually indicated  
-
-- ID: INT_1214; Template Loading & Battle Setup  
-  * Verify template rules are correctly applied to battle instance  
-  * Check if character stats are properly loaded from template  
-  * Ensure damage calculator configuration is properly applied  
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_1211 | Verify that battle creation properly initializes and updates all UI elements, ensuring proper display of entity stats, HP bars, and move buttons. | Critical | 1. All related unit tests must have passed (UNT_1111, UNT_1131, UNT_2171, UNT_2172, UNT_2173) <br /> 2. Entity and Battle classes must be implemented <br /> 3. UI components must be created and available <br /> | 1. Create a battle instance with two entities <br /> 2. Initialize the UI components (HP bars, stat displays, move buttons) <br /> 3. Link battle state to UI elements <br /> 4. Verify initial UI state matches battle data <br /> 5. Trigger battle state changes <br /> 6. Verify UI updates reflect the changes | All UI elements correctly display and update according to battle state changes | N/A | To be tested |
+| INT_1212 | Verify that combat actions properly trigger visual feedback, including battle text updates, HP bar changes, and stat modification indicators. | Medium | 1. All related unit tests must have passed (UNT_1141, UNT_1142, UNT_2171, UNT_2173, UNT_2174) <br /> 2. Battle system must be operational <br /> 3. UI components must be responsive <br />  | 1. Initialize a battle with test entities <br /> 2. Set up UI elements for battle feedback <br /> 3. Execute a test attack sequence <br /> 4. Verify HP bar updates <br /> 5. Check battle text changes <br /> 6. Confirm visual indicators for stat changes | Combat actions correctly trigger all associated visual feedback elements | N/A | To be tested |
+| INT_1213 | Verify that battle templates properly load and configure both battle system and UI elements according to specified rules. | Low | 1. All related unit tests must have passed (UNT_1131, UNT_3141, UNT_3144) <br /> 2. Template system must be operational <br /> 3. Battle system must be configurable <br /> | 1. Create a test battle template <br /> 2. Load template into battle system <br /> 3. Initialize UI with template settings <br /> 4. Verify battle rules are applied <br /> 5. Check character stats loading <br /> 6. Confirm damage calculator configuration | Battle system and UI correctly reflect template configuration | N/A | To be tested |
 
 #### 1.2.2 Battle Flow Integration
-- ID: INT_1221; Complete Attack Sequence  
-  * Test full attack sequence from selection to resolution  
-  * Verify all damage calculations are applied correctly  
-  * Ensure proper order of operations in attack resolution  
-
-- ID: INT_1222; Multiple Modifier Application  
-  * Test interaction between different stat modifiers  
-  * Verify correct order of modifier application  
-  * Ensure modifier limits are properly enforced  
-
-- ID: INT_1223; Move Effect Processing  
-  * Test move effects are properly applied  
-
-- ID: INT_1224; Turn Resolution Chain  
-  * Verify correct turn order based on speed and modifiers  
-  * Check turn state transitions  
-  * Ensure proper handling of turn-based effects  
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_1221 | Verify that a complete attack sequence executes properly from selection to resolution, including damage calculation and HP updates. | Critical | 1. All related unit tests must have passed (UNT_1112, UNT_1141, UNT_1151, UNT_2121, UNT_2171) <br /> 2. Battle system must be operational <br /> 3. Entity damage calculation system must be implemented | 1. Initialize a battle with two test entities <br /> 2. Select an attack for the first entity <br /> 3. Execute the attack sequence <br /> 4. Calculate and apply damage <br /> 5. Update HP values <br /> 6. Verify battle state after attack | Complete attack sequence executes in correct order with proper damage calculation and HP updates | N/A | To be tested |
+| INT_1222 | Verify that multiple modifiers (buffs, STAB, critical hits) are properly applied and interact correctly during damage calculation. | Medium | 1. All related unit tests must have passed (UNT_1141, UNT_1143, UNT_1145, UNT_1146, UNT_1161) <br /> 2. Modifier system must be implemented <br /> 3. Damage calculation system must support multiple modifiers | 1. Set up a battle with test entities <br /> 2. Apply multiple stat modifiers to an entity <br /> 3. Execute an attack with STAB bonus <br /> 4. Force a critical hit <br /> 5. Calculate final damage <br /> 6. Verify all modifiers were properly applied | All modifiers are correctly applied and interact as expected in the damage calculation | N/A | To be tested |
+| INT_1223 | Verify that a healing move is properly processed and applied when a character uses it on themselves. | Medium | 1. All related unit tests must have passed (UNT_1121, UNT_1122, UNT_1123, UNT_1142) <br /> 2. Healing system must be implemented <br /> 3. Battle system must support self-targeting moves | 1. Initialize battle with an entity having a healing move <br /> 2. Reduce entity's HP below maximum <br /> 3. Execute the healing move <br /> 4. Verify PP reduction <br /> 5. Confirm HP increase within maximum limits | Healing move correctly restores HP and consumes PP | N/A | To be tested |
+| INT_1224 | Verify that turn order and resolution are properly handled based on speed stats and modifiers. | Medium | 1. All related unit tests must have passed (UNT_1131, UNT_1133, UNT_1134, UNT_1135) <br /> 2. Turn system must be implemented <br /> 3. Speed comparison system must be operational | 1. Set up battle with entities having different speeds <br /> 2. Apply speed modifiers to one entity <br /> 3. Initialize turn sequence <br /> 4. Verify turn order determination <br /> 5. Execute multiple turns <br /> 6. Check turn counter updates | Turn order is correctly determined by speed and modifiers, with proper turn progression | N/A | To be tested |
 
 ### 1.3. System Tests
 
@@ -338,26 +317,16 @@
 ### 2.2. Integration Tests
 
 #### 2.2.1 Window Navigation Flow
-- ID: INT_2211; Menu Navigation Chain
-  * Test complete navigation flow between all windows
-  * Verify proper state preservation during transitions
-  * Ensure back/forward navigation works correctly
-
-- ID: INT_2212; Data Persistence Across Views
-  * Verify data maintains consistency across window changes
-  * Check state preservation during navigation
-  * Ensure proper data cleanup on window closure
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_2211 | Verify proper navigation between authentication menu and simulation menu using menu buttons, ensuring correct window transitions and state preservation. | High | 1. All related unit tests must have passed (UNT_2111, UNT_2112) <br /> 2. Authentication and Simulation menus must be implemented <br /> 3. Button navigation system must be operational | 1. Launch authentication menu window <br /> 2. Enter valid login credentials <br /> 3. Click login button to navigate to simulation menu <br /> 4. Verify simulation menu state <br /> 5. Test logout button to return to authentication menu <br /> 6. Verify authentication menu resets properly | Navigation between authentication and simulation menus works correctly with proper state handling | N/A | To be tested |
+| INT_2212 | Verify data persistence and state management across different views during navigation. | High | 1. All related unit tests must have passed (UNT_2181, UNT_2182, UNT_3111, UNT_3112) <br /> 2. State management system must be implemented <br /> 3. Data storage system must be operational | 1. Initialize application with test data <br /> 2. Navigate through multiple views <br /> 3. Modify data in different views <br /> 4. Navigate back and forth <br /> 5. Verify data consistency <br /> 6. Test window closure and reopening | Data remains consistent across all view transitions and window states | N/A | To be tested |
 
 #### 2.2.2 UI Component Interaction
-- ID: INT_2221; Form Submission Integration
-  * Test form data collection and validation
-  * Verify error handling and display
-  * Ensure proper data transmission to backend
-
-- ID: INT_2222; Dynamic UI Updates
-  * Test real-time UI updates based on user actions
-  * Verify proper event handling and display updates
-  * Ensure UI state consistency
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_2221 | Verify form submission process including data collection, validation, and backend transmission. | Medium | 1. All related unit tests must have passed (UNT_2141, UNT_2142, UNT_2143) <br /> 2. Form handling system must be implemented <br /> 3. Data validation system must be operational | 1. Initialize form with test fields <br /> 2. Input valid and invalid data <br /> 3. Submit form with invalid data <br /> 4. Verify error handling <br /> 5. Submit form with valid data <br /> 6. Confirm data transmission | Forms properly validate input and handle submission correctly | N/A | To be tested |
+| INT_2222 | Verify real-time UI updates in response to user actions and state changes. | Medium | 1. All related unit tests must have passed (UNT_2171, UNT_2172, UNT_2173, UNT_2174) <br /> 2. Event handling system must be implemented <br /> 3. UI update system must be operational | 1. Initialize UI components <br /> 2. Trigger various user actions <br /> 3. Verify immediate UI feedback <br /> 4. Test multiple rapid updates <br /> 5. Check state consistency <br /> 6. Verify all visual indicators | UI components update correctly and immediately in response to actions | N/A | To be tested |
 
 ### 2.3. System Tests
 
@@ -452,55 +421,29 @@
 
 
 #### 3.1.5 Damage Calculator Management
-| ID        | Description                                                                       | Priority | Pre-requisites                                                                                          | Procedure                                                                                                                                                                                                                                  | Expected Result                                                                                                 | Output | Status       |
-|-----------|------------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|--------|--------------|
-- ID: 3151; Get Damage Calculator Settings;;;;;N/A;To be tested
-- ID: 3152; Modify Calculator Input values;;;;;N/A;To be tested
-- ID: 3153; Retrieve Original Calculator Setup;;;;;N/A;To be tested
-- ID: 3154; Modify Calculator Formula;;;;;N/A;To be tested
-- ID: 3155; Formula Validation Tests;;;;;N/A;To be tested
-  * Verify rejection of invalid mathematical operators
-  * Check for proper parentheses matching
-  * Test handling of invalid variable names
-  * Verify rejection of division by zero scenarios
+| ID       | Description                                           | Priority   | Pre-requisites                                 | Procedure                                                                                                                                                                                                                      | Expected Result                                                                                                     | Output | Status       |
+|----------|-------------------------------------------------------|------------|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_3151 | Get Damage Calculator Settings                        | Low        | Qt test framework set up; classes implemented  | 1. Write unit test  <br> 2. Retrieve formula inputs from damage calculator  <br> 3. Use assertions to verify values                                                                     | Unit test passes; retrieved inputs match expected values                                                             | N/A    | To be tested |
+| UNT_3152 | Modify Calculator Input Values                        | Low        | Qt test framework set up; classes implemented  | 1. Write unit test  <br> 2. Retrieve calculator inputs  <br> 3. Copy calculator and change input values  <br> 4. Use assertions to check new damage                                     | Unit test passes; modified inputs produce updated output as expected                                                 | N/A    | To be tested |
+| UNT_3153 | Modify Calculator Formula                             | Very Low   | Qt test framework set up; classes implemented  | 1. Write unit test  <br> 2. Retrieve original formula  <br> 3. Apply new formula in a test instance  <br> 4. Use assertions to check new damage                                          | Unit test passes; new formula correctly modifies the damage output                                                  | N/A    | To be tested |
+| UNT_3154 | Validate formulas and handle input errors gracefully  | Low        | Qt test framework; calculator class available  | 1. Write unit test  <br> 2. Create test cases for invalid syntax (`a + * b`), bad variables (`1abc`), divide by zero, unmatched parentheses, empty input  <br> 3. Test valid edge inputs <br> 4. Fix invalid inputs and re-test     | Invalid inputs show clear error messages; valid inputs are accepted; system recovers after correction; unit test passes | N/A    | To be tested |
 
-- ID: 3156; Input Boundary Tests;;;;;N/A;To be tested
-  * Test handling of negative numbers
-  * Verify maximum value limitations
-  * Check decimal number handling
-  * Test empty input handling
 
-- ID: 3157; Formula Error Message Tests;;;;;N/A;To be tested
-  * Verify appropriate error message for syntax errors
-  * Check error message for invalid variables
-  * Test error message for mathematical impossibilities
-  * Verify error state cleanup after correction
 
 ### 3.2. Integration Tests
 
 #### 3.2.1 Template & Database Integration
-
-- ID: INT_3211; Template-Database Operations
-  * Test template saving and loading with database
-  * Verify proper data persistence
-  * Ensure database integrity during operations
-
-- ID: INT_3212; Rule Configuration Integration
-  * Test rule changes with template system
-  * Verify proper rule combination handling
-  * Ensure rule state persistence
-
-- ID: INT_3213; Calculator-UI Error Display
-  * Test error message propagation to UI
-  * Verify UI state during error conditions
-  * Ensure proper error recovery flow in UI
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_3211 | Verify template saving and loading operations with database, ensuring data integrity. | Low | 1. All related unit tests must have passed (UNT_3111, UNT_3112, UNT_3113, UNT_3141, UNT_3144) <br /> 2. Database connection must be established <br /> 3. Template system must be operational | 1. Create a new battle template <br /> 2. Save template to database <br /> 3. Verify database entry creation <br /> 4. Load template from database <br /> 5. Compare loaded data with original <br /> 6. Update template and verify changes in database | Templates are correctly saved to and loaded from database with data integrity maintained | N/A | To be tested |
+| INT_3212 | Verify rule configuration system properly integrates with template management. | Low | 1. All related unit tests must have passed (UNT_3121, UNT_3122, UNT_3123, UNT_3141) <br /> 2. Rule system must be implemented <br /> 3. Template management system must be operational | 1. Create template with specific rule configuration <br /> 2. Save rule configuration <br /> 3. Modify multiple rules <br /> 4. Update template with new rules <br /> 5. Verify rule persistence | Rule configurations are properly integrated and preserved in templates | N/A | To be tested |
+| INT_3213 | Verify calculator error handling and UI error display integration. | Low | 1. All related unit tests must have passed (UNT_2174, UNT_3154) <br /> 2. Calculator error handling must be implemented <br /> 3. UI error display system must be operational | 1. Input invalid formula in calculator <br /> 2. Trigger various error conditions <br /> 3. Verify error message display <br /> 4. Test error state recovery <br /> 5. Confirm UI updates | Calculator errors are properly caught and displayed in UI | N/A | To be tested |
 
 #### 3.2.2 Character & Template Integration
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_3221 | Verify character selection system properly integrates with template management. | Low | 1. All related unit tests must have passed (UNT_3131, UNT_3132, UNT_3133, UNT_3141) <br /> 2. Character selection system must be implemented <br /> 3. Template system must be operational | 1. Display character selection interface <br /> 2. Select two characters <br /> 3. Create template with selections <br /> 4. Save template <br /> 5. Load template and verify characters <br /> 6. Test character deselection | Character selections are properly integrated and preserved in templates | N/A | To be tested |
 
-- ID: INT_3221; Character Selection System
-  * Test character selection and template integration
-  * Verify proper character data handling
-  * Ensure character state persistence
 
 ### 3.3. System Tests
 
