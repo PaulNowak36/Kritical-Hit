@@ -158,78 +158,36 @@
 ### 1.3. System Tests
 
 #### 1.3.1 Complete Battle Flows
-- ID: SYS_1311; Default Configuration Battle  
-  * Test complete battle with default settings  
-  * Verify all basic mechanics work together  
-  * Ensure proper battle conclusion  
-
-- ID: SYS_1312; Custom Rule Set Battle  
-  * Test battle with modified rule combinations  
-  * Verify rule interactions work correctly  
-  * Ensure custom rules affect battle properly  
-
-- ID: SYS_1313; Modified Character Battle  
-  * Test battle with custom character configurations  
-  * Verify modified stats work correctly  
-
-- ID: SYS_1314; Alternative Calculator Battle  
-  * Test battle with modified damage calculations  
-  * Verify custom formulas work correctly  
-  * Ensure calculator changes affect battle properly  
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_1311 | Verify that a complete battle executes correctly using default configuration settings. | Critical | 1. All related integration tests must have passed (INT_1211, INT_1221, INT_1224) <br /> 2. Battle system must be fully operational <br /> 3. Default configuration must be implemented | 1. Initialize battle with default settings <br /> 2. Execute multiple turns with various moves <br /> 3. Verify damage calculations <br /> 4. Check turn order handling <br /> 5. Monitor battle state changes <br /> 6. Confirm proper battle conclusion | Complete battle executes successfully with all mechanics working together | N/A | To be tested |
+| SYS_1312 | Verify that battles execute correctly with custom rule combinations. | High | 1. All related integration tests must have passed (INT_1213, INT_3212) <br /> 2. Rule system must be fully operational <br /> 3. Custom configuration must be supported | 1. Create battle with modified rules <br /> 2. Execute battle with rule variations <br /> 3. Verify rule interactions <br /> 4. Test edge case combinations <br /> 5. Confirm battle conclusion under rules | Battle executes correctly with custom rules properly affecting gameplay | N/A | To be tested |
+| SYS_1313 | Verify that battles execute correctly with different character configurations. | Low | 1. All related integration tests must have passed (INT_1211, INT_3221) <br /> 2. Character system must support various configurations | 1. Select different character combinations <br /> 2. Verify character stats and movesets <br /> 3. Execute battle with different characters <br /> 4. Check character-specific interactions | Battle executes correctly with different character configurations | N/A | To be tested |
+| SYS_1314 | Verify that battles execute correctly with modified damage calculator configurations. | Low | 1. All related integration tests must have passed (INT_1212, INT_3213) <br /> 2. Custom damage calculator must be operational | 1. Set up custom damage formula <br /> 2. Initialize battle with modified calculator <br /> 3. Execute multiple attacks <br /> 4. Verify damage calculations <br /> 5. Check battle balance | Battle executes correctly with modified damage calculations | N/A | To be tested |
 
 #### 1.3.2 Edge Cases
-- ID: SYS_1321; Maximum Stats Battle  
-  * Test battle with max stat values (999)  
-  * Verify no overflow occurs  
-  * Ensure proper handling of maximum values  
-
-- ID: SYS_1322; Minimum Moves Battle  
-  * Test battle with minimum move count (1)  
-  * Verify proper handling of limited moves  
-  * Ensure battle can still proceed  
-
-- ID: SYS_1323; PP Depletion Scenario  
-  * Test battle with PP running out  
-  * Verify proper handling of no-PP situation  
-  * Ensure appropriate battle conclusion  
-
-- ID: SYS_1324; Multiple Rules Interaction  
-  * Test complex rule combinations  
-  * Verify rule priority system  
-  * Ensure no conflicting rule applications  
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_1321 | Verify that the battle system properly handles maximum stat values. | Medium | 1. Related unit tests must have passed (UNT_1111, UNT_1141) <br /> 2. Battle system must handle maximum values | 1. Create entities with maximum stats (999) <br /> 2. Execute battle with max-stat entities <br /> 3. Verify damage calculations <br /> 4. Check for overflow issues | Battle executes correctly with maximum stat values without overflow | N/A | To be tested |
+| SYS_1322 | Verify that battles execute properly with minimum move count. | Medium | 1. Related unit tests must have passed (UNT_1113, UNT_1172) <br /> 2. Battle system must support limited moves | 1. Create entities with single move <br /> 2. Execute battle with limited movesets <br /> 3. Verify move selection <br /> 4. Check battle progression | Battle executes correctly with minimum move configuration | N/A | To be tested |
+| SYS_1323 | Verify proper battle handling when all moves run out of PP. | Medium | 1. Related unit tests must have passed (UNT_1122, UNT_1172) <br /> 2. PP depletion handling must be implemented | 1. Start battle with low PP moves <br /> 2. Deplete all PP <br /> 3. Verify no-PP state handling <br /> 4. Check battle conclusion | Battle handles PP depletion correctly and concludes appropriately | N/A | To be tested |
+| SYS_1324 | Verify proper handling of multiple interacting rules. | Medium | 1. Related integration test must have passed (INT_3212) <br /> 2. Rule interaction system must be implemented | 1. Enable multiple interacting rules <br /> 2. Execute battle with rule combinations <br /> 3. Verify rule priorities <br /> 4. Check for conflicts | Rules interact correctly without conflicts | N/A | To be tested |
 
 ### 1.4. Performance Tests
 
 #### 1.4.1 Response Time Tests
-- ID: PERF_1411; Battle Action Response  
-  * Measure UI response time for battle actions  
-  * Verify under 100ms threshold  
-  * Test under various system loads  
-
-- ID: PERF_1412; State Update Speed  
-  * Measure time for battle state updates  
-  * Verify real-time update capability  
-  * Test multiple simultaneous updates  
-
-- ID: PERF_1413; HP Bar Animation Performance  
-  * Measure HP Bar change smoothness  
-  * Verify frame rate consistency  
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_1411 | Verify that battle actions respond within acceptable time limits. | High | 1. Related integration tests must have passed (INT_1211, INT_1221) <br /> 2. Performance monitoring tools must be configured <br /> 3. Battle system must be operational | 1. Initialize battle with performance monitoring <br /> 2. Execute various battle actions <br /> 3. Measure response times <br /> 4. Test under different system loads <br /> 5. Record and analyze timing data | All battle actions complete within 100ms response time threshold | N/A | To be tested |
+| PERF_1412 | Verify that battle state updates occur in real-time without delays. | Medium | 1. Related integration tests must have passed (INT_1211, INT_2222) <br /> 2. State monitoring system must be implemented | 1. Set up battle with state monitoring <br /> 2. Trigger rapid state changes <br /> 3. Measure update times <br /> 4. Test concurrent updates <br /> 5. Verify state consistency | State updates complete within 50ms and maintain consistency | N/A | To be tested |
+| PERF_1413 | Verify smooth animation of HP bar changes. | Low | 1. Related unit test must have passed (UNT_2171) <br /> 2. Animation system must be implemented | 1. Set up HP bar monitoring <br /> 2. Trigger various HP changes <br /> 3. Measure frame rates <br /> 4. Test different animation speeds | HP bar animations maintain 60 FPS with smooth transitions | N/A | To be tested |
 
 #### 1.4.2 Resource Usage Tests
-- ID: PERF_1421; Memory Usage During Battle  
-  * Monitor memory consumption  
-  * Check for memory leaks  
-  * Verify proper resource cleanup  
-
-- ID: PERF_1422; CPU Usage Monitoring  
-  * Track CPU usage during battles  
-  * Identify processing bottlenecks  
-  * Verify efficient resource utilization  
-
-- ID: PERF_1423; Long Session Stability  
-  * Test extended battle sessions  
-  * Monitor resource usage over time  
-  * Verify system stability  
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_1421 | Verify that memory usage during battles remains within acceptable limits. | High | 1. Memory monitoring tools must be configured <br /> 2. Battle system must be fully operational | 1. Start memory monitoring <br /> 2. Execute complete battle sequence <br /> 3. Monitor memory allocation <br /> 4. Check for memory leaks <br /> 5. Verify cleanup | Memory usage remains stable and leaks are not detected | N/A | To be tested |
+| PERF_1422 | Verify CPU usage efficiency during battle operations. | Medium | 1. CPU monitoring tools must be configured <br /> 2. Battle system must be operational | 1. Start CPU monitoring <br /> 2. Execute various battle scenarios <br /> 3. Measure CPU utilization <br /> 4. Identify processing peaks <br /> 5. Analyze bottlenecks | CPU usage remains under 25% during normal operation | N/A | To be tested |
+| PERF_1423 | Verify system stability during extended battle sessions. | High | 1. System monitoring tools must be configured <br /> 2. Battle system must support extended sessions | 1. Initialize extended battle session <br /> 2. Monitor system resources <br /> 3. Execute battles for 15+ minutes <br /> 4. Track performance metrics <br /> 5. Check for degradation | System maintains stability with consistent performance | N/A | To be tested |
 
 #### 1.4.3 Load Tests
 - ID: PERF_1431; Multiple Battle Management  
