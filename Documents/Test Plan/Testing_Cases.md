@@ -6,6 +6,15 @@
 | Last Modified | June 3rd 2025 |
 | Document Deadline | June 9th 2025 |
 
+
+Total Unit Tests: 60
+Total Integration Tests: 15
+Total System Tests: 15
+Total Performance Tests: 16
+Grand Total: 106 test cases
+
+
+
 ---
 
 <details>
@@ -161,7 +170,7 @@
 | ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
 |-----|-------------|-----------|----------------|------------|----------|--------|---------|
 | SYS_1311 | Verify that a complete battle executes correctly using default configuration settings. | Critical | 1. All related integration tests must have passed (INT_1211, INT_1221, INT_1224) <br /> 2. Battle system must be fully operational <br /> 3. Default configuration must be implemented | 1. Initialize battle with default settings <br /> 2. Execute multiple turns with various moves <br /> 3. Verify damage calculations <br /> 4. Check turn order handling <br /> 5. Monitor battle state changes <br /> 6. Confirm proper battle conclusion | Complete battle executes successfully with all mechanics working together | N/A | To be tested |
-| SYS_1312 | Verify that battles execute correctly with custom rule combinations. | High | 1. All related integration tests must have passed (INT_1213, INT_3212) <br /> 2. Rule system must be fully operational <br /> 3. Custom configuration must be supported | 1. Create battle with modified rules <br /> 2. Execute battle with rule variations <br /> 3. Verify rule interactions <br /> 4. Test edge case combinations <br /> 5. Confirm battle conclusion under rules | Battle executes correctly with custom rules properly affecting gameplay | N/A | To be tested |
+| SYS_1312 | Verify that battles execute correctly with custom rule combinations. | Low | 1. All related integration tests must have passed (INT_1213, INT_3212) <br /> 2. Rule system must be fully operational <br /> 3. Custom configuration must be supported | 1. Create battle with modified rules <br /> 2. Execute battle with rule variations <br /> 3. Verify rule interactions <br /> 4. Test edge case combinations <br /> 5. Confirm battle conclusion under rules | Battle executes correctly with custom rules properly affecting gameplay | N/A | To be tested |
 | SYS_1313 | Verify that battles execute correctly with different character configurations. | Low | 1. All related integration tests must have passed (INT_1211, INT_3221) <br /> 2. Character system must support various configurations | 1. Select different character combinations <br /> 2. Verify character stats and movesets <br /> 3. Execute battle with different characters <br /> 4. Check character-specific interactions | Battle executes correctly with different character configurations | N/A | To be tested |
 | SYS_1314 | Verify that battles execute correctly with modified damage calculator configurations. | Low | 1. All related integration tests must have passed (INT_1212, INT_3213) <br /> 2. Custom damage calculator must be operational | 1. Set up custom damage formula <br /> 2. Initialize battle with modified calculator <br /> 3. Execute multiple attacks <br /> 4. Verify damage calculations <br /> 5. Check battle balance | Battle executes correctly with modified damage calculations | N/A | To be tested |
 
@@ -190,21 +199,11 @@
 | PERF_1423 | Verify system stability during extended battle sessions. | High | 1. System monitoring tools must be configured <br /> 2. Battle system must support extended sessions | 1. Initialize extended battle session <br /> 2. Monitor system resources <br /> 3. Execute battles for 15+ minutes <br /> 4. Track performance metrics <br /> 5. Check for degradation | System maintains stability with consistent performance | N/A | To be tested |
 
 #### 1.4.3 Load Tests
-- ID: PERF_1431; Multiple Battle Management  
-  * Test handling multiple battle instances  
-  * Verify resource allocation  
-  * Check system performance under load  
-
-- ID: PERF_1432; Rapid Action Sequence  
-  * Test system under rapid user inputs  
-  * Verify handling of quick successive actions  
-  * Check for action queue management  
-
-- ID: PERF_1433; Resource Recovery  
-  * Test system resource recovery after heavy load  
-  * Verify memory/CPU usage normalization  
-  * Check cleanup processes  
-
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_1431 | Verify system performance with multiple battle templates stored in the database. | Medium | 1. Related integration tests must have passed (INT_3211, INT_3212) <br /> 2. Database performance monitoring must be configured <br /> 3. Template system must support multiple templates | 1. Create multiple battle templates (5+) <br /> 2. Store templates in database <br /> 3. Monitor database access times <br /> 4. Test template loading speeds <br /> 5. Verify search and filter operations <br /> 6. Measure overall system responsiveness | System maintains performance with 5+ templates in database with sub-500ms access times | N/A | To be tested |
+| PERF_1432 | Verify system handling of rapid successive user actions. | High | 1. Related integration test must have passed (INT_1221) <br /> 2. Input handling system must be implemented | 1. Set up action monitoring <br /> 2. Execute rapid action sequences <br /> 3. Measure response times <br /> 4. Check action queue <br /> 5. Verify action processing | All actions are properly queued and processed in order | N/A | To be tested |
+| PERF_1433 | Verify system resource recovery after heavy load periods. | Medium | 1. Resource monitoring tools must be configured <br /> 2. System cleanup processes must be implemented | 1. Generate heavy system load <br /> 2. Monitor resource usage <br /> 3. End load period <br /> 4. Measure recovery time <br /> 5. Verify resource normalization | System returns to baseline resource usage within 30 seconds | N/A | To be tested |
 ---
 
 ## 2. Interface
@@ -289,54 +288,30 @@
 ### 2.3. System Tests
 
 #### 2.3.1 Complete UI Workflows
-
-- ID: SYS_2311; Template Creation Workflow
-  * Test complete template creation process
-  * Verify all UI elements work together
-  * Ensure proper data saving and validation
-
-- ID: SYS_2312; Battle Configuration Workflow
-  * Test battle setup through UI
-  * Verify all configuration options work together
-  * Ensure proper battle initialization
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_2311 | Verify complete template creation workflow through UI. | Low | 1. Related integration tests must have passed (INT_2211, INT_2212, INT_3211) <br /> 2. Template creation interface must be operational <br /> 3. Data validation system must be implemented | 1. Launch template creation interface <br /> 2. Input all template parameters <br /> 3. Test validation feedback <br /> 4. Save template <br /> 5. Verify data persistence <br /> 6. Check template accessibility | Complete template creation process works with proper validation and storage | N/A | To be tested |
+| SYS_2312 | Verify battle configuration workflow through UI. | High | 1. Related integration tests must have passed (INT_1213, INT_2222) <br /> 2. Battle configuration interface must be operational <br /> 3. Configuration system must be implemented | 1. Access battle configuration menu <br /> 2. Set various battle parameters <br /> 3. Apply configuration changes <br /> 4. Initialize battle <br /> 5. Verify applied settings <br /> 6. Test configuration persistence | Battle configuration process works with all options properly applied | N/A | To be tested |
 
 #### 2.3.2 Error Handling
-
-- ID: SYS_2321; Input Validation System
-  * Test comprehensive input validation
-  * Verify error message display
-  * Ensure proper error recovery flows
-
-- ID: SYS_2322; System State Recovery
-  * Test UI recovery after errors
-  * Verify state preservation during errors
-  * Ensure proper error logging and display
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_2321 | Verify comprehensive input validation system across UI. | Low | 1. Related integration tests must have passed (INT_2221, INT_3213) <br /> 2. Input validation system must be implemented <br /> 3. Error display system must be operational | 1. Test all input fields with invalid data <br /> 2. Verify error messages <br /> 3. Test boundary conditions <br /> 4. Check validation timing <br /> 5. Verify recovery options | All invalid inputs are caught with appropriate error messages | N/A | To be tested |
+| SYS_2322 | Verify UI state recovery after various error conditions. | High | 1. Related integration test must have passed (INT_2212) <br /> 2. State recovery system must be implemented <br /> 3. Error handling system must be operational | 1. Trigger various error conditions <br /> 2. Monitor state preservation <br /> 3. Test recovery procedures <br /> 4. Verify data consistency <br /> 5. Check error logging | UI recovers gracefully from errors with state preserved | N/A | To be tested |
 
 ### 2.4. Performance Tests
 
 #### 2.4.1 UI Response Times
-
-- ID: PERF_2411; Window Transition Speed
-  * Measure window transition times
-  * Verify under 200ms threshold
-  * Test under various system loads
-
-- ID: PERF_2412; Input Response Time
-  * Measure UI response to user inputs
-  * Verify under 100ms threshold
-  * Test multiple rapid inputs
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_2411 | Verify window transition speed meets performance requirements. | High | 1. Related integration test must have passed (INT_2211) <br /> 2. Performance monitoring must be configured | 1. Measure window transition times <br /> 2. Test under various loads <br /> 3. Record transition metrics <br /> 4. Test multiple navigation paths <br /> 5. Verify consistency | All window transitions complete within 200ms threshold | N/A | To be tested |
+| PERF_2412 | Verify UI input response time meets performance requirements. | Medium | 1. Related integration test must have passed (INT_2222) <br /> 2. Input monitoring system must be configured | 1. Test various input operations <br /> 2. Measure response times <br /> 3. Test rapid input sequences <br /> 4. Verify feedback timing <br /> 5. Check input queue handling | All UI inputs processed within 100ms threshold | N/A | To be tested |
 
 #### 2.4.2 Resource Management
-
-- ID: PERF_2421; Memory Usage During UI Operations
-  * Monitor memory usage during UI operations
-  * Check for memory leaks in UI components
-  * Verify proper resource cleanup
-
-- ID: PERF_2422; UI Scaling Performance
-  * Test UI performance at different resolutions
-  * Verify proper scaling behavior
-  * Ensure consistent performance across displays
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_2421 | Verify UI memory usage remains within acceptable limits. | Medium | 1. Memory monitoring tools must be configured <br /> 2. UI system must be fully operational | 1. Monitor UI memory usage <br /> 2. Test extended UI operations <br /> 3. Check for memory leaks <br /> 4. Test window cycling <br /> 5. Verify cleanup processes | UI maintains stable memory usage without leaks | N/A | To be tested |
+| PERF_2422 | Verify UI scaling performance across different resolutions. | Low | 1. Display testing tools must be configured <br /> 2. UI scaling system must be implemented | 1. Test multiple resolutions <br /> 2. Measure scaling times <br /> 3. Check rendering quality <br /> 4. Verify layout consistency <br /> 5. Test dynamic resizing | UI scales smoothly across all supported resolutions | N/A | To be tested |
 
 ---
 
@@ -406,50 +381,25 @@
 ### 3.3. System Tests
 
 #### 3.3.1 Complete Template Workflows
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_3311 | Verify end-to-end template creation process including all components. | Low | 1. Related integration tests must have passed (INT_3211, INT_3212, INT_3221) <br /> 2. Template system must be fully operational <br /> 3. Database system must be available | 1. Create new template <br /> 2. Configure all template parameters <br /> 3. Select characters <br /> 4. Set battle rules <br /> 5. Configure damage calculator <br /> 6. Save and verify template | Complete template creation process works with all components properly integrated | N/A | To be tested |
+| SYS_3312 | Verify complete template modification workflow. | Low | 1. Related integration tests must have passed (INT_3211, INT_3212) <br /> 2. Template editing system must be operational <br /> 3. Database update system must be functional | 1. Load existing template <br /> 2. Modify multiple parameters <br /> 3. Update rule configurations <br /> 4. Save modifications <br /> 5. Verify changes persistence <br /> 6. Test template versioning | Template modification process works with proper update handling | N/A | To be tested |
 
-- ID: SYS_3311; Template Creation Process
-  * Test complete template creation workflow
-  * Verify all components work together
-  * Ensure proper data handling and storage
-
-- ID: SYS_3312; Template Modification Process
-  * Test template modification workflow
-  * Verify proper update handling
-  * Ensure data consistency
-
-#### 3.3.2 Edge Cases
-
-- ID: SYS_3321; Maximum Configuration Testing
-  * Test template with maximum allowed settings
-  * Verify system handles maximum values
-  * Ensure proper error handling
-
-- ID: SYS_3322; Invalid Configuration Testing
-  * Test template with invalid combinations
-  * Verify proper error handling
-  * Ensure system stability
+#### 3.3.2 Edge Case
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_3321 | Verify system handling of templates with maximum allowed settings. | Low | 1. Related integration tests must have passed (INT_3211, INT_3212) <br /> 2. Maximum value handling must be implemented | 1. Create template with maximum values <br /> 2. Test all maximum settings <br /> 3. Verify data handling <br /> 4. Check storage limits <br /> 5. Test template loading | System properly handles templates with maximum allowed values | N/A | To be tested |
 
 ### 3.4. Performance Tests
 
 #### 3.4.1 Template Operation Speed
-
-- ID: PERF_3411; Template Load Time
-  * Measure template loading speed
-  * Verify under 500ms threshold
-  * Test with various template sizes
-
-- ID: PERF_3412; Save Operation Performance
-  * Measure template save operation speed
-  * Verify proper database transaction handling
-  * Test multiple rapid saves
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_3411 | Verify template loading performance meets requirements. | Low | 1. Related integration test must have passed (INT_3211) <br /> 2. Performance monitoring must be configured | 1. Create various template with large sizes <br /> 2. Measure load times <br /> 3. Test batch loading <br /> 4. Verify memory usage <br /> 5. Test under system load | All template loading operations complete within 500ms | N/A | To be tested |
+| PERF_3412 | Verify template save operation performance. | Low | 1. Related integration test must have passed (INT_3211) <br /> 2. Database performance monitoring must be configured | 1. Prepare multiple templates <br /> 2. Measure save times <br /> 3. Test rapid saves <br /> 4. Verify database integrity <br /> 5. Check transaction handling | Template save operations complete within 500ms with proper transaction handling | N/A | To be tested |
 
 #### 3.4.2 Database Performance
-- ID: PERF_3421; Database Query Speed
-  * Measure database operation response times
-  * Verify under 500ms threshold
-  * Test with various data loads
-
-- ID: PERF_3422; Concurrent Operation Handling
-  * Test multiple simultaneous database operations
-  * Verify proper transaction management
-  * Ensure data consistency under load
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_3421 | Verify database query performance meets requirements. | Low | 1. Related integration test must have passed (INT_3211) <br /> 2. Database monitoring tools must be configured | 1. Populate database with templates <br /> 2. Execute various queries <br /> 3. Measure response times <br /> 4. Test complex queries <br /> 5. Verify result accuracy | All database queries complete within 500ms threshold | N/A | To be tested |
