@@ -2,8 +2,9 @@
 
 | Author        | Paul NOWAK |
 |---------------|------------ |
-| Created       | 12/07/2024  |
-| Last Modified | 12/07/2024  |
+| Created       | July 12th 2024  |
+| Last Modified | June 6th 2025  |
+| Document Deadline | June 9th 2025 |
 
 ## Table of Contents
 
@@ -59,15 +60,25 @@ Furthemore, it's a complementary document to the Functionnal Specifications whil
 
 ### 1.2 Project Presentation
 
-Kritical Hit is a Desktop Application and Game Development assistant tool that will provide frameworks for Combat Design systems focused on RPG games. Indeed, they will contain customizable settings to alter RPG assets and create various battle templates that can be stored, loaded and modified within the software's database.
+Kritical Hit is a Desktop Application and Game Development assistant tool designed to support the creation of Combat Design systems for RPG games, with a particular emphasis on the mechanics found in Pokémon-style gameplay.
 
-In addition, a user friendly interface will be implemented to allow a smooth navigation within the app, and a simulation system will be integrated to test a RPG game's behavior with the target Battle Template.
+The application will feature a **user-friendly interface** aimed at providing intuitive navigation across all tools and functionalities. Special attention will be given to ensuring accessibility for both novice and experienced developers. Users will easily access core modules such as battle simulation, character setup, and rule customization through clearly organized menus and visually guided workflows.
+
+A key component of the interface will be the **Simulation Menu**, where users can test and visualize the behavior of an RPG game's combat system in real time. This simulation environment enables immediate feedback and iterative design, allowing developers to fine-tune their systems effectively.
+
+Once users are familiar with the simulation tools, they can dive into the **template customization** system. Kritical Hit will support the creation, modification, and storage of multiple battle templates. These templates include settings for battle rules, character selection, and other RPG assets. The internal database will allow templates to be saved, loaded, and shared, making it easy to manage different combat configurations and test scenarios.
+
+This structure ensures that developers can first explore, test, and refine ideas through the interface and simulation tools, before committing to more advanced template editing.
 
 ### 1.3 System Overview
 
-To start with, the software will be a desktop applications to ensure a proper performance due to the expected large amount of data required and its independance on internet speed. Due to its proximity to a Game Engine or even a video game, the program will be written in C++ and through the framework QT Creator, specialized in the development of GUI applications.
+The software will be developed as a **desktop application** to guarantee high performance and responsiveness, especially given the significant volume of data involved in RPG combat system design and simulation. This local setup ensures smooth functionality without relying on internet speed, which is essential for maintaining consistency during real-time simulations and UI interactions.
 
+Kritical Hit will be developed using **C++** in combination with the **Qt framework**, leveraging its robust support for graphical user interface (GUI) development. **Qt Creator**, a dedicated IDE for Qt applications, will be used to manage the design and implementation of the interface and underlying logic.
 
+Qt offers cross-platform capabilities and a comprehensive set of software libraries and APIs tailored for scalable desktop and embedded applications. This makes it a strong fit for building an application that is both **modular and maintainable**, while supporting rich UI features and responsive simulation tools essential for Kritical Hit’s goals.
+
+The choice of C++ and Qt ensures that the application can handle complex data structures and intensive simulation processes, all while delivering a seamless and user-friendly interface experience.
 
 ## 2. System Architecture
 
