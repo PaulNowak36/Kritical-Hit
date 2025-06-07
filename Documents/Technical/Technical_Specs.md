@@ -161,6 +161,9 @@ In my project, I've also decided to set up my own functional modules, each havin
 - **setup**:
 - **Database**: 
 
+
+<img src="Images/KriticalHit_ClassDiagram.png" style="height: 800px; width: 1600px;">
+
 ### 2.3 Other External IT Tools
 
 ## 3. Technologies Used
