@@ -103,6 +103,7 @@ std::vector<int> capacity::getStatChangeSummary() const {
     return summary;
 }
 
+// Allow to use a capacity if there are enough PP left
 bool capacity::useCapacity() {
     if (_powerPoints > 0) {
         _powerPoints--;

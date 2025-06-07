@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <QDebug> // Include for qDebug()
 
+// Calculate the damage depending on the attacker, defender and the capacity power
 int Battle::calculateDamage(Entity* attacker, Entity* defender, const capacity* attack) {
     double level = attacker->getLevel();
     double att = attacker->getStrength();
@@ -15,6 +16,7 @@ int Battle::calculateDamage(Entity* attacker, Entity* defender, const capacity* 
     return std::max(1, static_cast<int>(totalDamage));
 }
 
+// Performs an offensive move
 int Battle::newAttack(Entity* attacker, Entity* defender, const capacity* attack) {
     int damage = calculateDamage(attacker, defender, attack);
     defender->setHealth(defender->getHealth() - damage);
@@ -22,6 +24,7 @@ int Battle::newAttack(Entity* attacker, Entity* defender, const capacity* attack
     return damage;
 }
 
+// Helper function for limiting stats changes
 double Battle::getStatMultiplier(int stage) {
     if (stage > 6) stage = 6;
     if (stage < -6) stage = -6;
@@ -32,7 +35,7 @@ double Battle::getStatMultiplier(int stage) {
         return 2.0 / (2.0 - stage);  // e.g., -1 = 2 / (2 + 1) = 0.66
 }
 
-
+// Allow the entity to performs their chosen move towards their opponent
 Battle::EffectResult Battle::performMove(Entity* attacker, Entity* defender, int attackIndex) {
     const capacity& move = attacker->getNewSkill(attackIndex);
 
@@ -64,6 +67,7 @@ int Battle::randomMoveIndex()
     return distrib(gen);
 }
 
+// Get the actual BattleState
 Battle::BattleState Battle::getState() const
 {
     if (state == BattleState::WaitingForPlayer) {
@@ -79,12 +83,14 @@ Battle::BattleState Battle::getState() const
     return state;
 }
 
+// UNUSED: used to generate a random number
 int Battle::genRandom(int from, int upto) {
     int result = (rand() % (upto - from + 1)) + from;
     qDebug() << "Generated random value: " << result;
     return result;
 }
 
+// Decide the turn order between the 2 entities depending on their speed
 void Battle::checkAttackOrder(Entity* player, Entity* opponent) {
     if (player->getSpeed() > opponent->getSpeed()) {
         player->setAttackOrder(0);
@@ -99,6 +105,7 @@ void Battle::checkAttackOrder(Entity* player, Entity* opponent) {
     }
 }
 
+// Set up the BattleState where the player can choose his action
 void Battle::battleBegin()
 {
     if (state == BattleState::Start) {
@@ -132,6 +139,7 @@ void Battle::nextTurn() {
     }
 }
 
+// Performs the healing effect to an Entity
 int Battle::healEffect(Entity* target, const capacity* healingMove) {
     int healPercent = healingMove->getHealPercent();
     int maxHP = target->getMaxHealth();
@@ -148,7 +156,7 @@ int Battle::healEffect(Entity* target, const capacity* healingMove) {
     return healed;
 }
 
-
+// Apply the modifiers to an entity when they receive stats changes
 Battle::EffectResult Battle::applyStatModifiers(Entity* target, const std::vector<StatModifier>& mods) {
     EffectResult result;
 
@@ -197,7 +205,7 @@ Battle::EffectResult Battle::applyStatModifiers(Entity* target, const std::vecto
 }
 
 
-
+// Apply capacity effect from an Entity to another
 Battle::EffectResult Battle::applyEffect(Entity* user, Entity* target, const capacity* move) {
     EffectResult result;
 

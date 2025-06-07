@@ -3,6 +3,7 @@
 #include <QSignalSpy>
 #include <QDebug>
 
+// Template Main Menu Widget constructor
 TemplateMainMenu::TemplateMainMenu(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::TemplateMainMenu)

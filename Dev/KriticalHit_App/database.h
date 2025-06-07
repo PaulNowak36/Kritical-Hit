@@ -46,6 +46,7 @@ public:
     static bool getPPRule();
     static bool setPPRule(bool);
 
+    // Getter and setter for all rules
     static QMap<QString, bool> getAllRules();
     static bool setAllRules(bool, bool, bool);
 };

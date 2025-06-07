@@ -1,6 +1,7 @@
 #include "simulationmenu.h"
 #include "ui_simulationmenu.h"
 
+// Simulation Menu Widget constructor
 SimulationMenu::SimulationMenu(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SimulationMenu),
@@ -53,6 +54,7 @@ SimulationMenu::~SimulationMenu()
     delete ui;
 }
 
+// Update statusLabel after a certain while
 void SimulationMenu::startTimer()
 {
     qDebug() << "Timer out...";
@@ -75,6 +77,7 @@ void SimulationMenu::drawEllipse(QGraphicsScene *ellipse)
     ellipse->addEllipse(20, 20, 330, 80, borderPen, fillBrush);
 }
 
+// Display information about a pokemon
 void SimulationMenu::showEntityInfo(Entity* entity, QLabel* label)
 {
     std::string info;
@@ -125,6 +128,7 @@ void SimulationMenu::initializeBattle()
     updateButtonVisibility();
 }
 
+// Make the buttons disappear during an action turn
 void SimulationMenu::updateButtonVisibility() {
     Battle::BattleState state = battle->getState();
 
@@ -137,6 +141,7 @@ void SimulationMenu::updateButtonVisibility() {
     ui->quitButton->setVisible(shouldShowButtons);
 }
 
+// Finish the simulation
 void SimulationMenu::endSimulation()
 {
     battle->endBattle();
@@ -158,7 +163,7 @@ void SimulationMenu::showNewInfo(Entity *attacker, int move)
     }
 }
 
-
+// Display info on the statusLabel about the battle
 void SimulationMenu::showStatusMessage(StatusMessage messageCode)
 {
     switch (messageCode)
@@ -179,6 +184,7 @@ void SimulationMenu::showStatusMessage(StatusMessage messageCode)
     }
 }
 
+// Display dynamic info on the statusLabel about the battle
 void SimulationMenu::showDynamicStatusMessage(DynamicStatusMessage type, const std::string& actorName, const std::string& skillName,  const std::string& statName)
 {
     std::string message;
@@ -243,6 +249,7 @@ void SimulationMenu::setAttacks()
     }
 }
 
+// Update a character HP Bar representation
 void SimulationMenu::newUpdateHP(Entity* entity, QProgressBar* hpBar)
 {
     // Debug: Log health before the update
@@ -289,7 +296,7 @@ void SimulationMenu::resetBattle()
 }
 
 // This function initiates a turn by determining attack order,
-// performing the first move, handling any healing,
+// performing the first move, handling any healing or buffing,
 // and scheduling the second character's move.
 void SimulationMenu::newCheckAttack(int move)
 {
@@ -322,6 +329,7 @@ void SimulationMenu::newCheckAttack(int move)
     });
 }
 
+// Update character data depending on the move's outcome
 MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defender, Battle::EffectResult result, std::shared_ptr<capacity> move)
 {
     MoveResultState state{true, false, false, nullptr, nullptr};
@@ -387,6 +395,7 @@ MoveResultState SimulationMenu::handleMoveResult(Entity* attacker, Entity* defen
     return state;
 }
 
+// Performs a healing action from any character
 void SimulationMenu::handleHealing(const MoveResultState& result, std::function<void()> nextStep)
 {
     if (result.hasHealing)
@@ -405,7 +414,7 @@ void SimulationMenu::handleHealing(const MoveResultState& result, std::function<
     }
 }
 
-//For now it only work if the buffing capacity has only 1 statModifier
+// Performs a buffing action from any character
 void SimulationMenu::handleBuffing(const MoveResultState& result, std::function<void()> nextStep)
 {
     if (!result.hasBuffing)
@@ -431,9 +440,7 @@ void SimulationMenu::handleBuffing(const MoveResultState& result, std::function<
     });
 }
 
-
-
-
+// Increment the turn counter and end the previous turn
 void SimulationMenu::goToNextTurn()
 {
     battle->nextTurn();
@@ -441,6 +448,7 @@ void SimulationMenu::goToNextTurn()
     showStatusMessage(STATUS_DECISION);
 }
 
+// Perform the Second character's turn
 void SimulationMenu::secondCharacterPerform(bool isPlayer, int move)
 {
     QTimer::singleShot(2000, this, [=]() {
@@ -463,6 +471,7 @@ void SimulationMenu::secondCharacterPerform(bool isPlayer, int move)
     });
 }
 
+// Performs the player's turn
 MoveResultState SimulationMenu::playerTurn(int attack)
 {
     Battle::EffectResult result = battle->performMove(player, opponent, attack);
@@ -471,6 +480,7 @@ MoveResultState SimulationMenu::playerTurn(int attack)
     return handleMoveResult(player, opponent, result, chosenSkill);
 }
 
+// UNUSED OLD VERSION: Performs the opponent's turn
 MoveResultState SimulationMenu::opponentTurn(int attack)
 {
     Battle::EffectResult result = battle->performMove(opponent, player, attack);
@@ -479,6 +489,7 @@ MoveResultState SimulationMenu::opponentTurn(int attack)
     return handleMoveResult(opponent, player, result, chosenSkill);
 }
 
+// Performs the opponent's turn
 MoveResultState SimulationMenu::enemyTurn()
 {
     // Get random move index
@@ -520,6 +531,7 @@ void SimulationMenu::on_attackButton_2_clicked()
 
 }
 
+// Performs attack 3 from player's moveset
 void SimulationMenu::on_attackButton_3_clicked()
 {
     if (battleSetup->getPPRule() == false || player->getNewSkill(2).useCapacity()) {
@@ -529,6 +541,7 @@ void SimulationMenu::on_attackButton_3_clicked()
     }
 }
 
+// Performs attack 4 from player's moveset
 void SimulationMenu::on_attackButton_4_clicked()
 {
     if (battleSetup->getPPRule() == false || player->getNewSkill(3).useCapacity()) {

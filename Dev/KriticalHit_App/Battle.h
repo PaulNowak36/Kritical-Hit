@@ -8,6 +8,7 @@
 class Battle {
 
 public:
+    // Used to differentiate each phase during battle
     enum class BattleState {
         Start,
         WaitingForPlayer,
@@ -18,7 +19,7 @@ public:
 protected:
     Entity *player;
     Entity *opponent;
-    int turn = 1; // New turn variable
+    int turn = 1; // Turn system that always starts at 1
     BattleState state = BattleState::Start;
 
 public:
@@ -49,6 +50,7 @@ public:
     static int newAttack(Entity* attacker, Entity* defender, const capacity* attack);
     static double getStatMultiplier(int);
 
+    // Struct used to gather the results after a capacity hit a target
     struct EffectResult {
         int damageDealt = 0;
         int hpHealed = 0;
