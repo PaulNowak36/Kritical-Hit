@@ -218,7 +218,7 @@ Qt allows for both visual design and low-level programming through `.ui` (user i
 
 ---
 
-### 3.1.1 Qt Creator Overview 
+### 3.1.1 Qt Creator IDE Overview 
 
 Qt Creator is the official IDE for developing Qt-based applications. Here's an example screenshot of Kritical Hit's interface in **Design Mode**:
 
@@ -246,46 +246,120 @@ The Qt Creator interface in **Design Mode** is composed of several tools and pan
 
 ---
 
+### 3.1.2 Design Mode and Widget Uses
 
-### 3.1.2 Design Mode and Widget Various Uses
+**Design Mode** is the core feature of Qt Creator. It allows users to drag and drop UI elements directly into the form editor, making interface design intuitive and visual.
 
-**Design Mode** is the heart of qt creator; users can drag and drop any UI element with their mouse to place it within the form editor.
+One of the primary UI elements is the **PushButton** widget, which provides a clickable command button.
 
-One of the main UI element: PushButtons. In fact it's a class widget that provides a command button.
+When you select a PushButton and place it on the form editor, the **Object Inspector** automatically updates by adding the new widget as a child of the window widget.
+
+To customize the button’s appearance, right-click it and select **Change StyleSheet**. This lets you modify properties like font family, background color, and dimensions. You can also apply stylesheets to other widgets, including the window itself. This approach allows styling multiple widgets of the same family using inheritance and C++ classes.
+
+---
+
+To set up the button to perform an action, right-click the button and choose: *Go to Slot* -> *QAbstractButton* -> *clicked*.
+
+Qt Creator will automatically generate a new function within the window widget class that executes when the button is clicked. For example:
+
+```cpp
+void TemplateMainMenu::on_simulation_Button_clicked()
+{
+    ui->stackedWidget3->setCurrentIndex(1);
+}
+```
+
+Additionally, the window widget’s header file is updated to include this new function as a **private slot**.
 
 
+### 3.1.3 Edit Mode, Project Structure, and Development Tools
 
-### 3.1.3 Edit Mode and Project Structure
+When working in **Edit Mode**, Qt Creator organizes files into virtual categories for better readability. This organization does not necessarily reflect the actual file system structure but helps developers quickly find relevant files.
 
-When working in **Edit Mode**, Qt Creator virtually organizes files into categories. This doesn’t reflect the actual file structure but helps with readability.
-
-| **Category**  | **Extension** | **Purpose** |
-|---------------|---------------|-------------|
+| **Category**  | **Extension** | **Purpose**                                                 |
+|---------------|---------------|-------------------------------------------------------------|
 | **Headers**   | `.h`          | Define class interfaces, variables, constants, and method declarations. |
-| **Sources**   | `.cpp`        | Define the functionality of methods and logic described in the headers. |
-| **Forms**     | `.ui`         | XML-based layout files created via Design Mode. They define the layout and widget properties. |
+| **Sources**   | `.cpp`        | Implement the functionality of methods and logic declared in headers.  |
+| **Forms**     | `.ui`         | XML-based layout files created via Design Mode, defining layout and widget properties. |
 
 > ⚙️ `.ui` files are converted into auto-generated C++ code during compilation.
 
 ---
 
-### 3.1.4 Development Tools and Features
+Qt Creator also provides many features that enhance development productivity:
 
-Qt Creator offers many features to enhance development productivity:
-
-- **Code completion**: Suggests class names, functions, and parameters.
-- **Semantic highlighting**: Differentiates between types, variables, and functions with colors.
-- **Syntax error checking**: Inline error display while coding.
-- **Documentation tooltips**: Hover over keywords or functions to get descriptions.
-- **Live UI preview**: Changes in `.ui` files are reflected immediately in the design view.
-- **Git integration**: Commit and track changes directly from Qt Creator.
-- **Keyboard shortcuts**: Fast navigation and editing. (You can list a few commonly used shortcuts in a later version.)
+- **Code completion**: Suggests class names, functions, and parameters as you type.
+- **Semantic highlighting**: Uses color coding to distinguish types, variables, and functions.
+- **Syntax error checking**: Displays inline errors while coding to catch mistakes early.
+- **Documentation tooltips**: Hover over keywords or functions to view quick descriptions.
+- **Live UI preview**: Changes made to `.ui` files instantly update the design view.
+- **Git integration**: Commit, push, and track changes directly within the IDE.
+- **Keyboard shortcuts**: Enable fast navigation and editing (can be customized or expanded later).
 
 ---
 
-### 3.1.5 Signal & Slot System
+### 3.1.4 Signal & Slot System
 
+Qt Creator uses a **Signals and Slots** mechanism to enable seamless communication between objects. This powerful event-driven model allows different widgets and windows to interact efficiently. Slots are essentially private functions tied to widget events, while signals notify other parts of the program when something happens, enabling connections between widgets across different windows.
 
+---
+
+To illustrate, consider the **QStackedWidget** class, which manages a stack of widgets where only one is visible at a time. It works with a system of pages and indexes to display different views within the same container.
+
+For example, if you design **Page 1** with certain UI elements and switch to **Page 2** in Design Mode, Page 2 will initially appear empty until you add widgets to it. You can add a new page by right-clicking the `QStackedWidget` object in the Object Inspector.
+
+![Main Template Menu Page](Images/TemplateMainMenu.png)
+
+Use the two arrows at the top-right corner of the stacked widget editor to navigate between pages. This lets you update and organize the widget hierarchy across different pages.
+
+You can also programmatically control page navigation. For instance, when the stacked widget reaches a certain page, you can trigger it to switch to another widget or window.
+
+---
+
+#### Example: Navigating Between Menus Using Signals and Slots
+
+Suppose you want to switch from the **Main Template Menu** to a **Simulation Menu**:
+
+1. In `templatemainmenu.h`, include the header for the simulation menu:
+
+    ```cpp
+    #include "simulationmenu.h"
+    ```
+
+2. Declare a private member instance of `SimulationMenu` and a slot function to handle menu switching:
+
+    ```cpp
+    private:
+        SimulationMenu _simInfo;
+    private slots:
+        void moveTemplateMenu();
+    ```
+
+3. In `simulationmenu.h`, declare a signal to indicate when the battle is finished:
+
+    ```cpp
+    signals:
+        void battleFinished();
+    ```
+
+4. In `templatemainmenu.cpp` constructor, add the simulation menu widget to the stacked widget and connect the signal to the slot:
+
+    ```cpp
+    ui->stackedWidget3->insertWidget(1, &_simInfo);
+    connect(&_simInfo, SIGNAL(battleFinished()), this, SLOT(moveTemplateMenu()));
+    ```
+
+---
+
+Now, when the simulation button on the main template menu is clicked, the stacked widget index updates to show the simulation menu. When the battle ends (in `simulation.cpp`), you emit the `battleFinished()` signal:
+
+```cpp
+emit battleFinished();
+```
+
+This triggers *moveTemplateMenu()*, which resets the stacked widget index and returns the user to the main template menu page.
+
+This system of signals and slots combined with stacked widgets provides a flexible and maintainable way to manage complex UI navigation and event handling in Qt applications.
 
 
 ### 3.2 Back End
