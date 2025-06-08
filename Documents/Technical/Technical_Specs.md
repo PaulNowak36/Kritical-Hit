@@ -126,12 +126,6 @@ The following is the actual **on-disk file organization**, presented as a tree s
 └── README.md                   # Project overview and setup instructions 
 ```  
 
-> **Note**: Qt Creator **does not display this structure directly**. In its *Projects* view, files are grouped virtually into categories such as:
-> - **Headers** (`*.h`)
-> - **Sources** (`*.cpp`)
-> - **Forms** (`*.ui`)  
-> This logical grouping is for readability and ease of navigation inside the IDE. It does not reflect actual physical storage.
-
 ### 2.2 Modules and Components
 
 The **Qt Framework** is built around a set of modular libraries that provide specialized, cross-platform functionality. These **Qt modules** come in both source and binary form and are widely applicable across different Qt applications.
@@ -185,7 +179,7 @@ The project uses several `.ui` files (with associated `.cpp` and `.h` files) to 
 
 - **Main Window Menu**: Landing screen where users log in with email and password.
 - **Simulation Menu**: Main interface where battles are run and simulated.
-- **Main Template Menu**: Central hub that links to other menus and features.
+- **Template Main Menu**: Central hub that links to other menus and features.
 - **Rules Menu**: Allows the user to view, edit, and save the rules applied to battles.
 
 #### Planned UI Menus for Future Versions:
@@ -212,10 +206,87 @@ The development and documentation of the project were supported by a variety of 
 | **NinjaAI**              | AI assistant specialized in rewriting and improving documents, reports, and written content with an emphasis on clarity and quality.                            | Reformulating technical content, improving documentation clarity, rewriting reports.                  |
 | **Eraser.io**            | An AI-powered diagram generator that transforms text prompts into diagrams, charts, and visualizations.                                                         | Quickly generating UMLs, flowcharts, system architecture, and technical visuals based on text input.  |
 
-
 ## 3. Technologies Used
 
 ### 3.1 Front End
+
+Kritical Hit’s front end is almost entirely developed using the **Qt framework**, which provides both the core libraries and the Qt Creator IDE for designing and building applications.
+
+Qt allows for both visual design and low-level programming through `.ui` (user interface) files and C++/Python back-end integration. It is ideal for desktop applications with custom UI logic and cross-platform capabilities.
+
+> 💡 To open a project, double-click the `.pro` file. Qt Creator launches and lets you work through different development modes.
+
+---
+
+### 3.1.1 Qt Creator Overview 
+
+Qt Creator is the official IDE for developing Qt-based applications. Here's an example screenshot of Kritical Hit's interface in **Design Mode**:
+
+![KriticalHit Screen Design](Images/QtCreator_Screen_Design.png)
+
+The Qt Creator interface in **Design Mode** is composed of several tools and panes. Here's a quick breakdown of the most important ones:
+
+| **Component**         | **Description** |
+|-----------------------|------------------|
+| **1. Form Editor**         | Drag-and-drop interface to design windows using Qt Widgets. |
+| **2. Welcome Mode**        | Start page for opening projects, viewing examples, or tutorials. |
+| **3. Edit Mode**           | Modify source code and project files (`.cpp`, `.h`, `.ui`). |
+| **4. Design Mode**         | Visual editing for `.ui` files with live layout previews. |
+| **5. Debug Mode**          | Analyze runtime behavior, memory, and breakpoints. |
+| **6. Projects Mode**       | Configure how your app is built and run. |
+| **7. Help Mode**           | Access Qt framework and Qt Creator documentation. |
+| **8. Kit Selector**        | Select the target platform (Debug/Release, Desktop/Embedded). |
+| **9. Run Button**          | Build and run the application. |
+| **10. Debug Button**       | Run debugger with optional breakpoints. |
+| **11. Build Button**       | Compile the application. |
+| **12. Widget Box**         | UI component toolbox: Buttons, Layouts, Containers, etc. |
+| **13. Object Inspector**   | Hierarchical list of all widgets in the current form. |
+| **14. Property Editor**    | Modify widget properties like text, visibility, font, etc. |
+| **15. Output View**        | Shows logs from build, debug output, and app status messages. |
+
+---
+
+
+### 3.1.2 Design Mode and Widget Various Uses
+
+**Design Mode** is the heart of qt creator; users can drag and drop any UI element with their mouse to place it within the form editor.
+
+One of the main UI element: PushButtons. In fact it's a class widget that provides a command button.
+
+
+
+### 3.1.3 Edit Mode and Project Structure
+
+When working in **Edit Mode**, Qt Creator virtually organizes files into categories. This doesn’t reflect the actual file structure but helps with readability.
+
+| **Category**  | **Extension** | **Purpose** |
+|---------------|---------------|-------------|
+| **Headers**   | `.h`          | Define class interfaces, variables, constants, and method declarations. |
+| **Sources**   | `.cpp`        | Define the functionality of methods and logic described in the headers. |
+| **Forms**     | `.ui`         | XML-based layout files created via Design Mode. They define the layout and widget properties. |
+
+> ⚙️ `.ui` files are converted into auto-generated C++ code during compilation.
+
+---
+
+### 3.1.4 Development Tools and Features
+
+Qt Creator offers many features to enhance development productivity:
+
+- **Code completion**: Suggests class names, functions, and parameters.
+- **Semantic highlighting**: Differentiates between types, variables, and functions with colors.
+- **Syntax error checking**: Inline error display while coding.
+- **Documentation tooltips**: Hover over keywords or functions to get descriptions.
+- **Live UI preview**: Changes in `.ui` files are reflected immediately in the design view.
+- **Git integration**: Commit and track changes directly from Qt Creator.
+- **Keyboard shortcuts**: Fast navigation and editing. (You can list a few commonly used shortcuts in a later version.)
+
+---
+
+### 3.1.5 Signal & Slot System
+
+
+
 
 ### 3.2 Back End
 
