@@ -134,37 +134,84 @@ The following is the actual **on-disk file organization**, presented as a tree s
 
 ### 2.2 Modules and Components
 
-Qt Framework is integrated with several specialized cross plateforms applications called modules. Indeed, most of them remain source and binary and are generally useful on the majority of Qt applications
+The **Qt Framework** is built around a set of modular libraries that provide specialized, cross-platform functionality. These **Qt modules** come in both source and binary form and are widely applicable across different Qt applications.
 
-A module used for a special purpose is considered an add-on module even if it is available on all supported platforms.
+Modules with specific functionality (such as testing or database access) are often considered *add-on modules*, even when supported across all platforms.
 
-Here are the main modules used for our QT project:
+Below are the main modules used in this project:
 
-| **Name**      | **Description**                                                                 |
-|---------------|----------------------------------------------------------------------------------|
-| **Qt Core**       | Core module with signals/slots, object trees, and property management.          |
-| **Qt GUI**        | Provides classes for windowing, 2D graphics, OpenGL, and text rendering.        |
-| **Qt Test**       | Offers tools for unit testing, including QTest, QSignalSpy, and model testing.  |
-| **Qt SQL**        | Provides classes for database integration using SQL and various backends.       |
+| **Module Name** | **Description**                                                                 |
+|------------------|----------------------------------------------------------------------------------|
+| **Qt Core**       | Provides the core functionality: event loops, signals/slots, object trees, and property management. |
+| **Qt GUI**        | Offers classes for windowing, 2D graphics, OpenGL, fonts, and basic imaging.     |
+| **Qt Test**       | Enables unit testing with tools like `QTest`, `QSignalSpy`, and model testers.   |
+| **Qt SQL**        | Supports SQL-based database integration with various database backends.          |
 
-Some of these modules contains several classes with their own utilities, such as **QDebug** for debugging, **QApplication** to  manages the GUI application's control flow and main settings, or even **QWidget** to handle User Interface objects.
+Some of these modules contain classes with specialized utilities, such as:
+- `QDebug` – for easy debugging output  
+- `QApplication` – manages the GUI application’s main control flow  
+- `QWidget` – base class for all UI objects
 
-Regular C++ libraries are also used like **string.h** to manage string objects or **random.h** to use random number generation.
+In addition to Qt modules, standard **C++ libraries** are also used in this project, including:
+- `<string>` – for string management  
+- `<random>` – for generating random numbers (e.g., simulating attack variability)
 
-In my project, I've also decided to set up my own functional modules, each having their own class, and these 3 are the most important:
+---
 
-- **Battle**: Is used to set up a battle between 2 characters, handles the battle logic and deal with the combat-related functions. 
-- **Entity**: Represent a Pokemon character, that has his own attributes (Base stats, name, level) and his moveset that can go up to 4 capacity object. 
-- **Capacity**: Represent a certain attack (also called move) having its own attribut (name, attack power, Power Points...). A file named 
+### Custom Functional Modules
 
+To implement game-specific logic, several **custom functional modules** were developed. These contain the core functionality of the simulation:
 
-- **setup**:
-- **Database**: 
+- **`Battle`**: Manages the combat system between two characters, including turn-based logic and damage calculation.
+- **`Entity`**: Represents a character (e.g., a Pokémon-like fighter), including its base stats, level, name, and a set of up to 4 `Capacity` objects.
+- **`Capacity`**: Defines a move or ability (name, power, PP, type, etc.) used during battles.
 
+Additional helper modules coordinate setup and data integration:
 
-<img src="Images/KriticalHit_ClassDiagram.png" style="height: 800px; width: 1600px;">
+- **`Setup`**: Prepares the battle configuration, rules, and selected characters/movesets.
+- **`Database`**: Manages the database connection and queries to store or retrieve character and template data.
+
+#### Class Diagram
+
+The following diagram illustrates the main classes and their relationships in version 1.0:
+
+![KriticalHit Class Diagram](Images/KriticalHit_ClassDiagram.png)
+
+---
+
+### User Interface Structure
+
+The project uses several `.ui` files (with associated `.cpp` and `.h` files) to design the user interface:
+
+- **Main Window Menu**: Landing screen where users log in with email and password.
+- **Simulation Menu**: Main interface where battles are run and simulated.
+- **Main Template Menu**: Central hub that links to other menus and features.
+- **Rules Menu**: Allows the user to view, edit, and save the rules applied to battles.
+
+#### Planned UI Menus for Future Versions:
+
+- **New Template Menu**: Allows users to create and customize new battle templates.
+- **Template Gallery Menu**: Displays existing templates stored in the database.
+- **Character Selection Menu**: Interface to pick 2 characters from a pool of 6.
+- **Damage Calculator Menu**: Enables users to modify the damage formula based on stats and selected rules.
 
 ### 2.3 Other External IT Tools
+
+The development and documentation of the project were supported by a variety of external IT tools. These tools cover a broad range of use cases, from code editing and version control to project management, design, and AI assistance.
+
+| **Tool Name**           | **Description**                                                                                                                                                  | **Used For**                                                                                          |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| **Visual Studio Code**   | Lightweight yet powerful source code editor with built-in support for JavaScript, TypeScript, Node.js, and extensions for C++, Python, Java, and more.         | Writing code, editing specification documents, and working with external prototypes.                  |
+| **GitHub / GitHub Desktop** | GitHub is a cloud-based platform for hosting and managing code repositories with Git version control. GitHub Desktop provides a user-friendly interface.      | Repository management, group collaboration, version control, creating issues and pull requests.       |
+| **ClickUp**              | A flexible project management tool for organizing tasks, tracking progress, and managing time with boards, lists, and timelines.                                | Task and time management, sprint planning, collaborative project tracking.                            |
+| **Draw.io (diagrams.net)** | A free online diagram tool for creating flowcharts, UML diagrams, ER diagrams, and other graph-based visualizations.                                             | Designing workflows, technical diagrams, and logic flows.                                             |
+| **Figma**                | A collaborative design platform for UI/UX design, wireframes, and prototyping, enabling teams to work together in real time.                                   | UI prototyping, concept art, wireframes for menus and interactions.                                   |
+| **Miro**                 | An online collaborative whiteboard platform for ideation, project planning, and team brainstorming.                                                            | Creating personas, team discussions, collaborative design thinking.                                   |
+| **Microsoft Office 365 (Online)** | Web-based versions of Word, Excel, PowerPoint, and OneNote for collaborative editing and document management.                                              | Writing weekly reports, project documentation, surveys (via Microsoft Forms).                         |
+| **ChatGPT (OpenAI)**     | An advanced AI chatbot built on GPT-4o, capable of answering questions, generating content, reviewing text, and even creating code.                             | Spelling checks, rewriting content, AI image generation for personas, brainstorming and ideation.     |
+| **NinjaAI**              | AI assistant specialized in rewriting and improving documents, reports, and written content with an emphasis on clarity and quality.                            | Reformulating technical content, improving documentation clarity, rewriting reports.                  |
+| **Eraser.io**            | An AI-powered diagram generator that transforms text prompts into diagrams, charts, and visualizations.                                                         | Quickly generating UMLs, flowcharts, system architecture, and technical visuals based on text input.  |
+
 
 ## 3. Technologies Used
 
