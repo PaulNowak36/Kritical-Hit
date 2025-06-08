@@ -165,12 +165,6 @@ Additional helper modules coordinate setup and data integration:
 - **`Setup`**: Prepares the battle configuration, rules, and selected characters/movesets.
 - **`Database`**: Manages the database connection and queries to store or retrieve character and template data.
 
-#### Class Diagram
-
-The following diagram illustrates the main classes and their relationships in version 1.0:
-
-![KriticalHit Class Diagram](Images/KriticalHit_ClassDiagram.png)
-
 ---
 
 ### User Interface Structure
@@ -193,18 +187,20 @@ The project uses several `.ui` files (with associated `.cpp` and `.h` files) to 
 
 The development and documentation of the project were supported by a variety of external IT tools. These tools cover a broad range of use cases, from code editing and version control to project management, design, and AI assistance.
 
-| **Tool Name**           | **Description**                                                                                                                                                  | **Used For**                                                                                          |
-|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Visual Studio Code**   | Lightweight yet powerful source code editor with built-in support for JavaScript, TypeScript, Node.js, and extensions for C++, Python, Java, and more.         | Writing code, editing specification documents, and working with external prototypes.                  |
-| **GitHub / GitHub Desktop** | GitHub is a cloud-based platform for hosting and managing code repositories with Git version control. GitHub Desktop provides a user-friendly interface.      | Repository management, group collaboration, version control, creating issues and pull requests.       |
-| **ClickUp**              | A flexible project management tool for organizing tasks, tracking progress, and managing time with boards, lists, and timelines.                                | Task and time management, sprint planning, collaborative project tracking.                            |
-| **Draw.io (diagrams.net)** | A free online diagram tool for creating flowcharts, UML diagrams, ER diagrams, and other graph-based visualizations.                                             | Designing workflows, technical diagrams, and logic flows.                                             |
-| **Figma**                | A collaborative design platform for UI/UX design, wireframes, and prototyping, enabling teams to work together in real time.                                   | UI prototyping, concept art, wireframes for menus and interactions.                                   |
-| **Miro**                 | An online collaborative whiteboard platform for ideation, project planning, and team brainstorming.                                                            | Creating personas, team discussions, collaborative design thinking.                                   |
-| **Microsoft Office 365 (Online)** | Web-based versions of Word, Excel, PowerPoint, and OneNote for collaborative editing and document management.                                              | Writing weekly reports, project documentation, surveys (via Microsoft Forms).                         |
-| **ChatGPT (OpenAI)**     | An advanced AI chatbot built on GPT-4o, capable of answering questions, generating content, reviewing text, and even creating code.                             | Spelling checks, rewriting content, AI image generation for personas, brainstorming and ideation.     |
-| **NinjaAI**              | AI assistant specialized in rewriting and improving documents, reports, and written content with an emphasis on clarity and quality.                            | Reformulating technical content, improving documentation clarity, rewriting reports.                  |
-| **Eraser.io**            | An AI-powered diagram generator that transforms text prompts into diagrams, charts, and visualizations.                                                         | Quickly generating UMLs, flowcharts, system architecture, and technical visuals based on text input.  |
+| **Tool Name**                     | **Description**                                                                                                                                                   | **Used For**                                                                                          |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Visual Studio Code**            | Lightweight yet powerful source code editor with built-in support for JavaScript, TypeScript, Node.js, and extensions for C++, Python, Java, and more.            | Writing code, editing specification documents, and working with external prototypes.                  |
+| **GitHub / GitHub Desktop**       | GitHub is a cloud-based platform for hosting and managing code repositories with Git version control. GitHub Desktop provides a user-friendly interface.          | Repository management, group collaboration, version control, creating issues and pull requests.       |
+| **DB Browser**                    | A visual tool to create, design, and manage SQLite database files, supporting browsing, querying, and modifying database tables without needing SQL command line. | Managing database connections, executing queries, modifying tables, and inspecting database contents. |
+| **ChatGPT (OpenAI)**              | An advanced AI chatbot built on GPT-4o, capable of answering questions, generating content, reviewing text, and even creating code.                               | Spelling checks, rewriting content, AI image generation for personas, brainstorming and ideation.     |
+| **ClickUp**                       | A flexible project management tool for organizing tasks, tracking progress, and managing time with boards, lists, and timelines.                                  | Task and time management, sprint planning, collaborative project tracking.                            |
+| **Microsoft Office 365 (Online)** | Web-based versions of Word, Excel, PowerPoint, and OneNote for collaborative editing and document management.                                                     | Writing weekly reports, project documentation, surveys (via Microsoft Forms).                         |
+| **NinjaAI**                       | AI assistant specialized in rewriting and improving documents, reports, and written content with an emphasis on clarity and quality.                              | Reformulating technical content, improving documentation clarity, rewriting reports.                  |
+| **Draw\.io (diagrams.net)**       | A free online diagram tool for creating flowcharts, UML diagrams, ER diagrams, and other graph-based visualizations.                                              | Designing workflows, technical diagrams, and logic flows.                                             |
+| **Figma**                         | A collaborative design platform for UI/UX design, wireframes, and prototyping, enabling teams to work together in real time.                                      | UI prototyping, concept art, wireframes for menus and interactions.                                   |
+| **Miro**                          | An online collaborative whiteboard platform for ideation, project planning, and team brainstorming.                                                               | Creating personas, team discussions, collaborative design thinking.                                   |
+| **Eraser.io**                     | An AI-powered diagram generator that transforms text prompts into diagrams, charts, and visualizations.                                                           | Quickly generating UMLs, flowcharts, system architecture, and technical visuals based on text input.  |
+
 
 ## 3. Technologies Used
 
@@ -362,13 +358,237 @@ This triggers *moveTemplateMenu()*, which resets the stacked widget index and re
 This system of signals and slots combined with stacked widgets provides a flexible and maintainable way to manage complex UI navigation and event handling in Qt applications.
 
 
-### 3.2 Back End
+### 3.2 Database Specifications
 
-### 3.3 Database Design
+#### Overview
 
-### 3.4 Technical Constraints and Limitations
+The application utilizes a **SQLite database** as its primary data storage solution.  
+While the project does not implement a traditional backend or API architecture, the database serves as a *crucial component* for managing game rules and settings.
 
-### 3.5 Non-Functional Requirements
+---
+
+#### Current Database Implementation
+
+##### Schema
+
+The current database schema is defined as:
+
+```sql
+CREATE TABLE RULES_SET1 (
+    rulesID INTEGER PRIMARY KEY NOT NULL,
+    healingAllowed INTEGER NOT NULL,  -- Boolean (0/1)
+    buffingAllowed INTEGER NOT NULL,  -- Boolean (0/1)
+    PPSystem INTEGER NOT NULL         -- Boolean (0/1)
+);
+```
+
+
+---
+
+##### Error Handling
+
+The application implements **basic error handling** through:
+
+- Return value checking for database operations  
+- Console logging via `qDebug()` for error tracking  
+- Graceful failure handling with default values  
+- Direct SQL error reporting through `QSqlError`  
+
+---
+
+##### Database Access
+
+Database operations are performed using **raw SQL queries** through Qt's SQL modules.  
+Example:
+
+
+```cpp
+QSqlQuery query(rules_DB);
+query.prepare("UPDATE RULES_SET1 SET buffingAllowed = :val WHERE rulesID = 111");
+query.bindValue(":val", value ? 1 : 0);
+```
+
+---
+
+#### Setup Instructions
+
+##### 1. Database Creation
+
+- Use *DB Browser for SQLite* to create the initial database  
+- Place the database file in the **Qt Project build folder**
+
+##### 2. Project Configuration
+
+- Add SQL module to project file (`.pro`):
+
+```
+QT += sql
+```
+
+- Include required headers in `mainwindow.h`:
+
+```cpp
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QDir>
+```
+
+##### 3. Connection Setup
+
+- Add database connection variable to `mainwindow.h`:
+
+
+```cpp
+private:
+    QSqlDatabase DB_Connection;
+```
+
+- Initialize connection in `mainwindow.cpp`:
+
+```cpp
+QDir databasePath;
+QString path = databasePath.currentPath()+"/NAME.db";
+DB_Connection = QSqlDatabase::addDatabase("QSQLITE");
+DB_Connection.setDatabaseName(path);
+```
+
+---
+
+#### Future Enhancements
+
+The database structure will be expanded to include:
+
+- **Battle template storage**  
+- **Entity data management**  
+- **Capacity object storage**
+
+This expansion will improve memory efficiency by *moving data from runtime memory to persistent storage*.
+
+---
+
+#### Technical Notes
+
+- SQLite was chosen for its *simplicity and easy integration* with Qt  
+- Boolean values are stored as **integers (0/1)** due to SQLite limitations  
+- Database file must reside in the **build folder** for runtime access  
+- A **single database connection** is maintained throughout the application lifecycle  
+
+---
+
+#### Database Management
+
+*DB Browser for SQLite* is used as the primary tool for:
+
+- Table creation and modification  
+- Data viewing and editing  
+- SQL query execution  
+- Database structure visualization
+
+![Database menu](Images/Database_Menu.png)
+
+The class diagram below illustrates how the database integration fits into the overall application architecture:
+
+![Class Diagram](Images/KriticalHit_ClassDiagram.png)
+
+
+### 3.3 Technical Constraints and Limitations
+
+#### Development Environment Specifications
+The development environment consists of a Windows 11 Pro (64-bit) system powered by an Intel® Core™ i7-1065G7 processor running at 1.30GHz with boost capabilities up to 1.50 GHz, supported by 16 GB of installed RAM, of which approximately 6 GB is utilized during application testing phases.
+
+#### Current Technical Limitations
+The application's development faces several significant constraints, particularly in memory management within the moveLibrary.h component, where attempts to expand beyond approximately 15 capacity objects result in application crashes, indicating a critical need for optimization through improved database implementation strategies.
+
+Development is currently conducted using Qt version 6.5.2 with QMake as the build system, which presents its own set of limitations including reduced flexibility for large-scale projects, lack of support for complex build logic, and challenges in cross-platform dependency management that would be better addressed through CMake, especially for Qt 6+ projects.
+
+#### Database Implementation Constraints
+While the current SQLite implementation adequately handles basic rule storage, the database architecture requires significant optimization to manage larger datasets effectively. The setup and configuration process for database tables has proven more complex than anticipated, suggesting a need for streamlined database management procedures and improved architectural design to support future scalability requirements.
+
+#### Development Environment Challenges
+A significant technical constraint involves the debugging capabilities of the development environment, where disk management issues currently prevent the effective use of Qt Creator's integrated debugging tools, particularly when accessing the simulation menu. This limitation substantially impacts the development workflow and testing capabilities.
+
+#### Testing and Deployment Limitations
+The development and testing processes are currently restricted to a single Windows-based machine, which introduces potential risks in terms of unidentified platform-specific issues and cross-platform compatibility concerns. This single-environment testing limitation could potentially impact the application's reliability across different operating systems and hardware configurations.
+
+#### Build System Considerations
+The current utilization of QMake as the build system introduces several operational constraints, including the necessity for manual build process updates and limited integration capabilities with external tools. These limitations particularly affect the project's scalability and maintenance, suggesting that a future migration to CMake might be beneficial for more advanced development requirements.
+
+#### Performance Monitoring Constraints
+The current development environment lacks comprehensive tools for monitoring and optimizing memory usage, which has led to difficulties in identifying and resolving performance bottlenecks, particularly in relation to database operations and object management within the application's core functionality.
+
+#### Future Considerations
+These identified constraints and limitations are being actively addressed through planned improvements in database implementation, memory management strategies, and potential build system upgrades, with a focus on enhancing the application's stability, scalability, and overall performance characteristics.
+
+### 3.4 Non-Functional Requirements - Technical Implementation Details
+
+#### Performance Monitoring
+
+**Current Status**
+• No active performance monitoring tools implemented
+• Response time requirements (100ms for clicks, 200ms for navigation) not currently measured
+• Planning to implement QT Test module for performance testing and monitoring
+
+
+**Planned Optimizations**
+• Database architecture redesign to support larger datasets
+• Implementation of performance benchmarking tools
+• Integration of QT Test module for systematic testing
+
+#### Configuration Management
+
+**Interface Implementation**
+• UI layouts managed through .ui files
+• Widget placement, styling, and hierarchy controlled via Qt Designer
+• Custom font implementation (PressStart2P-vaV7.ttf) through stylesheet configuration
+
+**Current Limitations**
+• Basic authentication system using simple if-else statements
+• Limited user settings persistence
+• No comprehensive configuration file structure
+
+#### Security Implementation
+
+**Current Status**
+• Basic file operations without specific security measures
+• Planned implementation of private database access
+• No current mechanism for preventing data corruption
+• Security measures for file operations to be implemented
+
+**Future Security Enhancements**
+• Implementation of file locking mechanisms
+• Development of data corruption prevention strategies
+• Enhanced database security protocols
+
+#### System Compatibility
+
+**Technical Requirements**
+• Qt Version: 6.5.2
+• Operating System: Windows 11 Pro
+• Hardware Specifications:
+* Processor: Intel® Core™ i7-1065G7 or equivalent
+* RAM: Minimum 16 GB recommended
+* Storage: Sufficient for application and database growth
+
+**Development Approach**
+• Platform-independent code implementation
+• No OS-specific dependencies
+• Designed for compatibility with standard Windows 11 Pro systems
+
+#### Planned Technical Improvements
+
+**Short-term Goals**
+• Implementation of performance monitoring tools
+• Development of robust configuration system
+• Enhancement of file operation security
+
+**Long-term Goals**
+• Comprehensive testing framework implementation
+• Database optimization and security enhancement
+• Cross-platform compatibility testing
+• Robust error handling and data corruption prevention
+
+These technical specifications aim to support the non-functional requirements while ensuring system reliability, security, and performance optimization.
 
 ## 4. Application Features
 
@@ -382,29 +602,17 @@ This system of signals and slots combined with stacked widgets provides a flexib
 
 ### 4.5 Damage Calculator Implementation
 
-## 5. Data Management
+## 5. Product Deployment
 
-### 5.1 Data Management Strategy
+### 5.1 Deployment Environment
 
-### 5.2 Type of Data Storage
+### 5.2 Release Schedule
 
-### 5.3 API for Handling Data
+### 5.3 Proof of Concepts
 
-### 5.4 Data Flow Diagrams
+### 5.4 Beta Version
 
-### 5.5 Data Security
+### 5.5 Full Versions
 
-## 6. Product Deployment
-
-### 6.1 Deployment Environment
-
-### 6.2 Release Schedule
-
-### 6.3 Proof of Concepts
-
-### 6.4 Beta Version
-
-### 6.5 Full Versions
-
-## 7. Glossary
+## 6. Glossary
 
