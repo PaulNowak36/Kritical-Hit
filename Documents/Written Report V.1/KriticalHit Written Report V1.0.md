@@ -2487,141 +2487,1385 @@ Each release will undergo thorough testing and quality assurance before deployme
 
 ### 5.1.1. Document Purpose
 
+
+This test plan document outlines the testing strategy and methodology for the KriticalHit project, a desktop application for simulating RPG battle systems. The document serves multiple purposes:
+
+- Establish a structured approach to verify that the application meets its defined requirements
+- Define testing procedures for both developer testing and external user testing
+- Provide a framework for identifying and documenting potential issues
+- Ensure the quality and reliability of core features before release
+
+The testing approach will primarily rely on:
+- Manual testing by the developer
+- Automated unit testing through Qt Creator's framework
+- Beta testing phase with external users (post v1.0)
+- Performance monitoring through Qt Creator's analysis tools
+
+Success criteria will be measured through:
+- Feature functionality verification
+- Performance metrics (response times under 100-200ms)
+- User satisfaction surveys
+- Bug severity assessment
+
 ### 5.1.2. Objectives
+
+
+#### Version Targets
+- Version 1.0 release date: June 9th, 2025
+- One primary testing cycle per development phase
+- Additional testing following significant feature implementations
+- Beta testing phase immediately preceding v1.0 release
+
+#### Core Testing Priorities
+1. Battle Simulation System
+   - Combat mechanics
+   - Turn resolution
+   - Win/loss conditions
+
+2. User Interface
+   - Menu navigation
+   - Visual feedback
+   - Response times (≤100ms for interactions)
+
+3. Rules Configuration
+   - Database updates
+   - Rule application
+   - System integration
+
+#### Testing Environment
+- Primary development and testing on Qt Creator
+- Unit testing through Qt's testing framework
+- Performance analysis using Qt's built-in tools
+- Manual state monitoring through debug outputs
+
+#### Quality Metrics
+Success will be determined by:
+- Core features functioning without critical bugs
+- UI response times meeting target thresholds
+- Positive user feedback during beta testing
+- Stable database operations for rule management
+
+Testing will be conducted iteratively, with priority given to critical features essential for the v1.0 release. External testing will be introduced in later versions, incorporating feedback from both technical users (computer science students) and non-technical users (family members) to ensure broad usability.
 
 ## 5.2. Testing Strategy
 
 ### 5.2.1. Functional Testing
 
+
+#### Unit Testing
+Unit tests will focus on core functionality components using Qt's testing framework. Primary test targets include:
+
+1. Battle Mechanics Components:
+   - Damage calculation system
+     - Base damage computation
+     - STAB bonus application
+     - Critical hit calculations
+   - Turn order determination
+   - HP management system
+
+2. Class Functionality:
+   - Entity class creation and management
+   - Capacity class implementation
+   - Battle class operations
+
+3. Rule System:
+   - Individual rule activation/deactivation
+   - Rule interaction verification
+   - Rule persistence testing
+
+4. UI Component Testing:
+   - Button functionality
+   - Display update mechanisms
+   - Battle text generation
+
+#### Integration Testing
+
+Priority will be given to testing critical component interactions:
+
+1. Battle System Integration:
+   - Complete attack sequence testing
+     - Move selection → damage calculation → HP update
+     - Multiple modifier application
+     - Move effect processing
+   
+2. Database Integration:
+   - Rule configuration persistence
+   - Battle template management
+   - Character/move data retrieval
+   - Real-time database updates during battles
+
+3. UI-Backend Integration:
+   - Menu navigation with state preservation
+   - Battle state visualization
+   - Real-time data display updates
+
+#### System Testing
+
+Main test scenarios include:
+
+1. Complete Battle Flows:
+   - Default configuration battles
+   - Custom rule set battles
+   - Modified character loadouts
+   - Alternative damage calculator implementations
+
+2. Battle Conditions:
+   - Pre-scripted AI scenarios for specific testing
+   - Various rule combinations
+   - Different character configurations
+
+3. Edge Case Testing:
+   - Maximum stat values (999)
+   - Incomplete movesets (1-3 moves)
+   - PP depletion scenarios
+   - Multiple rule interactions
+
 ### 5.2.2. Non-Functional Testing
 
+
+#### Performance Testing
+1. Response Time Targets:
+   - UI interactions: ≤100ms
+   - Database operations: 100-500ms
+   - Menu transitions: ≤200ms
+
+2. Load Testing:
+   - Multiple battle template management (up to 5)
+   - Continuous battle execution
+   - Rapid UI interaction sequences
+
+3. Memory Management:
+   - Battle system resource monitoring
+   - Database operation memory tracking
+   - Long-session stability testing
+
+#### Usability Testing
+
+1. Interface Elements:
+   - Button responsiveness
+   - HP bar visibility and updates
+   - Battle text readability
+   - Checkbox clarity and function
+
+2. Visual Feedback Criteria:
+   - Response timing
+   - State change visibility
+   - Color scheme consistency
+   - Font and image clarity
+   - Glitch identification and tracking
+
+#### Compatibility Testing
+- Primary: Windows 11 Pro environment
+- Future: macOS compatibility assessment
+- Display scaling verification (150%)
+- Hardware variation testing
+
 ### 5.2.3. Regression Testing
+
+
+Testing Schedule:
+- Major version releases (v1.0, v2.0)
+- Feature addition verification
+- Bug fix validation
+
+Testing Summary Table:
+
+| Test Batch | Date | Tests Performed | Bugs Found | Tests Completed |
+|------------|------|-----------------|------------|-----------------|
+| Pre-v1.0   | TBD  | 0              | 0          | 0              |
+| Pre-v1.5   | TBD  | 0              | 0          | 0              |
+| Pre-v2.0   | TBD  | 0              | 0          | 0              |
+
+Progress Tracking:
+- Qt debugger for performance monitoring
+- Manual test case logging
+- Bug report documentation
+- Feature completion verification
 
 ## 5.3. Testing Process
 
 ### 5.3.1. Environment Setup
 
+#### Software Configuration
+- Qt Creator 11.0.2 (Community)
+- DB Browser for SQLite Version 3.13.1
+- Windows 11 Pro (Primary OS)
+
+#### Testing Environment Requirements
+1. Debug Mode Configuration:
+   - Qt Creator in debug mode
+   - Minimal running applications
+   - DB Browser for database monitoring
+
+2. Database Management:
+   - Dedicated test tables in main database
+   - Separate test data sets
+   - Database state verification between tests
+
 ### 5.3.2. Test Development Structure
+
+
+#### Test Organization
+1. Source Code Testing:
+   - Unit test files
+   - Integration test files
+   - All tests contained in main code folder
+
+2. Test Documentation:
+   - Test case templates
+   - Bug report templates
+   - External tester instructions
+
+#### Test Prioritization
+1. Critical Features (High Priority):
+   - Battle system functionality
+   - Database operations
+   - Core UI components
+
+2. Secondary Features:
+   - Enhanced UI elements
+   - Optional features
+   - Performance optimizations
 
 ### 5.3.3. Test Execution Flow
 
+1. Development Testing Phase:
+   - Unit testing after each feature implementation
+   - Integration testing for connected components
+   - Commit-triggered test execution
+   - Pre-release comprehensive testing
+
+2. Testing Schedule:
+   - New feature testing: 1-2 hours per feature
+   - Release testing: Comprehensive test suite
+   - Regular testing during development cycles
+
 ### 5.3.4. External Testing Protocol
+
+
+#### Tester Management
+- Target: 5-10 external testers
+- Mix of technical and non-technical users
+- Scheduled testing sessions
+
+#### Testing Materials
+1. Distribution Package:
+   - Executable in ZIP format
+   - Installation instructions
+   - Testing guidelines
+
+2. Feedback Collection:
+   - Google Forms survey
+   - Structured questionnaire
+   - User experience evaluation
 
 ### 5.3.5. Bug Tracking System
 
+
+#### Bug Documentation
+1. Bug Report Elements:
+   - Bug identifier
+   - Description
+   - Related test case
+   - Discovery conditions
+   - Discovery date
+   - Current status
+   - Resolution date
+   - Fix methodology
+
+2. Priority Classification:
+   - Critical: Affects core functionality
+   - High: Impacts main features
+   - Medium: Affects secondary features
+   - Low: Minor visual/cosmetic issues
+
+#### Bug Resolution Flow
+1. Discovery and Documentation
+2. Priority Assessment
+3. Resolution Planning
+4. Fix Implementation
+5. Verification Testing
+6. Resolution Documentation
+
 ### 5.3.6. Test Execution Checklist
+
+
+1. Pre-Test Setup:
+   - Environment configuration
+   - Database preparation
+   - Test case documentation ready
+
+2. Testing Sequence:
+   - Unit tests execution
+   - Integration testing
+   - System testing
+   - Performance verification
+   - External user testing (when applicable)
+
+3. Post-Test Activities:
+   - Results documentation
+   - Bug reporting
+   - Fix prioritization
+   - Test report generation
 
 ### 5.4. Main Features to Test
 
 ### 5.4.1. Battle System Configuration
 
+
+#### Database Operations Testing
+
+1. CRUD Operations Validation
+   - Create Operations:
+     - Battle Template creation
+     - Battle instance creation
+   - Read Operations:
+     - Battle Template retrieval
+     - Entity data access
+     - Capacity information
+     - Damage Calculator configuration
+     - RuleSet verification
+   - Update Operations:
+     - Battle Template modification
+     - Damage Calculator adjustments
+     - RuleSet changes
+   - Delete Operations:
+     - Battle Template removal
+     - Battle instance cleanup
+
+2. Character Data Validation
+   - Stat Range Verification:
+     - HP: 0 to max HP
+     - Level: 1 to 100
+     - Base Stats: 1 to 999 (Attack, Defense, Speed)
+   - Stat Modification Tracking:
+     - Buff/Nerf limits (-6 to +6 from base)
+     - STAB bonus calculation
+   - Move Management:
+     - PP tracking per move
+     - Move availability verification
+   - Display Verification:
+     - Character name
+     - Current HP
+     - Four moves display
+
+3. Rule Configuration Testing
+   - Minimum 8 rule combinations
+   - Rule interaction verification
+   - Rule persistence testing
+
+#### Battle Mechanics Testing
+
+1. Damage Calculation Validation
+   Components to test:
+   - Attacker Level
+   - Attack Stat
+   - Move Power
+   - Defender's Defense
+   - STAB Bonus
+   - Critical Hit Bonus
+
+2. Turn Order System
+   - Speed-based priority
+   - Tie-break random selection (50/50)
+   - Turn execution order
+
+3. Win/Loss Conditions
+   - HP depletion (0 HP)
+   - PP depletion scenario
+   - Optional turn limit rule
+
 ### 5.4.2. Simulation Interface
 
+
+#### Core Functionality Testing
+
+1. Battle Initialization
+   - Screen transition (100-200ms)
+   - Initial state setup
+   - Character display
+   - Move selection interface
+
+2. Turn Execution Validation
+   - Player move selection
+   - AI move selection
+   - Action resolution
+   - State updates
+   - Continuation check
+
+3. HP Management
+   - HP bar visual updates
+   - Numerical HP display
+   - Damage/healing reflection
+
+#### Performance Metrics
+
+1. Response Time Testing
+   - Menu transitions: ≤200ms
+   - Button interactions: ≤100ms
+   - Battle state updates: ≤100ms
+
+2. Resource Management
+   - Memory usage monitoring
+   - System resource tracking
+   - Performance optimization verification
+
 ### 5.4.3. User Interface
+
+
+#### Navigation Testing
+
+1. Menu Flow Validation
+   Primary Transitions:
+   - Login ↔ Main Menu
+   - Main Template Menu ↔ Simulation Menu
+   - Main Template Menu ↔ Rules Menu
+   - Main Template Menu ↔ Character Menu
+   - Main Template Menu ↔ Damage Calculator
+   - Main Menu ↔ Template Gallery
+   - Main Menu ↔ New Template Menu
+   - Template Gallery ↔ Main Template Menu
+   - New Template Menu ↔ Main Template Menu
+
+2. Error Handling
+   - Login validation messages
+   - Input verification
+   - Error message display
+   - Error recovery flow
+
+#### Visual Elements Testing
+
+1. UI Component Validation
+   - Button scaling verification
+   - Menu layout consistency
+   - Element positioning
+   - Visual hierarchy
+
+2. Display Testing
+   - Screen resolution adaptation
+   - Element scaling
+   - Text readability
+   - Interface clarity
 
 ## 5.5 Out of Scope Features
 
 ### 5.5.1. Feature Exclusion Overview
 
+
+#### Currently Excluded Features
+1. General-Purpose 2D Game Simulation
+   - Level editor functionality
+   - Event management system
+   - Multiple gameplay mode support
+
+2. Advanced RPG Systems
+   - Real-time battle mechanics
+   - Combo attack system
+   - Alternative battle styles (Final Fantasy, EarthBound)
+
+3. Complex Customization Tools
+   - Stat editor interface
+   - Advanced skill creation system
+   - Status effect management
+   - Equipment and inventory systems
+
+4. Additional Utilities
+   - Experience point calculations
+   - Battle recording functionality
+   - Multi-user account system
+
+#### Exclusion Rationale
+- Time constraints for initial development
+- Focus on Pokémon-style battle system expertise
+- Maintaining clear, manageable project scope
+- Prioritizing core battle mechanics quality
+
 ### 5.5.2. Future Implementation Possibilities
+
+#### Planned Future Features (Post v2.5)
+1. Battle System Expansions
+   - Complete type effectiveness table
+   - Enhanced stats management
+   - Comprehensive skills system
+   - Status effect implementation
+
+2. User Experience Improvements
+   - Battle template code export
+   - Multi-user support system
+   - Enhanced customization options
+
+#### Extensibility Considerations
+- Current type system supports future expansion
+- Character system allows additional Pokémon
+- Move system can accommodate new attacks
+- User feedback will guide priority features
 
 ### 5.5.3. Testing Impact Analysis
 
+
+#### Current Testing Boundaries
+1. Scope Limitation Benefits
+   - Focused testing approach
+   - Concentrated quality assurance
+   - Streamlined validation process
+
+2. Feature Dependencies
+   - Type table → Current type system
+   - Stats menu ↔ Damage calculator
+   - Character menu → Multiple feature dependencies
+     - Stats system
+     - Rules configuration
+     - Skills management
+     - Status effects
+
+#### Future Testing Considerations
+1. Integration Requirements
+   - Regression testing for existing features
+   - Compatibility verification
+   - New feature integration testing
+
+2. Test Case Evolution
+   - Current test case adaptation
+   - New test case development
+   - Integration test expansion
+
 ### 5.5.4. Documentation and Communication
 
+
+#### Feature Status Communication
+1. Update Channels
+   - GitHub repository updates
+   - Social media announcements
+   - Email notifications
+   - Documentation updates
+
+2. Bug Report Management
+   - Classification of out-of-scope reports
+   - Feature request tracking
+   - Future implementation consideration
+
+3. Boundary Documentation
+   - Functional specification updates
+   - Clear feature limitation documentation
+   - Future roadmap maintenance
+
 ### 5.5.5. Testing Preparation for Future Features
+
+
+1. Current System Preparation
+   - Modular test structure
+   - Extensible test frameworks
+   - Clear documentation of test boundaries
+
+2. Future Testing Strategy
+   - Test case template preparation
+   - Integration test planning
+   - Performance benchmark updates
+
+3. Quality Assurance Evolution
+   - Test coverage expansion plans
+   - Testing tool adaptation strategy
+   - Documentation update procedures
 
 ## 5.6. Hardware Requirements
 
 ### 5.6.1. Testing Environment Specifications
 
+
+#### Primary Test Environment
+1. Hardware Configuration
+   - System: Lenovo Windows 11 Pro (64-bit)
+   - CPU: Intel® Core™ i7-1065G7 @ 1.30GHz (up to 1.50 GHz)
+   - RAM: 16 GB installed
+     - Minimum required: 6 GB
+     - Recommended: 8 GB or more
+   - Storage: 100-200 MB total space
+     - Application binaries
+     - Asset files
+     - Test data storage
+
+2. Display Requirements
+   - Minimum resolution: 1280×720
+   - Display scaling: 150% support
+   - No dedicated GPU required
+   - 2D graphics rendering capability
+
+3. Performance Monitoring Tools
+   - Windows Task Manager for CPU/Memory tracking
+   - Qt Creator performance analysis tools
+   - System resource monitors
+   - Display response monitoring
+
 ### 5.6.2. Test Environment Variations
+
+#### Secondary Test Configurations
+1. Operating Systems
+   - Windows 11 Pro (Primary)
+   - Future macOS testing planned
+   - Additional Windows versions TBD
+
+2. Display Testing Matrix
+   - Multiple screen resolutions
+     - Starting from 1280×720
+     - Various aspect ratios
+   - Different laptop display sizes
+   - Scaling configurations
 
 ### 5.6.3. Input Device Testing
 
+
+#### Required Input Devices
+1. Mouse/Touchpad Requirements
+   - Basic functionality testing
+   - UI element interaction verification
+   - Cursor response validation
+   - Click recognition testing
+
+2. Keyboard Testing Requirements
+   - Character input validation (login)
+   - Special key functionality
+     - Arrow keys
+     - Space bar
+     - Escape key
+   - Input response verification
+
+#### Out of Scope Input Testing
+- Touchscreen functionality
+- Alternative input methods
+- Specialized gaming peripherals
+
 ### 5.6.4. Performance Testing Tools
 
+
+#### Resource Monitoring
+1. CPU Usage Tracking
+   - Windows Task Manager
+   - Qt Creator profiling tools
+   - Performance baseline establishment
+   - Usage pattern analysis
+
+2. Memory Management
+   - RAM usage monitoring
+   - Memory leak detection
+   - Resource allocation tracking
+   - Peak usage measurement
+
+3. Display Performance
+   - UI responsiveness testing
+   - Frame rate monitoring
+   - Screen scaling verification
+   - Visual clarity assessment
+
 ### 5.6.5. Testing Metrics
+
+
+#### Performance Benchmarks
+1. Response Times
+   - UI interaction: ≤100ms
+   - Menu transitions: ≤200ms
+   - Battle system updates: real-time
+
+2. Resource Usage Limits
+   - RAM: 6 GB minimum
+   - Storage: 200 MB maximum
+   - CPU: Baseline measurements TBD
+
+3. Display Requirements
+   - Minimum resolution support
+   - Scaling functionality
+   - Visual element clarity
+   - UI consistency across configurations
 
 ## 5.7. Environment Requirements
 
 ### 5.7.1. Development Environment Setup
 
+
+#### Core Development Tools
+1. Qt Environment
+   - Qt Version: 6.5.2
+   - Qt Creator: 11.0.2 Community
+   - Primary development IDE
+   - Testing framework integration
+
+2. Documentation Tools
+   - Visual Studio Code
+     - Test case documentation
+     - Bug tracking documentation
+     - General documentation management
+
+3. Version Control System
+   - GitHub Desktop
+     - Commit management
+     - Branch switching
+     - Branch merging
+     - Push operations
+
+4. Database Management
+   - SQLite Browser
+     - Database table verification
+     - Data reading/updating
+     - Test data validation
+
 ### 5.7.2. Testing Framework Configuration
+
+
+#### Testing Tools Integration
+1. Qt Testing Framework
+   - Framework familiarization required
+   - Unit test implementation
+   - Integration test support
+   - Performance test capability
+
+2. Database Testing
+   - SQLite Browser for data verification
+   - Table structure validation
+   - Data integrity checking
+   - Query testing
+
+3. Performance Monitoring
+   - Qt Creator built-in tools
+   - System resource monitoring
+   - Response time tracking
 
 ### 5.7.3. Version Control Strategy
 
+
+#### Repository Management
+1. Commit Strategy
+   - Frequency: 1-5 commits daily
+   - Feature-based commits
+   - Bug fix documentation
+   - Test case updates
+
+2. Branch Structure
+   - Main branch (stable releases)
+   - Development branch (active development)
+   - Feature branches (specific implementations)
+   - Documentation branch
+
+3. Testing Documentation
+   - Test case tracking
+   - Results documentation
+   - Change verification
+   - Bug tracking
+
 ### 5.7.4. Test Environment Management
 
+
+#### Environment Setup
+1. Testing Conditions
+   - Quiet, controlled environment
+   - Minimal background applications
+   - Required tools activated as needed
+   - Resource monitoring active
+
+2. Cross-Platform Consistency
+   - Machine-specific conditions documented
+   - Code adaptations for different platforms
+   - Configuration standardization
+   - Test case adaptation as needed
+
+3. Testing Workflow
+   - Environment preparation checklist
+   - Tool initialization sequence
+   - Test execution protocol
+   - Results documentation process
+
 ### 5.7.5. Quality Assurance Procedures
+
+
+#### Testing Protocol
+1. Pre-Test Setup
+   - Environment verification
+   - Tool availability check
+   - Database state confirmation
+   - Documentation preparation
+
+2. Test Execution
+   - Systematic test case execution
+   - Result recording
+   - Issue documentation
+   - Performance monitoring
+
+3. Post-Test Procedures
+   - Results validation
+   - Documentation update
+   - Environment restoration
+   - Issue tracking update
+
 
 ## 5.8. External User Testing
 
 ### 5.8.1. Participant Selection
 
+
+#### Tester Demographics
+1. Target Audience
+   - Age range: 8+ years
+   - Mix of technical and non-technical users
+   - Basic computer literacy required
+   - RPG gaming familiarity needed
+
+2. Tester Categories
+   - Technical Users
+     - Computer science students
+     - Software engineering background
+   - Non-Technical Users
+     - Family members
+     - General gaming enthusiasts
+
+3. Selection Criteria
+   - Availability for testing
+   - Gaming experience level
+   - Computer proficiency
+   - Willingness to provide detailed feedback
+
 ### 5.8.2. Test Environment Setup
+
+
+#### Physical Environment
+1. Room Requirements
+   - Quiet, closed space
+   - Adequate desk space
+   - Proper lighting
+   - Minimal distractions
+
+2. Equipment Setup
+   - Standard computer model
+   - Working mouse
+   - Power supply
+   - Desk and chair
+
+#### Session Parameters
+- Duration: 5-20 minutes
+- One-on-one observation
+- Controlled testing conditions
+- Immediate feedback capability
 
 ### 5.8.3. Testing Protocol
 
+
+#### Test Sequence (V1.0)
+1. Login Process
+   - Provided temporary credentials
+   - Authentication verification
+
+2. Basic Simulation Testing
+   - Navigate to simulation
+   - Complete default battle
+   - Observe win/loss conditions
+
+3. Rules Configuration
+   - Access rules menu
+   - Modify specific settings (e.g., Healing rule)
+   - Verify rule changes
+
+4. Modified Battle Testing
+   - Execute battle with new rules
+   - Observe gameplay differences
+   - Verify feature functionality
+
+#### Task Documentation
+1. Observer Notes
+   - User behavior tracking
+   - Issue identification
+   - Time tracking
+   - User comments
+
+2. User Instructions
+   - Test default settings
+   - Explore configuration options
+   - Evaluate UI experience
+   - Report bugs encountered
+   - Suggest improvements
+
 ### 5.8.4. Data Collection and Analysis
 
+
+#### Feedback Collection
+1. Survey Implementation
+   - Google Forms platform
+   - Structured questions
+   - Rating scales
+   - Open-ended feedback
+
+2. Data Categories
+   - UI responsiveness
+   - Feature functionality
+   - User experience
+   - Bug reports
+   - Feature suggestions
+
+#### Results Analysis
+1. Satisfaction Metrics
+   - Interface usability
+   - Task completion success
+   - Feature effectiveness
+   - Overall experience
+
+2. Issue Prioritization
+   - Bug frequency
+   - Feature request patterns
+   - Performance concerns
+   - UI/UX improvements
+
 ### 5.8.5. Testing Management
+
+
+#### Session Organization
+1. Scheduling
+   - Based on development progress
+   - Tester availability
+   - Version readiness
+   - Resource availability
+
+2. Technical Support
+   - Issue documentation
+   - Bug reproduction steps
+   - Solution tracking
+   - Version documentation
+
+#### Data Management
+1. Survey Results
+   - Google Forms analytics
+   - Response categorization
+   - Trend identification
+   - Priority assessment
+
+2. Implementation Planning
+   - Feature prioritization
+   - Bug fix scheduling
+   - Version planning
+   - Update documentation
 
 ## 5.9. Problem Reporting
 
 ### 5.9.1. Bug Classification System
 
+
+#### Severity Levels
+| Severity Level | Description                                                                 | Response Time                |
+|----------------|-----------------------------------------------------------------------------|------------------------------|
+| **Critical**   | - Immediate app functionality impact<br>- Data loss risk<br>- Core feature failure | Within 24 hours              |
+| **High**       | - Major feature malfunction<br>- Significant user experience impact<br>- Important functionality affected | Within one week              |
+| **Medium**     | - Non-critical feature issues<br>- Minor functionality impact<br>- Workaround available | Before next version release  |
+| **Low**        | - Cosmetic issues<br>- Minor inconveniences<br>- No functionality impact     | Can be deferred              |
+
+
+#### Bug Categories
+1. Technical Classification
+   - Functional errors
+   - Syntax errors
+   - Logic errors
+   - Calculation errors
+
+2. Scope Classification
+   - Unit-level bugs
+   - System-level integration bugs
+   - Out of bounds bugs
+
 ### 5.9.2. Documentation Process
+
+
+#### Bug Report Template
+
+|                         | **Bug Name** | **Description** | **Related Test Case ID** | **Date of Discovery** | **Severity Level** | **Current Status** | **Date of Resolution** | **Resolution Method** |
+|-------------------------|--------------|------------------|---------------------------|------------------------|---------------------|---------------------|--------------------------|------------------------|
+| **Details**             |              |                  |                           |                        |                     |                     |                          |                        |
+
 
 ### 5.10. Risks and Assumptions
 
 ### 5.10.1. Testing Risk Matrix
 
+
+
+| Risk | Impact | Probability | Mitigation Strategy |
+|------|---------|------------|-------------------|
+| **Limited testing time** | High | High | - Focus on battle system and navigation testing first<br>- Prioritize critical test cases<br>- Reduce scope if necessary |
+| **Performance issues** | Medium | Medium | - Regular performance testing during development<br>- Optimize code when issues detected<br>- Document performance baselines |
+| **Simulation crashes** | High | Medium | - Implement error logging<br>- Regular stability testing<br>- Document crash conditions |
+| **UI rendering issues** | Medium | Low | - Regular UI testing across different screens<br>- Simplify complex UI elements<br>- Document visual requirements |
+| **Database integration** | Medium | Medium | - Separate test database tables<br>- Test data integrity regularly<br>- Document database operations |
+| **External user confusion** | Medium | High | - Provide clear testing instructions<br>- Document common user errors<br>- Simplify test procedures |
+
 ### 5.10.2. Testing Assumptions
 
+
+#### Environment Assumptions
+1. Testing Tools
+   - Qt Creator debug tools will be available
+   - Database testing tools will be accessible
+   - Screen recording software will be available when needed
+
+2. Test Data
+   - Separate database tables for testing
+   - Test data can be easily reset
+   - Data integrity can be maintained
+
+#### Testing Process Assumptions
+1. Time Management
+   - Core features can be tested within timeline
+   - Critical bugs can be addressed quickly
+   - External testers will be available
+
+2. Test Coverage
+   - Battle system testing is highest priority
+   - Navigation testing is second priority
+   - Other features tested as time permits
+
 ### 6. Test Cases
+
+Test Cases Written : 106
+Test Cases Completed : 0 
 
 ## 6.1. Battle Simulation
 
 ### 6.1.1. Unit Tests
 
+#### Entity Creation Tests
+| ID       | Description                                                                                  | Priority | Pre-requisites                                                                                   | Procedure                                                                                              | Exp                                                                                     | Out | Status       |
+|----------|----------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----|--------------|
+| UNT_1111 | Verify that the `Entity` class can be instantiated and correctly initialized with values such as name, level, stats, and type. Ensure all properties are properly assigned and retrievable. | Critical | 1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize an `Entity` object with test values.  <br /> 3. Use assertions to verify each member is correctly set. | The unit test should pass, confirming all properties are correctly initialized and retrievable. | N/A | To be tested |
+| UNT_1112 | Verify that the current HP of an `Entity` instance is correctly tracked and returned. Test proper initialization and retrieval of remaining HP. | Critical | 1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize an `Entity` object with a known HP value.  <br /> 3. Use assertions to verify that the remaining HP is correctly returned. | The unit test should pass, confirming the correct initialization and access to remaining HP. | N/A | To be tested |
+| UNT_1113 | Verify that an `Entity` instance can be assigned a moveset composed of 4 mock `Capacity` objects. Ensure each move is stored and accessible. | High | 1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize an `Entity` object.  <br /> 3. Create 4 mock `Capacity` instances and store them in a list or array.  <br /> 4. Assign the moveset to the entity and use assertions to verify each move. | The unit test should pass, confirming the moveset is correctly assigned and all 4 capacities are accessible. | N/A | To be tested |
+| UNT_1135  | Verify that the `Entity` class can randomly select one of four mock `Capacity` instances from its moveset, with equal probability (25% each). This simulates a basic AI decision-making process. | Medium   | 1. Class files (`Entity.cpp`, `Entity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Create an `Entity` instance.  <br /> 3. Create four mock `Capacity` instances and store them in a list or array.  <br /> 4. Assign the moveset to the entity.  <br /> 5. Call the selection function multiple times and verify that all four capacities are chosen over time with roughly equal distribution. | Unit test should pass, confirming that each `Capacity` has an equal chance of being selected. | N/A    | To be tested |
+
+
+#### Capacity Creation Tests
+| ID       | Description                                                                                  | Priority | Pre-requisites                                                                                   | Procedure                                                                                              | Expected                                                                                 | Output | Status       |
+|----------|----------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_1121 | Verify that the `Capacity` class can be instantiated and correctly initialized with values such as name, attack power, power points, category, and effect type. Ensure all properties are properly assigned and retrievable. | Critical | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object with test values.  <br /> 3. Use assertions to verify each member is correctly set. | Unit test should pass, confirming all properties are correctly initialized and retrievable. | N/A    | To be tested |
+| UNT_1122 | Verify that the remaining power points (PP) of a `Capacity` object are correctly tracked and retrievable. Ensure accurate initialization and access. | High     | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object with a known PP value.  <br /> 3. Use assertions to verify the remaining PP is correctly returned. | Unit test should pass, confirming correct tracking and retrieval of PP.                  | N/A    | To be tested |
+| UNT_1123 | Verify that a `Capacity` object can be assigned a stat modifier structure and that all modifier values are correctly stored and accessible. | Medium   | 1. Class files (`capacity.cpp`, `capacity.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Capacity` object.  <br /> 3. Create a stat modifier structure.  <br /> 4. Assign it and use assertions to verify each value. | Unit test should pass, confirming the stat modifier is correctly assigned and accessible. | N/A    | To be tested |
+
+#### Battle Creation Tests
+
+| ID        | Description                                                                                                                       | Priority | Pre-requisites                                                                                   | Procedure                                                                                                                                                       | Expected                                                                                 | Output | Status       |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_1131  | Verify that the `Battle` class can be instantiated and correctly initialized with mock entities, a `BattleState`, and a turn value. Ensure all properties are properly assigned and retrievable. | Critical | 1. Class files (`Battle.cpp`, `Battle.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Battle` object with test values for entities, state, and turn.  <br /> 3. Use assertions to verify each member is correctly set. | Unit test should pass, confirming that the `Battle` object is properly initialized.     | N/A    | To be tested |
+| UNT_1132  | Verify that the `BattleState` of a `Battle` object can be changed and correctly reflects the new state.                           | High     | 1. Class files (`Battle.cpp`, `Battle.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Battle` object.  <br /> 3. Change its `BattleState` to another value.  <br /> 4. Use assertions to verify the state change occurred. | Unit test should pass, confirming that the state change is handled correctly.            | N/A    | To be tested |
+| UNT_1133  | Verify that the turn order logic selects the faster entity based on their speed stat. If both speeds are equal, verify the system uses a 50% random selection between the two. | High     | 1. Class files (`Battle.cpp`, `Battle.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Create two mock entities with differing speed stats and assign them to a `Battle`.  <br /> 3. Use assertions to verify the faster one acts first.  <br /> 4. Repeat with equal speed values to test random turn handling. | Unit test should pass, confirming speed comparison and random resolution for ties.       | N/A    | To be tested |
+| UNT_1134  | Verify that the `Battle` class correctly increments the turn counter when a new turn begins.                                       | Medium   | 1. Class files (`Battle.cpp`, `Battle.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a `Battle` object with a known turn value.  <br /> 3. Call the method that increments the turn.  <br /> 4. Use assertions to verify the turn was incremented. | Unit test should pass, confirming that the turn value increments as expected.            | N/A    | To be tested |
+
+#### Damage Calculation Tests
+
+| ID        | Description                                                                                                                  | Priority | Pre-requisites                                                                                   | Procedure                                                                                                                                                        | Expected                                                                  | Output | Status       |
+|-----------|------------------------------------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|--------|--------------|
+| UNT_1141  | Verify that base damage is correctly calculated according to standard formula using inputs such as level, attack, power, and defense. | Critical | 1. Class files responsible for damage calculation (e.g., `Battle.cpp`, `Battle.h`) must be created and available in the project.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Provide known input values: attacker level, attack stat, move power, and defender's defense.  <br /> 3. Call the damage calculation function.  <br /> 4. Use assertions to verify the result matches the expected value based on the formula. | Unit test should pass, confirming that the base damage is calculated accurately. | N/A    | To be tested |
+| UNT_1142  | Verify that healing is correctly calculated based on the healing percentage, current HP, and max HP.                          | Medium   | 1. Class files responsible for healing logic must be created and available.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a mockup entity with known `currentHP` and `maxHP`.  <br /> 3. Apply a healing percentage.  <br /> 4. Use assertions to confirm the resulting HP is correct and does not exceed `maxHP`. | Unit test should pass, confirming that healing is accurately applied. | N/A    | To be tested |
+| UNT_1143  | Verify that a stat increase (buff) is correctly calculated and applied to a mockup entity's stat.                                   | Medium   | 1. Class files responsible for stat modification must be created and available.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a mockupentity with a known stat value.  <br /> 3. Apply a buff of a certain amount.  <br /> 4. Use assertions to verify the new stat value is correct. | Unit test should pass, confirming the buff is correctly applied.       | N/A    | To be tested |
+| UNT_1144  | Verify that a stat decrease (nerf) is correctly calculated and applied to a mockup entity's stat.                                   | Medium   | 1. Class files responsible for stat modification must be created and available.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Initialize a mockup entity with a known stat value.  <br /> 3. Apply a nerf of a certain amount.  <br /> 4. Use assertions to verify the new stat value is correct. | Unit test should pass, confirming the nerf is correctly applied.       | N/A    | To be tested |
+| UNT_1145  | Verify that the STAB (Same-Type Attack Bonus) is correctly applied when a mockup entity uses a mockup capacity that matches its type.          | Medium   | 1. Class files responsible for damage logic must be created and available.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Create a mockup entity and a mockup capacity with matching types.  <br /> 3. Calculate STAB-adjusted damage.  <br /> 4. Use assertions to verify the damage includes the STAB multiplier (e.g., 1.5x). | Unit test should pass, confirming STAB is applied correctly.           | N/A    | To be tested |
+| UNT_1146  | Verify that the critical hit bonus is correctly applied when a critical hit occurs in a damage calculation.                   | Medium   | 1. Class files responsible for damage logic must be created and available.  <br /> 2. Qt Test framework must be properly set up and configured | 1. Write a unit test in the Qt test framework.  <br /> 2. Provide a scenario where a critical hit is guaranteed (e.g., force the flag).  <br /> 3. Call the damage function and verify the bonus multiplier (e.g., 1.5x or 2x) is applied. | Unit test should pass, confirming critical hit bonus is applied properly. | N/A    | To be tested |
+
+#### HP Management Tests
+| ID        | Description                                                                                     | Priority | Pre-requisites                                                                                   | Procedure                                                                                                                                                        | Expected                                                                   | Output | Status       |
+|-----------|-------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|--------|--------------|
+| UNT_1151  | Verify that a mockup entity correctly handles damage and sets HP to zero when appropriate.       | Critical | 1. Mockup entity class must exist and be included in the test project.  <br /> 2. Qt Test framework must be properly set up. | 1. Write a unit test using a mockup entity.  <br /> 2. Assign a known HP value and apply damage greater than or equal to it.  <br /> 3. Use assertions to confirm resulting HP is 0 and any "faint" flag or equivalent is triggered. | Unit test should pass, confirming damage and zero HP logic.               | N/A    | To be tested |
+| UNT_1152  | Verify that a mockup entity heals properly and does not exceed its maximum HP.                   | Medium   | 1. Mockup entity class must exist and be included in the test project.  <br /> 2. Qt Test framework must be properly set up. | 1. Write a unit test using a mockup entity.  <br /> 2. Assign known values for currentHP and maxHP.  <br /> 3. Apply healing.  <br /> 4. Use assertions to verify resulting HP is correct and does not exceed maxHP. | Unit test should pass, confirming healing and full HP handling.          | N/A    | To be tested |
+
+
+#### Stat Change Tests
+| ID        | Description                                                                                     | Priority | Pre-requisites                                                                                   | Procedure                                                                                                                                                        | Expected                                                                   | Output | Status       |
+|-----------|-------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|--------|--------------|
+| UNT_1161  | Verify that stat buffs applied to a mockup entity do not exceed the allowed maximum limit.       | Medium   | 1. Mockup entity class with stat management must be included.  <br /> 2. Qt Test framework must be properly set up. | 1. Write a unit test using a mockup entity.  <br /> 2. Apply repeated buffs to a stat.  <br /> 3. Use assertions to confirm the stat caps at the defined maximum. | Unit test should pass, confirming maximum buff limit is enforced.         | N/A    | To be tested |
+| UNT_1162  | Verify that stat nerfs applied to a mockup entity do not go below the allowed minimum limit.     | Medium   | 1. Mockup entity class with stat management must be included.  <br /> 2. Qt Test framework must be properly set up. | 1. Write a unit test using a mockup entity.  <br /> 2. Apply repeated nerfs to a stat.  <br /> 3. Use assertions to confirm the stat caps at the defined minimum. | Unit test should pass, confirming minimum nerf limit is enforced.         | N/A    | To be tested |
+
+
+#### Win/Lose Condition Tests
+| ID        | Description                                                                                                                  | Priority | Pre-requisites                                                                                   | Procedure                                                                                                                                                        | Expected                                                                   | Output | Status       |
+|-----------|------------------------------------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|--------|--------------|
+| UNT_1171  | Verify that when a mockup entity has 0 HP, the correct defeat message or outcome is triggered.                               | Critical | 1. Mockup entity class must support message generation or defeat flag.  <br /> 2. Qt Test framework must be properly set up. | 1. Write a unit test using a mockup entity.  <br /> 2. Reduce HP to 0.  <br /> 3. Use assertions to check if appropriate message or lose condition is activated. | Unit test should pass, confirming 0 HP triggers correct defeat handling.   | N/A    | To be tested |
+| UNT_1172  | Verify that a mockup entity with no usable attacks (0 PP on all 4 mock moves) triggers a no-action condition.                 | Medium   | 1. Mockup entity with fake move list (4 moves) and PP values must be available.  <br /> 2. Qt Test framework must be set up. | 1. Write a unit test using a mockup entity.  <br /> 2. Set all mock move PP to 0.  <br /> 3. Assert that the system detects no available action.                | Unit test should pass, confirming no-attack state is handled correctly.    | N/A    | To be tested |
+| UNT_1173  | Verify that exceeding a maximum number of turns in a mockup battle triggers a tie or timeout condition.                       | Medium   | 1. Mockup battle class with turn count tracking must exist.  <br /> 2. Qt Test framework must be set up. | 1. Write a unit test using a mockup battle.  <br /> 2. Simulate turns until limit is exceeded.  <br /> 3. Use assertions to confirm the expected outcome (e.g., tie/end condition). | Unit test should pass, confirming turn limit handling functions correctly. | N/A    | To be tested |
+
 ### 6.1.2. Integration Tests
+
+#### 1.2.1 Battle System & UI Integration
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_1211 | Verify that battle creation properly initializes and updates all UI elements, ensuring proper display of entity stats, HP bars, and move buttons. | Critical | 1. All related unit tests must have passed (UNT_1111, UNT_1131, UNT_2171, UNT_2172, UNT_2173) <br /> 2. Entity and Battle classes must be implemented <br /> 3. UI components must be created and available <br /> | 1. Create a battle instance with two entities <br /> 2. Initialize the UI components (HP bars, stat displays, move buttons) <br /> 3. Link battle state to UI elements <br /> 4. Verify initial UI state matches battle data <br /> 5. Trigger battle state changes <br /> 6. Verify UI updates reflect the changes | All UI elements correctly display and update according to battle state changes | N/A | To be tested |
+| INT_1212 | Verify that combat actions properly trigger visual feedback, including battle text updates, HP bar changes, and stat modification indicators. | Medium | 1. All related unit tests must have passed (UNT_1141, UNT_1142, UNT_2171, UNT_2173, UNT_2174) <br /> 2. Battle system must be operational <br /> 3. UI components must be responsive <br />  | 1. Initialize a battle with test entities <br /> 2. Set up UI elements for battle feedback <br /> 3. Execute a test attack sequence <br /> 4. Verify HP bar updates <br /> 5. Check battle text changes <br /> 6. Confirm visual indicators for stat changes | Combat actions correctly trigger all associated visual feedback elements | N/A | To be tested |
+| INT_1213 | Verify that battle templates properly load and configure both battle system and UI elements according to specified rules. | Low | 1. All related unit tests must have passed (UNT_1131, UNT_3141, UNT_3144) <br /> 2. Template system must be operational <br /> 3. Battle system must be configurable <br /> | 1. Create a test battle template <br /> 2. Load template into battle system <br /> 3. Initialize UI with template settings <br /> 4. Verify battle rules are applied <br /> 5. Check character stats loading <br /> 6. Confirm damage calculator configuration | Battle system and UI correctly reflect template configuration | N/A | To be tested |
+
+#### 1.2.2 Battle Flow Integration
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_1221 | Verify that a complete attack sequence executes properly from selection to resolution, including damage calculation and HP updates. | Critical | 1. All related unit tests must have passed (UNT_1112, UNT_1141, UNT_1151, UNT_2121, UNT_2171) <br /> 2. Battle system must be operational <br /> 3. Entity damage calculation system must be implemented | 1. Initialize a battle with two test entities <br /> 2. Select an attack for the first entity <br /> 3. Execute the attack sequence <br /> 4. Calculate and apply damage <br /> 5. Update HP values <br /> 6. Verify battle state after attack | Complete attack sequence executes in correct order with proper damage calculation and HP updates | N/A | To be tested |
+| INT_1222 | Verify that multiple modifiers (buffs, STAB, critical hits) are properly applied and interact correctly during damage calculation. | Medium | 1. All related unit tests must have passed (UNT_1141, UNT_1143, UNT_1145, UNT_1146, UNT_1161) <br /> 2. Modifier system must be implemented <br /> 3. Damage calculation system must support multiple modifiers | 1. Set up a battle with test entities <br /> 2. Apply multiple stat modifiers to an entity <br /> 3. Execute an attack with STAB bonus <br /> 4. Force a critical hit <br /> 5. Calculate final damage <br /> 6. Verify all modifiers were properly applied | All modifiers are correctly applied and interact as expected in the damage calculation | N/A | To be tested |
+| INT_1223 | Verify that a healing move is properly processed and applied when a character uses it on themselves. | Medium | 1. All related unit tests must have passed (UNT_1121, UNT_1122, UNT_1123, UNT_1142) <br /> 2. Healing system must be implemented <br /> 3. Battle system must support self-targeting moves | 1. Initialize battle with an entity having a healing move <br /> 2. Reduce entity's HP below maximum <br /> 3. Execute the healing move <br /> 4. Verify PP reduction <br /> 5. Confirm HP increase within maximum limits | Healing move correctly restores HP and consumes PP | N/A | To be tested |
+| INT_1224 | Verify that turn order and resolution are properly handled based on speed stats and modifiers. | Medium | 1. All related unit tests must have passed (UNT_1131, UNT_1133, UNT_1134, UNT_1135) <br /> 2. Turn system must be implemented <br /> 3. Speed comparison system must be operational | 1. Set up battle with entities having different speeds <br /> 2. Apply speed modifiers to one entity <br /> 3. Initialize turn sequence <br /> 4. Verify turn order determination <br /> 5. Execute multiple turns <br /> 6. Check turn counter updates | Turn order is correctly determined by speed and modifiers, with proper turn progression | N/A | To be tested |
 
 ### 6.1.3. System Tests
 
+#### 1.3.1 Complete Battle Flows
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_1311 | Verify that a complete battle executes correctly using default configuration settings. | Critical | 1. All related integration tests must have passed (INT_1211, INT_1221, INT_1224) <br /> 2. Battle system must be fully operational <br /> 3. Default configuration must be implemented | 1. Initialize battle with default settings <br /> 2. Execute multiple turns with various moves <br /> 3. Verify damage calculations <br /> 4. Check turn order handling <br /> 5. Monitor battle state changes <br /> 6. Confirm proper battle conclusion | Complete battle executes successfully with all mechanics working together | N/A | To be tested |
+| SYS_1312 | Verify that battles execute correctly with custom rule combinations. | Low | 1. All related integration tests must have passed (INT_1213, INT_3212) <br /> 2. Rule system must be fully operational <br /> 3. Custom configuration must be supported | 1. Create battle with modified rules <br /> 2. Execute battle with rule variations <br /> 3. Verify rule interactions <br /> 4. Test edge case combinations <br /> 5. Confirm battle conclusion under rules | Battle executes correctly with custom rules properly affecting gameplay | N/A | To be tested |
+| SYS_1313 | Verify that battles execute correctly with different character configurations. | Low | 1. All related integration tests must have passed (INT_1211, INT_3221) <br /> 2. Character system must support various configurations | 1. Select different character combinations <br /> 2. Verify character stats and movesets <br /> 3. Execute battle with different characters <br /> 4. Check character-specific interactions | Battle executes correctly with different character configurations | N/A | To be tested |
+| SYS_1314 | Verify that battles execute correctly with modified damage calculator configurations. | Low | 1. All related integration tests must have passed (INT_1212, INT_3213) <br /> 2. Custom damage calculator must be operational | 1. Set up custom damage formula <br /> 2. Initialize battle with modified calculator <br /> 3. Execute multiple attacks <br /> 4. Verify damage calculations <br /> 5. Check battle balance | Battle executes correctly with modified damage calculations | N/A | To be tested |
+
+#### 1.3.2 Edge Cases
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_1321 | Verify that the battle system properly handles maximum stat values. | Medium | 1. Related unit tests must have passed (UNT_1111, UNT_1141) <br /> 2. Battle system must handle maximum values | 1. Create entities with maximum stats (999) <br /> 2. Execute battle with max-stat entities <br /> 3. Verify damage calculations <br /> 4. Check for overflow issues | Battle executes correctly with maximum stat values without overflow | N/A | To be tested |
+| SYS_1322 | Verify that battles execute properly with minimum move count. | Medium | 1. Related unit tests must have passed (UNT_1113, UNT_1172) <br /> 2. Battle system must support limited moves | 1. Create entities with single move <br /> 2. Execute battle with limited movesets <br /> 3. Verify move selection <br /> 4. Check battle progression | Battle executes correctly with minimum move configuration | N/A | To be tested |
+| SYS_1323 | Verify proper battle handling when all moves run out of PP. | Medium | 1. Related unit tests must have passed (UNT_1122, UNT_1172) <br /> 2. PP depletion handling must be implemented | 1. Start battle with low PP moves <br /> 2. Deplete all PP <br /> 3. Verify no-PP state handling <br /> 4. Check battle conclusion | Battle handles PP depletion correctly and concludes appropriately | N/A | To be tested |
+| SYS_1324 | Verify proper handling of multiple interacting rules. | Medium | 1. Related integration test must have passed (INT_3212) <br /> 2. Rule interaction system must be implemented | 1. Enable multiple interacting rules <br /> 2. Execute battle with rule combinations <br /> 3. Verify rule priorities <br /> 4. Check for conflicts | Rules interact correctly without conflicts | N/A | To be tested |
+
 ### 6.1.4. Performance Tests
+
+#### 1.4.1 Response Time Tests
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_1411 | Verify that battle actions respond within acceptable time limits. | High | 1. Related integration tests must have passed (INT_1211, INT_1221) <br /> 2. Performance monitoring tools must be configured <br /> 3. Battle system must be operational | 1. Initialize battle with performance monitoring <br /> 2. Execute various battle actions <br /> 3. Measure response times <br /> 4. Test under different system loads <br /> 5. Record and analyze timing data | All battle actions complete within 100ms response time threshold | N/A | To be tested |
+| PERF_1412 | Verify that battle state updates occur in real-time without delays. | Medium | 1. Related integration tests must have passed (INT_1211, INT_2222) <br /> 2. State monitoring system must be implemented | 1. Set up battle with state monitoring <br /> 2. Trigger rapid state changes <br /> 3. Measure update times <br /> 4. Test concurrent updates <br /> 5. Verify state consistency | State updates complete within 50ms and maintain consistency | N/A | To be tested |
+| PERF_1413 | Verify smooth animation of HP bar changes. | Low | 1. Related unit test must have passed (UNT_2171) <br /> 2. Animation system must be implemented | 1. Set up HP bar monitoring <br /> 2. Trigger various HP changes <br /> 3. Measure frame rates <br /> 4. Test different animation speeds | HP bar animations maintain 60 FPS with smooth transitions | N/A | To be tested |
+
+#### 1.4.2 Resource Usage Tests
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_1421 | Verify that memory usage during battles remains within acceptable limits. | High | 1. Memory monitoring tools must be configured <br /> 2. Battle system must be fully operational | 1. Start memory monitoring <br /> 2. Execute complete battle sequence <br /> 3. Monitor memory allocation <br /> 4. Check for memory leaks <br /> 5. Verify cleanup | Memory usage remains stable and leaks are not detected | N/A | To be tested |
+| PERF_1422 | Verify CPU usage efficiency during battle operations. | Medium | 1. CPU monitoring tools must be configured <br /> 2. Battle system must be operational | 1. Start CPU monitoring <br /> 2. Execute various battle scenarios <br /> 3. Measure CPU utilization <br /> 4. Identify processing peaks <br /> 5. Analyze bottlenecks | CPU usage remains under 25% during normal operation | N/A | To be tested |
+| PERF_1423 | Verify system stability during extended battle sessions. | High | 1. System monitoring tools must be configured <br /> 2. Battle system must support extended sessions | 1. Initialize extended battle session <br /> 2. Monitor system resources <br /> 3. Execute battles for 15+ minutes <br /> 4. Track performance metrics <br /> 5. Check for degradation | System maintains stability with consistent performance | N/A | To be tested |
+
+#### 1.4.3 Load Tests
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_1431 | Verify system performance with multiple battle templates stored in the database. | Medium | 1. Related integration tests must have passed (INT_3211, INT_3212) <br /> 2. Database performance monitoring must be configured <br /> 3. Template system must support multiple templates | 1. Create multiple battle templates (5+) <br /> 2. Store templates in database <br /> 3. Monitor database access times <br /> 4. Test template loading speeds <br /> 5. Verify search and filter operations <br /> 6. Measure overall system responsiveness | System maintains performance with 5+ templates in database with sub-500ms access times | N/A | To be tested |
+| PERF_1432 | Verify system handling of rapid successive user actions. | High | 1. Related integration test must have passed (INT_1221) <br /> 2. Input handling system must be implemented | 1. Set up action monitoring <br /> 2. Execute rapid action sequences <br /> 3. Measure response times <br /> 4. Check action queue <br /> 5. Verify action processing | All actions are properly queued and processed in order | N/A | To be tested |
+| PERF_1433 | Verify system resource recovery after heavy load periods. | Medium | 1. Resource monitoring tools must be configured <br /> 2. System cleanup processes must be implemented | 1. Generate heavy system load <br /> 2. Monitor resource usage <br /> 3. End load period <br /> 4. Measure recovery time <br /> 5. Verify resource normalization | System returns to baseline resource usage within 30 seconds | N/A | To be tested |
+---
 
 ## 6.2. Interface
 
 ### 6.2.1. Unit Tests
 
+#### 2.1.1 Window Creation Tests
+| ID       | Description                                                                                  | Priority | Pre-requisites                                                                                   | Procedure                                                                                              | Exp                                                                                     | Out | Status       |
+|----------|----------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----|--------------|
+| UNT_2111 | Verify that the `AuthenticationMenu` window (Login) can be instantiated and displayed from its corresponding `.ui` file. Ensure the widget loads and becomes visible. | Medium   | 1. The `.ui` file for the Login window must exist.  <br /> 2. The corresponding class must be generated and properly set up. | 1. Instantiate the Login window class. <br /> 2. Use Qt functions to check if the widget is valid and visible. | UI widget is successfully created and appears visible.                                 | N/A | To be tested |
+| UNT_2112  | Verify that both `simulationMenu` (**Critical**) and `CharacterSelectionMenu` (**Medium**) windows are correctly created and visible upon instantiation. | Mixed     | 1. Both `.ui` files must exist.  <br /> 2. Corresponding classes must be implemented.                  | 1. Instantiate both windows.  <br /> 2. Verify visibility and proper rendering of each.                    | Both widgets are successfully created and displayed.                         | N/A    | To be tested |
+| UNT_2113  | Ensure that all Template Management windows are properly created and visible: <br />– `MainTemplateMenu` (**Critical**) <br />– `NewTemplateMenu` (**Medium**) <br />– `TemplateGalleryMenu` (**Low**) | Mixed    | 1. `.ui` files for all three windows must exist. <br /> 2. Each corresponding class must be implemented and compilable. | 1. Instantiate each of the three window classes. <br /> 2. Confirm that each UI widget appears correctly. | All three windows are correctly instantiated and visible on screen.             | N/A    | To be tested |
+| UNT_2114  | Confirm that Configuration windows are properly created and visible: <br />– `rulesmenu` (**High**) <br />– `DamageCalculatorMenu` (**Low**) | Mixed    | 1. Corresponding `.ui` files and their respective classes must be available and compilable.                   | 1. Instantiate both `rulesmenu` and `DamageCalculatorMenu` classes. <br /> 2. Verify visibility of each. | Both configuration windows are successfully loaded and shown on screen.       | N/A    | To be tested |
+
+
+#### 2.1.2 Button Tests
+| ID       | Description                                                                                         | Priority | Pre-requisites                                                                                           | Procedure                                                                                                                                                                                 | Expected Result                                                                                  | Output | Status       |
+|----------|-----------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2121 | Verify that a button can be created and its visual properties (text, size, style, color) adjusted. | Critical | 1. Qt Creator must be open with a working project.                                                       | 1. Create a `.ui` file in the project. <br /> 2. Use the UI editor to add a button widget. <br /> 3. Run the project to verify the button appears. <br /> 4. Modify the button’s text, size, and style properties in the UI editor. <br /> 5. Re-run and observe changes. | The button appears on the interface with the specified text, size, and style formatting.         | N/A    | To be tested |
+| UNT_2122 | Verify that a button emits the `clicked()` signal when clicked.                                     | Critical | 1. The `.ui` file must exist and contain a QPushButton element.                                          | 1. Access the button using `findChild<QPushButton*>()`. <br /> 2. Use `QTest::mouseClick()` to simulate a click. <br /> 3. Use `QSignalSpy` to check signal emissions.                      | The `clicked()` signal is emitted exactly once upon simulated click.                            | N/A    | To be tested |
+| UNT_2123 | Verify that the button's state (visible/hidden, enabled/disabled) can be changed programmatically.  | Medium   | 1. A `.ui` file with a QPushButton must be created and available.                                        | 1. Locate the button using `findChild<QPushButton*>()`. <br /> 2. Programmatically change its visibility (`setVisible(false)`), then check state. <br /> 3. Change `setEnabled(false)` and check. | Button becomes hidden/disabled as expected, and changes are accurately reflected in the UI.     | N/A    | To be tested |
+
+
+#### 2.1.3 Label Tests
+| ID       | Description                                                                                       | Priority | Pre-requisites                                                                                         | Procedure                                                                                                                                                                                     | Expected Result                                                                      | Output | Status       |
+|----------|---------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2131 | Verify that a QLabel is created and displays the expected text with correct formatting.          | Critical | 1. Qt Creator must be open with a working project. <br /> 2. QLabel widget must be available in `.ui`.  | 1. Create a `.ui` file and add a QLabel using the UI editor. <br /> 2. Set sample text, font size, and style via the property panel. <br /> 3. Run the project and confirm the label appears as configured. | QLabel is visible and displays the correct text with defined size and style.          | N/A    | To be tested |
+| UNT_2132 | Verify that QLabel text can be updated dynamically via code.                                      | High     | 1. The `.ui` file must exist and contain a QLabel element.                                              | 1. Locate the QLabel using `findChild<QLabel*>()`. <br /> 2. Use `setText("New Text")` to update its text. <br /> 3. Use an assertion to confirm the text has been updated (`label->text()`).    | QLabel's text is updated in the interface to the new value programmatically.          | N/A    | To be tested |
+
+
+#### 2.1.4 Login Input Field Tests
+| ID       | Description                                                                                             | Priority | Pre-requisites                                                                                           | Procedure                                                                                                                                                                                                                      | Expected Result                                                                                  | Output | Status       |
+|----------|---------------------------------------------------------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2141 | Verify creation of login and password input fields using `QLineEdit` and validate basic layout behavior. | Medium   | 1. Qt Creator must be open with a working project. <br /> 2. `QLineEdit` widgets must be placed in the `.ui` file. | 1. Create a `.ui` file and add two `QLineEdit` widgets for login and password. <br /> 2. Add a `QPushButton` for login confirmation. <br /> 3. Run the UI and ensure fields are visible and editable.                         | Input fields for login and password are displayed correctly and accept user input.              | N/A    | To be tested |
+| UNT_2142 | Verify that the password input field hides characters as the user types.                                 | Medium   | 1. `.ui` file must contain a `QLineEdit` configured for password entry.                                   | 1. Locate the password input field using `findChild<QLineEdit*>()`. <br /> 2. Set its echo mode using `setEchoMode(QLineEdit::Password)`. <br /> 3. Simulate user typing.                                                       | Characters typed into the password field are visually hidden (e.g., replaced by dots).          | N/A    | To be tested |
+| UNT_2143 | Verify input field error handling for incorrect login or password submission.                           | Medium   | 1. `.ui` file must contain login form fields and a submit button.                                         | 1. Access login and password `QLineEdit` widgets in code. <br /> 2. Set up logic with `if/else` to compare input against correct values. <br /> 3. Simulate incorrect input and press the button. <br /> 4. Display error label. | When incorrect data is submitted, an error message or visual indicator is shown to the user.    | N/A    | To be tested |
+
+
+#### 2.1.5 Image Tests
+| ID       | Description                                                                                 | Priority | Pre-requisites                                                                                      | Procedure                                                                                                                                                                                                 | Expected Result                                                                               | Output | Status       |
+|----------|---------------------------------------------------------------------------------------------|----------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2151 | Verify that an image can be inserted and displayed in the UI using a QLabel.               | Medium   | 1. Qt Creator must be open with a working project. <br /> 2. An `images/` folder must exist next to the project. | 1. Create a `.ui` file and add a `QLabel` to hold the image. <br /> 2. Place the image file in the `images/` folder. <br /> 3. In code, use `QPixmap` and `setPixmap()` to load and insert the image into the label. <br /> 4. Run the project to verify. | The image is displayed in the `QLabel` on the UI as expected.                               | N/A    | To be tested |
+| UNT_2152 | Verify that visual properties of the inserted image (size, alignment, scaling) are applied correctly. | Medium   | 1. A `.ui` file must exist with a `QLabel` displaying an image. <br /> 2. The image source must still be present. | 1. Locate the image label using `findChild<QLabel*>()`. <br /> 2. Apply visual changes using methods like `setFixedSize()`, `setAlignment()`, or `setScaledContents(true)`. <br /> 3. Run the project to observe the effects.                       | The image is displayed with the specified size, alignment, and scaling properties.            | N/A    | To be tested |
+
+#### 2.1.6 Checkbox/Radio Tests
+| ID       | Description                                                                     | Priority | Pre-requisites                                                                                       | Procedure                                                                                                                                                                       | Expected Result                                                                                  | Output | Status       |
+|----------|----------------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2161 | Verify that a checkbox can be created and displayed in the UI.                  | High     | 1. Qt Creator must be open with a working project.                                                    | 1. Create a `.ui` file. <br /> 2. Add a `QCheckBox` widget to the form using the UI editor. <br /> 3. Run the project.                                                          | The `QCheckBox` is visible in the UI and can be checked or unchecked.                            | N/A    | To be tested |
+| UNT_2162 | Verify that the checkbox emits signals correctly when toggled.                  | High     | 1. A `.ui` file must be created and must contain a `QCheckBox` widget.                                | 1. Locate the checkbox in code using `findChild<QCheckBox*>()`. <br /> 2. Connect its `stateChanged(int)` or `toggled(bool)` signal to a slot or test handler. <br /> 3. Simulate check/uncheck and observe the signal behavior. | The checkbox emits appropriate signals when its state changes (checked/unchecked).                | N/A    | To be tested |
+
+
+#### 2.1.7 Display Element Tests
+| ID        | Description                                                                       | Priority | Pre-requisites                                                                                               | Procedure                                                                                                                                                                                                                 | Expected Result                                                                                                  | Output | Status       |
+|-----------|------------------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2171  | Validate creation and dynamic update of the HP bar based on HP/max HP values.     | Critical | 1. Qt Creator must be open with a working project.                                                           | 1. Create a `.ui` file. <br /> 2. Add a progress bar or custom gauge widget to represent HP. <br /> 3. In code, initialize it with test values for current and max HP. <br /> 4. Run the project. <br /> 5. Modify HP value and observe update. | The HP bar is displayed, accurately reflecting current HP in proportion to the max value, and updates dynamically. | N/A    | To be tested |
+| UNT_2172  | Verify display of Pokémon details (name, sprite, and numeric HP).                 | High     | 1. Qt Creator must be open. <br /> 2. Pokémon sprite image must exist in the project’s image folder.         | 1. Create a `.ui` file. <br /> 2. Add a `QLabel` for the name and HP, and an image display widget. <br /> 3. Load and assign a test Pokémon name, sprite, and HP. <br /> 4. Run the project. <br /> 5. Change HP in code and observe the update. | The UI correctly displays the Pokémon’s name, sprite, and HP, and updates the HP value when changed in code.       | N/A    | To be tested |
+| UNT_2173  | Verify correct display and updating of capacity (attack) buttons with PP values.  | Critical | 1. Qt Creator must be open with a working project.                                                           | 1. Create a `.ui` file. <br /> 2. Add a `QPushButton` to represent a move. <br /> 3. Set the button text to show the move’s name and remaining PP. <br /> 4. Run the project. <br /> 5. Simulate PP decrease and update button text.          | The button shows the move name and PP, and updates correctly after a simulated use (PP -1).                        | N/A    | To be tested |
+| UNT_2174  | Validate the dynamic update of battle text in a label widget.                     | Medium   | 1. Qt Creator must be open with a working project.                                                           | 1. Create a `.ui` file. <br /> 2. Add a `QLabel` to hold battle narration. <br /> 3. Run the project to confirm visibility. <br /> 4. Programmatically update the label’s text. <br /> 5. Run and verify updated text appears as expected.       | Battle narration is shown inside the label and updates successfully as the text changes.                          | N/A    | To be tested |
+| UNT_2175  | Validate that pop-up message windows can be triggered and displayed properly.     | Medium   | 1. Qt Creator must be open with a working project.                                                           | 1. Create a `.ui` file. <br /> 2. Implement a message box or custom popup dialog in code. <br /> 3. Trigger the popup from a simulated event. <br /> 4. Run the project and confirm popup is displayed.                              | A message popup appears when triggered, showing the desired content or alert.                                     | N/A    | To be tested |
+
+#### 2.1.8 Menu Component Tests
+| ID        | Description                                                                       | Priority | Pre-requisites                                                                                          | Procedure                                                                                                                                                                                                                                  | Expected Result                                                                                                 | Output | Status       |
+|-----------|------------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_2181  | Verify creation of a main menu with UI elements.                                  | Critical | 1. Qt Creator must be open with a working project.                                                        | 1. Create a new `.ui` file. <br /> 2. Use the UI editor to add a QWidget window. <br /> 3. Insert various UI elements (e.g., buttons, labels) into the window. <br /> 4. Run the project and ensure the widget window appears as expected.   | The QWidget window is displayed with all added UI elements properly visible and interactive.                    | N/A    | To be tested |
+| UNT_2182  | Validate navigation between pages using a QStackedWidget and button signals.       | High     | 1. A `.ui` file with a QStackedWidget has been created.                                                   | 1. Add a `QStackedWidget` with two pages. <br /> 2. On Page 1, add unique UI elements including a navigation button. <br /> 3. On Page 2, add different UI elements and another button. <br /> 4. Implement signal-slot connections in code so each button switches between the two pages. <br /> 5. Run the project. <br /> 6. Click the button on Page 1 to go to Page 2. <br /> 7. On Page 2, click the button to return to Page 1. | Buttons successfully switch between Page 1 and Page 2 of the QStackedWidget, each displaying different content. | N/A    | To be tested |
+
 ### 6.2.2. Integration Tests
+
+#### 2.2.1 Window Navigation Flow
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_2211 | Verify proper navigation between authentication menu and simulation menu using menu buttons, ensuring correct window transitions and state preservation. | High | 1. All related unit tests must have passed (UNT_2111, UNT_2112) <br /> 2. Authentication and Simulation menus must be implemented <br /> 3. Button navigation system must be operational | 1. Launch authentication menu window <br /> 2. Enter valid login credentials <br /> 3. Click login button to navigate to simulation menu <br /> 4. Verify simulation menu state <br /> 5. Test logout button to return to authentication menu <br /> 6. Verify authentication menu resets properly | Navigation between authentication and simulation menus works correctly with proper state handling | N/A | To be tested |
+| INT_2212 | Verify data persistence and state management across different views during navigation. | High | 1. All related unit tests must have passed (UNT_2181, UNT_2182, UNT_3111, UNT_3112) <br /> 2. State management system must be implemented <br /> 3. Data storage system must be operational | 1. Initialize application with test data <br /> 2. Navigate through multiple views <br /> 3. Modify data in different views <br /> 4. Navigate back and forth <br /> 5. Verify data consistency <br /> 6. Test window closure and reopening | Data remains consistent across all view transitions and window states | N/A | To be tested |
+
+#### 2.2.2 UI Component Interaction
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_2221 | Verify form submission process including data collection, validation, and backend transmission. | Medium | 1. All related unit tests must have passed (UNT_2141, UNT_2142, UNT_2143) <br /> 2. Form handling system must be implemented <br /> 3. Data validation system must be operational | 1. Initialize form with test fields <br /> 2. Input valid and invalid data <br /> 3. Submit form with invalid data <br /> 4. Verify error handling <br /> 5. Submit form with valid data <br /> 6. Confirm data transmission | Forms properly validate input and handle submission correctly | N/A | To be tested |
+| INT_2222 | Verify real-time UI updates in response to user actions and state changes. | Medium | 1. All related unit tests must have passed (UNT_2171, UNT_2172, UNT_2173, UNT_2174) <br /> 2. Event handling system must be implemented <br /> 3. UI update system must be operational | 1. Initialize UI components <br /> 2. Trigger various user actions <br /> 3. Verify immediate UI feedback <br /> 4. Test multiple rapid updates <br /> 5. Check state consistency <br /> 6. Verify all visual indicators | UI components update correctly and immediately in response to actions | N/A | To be tested |
 
 ### 6.2.3. System Tests
 
+#### 2.3.1 Complete UI Workflows
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_2311 | Verify complete template creation workflow through UI. | Low | 1. Related integration tests must have passed (INT_2211, INT_2212, INT_3211) <br /> 2. Template creation interface must be operational <br /> 3. Data validation system must be implemented | 1. Launch template creation interface <br /> 2. Input all template parameters <br /> 3. Test validation feedback <br /> 4. Save template <br /> 5. Verify data persistence <br /> 6. Check template accessibility | Complete template creation process works with proper validation and storage | N/A | To be tested |
+| SYS_2312 | Verify battle configuration workflow through UI. | High | 1. Related integration tests must have passed (INT_1213, INT_2222) <br /> 2. Battle configuration interface must be operational <br /> 3. Configuration system must be implemented | 1. Access battle configuration menu <br /> 2. Set various battle parameters <br /> 3. Apply configuration changes <br /> 4. Initialize battle <br /> 5. Verify applied settings <br /> 6. Test configuration persistence | Battle configuration process works with all options properly applied | N/A | To be tested |
+
+#### 2.3.2 Error Handling
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_2321 | Verify comprehensive input validation system across UI. | Low | 1. Related integration tests must have passed (INT_2221, INT_3213) <br /> 2. Input validation system must be implemented <br /> 3. Error display system must be operational | 1. Test all input fields with invalid data <br /> 2. Verify error messages <br /> 3. Test boundary conditions <br /> 4. Check validation timing <br /> 5. Verify recovery options | All invalid inputs are caught with appropriate error messages | N/A | To be tested |
+| SYS_2322 | Verify UI state recovery after various error conditions. | High | 1. Related integration test must have passed (INT_2212) <br /> 2. State recovery system must be implemented <br /> 3. Error handling system must be operational | 1. Trigger various error conditions <br /> 2. Monitor state preservation <br /> 3. Test recovery procedures <br /> 4. Verify data consistency <br /> 5. Check error logging | UI recovers gracefully from errors with state preserved | N/A | To be tested |
+
 ### 6.2.4. Performance Tests
 
+#### 2.4.1 UI Response Times
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_2411 | Verify window transition speed meets performance requirements. | High | 1. Related integration test must have passed (INT_2211) <br /> 2. Performance monitoring must be configured | 1. Measure window transition times <br /> 2. Test under various loads <br /> 3. Record transition metrics <br /> 4. Test multiple navigation paths <br /> 5. Verify consistency | All window transitions complete within 200ms threshold | N/A | To be tested |
+| PERF_2412 | Verify UI input response time meets performance requirements. | Medium | 1. Related integration test must have passed (INT_2222) <br /> 2. Input monitoring system must be configured | 1. Test various input operations <br /> 2. Measure response times <br /> 3. Test rapid input sequences <br /> 4. Verify feedback timing <br /> 5. Check input queue handling | All UI inputs processed within 100ms threshold | N/A | To be tested |
+
+#### 2.4.2 Resource Management
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_2421 | Verify UI memory usage remains within acceptable limits. | Medium | 1. Memory monitoring tools must be configured <br /> 2. UI system must be fully operational | 1. Monitor UI memory usage <br /> 2. Test extended UI operations <br /> 3. Check for memory leaks <br /> 4. Test window cycling <br /> 5. Verify cleanup processes | UI maintains stable memory usage without leaks | N/A | To be tested |
+| PERF_2422 | Verify UI scaling performance across different resolutions. | Low | 1. Display testing tools must be configured <br /> 2. UI scaling system must be implemented | 1. Test multiple resolutions <br /> 2. Measure scaling times <br /> 3. Check rendering quality <br /> 4. Verify layout consistency <br /> 5. Test dynamic resizing | UI scales smoothly across all supported resolutions | N/A | To be tested |
+
+---
 ## 6.3. Template Configuration
 
 ### 6.3.1. Unit Tests
 
+#### 3.1.1 Database Management
+| ID     | Description                                       | Priority | Pre-requisites                                                                                                     | Procedure                                                                                                                                                                                                                                  | Expected Result                                                                                                    | Output | Status       |
+|--------|---------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_3111   | Database creation, connection, and verification   | High     | 1. Qt Creator is open with a working project. <br />2. A database management tool (e.g., DB Browser) is installed. | 1. Use the database tool to create a new database file and define a table with multiple fields (e.g., ID, name, score). <br />2. In Qt, create or open a `.ui` file. <br />3. Write code to connect to the newly created database. <br />4. Run the project and verify successful connection by retrieving the database name or table structure. | The application successfully connects to the correct database, which contains the expected table structure.         | N/A    | To be tested |
+| UNT_3112   | Read values from a database table                 | High     | 1. Qt project is open with a working database connection. <br />2. The database table contains sample data.        | 1. Create or open a `.ui` file if needed. <br />2. Write and run code to connect to the database. <br />3. Execute SQL queries to fetch values from each field in the table. <br />4. Print or display the fetched data in the application.  | The retrieved values exactly match the contents of the database table.                                              | N/A    | To be tested |
+| UNT_3113   | Update values in a database table                 | High     | 1. Qt project is open and connected to a populated database. <br />2. DB Browser is installed and running.         | 1. Open or create a `.ui` file. <br />2. Write code to connect to the database. <br />3. Add functionality to update one or more field values. <br />4. Run the project to perform the update. <br />5. Verify the changes using DB Browser.  | The database values are updated correctly, and changes are visible in DB Browser.                                  | N/A    | To be tested |
+| UNT_3114   | Delete values from a database table               | High     | 1. Qt project is open and connected to a populated database. <br />2. DB Browser is installed and running.         | 1. Open or create a `.ui` file. <br />2. Write code to connect to the database. <br />3. Implement functionality to delete records from the table. <br />4. Run the project and execute the deletion. <br />5. Confirm deletion in DB Browser. | Records are successfully deleted from the database and are no longer visible in DB Browser.                        | N/A    | To be tested |
+
+
+#### 3.1.2 Rules Management
+| ID     | Description                                 | Priority | Pre-requisites                                          | Procedure                                                                                                                                                                                        | Expected Result                                                                                 | Output | Status       |
+|--------|---------------------------------------------|----------|---------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_3121   | Retrieve rule state                         | High     | 1. Qt unit testing framework is set up                  | 1. Define a mock boolean variable representing a rule (e.g., `bool ruleEnabled = true`). <br />2. Define another variable intended to retrieve that state. <br />3. Use assertions to verify that the retrieved value matches the mock value. | Unit test passes, confirming the rule state is correctly retrieved.                              | N/A    | To be tested |
+| UNT_3122   | Detect rule activation and deactivation     | High     | 1. Qt unit testing framework is set up                  | 1. Define a mock boolean variable representing a rule state (e.g., `ruleActive`). <br />2. Write a function to toggle or modify the rule state. <br />3. Use assertions to confirm the state changes as expected (true → false, false → true). | Unit test passes, confirming rule state changes are detected accurately.                        | N/A    | To be tested |
+| UNT_3123   | Retrieve multiple rule states as a group    | High     | 1. Qt unit testing framework is set up                  | 1. Define multiple mock boolean variables (e.g., `rule1`, `rule2`, `rule3`). <br />2. Assign known true/false values to each. <br />3. Store the values in a container (e.g., array or vector). <br />4. Use assertions to verify the correct values are retrieved in each index. <br />5. Repeat with different combinations.      | Unit test passes, confirming that sets of rule states are correctly retrieved and interpreted. | N/A    | To be tested |
+
+
+#### 3.1.3 Characters Management
+| ID     | Description                                             | Priority | Pre-requisites                        | Procedure                                                                                                                                                                                                                     | Expected Result                                                                                              | Output | Status       |
+|--------|---------------------------------------------------------|----------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_3131   | Retrieve characters and their attributes                | Medium   | 1. Qt unit testing framework is set up | 1. Define 6 mock `Entity` objects with attributes (name, level, type, stats, and 4 mock moves). <br />2. Store all entities in a container (e.g., QVector or QList). <br />3. Select one character and use assertions to verify its data. | Unit test passes, confirming data retrieval for each character is accurate.                                 | N/A    | To be tested |
+| UNT_3132   | Detect character selection and deselection              | Medium   | 1. Qt unit testing framework is set up | 1. Define a mock `Entity` object with a `selected` boolean. <br />2. Write a method to toggle this flag. <br />3. Use assertions to confirm state transitions (selected → unselected and vice versa).                        | Unit test passes, confirming toggle functionality works as intended.                                         | N/A    | To be tested |
+| UNT_3133   | Retrieve list of exactly two selected characters        | Medium   | 1. Qt unit testing framework is set up | 1. Define 6 mock `Entity` objects. <br />2. Set the `selected` state to `true` for 2 of them. <br />3. Store all in a container. <br />4. Filter and use assertions to confirm exactly 2 are selected.                       | Unit test passes, confirming that only the selected characters are retrieved.                                | N/A    | To be tested |
+
+
+#### 3.1.4 Template Management
+| ID     | Description                                                 | Priority | Pre-requisites                                   | Procedure                                                                                                                                                                                                                                             | Expected Result                                                                                          | Output | Status       |
+|--------|-------------------------------------------------------------|----------|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_3141   | Create battle template                                      | Low      | 1. Qt test framework is set up <br />2. Template class is implemented | 1. Initialize a `BattleTemplate` object with attributes: <br />• name (string) <br />• array of 6 mock `Entity` objects <br />• array of booleans (rules) <br />• mock damage formula function. <br />2. Use assertions to verify all attributes are correctly set. | Unit test passes, confirming the template initializes correctly with given data.                         | N/A    | To be tested |
+| UNT_3142   | Modify battle template settings                             | Low      | 1. Qt test framework is set up <br />2. Existing template instance available | 1. Assign a new name to the template. <br />2. Replace the rule set with a different one. <br />3. Update the mock characters and damage formula. <br />4. Use assertions to confirm updated values.                      | Unit test passes, confirming the template data can be modified and updated successfully.                | N/A    | To be tested |
+| UNT_3143   | Delete battle template                                      | Low      | 1. Qt test framework is set up                   | 1. Initialize and store a `BattleTemplate` object in memory or container. <br />2. Remove or deallocate the object. <br />3. Use assertions to ensure the template is no longer accessible.                            | Unit test passes, confirming the template can be successfully deleted.                                  | N/A    | To be tested |
+| UNT_3144   | Load existing battle template and retrieve its data         | Low      | 1. Qt test framework is set up <br />2. Template is saved in memory or file | 1. Retrieve a previously stored or serialized template. <br />2. Use assertions to check that all attributes (name, characters, rules, formula) are restored correctly.                                           | Unit test passes, confirming that templates load correctly with all relevant data.                     | N/A    | To be tested |
+
+
+#### 3.1.5 Damage Calculator Management
+| ID       | Description                                           | Priority   | Pre-requisites                                 | Procedure                                                                                                                                                                                                                      | Expected Result                                                                                                     | Output | Status       |
+|----------|-------------------------------------------------------|------------|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------|--------------|
+| UNT_3151 | Get Damage Calculator Settings                        | Low        | Qt test framework set up; classes implemented  | 1. Write unit test  <br> 2. Retrieve formula inputs from damage calculator  <br> 3. Use assertions to verify values                                                                     | Unit test passes; retrieved inputs match expected values                                                             | N/A    | To be tested |
+| UNT_3152 | Modify Calculator Input Values                        | Low        | Qt test framework set up; classes implemented  | 1. Write unit test  <br> 2. Retrieve calculator inputs  <br> 3. Copy calculator and change input values  <br> 4. Use assertions to check new damage                                     | Unit test passes; modified inputs produce updated output as expected                                                 | N/A    | To be tested |
+| UNT_3153 | Modify Calculator Formula                             | Very Low   | Qt test framework set up; classes implemented  | 1. Write unit test  <br> 2. Retrieve original formula  <br> 3. Apply new formula in a test instance  <br> 4. Use assertions to check new damage                                          | Unit test passes; new formula correctly modifies the damage output                                                  | N/A    | To be tested |
+| UNT_3154 | Validate formulas and handle input errors gracefully  | Low        | Qt test framework; calculator class available  | 1. Write unit test  <br> 2. Create test cases for invalid syntax (`a + * b`), bad variables (`1abc`), divide by zero, unmatched parentheses, empty input  <br> 3. Test valid edge inputs <br> 4. Fix invalid inputs and re-test     | Invalid inputs show clear error messages; valid inputs are accepted; system recovers after correction; unit test passes | N/A    | To be tested |
+
+
 ### 6.3.2. Integration Tests
+
+#### 3.2.1 Template & Database Integration
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_3211 | Verify template saving and loading operations with database, ensuring data integrity. | Low | 1. All related unit tests must have passed (UNT_3111, UNT_3112, UNT_3113, UNT_3141, UNT_3144) <br /> 2. Database connection must be established <br /> 3. Template system must be operational | 1. Create a new battle template <br /> 2. Save template to database <br /> 3. Verify database entry creation <br /> 4. Load template from database <br /> 5. Compare loaded data with original <br /> 6. Update template and verify changes in database | Templates are correctly saved to and loaded from database with data integrity maintained | N/A | To be tested |
+| INT_3212 | Verify rule configuration system properly integrates with template management. | Low | 1. All related unit tests must have passed (UNT_3121, UNT_3122, UNT_3123, UNT_3141) <br /> 2. Rule system must be implemented <br /> 3. Template management system must be operational | 1. Create template with specific rule configuration <br /> 2. Save rule configuration <br /> 3. Modify multiple rules <br /> 4. Update template with new rules <br /> 5. Verify rule persistence | Rule configurations are properly integrated and preserved in templates | N/A | To be tested |
+| INT_3213 | Verify calculator error handling and UI error display integration. | Low | 1. All related unit tests must have passed (UNT_2174, UNT_3154) <br /> 2. Calculator error handling must be implemented <br /> 3. UI error display system must be operational | 1. Input invalid formula in calculator <br /> 2. Trigger various error conditions <br /> 3. Verify error message display <br /> 4. Test error state recovery <br /> 5. Confirm UI updates | Calculator errors are properly caught and displayed in UI | N/A | To be tested |
+
+#### 3.2.2 Character & Template Integration
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| INT_3221 | Verify character selection system properly integrates with template management. | Low | 1. All related unit tests must have passed (UNT_3131, UNT_3132, UNT_3133, UNT_3141) <br /> 2. Character selection system must be implemented <br /> 3. Template system must be operational | 1. Display character selection interface <br /> 2. Select two characters <br /> 3. Create template with selections <br /> 4. Save template <br /> 5. Load template and verify characters <br /> 6. Test character deselection | Character selections are properly integrated and preserved in templates | N/A | To be tested |
 
 ### 6.3.3. System Tests
 
+#### 3.3.1 Complete Template Workflows
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_3311 | Verify end-to-end template creation process including all components. | Low | 1. Related integration tests must have passed (INT_3211, INT_3212, INT_3221) <br /> 2. Template system must be fully operational <br /> 3. Database system must be available | 1. Create new template <br /> 2. Configure all template parameters <br /> 3. Select characters <br /> 4. Set battle rules <br /> 5. Configure damage calculator <br /> 6. Save and verify template | Complete template creation process works with all components properly integrated | N/A | To be tested |
+| SYS_3312 | Verify complete template modification workflow. | Low | 1. Related integration tests must have passed (INT_3211, INT_3212) <br /> 2. Template editing system must be operational <br /> 3. Database update system must be functional | 1. Load existing template <br /> 2. Modify multiple parameters <br /> 3. Update rule configurations <br /> 4. Save modifications <br /> 5. Verify changes persistence <br /> 6. Test template versioning | Template modification process works with proper update handling | N/A | To be tested |
+
+#### 3.3.2 Edge Case
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| SYS_3321 | Verify system handling of templates with maximum allowed settings. | Low | 1. Related integration tests must have passed (INT_3211, INT_3212) <br /> 2. Maximum value handling must be implemented | 1. Create template with maximum values <br /> 2. Test all maximum settings <br /> 3. Verify data handling <br /> 4. Check storage limits <br /> 5. Test template loading | System properly handles templates with maximum allowed values | N/A | To be tested |
+
 ### 6.3.4. Performance Tests
+
+#### 3.4.1 Template Operation Speed
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_3411 | Verify template loading performance meets requirements. | Low | 1. Related integration test must have passed (INT_3211) <br /> 2. Performance monitoring must be configured | 1. Create various template with large sizes <br /> 2. Measure load times <br /> 3. Test batch loading <br /> 4. Verify memory usage <br /> 5. Test under system load | All template loading operations complete within 500ms | N/A | To be tested |
+| PERF_3412 | Verify template save operation performance. | Low | 1. Related integration test must have passed (INT_3211) <br /> 2. Database performance monitoring must be configured | 1. Prepare multiple templates <br /> 2. Measure save times <br /> 3. Test rapid saves <br /> 4. Verify database integrity <br /> 5. Check transaction handling | Template save operations complete within 500ms with proper transaction handling | N/A | To be tested |
+
+#### 3.4.2 Database Performance
+| ID | Description | Priority | Pre-requisites | Procedure | Expected | Output | Status |
+|-----|-------------|-----------|----------------|------------|----------|--------|---------|
+| PERF_3421 | Verify database query performance meets requirements. | Low | 1. Related integration test must have passed (INT_3211) <br /> 2. Database monitoring tools must be configured | 1. Populate database with templates <br /> 2. Execute various queries <br /> 3. Measure response times <br /> 4. Test complex queries <br /> 5. Verify result accuracy | All database queries complete within 500ms threshold | N/A | To be tested |
 
 # 7 Bug Tracking
 
+Number of Bugs encountered : 0 
+
+Number of Bugs fixed : 0
+
 ## 7.1. Bug Template
+
+| Bug Identifier | Description | Related Test Case | Discovery Conditions | Discovery Date | Current Status | Resolution Date | Fix Methodology |
+|----------------|-------------|-------------------|-----------------------|----------------|----------------|------------------|------------------|
+|                |             |                   |                       |                |                |                  |                  |
 
 ## 7.2. Unit Testing Bugs
 
+| Bug Identifier | Description | Related Test Case | Discovery Conditions | Discovery Date | Current Status | Resolution Date | Fix Methodology |
+|----------------|-------------|-------------------|-----------------------|----------------|----------------|------------------|------------------|
+|                |             |                   |                       |                |                |                  |                  |
+
 ## 7.3. Interface Testing Bugs
+| Bug Identifier | Description | Related Test Case | Discovery Conditions | Discovery Date | Current Status | Resolution Date | Fix Methodology |
+|----------------|-------------|-------------------|-----------------------|----------------|----------------|------------------|------------------|
+|                |             |                   |                       |                |                |                  |                  |
 
 ## 7.4. System Testing Bugs
+| Bug Identifier | Description | Related Test Case | Discovery Conditions | Discovery Date | Current Status | Resolution Date | Fix Methodology |
+|----------------|-------------|-------------------|-----------------------|----------------|----------------|------------------|------------------|
+|                |             |                   |                       |                |                |                  |                  |
 
 ## 7.5. Performance Testing Bugs
+| Bug Identifier | Description | Related Test Case | Discovery Conditions | Discovery Date | Current Status | Resolution Date | Fix Methodology |
+|----------------|-------------|-------------------|-----------------------|----------------|----------------|------------------|------------------|
+|                |             |                   |                       |                |                |                  |                  |
 
 # 8. Glossary
 

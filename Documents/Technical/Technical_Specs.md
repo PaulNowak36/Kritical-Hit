@@ -1251,8 +1251,6 @@ Each release will undergo thorough testing and quality assurance before deployme
 
 ## 6. Glossary
 
-## 6. Glossary
-
 | **Term**                  | **Definition**                                                                 |
 |---------------------------|--------------------------------------------------------------------------------|
 | **AI Opponent**           | A non-player character that selects moves using automated logic.               |
