@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>newTemplateMenu</class>
+ <widget class="QWidget" name="newTemplateMenu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>801</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#verticalWidget, QWidget#verticalWidget_2, QWidget#verticalWidget_3, QWidget#verticalWidget_4 {
+	background-color: orange;
+	border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+QWidget#TurnBasedRPG_Widget_2 {
+	background-color: rgb(0, 170, 0);
+	border: 2px solid #000000;
+    border-radius: 10px;
+	min-width: 350px;
+    max-width: 350px;
+	min-height: 110px;
+	max-height: 110px;
+}
+
+QWidget#ActiveTimeRPG_Widget_2 {
+	background-color: rgb(85, 85, 255);
+	border: 2px solid #000000;
+    border-radius: 10px;
+	min-width: 350px;
+    max-width: 350px;
+	min-height: 110px;
+	max-height: 110px;
+}
+
+QWidget#ActiveMode_Widget {
+	background-color: rgb(0, 0, 127);
+	border: 2px solid #000000;
+    border-radius: 10px;
+	min-width: 150px;
+    max-width: 150px;
+	min-height:120px;
+	max-height: 120px;
+}
+
+QWidget#ClassicMode_Widget {
+	
+	background-color: rgb(255, 0, 0);
+	border: 2px solid #000000;
+    border-radius: 10px;
+	min-width: 150px;
+    max-width: 150px;
+	min-height:120px;
+	max-height: 120px;
+}
+
+QWidget#MultiTurnMode_Widget {
+	background-color: rgb(0, 170, 0);
+	border: 2px solid #000000;
+    border-radius: 10px;
+	min-width: 150px;
+    max-width: 150px;
+	min-height:120px;
+	max-height: 120px;
+}
+
+QLabel{
+	background: transparent;
+	color: black;
+	font: 15pt &quot;Segoe UI&quot;;
+}
+
+QLabel.labelDefinition{
+	background: transparent;
+	font: 12pt &quot;Segoe UI&quot;;
+	text-align: center;
+}
+
+QPushButton.templateButton {
+    font-family: &quot;Press Start 2P&quot;;
+    font-size: 13px;
+    color: rgb(255, 255, 255);
+    background-color: orange; 
+    border: 2px solid #000000;
+    border-radius: 10px;
+	min-width: 170px;
+    max-width: 170px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+
+QPushButton#defaultStyle_Button {
+	background-color: rgb(0, 0, 127);
+}
+
+QPushButton#customStyle_Button {
+	background-color: rgb(255, 85, 127);
+}
+
+QPushButton#quit_Button, QPushButton#quit_Button_2, QPushButton#quit_Button_3, QPushButton#quit_Button_4 {
+    background-color: rgb(255, 255, 255);
+    min-width: 34px;
+    max-width: 34px;
+    min-height: 34px;  /* Ensure a clickable height */
+    max-height: 34px;
+	padding: 2px;
+    qproperty-iconSize: 32px 32px;
+}
+
+QPushButton#pokemon_Button {
+	background-color: rgb(255, 0, 0);
+	min-width: 280px;
+    max-width: 280px;
+}
+
+QPushButton#DGQ_Button {
+	background-color: rgb(0, 0, 127);
+	min-width: 300px;
+    max-width: 300px;
+}
+
+QPushButton#FF_Button {	
+	background-color: rgb(0, 170, 0);
+	min-width: 300px;
+    max-width: 300px;
+}
+
+QPushButton#TurnBasedRPG_Button {
+	border: none;
+	background-color: rgb(0, 170, 0);
+	min-width: 320px;
+    max-width: 320px;
+}
+
+QPushButton#ActiveTimeRPG_Button {
+	border: none;
+	background-color: rgb(85, 85, 255);
+	min-width: 320px;
+    max-width: 320px;
+}
+
+QPushButton#ActiveMode_Button {
+	border: none;
+	background-color: rgb(0, 0, 127);
+	min-width: 120px;
+    max-width: 120px;
+}
+
+QPushButton#ClassicMode_Button {
+	border: none;
+	background-color: rgb(255, 0, 0);
+	min-width: 120px;
+    max-width: 120px;
+}
+
+QPushButton#MultiTurnMode_Button {
+	border: none;
+	background-color: rgb(0, 170, 0);
+	min-width: 120px;
+    max-width: 120px;
+}
+
+QPushButton#return_Button, QPushButton#return2_Button, QPushButton#return3_Button  {	
+	background-color: rgb(140, 140, 140);
+}
+
+</string>
+   </property>
+   <property name="currentIndex">
+    <number>3</number>
+   </property>
+   <widget class="QWidget" name="RPG_Style_page">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <widget class="QWidget" name="verticalWidget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>40</y>
+       <width>447</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QLabel" name="chooseStyle_label">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>20</y>
+        <width>201</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Choose your RPG Style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="defaultStyle_Button">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>100</y>
+        <width>142</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Default Style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="customStyle_Button">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>100</y>
+        <width>142</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Custom Style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="quit_Button">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>10</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Default_Style_page">
+    <widget class="QWidget" name="verticalWidget_2" native="true">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>40</y>
+       <width>447</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QPushButton" name="quit_Button_2">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>10</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="defaultStyle_Label">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>20</y>
+        <width>191</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Which default style ?</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pokemon_Button">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>80</y>
+        <width>282</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pokemon RPG style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="DGQ_Button">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>140</y>
+        <width>302</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Dragon Quest RPG Style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="FF_Button">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>200</y>
+        <width>302</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Final Fantasy RPG Style</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="return_Button">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>270</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Return</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Custom_Style_page">
+    <widget class="QWidget" name="verticalWidget_3" native="true">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>40</y>
+       <width>501</width>
+       <height>361</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QPushButton" name="quit_Button_3">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>10</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="customStyle_Label">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>10</y>
+        <width>181</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Which Custom style ?</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="TurnBasedRPG_Widget_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>60</y>
+        <width>354</width>
+        <height>114</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="TurnBasedRPG_Widget">
+       <item>
+        <widget class="QPushButton" name="TurnBasedRPG_Button">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Turn Based RPG</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="TurnBasedRPG_Definition">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Each character attack turn by turn.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="return_Button_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>310</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Return</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="ActiveTimeRPG_Widget_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>190</y>
+        <width>354</width>
+        <height>114</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="ActiveTimeRPG_Widget">
+       <item>
+        <widget class="QPushButton" name="ActiveTimeRPG_Button">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Active Time RPG</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="ActiveTimeRPG_Definition">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Each fighter can perform an action if their TimeBar is filled enough.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Turn_Based_page">
+    <widget class="QWidget" name="verticalWidget_4" native="true">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>40</y>
+       <width>501</width>
+       <height>361</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QPushButton" name="quit_Button_4">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>10</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TurnBased_Label">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>10</y>
+        <width>281</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>What kind of turn based RPG ?</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="ActiveMode_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>60</y>
+        <width>154</width>
+        <height>124</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="TurnBasedRPG_Widget_4">
+       <item>
+        <widget class="QPushButton" name="ActiveMode_Button">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Active Mode</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="ActiveMode_Definition">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Each fighter select their action and perform it directly.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="return_Button_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>310</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Return</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="ClassicMode_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>60</y>
+        <width>154</width>
+        <height>124</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="TurnBasedRPG_Widget_5">
+       <item>
+        <widget class="QPushButton" name="ClassicMode_Button">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Classic Mode</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="ClassicMode_Definition">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Each fighter select their action and perform it directly.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="MultiTurnMode_Widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>200</y>
+        <width>154</width>
+        <height>124</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="TurnBasedRPG_Widget_6">
+       <item>
+        <widget class="QPushButton" name="MultiTurnMode_Button">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Multi-Turn Mode</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="MultiTurnMode_Definition">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>All fighter has a &quot;Turn value&quot;, and the one with the highest value starts.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

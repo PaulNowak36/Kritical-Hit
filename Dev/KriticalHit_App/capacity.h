@@ -1,0 +1,99 @@
+// CAPACITY.H
+#ifndef CAPACITY_H
+#define CAPACITY_H
+
+#include <string>
+#include <vector>
+#include <iostream> // Include for debugging
+
+enum class MoveCategory {
+    Physical,
+    Special,
+    Status
+};
+
+enum class EffectType {
+    Attack,
+    Buff,
+    Debuff,
+    Heal
+};
+
+enum class StatType {
+    Strength,
+    Defence,
+    Speed
+};
+
+struct StatModifier {
+    StatType stat;
+    int amount;  // Positive for buff, negative for debuff
+};
+
+class capacity {
+protected:
+    std::string _attackName;
+    int _attackPower; // Damage for attacks, not used for healing
+    int _powerPoints; // Energy required for a capacity to be performed
+    int _maxPowerPoints;
+    MoveCategory _category;
+    std::vector<EffectType> _effects;
+
+    // Optional parameters depending on the effect type
+    int _healPercent;      // Only for Heal moves, e.g., 50 = heal 50% of maxHP
+    int _buffAmount;       // Buff value (positive or negative)
+    int _debuffAmount;     // Debuff value
+    std::vector<StatModifier> _statModifiers;
+
+public:
+    capacity();
+    //capacity(std::string name, int power, MoveCategory category, std::vector<EffectType> effects);
+    //capacity(std::string name, int power, int PP, MoveCategory category, std::vector<EffectType> effects);
+    capacity(const std::string name, int power, int PP, MoveCategory category, const std::vector<EffectType> effects);
+
+
+    // Setters
+    void setAttackName(std::string);
+    void setAttackPower(int);
+    void setPowerPoints(int);
+    void setMaxPowerPoints(int);
+    void setCategory(MoveCategory);
+    void setEffects(std::vector<EffectType>);
+    void setHealPercent(int);
+    void setBuffAmount(int);
+    void setDebuffAmount(int);
+    void setStatModifiers(StatType stat, int amount);
+
+    // Getters
+    //std::string getAttackName();
+    std::string getAttackName() const;
+    int getAttackPower() const;
+    int getPowerPoints() const;
+    int getMaxPowerPoints() const;
+    MoveCategory getCategory();
+    const std::vector<EffectType>& getEffects() const;
+    int getHealPercent() const;
+    int getBuffAmount();
+    int getDebuffAmount();
+    const std::vector<StatModifier>& getStatModifiers() const;
+
+    // New getter to retrieve a specific StatModifier
+    StatModifier getStatModifier(size_t index) const;
+
+    // Debug function to print all stat modifiers
+    void printStatModifiers() const;
+
+    // Helper function to convert StatType to string
+    std::string statTypeToString(StatType stat) const;
+
+    //static std::string effectTypeToString(EffectType effect);
+    std::string getEffectString() const;
+
+    std::vector<int> getStatChangeSummary() const;
+
+    bool useCapacity();
+
+
+};
+
+#endif // CAPACITY_H
