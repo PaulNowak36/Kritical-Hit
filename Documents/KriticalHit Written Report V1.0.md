@@ -27,8 +27,6 @@
       - [3.2.1. Project Scope](#321-project-scope)
       - [3.2.2. Constraints](#322-constraints)
       - [3.2.3. Risks and Assumptions](#323-risks-and-assumptions)
-         - [3.2.3.1. Risks](#3231-risks)
-         - [3.2.3.2. Assumptions](#3232-assumptions)
    - [3.3. User Personas](#33-user-personas)
       - [3.3.1. Henri Hollais](#331-henri-hollais)
       - [3.3.2. Violet Hitgoh](#332-violet-hitgoh)
@@ -72,10 +70,6 @@
       - [4.2.3. Other External IT Tools](#423-other-external-it-tools)
    - [4.3. Technologies Used](#43-technologies-used)
       - [4.3.1. Front End](#431-front-end)
-         - [4.3.1.1. Qt Creator IDE Overview](#4311-qt-creator-ide-overview)
-         - [4.3.1.2. Design Mode and Widget Uses](#4312-design-mode-and-widget-uses)
-         - [4.3.1.3. Edit Mode, Project Structure, and Development Tools](#4313-edit-mode-project-structure-and-development-tools)
-         - [4.3.1.4. Signal & Slot System](#4314-signal--slot-system)
       - [4.3.2. Database Specifications](#432-database-specifications)
       - [4.3.3. Technical Constraints and Limitations](#433-technical-constraints-and-limitations)
       - [4.3.4. Non-Functional Requirements - Technical Implementation Details](#434-non-functional-requirements---technical-implementation-details)
@@ -170,7 +164,7 @@
 
 ## 2. Monthly Progress Reports
 
-### 2023
+### 2.1 2023
 
 #### February 2023  
 
@@ -382,7 +376,7 @@ The first year was primarily focused on project planning, research, and foundati
 
 **Overall Status**: The project remained in pre-production phase throughout 2023, with focus on planning and research rather than implementation. While this meant slower visible progress, it established important foundations.
 
-### 2024 
+### 2.2 2024 
 
 #### February 2024  
 
@@ -521,7 +515,7 @@ The second year saw transition from planning to initial implementation:
 
 **Overall Status**: 2024 marked important transition from planning to implementation, though progress was slower than hoped. The project scope was successfully narrowed to something more achievable.
 
-### 2025
+### 2.3 2025
 
 #### January 2025  
 
@@ -611,5 +605,87 @@ The final months focused on completion and documentation:
 ### Final Review
 
 The project evolved from an ambitious RPG battle simulator to a more focused Pokémon-style battle system, with steady if slower than planned progress toward completion. Each year showed distinct phases: planning (2023), implementation (2024), and completion/documentation (2025).
+
+# 3. Functional Specifications
+
+## 3.1. Overview
+
+### 3.1.1. Document Purpose
+
+### 3.1.2. Context
+
+### 3.1.3. RPG Domain
+
+## 3.2. Product Goal
+
+### 3.2.1. Project Scope
+
+### 3.2.2. Constraints
+
+### 3.2.3. Risks and Assumptions
+
+## 3.3. User Personas
+
+### 3.3.1. Henri Hollais
+
+### 3.3.2. Violet Hitgoh
+
+### 3.3.3. Arun Reddy
+
+### 3.3.4. Luke Atmadohg
+
+### 3.3.5. Katrina Ladalh
+
+## 3.4. List of Features
+
+### 3.4.1. User-Friendly Application
+
+### 3.4.2. Battle Interface and Flow Simulation
+
+### 3.4.3. Battle Mechanics System
+
+### 3.4.4. Set Up Battle
+
+## 3.5. Product Details
+
+### 3.5.1. Minimum Viable Product
+
+### 3.5.2. Non-Functional Requirements
+
+### 3.5.3. Acceptance Criteria
+
+### 3.5.4. Out of Scope
+
+## 3.6. Technical Stack & Requirements
+
+### 3.6.1. Development Environment
+
+### 3.6.2. Database Overview
+
+### 3.6.3. System Requirements
+
+## 3.7. Testing Strategy Overview
+
+### 3.7.1. Testing Objectives
+
+### 3.7.2. Testing Scope
+
+## 3.8. User Interface & User Experience
+
+### 3.8.1. Importance
+
+### 3.8.2. User Flowchart
+
+### 3.8.3. UI Elements
+
+### 3.8.4. Accessibility and Responsiveness
+
+### 3.8.5. Visual Feedback and Error Handling
+
+## 3.9. Glossary
+
+### 3.9.1. RPG Lexical Field
+
+### 3.9.2. Miscallenous
 
 
