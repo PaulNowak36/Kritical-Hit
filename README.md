@@ -15,17 +15,17 @@ The goal of this project is to create a software application that will help deve
 - [Click-Up Project](https://app.clickup.com/9003082302/v/l/4-90030869966-1)
 
 ### Specifications
-- [Functional Specifications] TBD
-- [Technical Specifications] TBD
+- [Functional Specifications](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Functionnal/Functionnal_Specs.md)
+- [Technical Specifications](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Technical/Technical_Specs.md)
 
 ### Quality Assurance
-- [Test Plan] TBD
-- [Test Cases] TBD
+- [Test Plan](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Test%20Plan/Test_plan.md)
+- [Test Cases](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Test%20Plan/Testing_Cases.md)
 
 ## How to use
 
-1. Download the following zip file and extract all:
+1. Download the following zip file and extract all: [KriticalHit_1.0](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Dev/KriticalHit_V1.0.zip)
 
 2. Double click on the .exe file to open the app
 
-3. Navigate through the app: you can "log in", visit the main menu, change the rules for the battle, and test a Pokemon Battle.
+3. Navigate through the app: you can "log in" by using the username **algoPaul** and the password **IPlayPKMNGo**, visit the main menu, change the rules for the battle, and test a Pokemon Battle between 2 creatures.
