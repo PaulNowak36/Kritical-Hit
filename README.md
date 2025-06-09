@@ -6,9 +6,12 @@ The goal of this project is to create a software application that will help deve
 
 ## Documents
 
+### Written Report (V1.0)
+
+- [Written Report 1.0] TBD
+
 ### Project Management
 - [Initial Presentation](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Presentation.md)
-- [Key Process Indicators (KPI's)] TBD
 - [Click-Up Project](https://app.clickup.com/9003082302/v/l/4-90030869966-1)
 
 ### Specifications
@@ -18,3 +21,11 @@ The goal of this project is to create a software application that will help deve
 ### Quality Assurance
 - [Test Plan] TBD
 - [Test Cases] TBD
+
+## How to use
+
+1. Download the following zip file and extract all:
+
+2. Double click on the .exe file to open the app
+
+3. Navigate through the app: you can "log in", visit the main menu, change the rules for the battle, and test a Pokemon Battle.
