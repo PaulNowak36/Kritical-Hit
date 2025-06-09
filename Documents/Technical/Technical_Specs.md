@@ -1006,16 +1006,201 @@ std::vector<int> capacity::getStatChangeSummary() const {
     return summary;
 }
 ```
-
 This implementation provides a robust foundation for complex battle mechanics while maintaining clear separation of concerns and efficient resource management.
-
 
 ### 4.7 Setting Up Battle
 
-### 4.8 Setting Up Battle Templates
+#### Rule Management System
 
-Connection with the database
+The Setup class serves as the battle initialization controller, managing game rules and move configurations. It interfaces with the database to retrieve rule states:
 
+```cpp
+Setup::Setup() {
+    healTrue = database::getHealingRule();
+    buffTrue = database::getBuffingRule();
+    PPTrue = database::getPPRule();
+    
+    initializeMoveset();
+    filterMoveset();
+}
+```
+
+#### Rule Implementation
+
+Three core gameplay rules are managed:
+1. `healingAllowed` (healTrue): Controls whether healing moves are permitted
+2. `buffingAllowed` (buffTrue): Determines if stat-boosting moves are allowed
+3. `PPSystem` (PPTrue): Enables/disables the Power Point system for move usage
+
+#### Moveset Management
+
+The moveset system implements rule-based move filtering through two key functions:
+
+```cpp
+void Setup::initializeMoveset() {
+    moveset = {
+        MoveLibrary::Pound,
+        MoveLibrary::TakeDown,
+        MoveLibrary::Recover,    // Healing move
+        MoveLibrary::SwordDance  // Buff move
+    };
+}
+
+void Setup::filterMoveset() {
+    for (auto& move : moveset) {
+        const std::vector<EffectType>& effects = move.getEffects();
+        
+        // Rule-based move replacement
+        if (!healTrue && hasHealEffect(effects)) {
+            move = MoveLibrary::VineWhip;
+        }
+        else if (!buffTrue && hasBuffEffect(effects)) {
+            move = MoveLibrary::Bite;
+        }
+    }
+}
+```
+
+#### PP System Integration
+
+The PP system is integrated into the battle mechanics through the attack button handlers:
+
+```cpp
+void SimulationMenu::on_attackButton_1_clicked() {
+    if (battleSetup->getPPRule() == false || player->getNewSkill(0).useCapacity()) {
+        newCheckAttack(0);
+    } else {
+        QMessageBox::warning(this, "No PP Left", "This move cannot be used anymore.");
+    }
+}
+```
+
+This implementation:
+• Checks if PP system is enabled
+• Verifies PP availability before allowing move usage
+• Provides user feedback when moves are depleted
+• Maintains move usage tracking throughout the battle
+
+The Setup class is always instantiated before battle initiation, ensuring all rules and movesets are properly configured before combat begins. This creates a robust foundation for rule-based gameplay mechanics while maintaining clean separation of concerns.
+
+### 4.8 Future Features
+
+#### Planned Database Extensions
+
+The current implementation lays the groundwork for several advanced features that would require more sophisticated database structures:
+
+
+##### Character Selection System
+
+```sql
+-- Character Base Table
+CREATE TABLE Characters (
+    characterID INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    baseHP INTEGER,
+    baseStrength INTEGER,
+    baseDefense INTEGER,
+    baseSpeed INTEGER
+);
+
+-- Team Configuration Table
+CREATE TABLE Teams (
+    teamID INTEGER PRIMARY KEY,
+    userID INTEGER,
+    slot1_characterID INTEGER,
+    slot2_characterID INTEGER,
+    FOREIGN KEY (slot1_characterID) REFERENCES Characters(characterID),
+    FOREIGN KEY (slot2_characterID) REFERENCES Characters(characterID)
+);
+
+-- Character Movesets Table
+CREATE TABLE CharacterMovesets (
+    characterID INTEGER,
+    moveID INTEGER,
+    slot INTEGER CHECK (slot BETWEEN 1 AND 4),
+    PRIMARY KEY (characterID, slot),
+    FOREIGN KEY (characterID) REFERENCES Characters(characterID)
+);
+```
+
+##### Damage Calculator Database
+
+```sql
+-- Damage Formula Configuration
+CREATE TABLE DamageCalculator (
+    calculatorID INTEGER PRIMARY KEY,
+    formulaVersion TEXT,
+    baseMultiplier FLOAT,
+    criticalHitModifier FLOAT,
+    effectivenessModifier FLOAT
+);
+
+-- or for text-based algorithm storage:
+CREATE TABLE DamageAlgorithms (
+    algorithmID INTEGER PRIMARY KEY,
+    algorithmText TEXT,
+    inputParameters TEXT,
+    lastModified TIMESTAMP
+);
+```
+
+##### Battle Template System
+
+```sql
+-- Master Template Table
+CREATE TABLE BattleTemplates (
+    templateID INTEGER PRIMARY KEY,
+    templateName TEXT,
+    rulesSetID INTEGER,
+    characterSetID INTEGER,
+    calculatorID INTEGER,
+    FOREIGN KEY (rulesSetID) REFERENCES RULES_SET1(rulesID),
+    FOREIGN KEY (characterSetID) REFERENCES Teams(teamID),
+    FOREIGN KEY (calculatorID) REFERENCES DamageCalculator(calculatorID)
+);
+```
+
+#### Integration Points
+
+The system would require several key integration components:
+
+1. Character Management:
+
+```cpp
+class CharacterManager {
+    QSqlDatabase characterDB;
+    std::vector<Entity*> availableCharacters;
+    
+    void loadCharacterFromDB(int characterID);
+    void updateMovesetWithRules(Entity* character, const RuleSet& rules);
+};
+
+```
+
+2. Dynamic Damage Calculation:
+
+```cpp
+class DamageCalculator {
+    QSqlDatabase formulaDB;
+    
+    float calculateDamage(const Attack& attack, const Entity& attacker, const Entity& defender);
+    void loadFormulaParameters();
+};
+```
+
+3. Template Management:
+
+```cpp
+class BattleTemplateManager {
+    QSqlDatabase templateDB;
+    
+    void loadTemplate(int templateID);
+    void saveTemplate(const BattleConfiguration& config);
+    void applyTemplateRules(int templateID);
+};
+```
+
+These planned features would significantly expand the system's capabilities while maintaining the current architecture's modularity and rule-based approach. The database structure would support complex relationships between different game elements while allowing for flexible configuration and easy expansion.
 
 ## 5. Product Deployment
 
