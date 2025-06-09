@@ -2,7 +2,7 @@
 
 | Author        | Paul NOWAK |
 |---------------|------------ |
-| Created       | July 12th 2024  |
+| Created       | July 12th 2024 |
 | Last Modified | June 9th 2025  |
 | Document Deadline | June 9th 2025 |
 
@@ -11,44 +11,39 @@
 <details open>
 <summary>Table of Contents</summary>
 
-- [1. Overview](#1-overview)
-  - [1.1 Document Purpose](#11-document-purpose)
-  - [1.2 Project Presentation](#12-project-presentation)
-  - [1.3 System Overview](#13-system-overview)
-- [2. System Architecture](#2-system-architecture)
-  - [2.1 App Architecture](#21-app-architecture)
-  - [2.2 Modules and Components](#22-modules-and-components)
-  - [2.3 Other External IT Tools](#23-other-external-it-tools)
-- [3. Technologies Used](#3-technologies-used)
-  - [3.1 Front End](#31-front-end)
-  - [3.2 Back End](#32-back-end)
-  - [3.3 Database Design](#33-database-design)
-  - [3.4 Technical Constraints and Limitations](#34-technical-constraints-and-limitations)
-  - [3.5 Non-Functional Requirements](#35-non-functional-requirements)
-- [4. Application Features](#4-application-features)
-  - [4.1 Setting Up Battle Templates](#41-setting-up-battle-templates)
-  - [4.2 Rules Implementation](#42-rules-implementation)
-  - [4.3 Characters Implementation](#43-characters-implementation)
-  - [4.4 Stats Implementation](#44-stats-implementation)
-  - [4.5 Skills Implementation](#45-skills-implementation)
-  - [4.6 Statuses Implementation](#46-statuses-implementation)
-  - [4.7 Battle Simulation](#47-battle-simulation)
-  - [4.8 Script Converter](#48-script-converter)
-- [5. Data Management](#5-data-management)
-  - [5.1 Data Management Strategy](#51-data-management-strategy)
-  - [5.2 Type of Data Storage](#52-type-of-data-storage)
-  - [5.3 API for Handling Data](#53-api-for-handling-data)
-  - [5.4 Data Flow Diagrams](#54-data-flow-diagrams)
-  - [5.5 Data Security](#55-data-security)
-- [6. Product Deployment](#6-product-deployment)
-  - [6.1 Deployment Environment](#61-deployment-environment)
-  - [6.2 Release Schedule](#62-release-schedule)
-  - [6.3 Proof of Concepts](#63-proof-of-concepts)
-  - [6.4 Beta Version](#64-beta-version)
-  - [6.5 Full Versions](#65-full-versions)
-- [7. Glossary](#7-glossary)
+- [1. Overview](#1-overview)  
+  - [1.1 Document Purpose](#11-document-purpose)  
+  - [1.2 Project Presentation](#12-project-presentation)  
+  - [1.3 System Overview](#13-system-overview)  
+- [2. System Architecture](#2-system-architecture)  
+  - [2.1 App Architecture](#21-app-architecture)  
+  - [2.2 Modules and Components](#22-modules-and-components)  
+  - [2.3 Other External IT Tools](#23-other-external-it-tools)  
+- [3. Technologies Used](#3-technologies-used)  
+  - [3.1 Front End](#31-front-end)  
+    - [3.1.1 Qt Creator IDE Overview](#311-qt-creator-ide-overview)  
+    - [3.1.2 Design Mode and Widget Uses](#312-design-mode-and-widget-uses)  
+    - [3.1.3 Edit Mode, Project Structure, and Development Tools](#313-edit-mode-project-structure-and-development-tools)  
+    - [3.1.4 Signal & Slot System](#314-signal--slot-system)  
+  - [3.2 Database Specifications](#32-database-specifications)  
+  - [3.3 Technical Constraints and Limitations](#33-technical-constraints-and-limitations)  
+  - [3.4 Non-Functional Requirements - Technical Implementation Details](#34-non-functional-requirements---technical-implementation-details)  
+- [4. Application Features](#4-application-features)  
+  - [4.1 Battle System Rules](#41-battle-system-rules)  
+  - [4.2 Battle Simulation Core](#42-battle-simulation-core)  
+  - [4.3 Main Battle Functions](#43-main-battle-functions)  
+  - [4.4 Rules Implementation](#44-rules-implementation)  
+  - [4.5 Characters Implementation](#45-characters-implementation)  
+  - [4.6 Capacities Implementation](#46-capacities-implementation)  
+  - [4.7 Setting Up Battle](#47-setting-up-battle)  
+  - [4.8 Future Features](#48-future-features)  
+- [5. Product Deployment](#5-product-deployment)  
+  - [5.1 Deployment Environment](#51-deployment-environment)  
+  - [5.2 Release Schedule](#52-release-schedule)  
+- [6. Glossary](#6-glossary)  
 
 </details>
+
 
 ## 1. Overview
 
@@ -528,7 +523,6 @@ These identified constraints and limitations are being actively addressed throug
 • No active performance monitoring tools implemented
 • Response time requirements (100ms for clicks, 200ms for navigation) not currently measured
 • Planning to implement QT Test module for performance testing and monitoring
-
 
 **Planned Optimizations**
 • Database architecture redesign to support larger datasets
