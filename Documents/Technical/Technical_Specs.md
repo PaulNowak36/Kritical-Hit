@@ -3,7 +3,7 @@
 | Author        | Paul NOWAK |
 |---------------|------------ |
 | Created       | July 12th 2024  |
-| Last Modified | June 6th 2025  |
+| Last Modified | June 9th 2025  |
 | Document Deadline | June 9th 2025 |
 
 ## Table of Contents
@@ -592,15 +592,129 @@ These technical specifications aim to support the non-functional requirements wh
 
 ## 4. Application Features
 
-### 4.1 Battle Simulation
+### 4.1 Battle System Rules
+
+The battle system is inspired by the traditional Pokémon mechanics and defines how turn-based encounters between creatures are resolved. This system aims to simulate strategic one-on-one combat with various tactical elements.
+
+#### General Rule
+
+- The primary objective of a battle is to reduce the opponent Pokémon's HP (Hit Points) to 0, resulting in a knockout (KO).
+
+#### Pokémon Attributes
+
+Each Pokémon possesses the following characteristics:
+
+- **Level**: A numerical indicator of experience and power. It affects the damage calculation.
+- **Stats (6 total)**:
+  - **HP (Hit Points)**: Determines how much damage the Pokémon can receive before fainting.
+  - **Attack**: Influences the damage dealt by physical moves.
+  - **Defense**: Reduces incoming damage from physical attacks.
+  - **Special Attack**: Influences the damage of special (non-physical) moves.
+  - **Special Defense**: Reduces incoming damage from special moves.
+  - **Speed**: Determines the order of actions in a turn; the faster Pokémon attacks first.
+
+#### Typing System
+
+- Each Pokémon can have **one or two types** (e.g., Fire, Water, Grass), and each move also has a type.
+- **Type Effectiveness**:
+  - Super effective: 2× damage
+  - Not very effective: 0.5× damage
+  - No effect (immunity): 0× damage
+- **Same-Type Attack Bonus (STAB)**:
+  - If a move's type matches one of the user's types, a **1.5× damage bonus** is applied.
+- Understanding the **type chart** is critical for maximizing damage output.
+
+#### Moves and Attacks
+
+- A Pokémon can know **up to four different attacks**.
+- Most attacks have:
+  - **Power**: A base value that contributes to the damage dealt.
+  - **PP (Power Points)**: Indicates how many times a move can be used.
+    - If a move’s PP is depleted, it cannot be used.
+    - If all moves have 0 PP, the Pokémon is considered to have no usable moves and may lose automatically (depending on system rules).
+- Some moves are **non-offensive**:
+  - **Healing moves** restore a portion of the user’s HP, usually based on a fixed percentage or stat-based formula.
+  - **Stat-altering moves** can **buff (increase)** or **nerf (decrease)** stats between **-6 and +6 stages**. These changes are persistent until overridden.
+
+#### Damage Calculation Formula
+
+The damage dealt by an offensive move is calculated using the following base formula:
+
+```text
+BaseDamage = (((Level * 0.4 + 2) * Attack * Power) / (Defense * 50)) + 2
+```
+
+**Where:**
+- `Level`: Level of the attacking Pokémon
+- `Attack`: The attacker's stat (Attack or Special Attack, depending on move type)
+- `Power`: The base power of the move
+- `Defense`: The target's stat (Defense or Special Defense, based on move)
+- The `+2` ensures minimum damage output
+
+This base damage is then adjusted with the following multipliers:
+
+```text
+BaseDamage = (((Level * 0.4 + 2) * Attack * Power) / (Defense * 50)) + 2
+```
+
+
+**Multipliers:**
+- `STAB`: 1.5 if the move type matches one of the attacker's types, otherwise 1
+- `Effectiveness`: 2 for super effective, 0.5 for not very effective, 0 for immune
+- `CriticalHit`: 1.5 if a critical hit occurs (12.5% or 1/8 chance), otherwise 1
+
+#### Battle Flow
+
+- Battles are **turn-based**, and **each side performs one action per turn**.
+- The **faster Pokémon (higher Speed)** acts first.
+- At the end of a turn, the player is prompted to choose the next action:
+  - Select a move
+  - Quit the battle (if permitted by the rules)
+
+#### Strategy Considerations
+
+- Players must find the best strategy to **defeat opponents quickly** or **survive longer**, depending on the situation.
+- Understanding typing, move selection, stat advantages, and turn order is key to success.
+
+#### Current Implementation
+
+- The current version includes **2 distinct Pokémon** with different stats.
+- Only the Attack, Defence, Speed and HP stats are used.
+- All Pokémon use the **same moveset**.
+- **Typing system is currently disabled** in this version. All damage calculations are neutral (no STAB, type effectiveness, or immunities applied).
+
 
 ### 4.2 Rules Implementation
 
+Connection with the database
+
 ### 4.3 Characters Selection Implementation
+
+Connection with the database
 
 ### 4.4 Setting Up Battle Templates
 
+Connection with the database
+
 ### 4.5 Damage Calculator Implementation
+
+
+The algorithm calculates damage using the following formula:
+
+```text
+(((Level * 0.4 + 2) * Attack * Power) / (Defense * 50)) + 2
+
+```
+
+Where:
+
+- Level is the level of the attacking entity.
+
+- Attack is the attack stat of the attacker.
+
+- Power is the base power of the move being used.
+
+- Defense is the defense stat of the target.
 
 ## 5. Product Deployment
 
@@ -608,11 +722,6 @@ These technical specifications aim to support the non-functional requirements wh
 
 ### 5.2 Release Schedule
 
-### 5.3 Proof of Concepts
-
-### 5.4 Beta Version
-
-### 5.5 Full Versions
 
 ## 6. Glossary
 
