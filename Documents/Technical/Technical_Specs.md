@@ -1206,8 +1206,89 @@ These planned features would significantly expand the system's capabilities whil
 
 ### 5.1 Deployment Environment
 
+#### Build Configuration
+1. Project Configuration:
+- Switch build configuration from Debug to Release mode in Qt Creator
+- Optimize compilation settings for release deployment
+- Remove debug symbols and assertions
+
+#### Package Creation
+
+```bash
+# Directory structure for deployment
+KriticalHit/
+├── KriticalHit.exe        # Main executable
+├── rules1.db             # Database file
+├── qt6core.dll          # Qt dependencies
+├── qt6gui.dll
+├── qt6widgets.dll
+└── platforms/           # Qt platform plugins
+    └── qwindows.dll
+```
+
+#### Distribution Process
+1. Create deployment package:
+- Compress project folder and build folder into ZIP archive
+- Include all necessary DLL files and dependencies
+- Ensure database file is properly packaged
+
+2. User Installation:
+- Extract ZIP file to desired location
+- Run KriticalHit.exe directly
+- No additional framework installation required
+- All dependencies included in package
+
+3. Documentation:
+- Installation instructions available in README.md
+- Download links provided in project repository
+- System requirements listed in documentation
+
+
 ### 5.2 Release Schedule
 
+| Version | Release Date | Status      | Key Features                                                                 |
+|---------|--------------|-------------|------------------------------------------------------------------------------|
+| 1.0     | June 9, 2025 | ✅ Confirmed | - Basic battle system<br>- Rule customization<br>- Initial moveset           |
+| 1.5     | TBD          | 🔄 Planned   | - Type System<br>- Nerfing Moves <br>- Custom movesets           |
+| 2.0     | TBD          | 🔄 Planned   | - Character Selection<br>- Expanded Stats<br>  |
+| 2.5     | TBD          | 🔄 Planned   | - Battle Template Management<br>- Damage Calculator Menu<br>  |
+
+Each release will undergo thorough testing and quality assurance before deployment. Version numbers reflect significant feature additions and improvements to the core gameplay experience.
 
 ## 6. Glossary
 
+## 6. Glossary
+
+| **Term**                  | **Definition**                                                                 |
+|---------------------------|--------------------------------------------------------------------------------|
+| **AI Opponent**           | A non-player character that selects moves using automated logic.               |
+| **Battle State**          | Enum representing the different stages of battle (e.g., Start, Finished).      |
+| **Battle System**         | The rules and logic governing turn-based combat between entities.             |
+| **Buff**                  | An increase in a stat (e.g., Strength +1 stage).                              |
+| **Capacity**              | A move or skill that an Entity can use in battle.                             |
+| **Character Selection**   | A feature allowing users to choose entities before battle begins.             |
+| **Critical Hit**          | A bonus damage event that occurs randomly during attacks (usually 1.5×).      |
+| **Database**              | A structured data system (SQLite) used for storing rules, entities, and templates.|
+| **Damage Calculator**     | The logic or module responsible for computing how much damage a move inflicts.|
+| **EffectResult**          | A structure capturing the outcome of a move, including damage or stat changes.|
+| **EffectType**            | The category of effect applied by a move (e.g., Attack, Heal, Buff, Debuff).  |
+| **Entity**                | A character or combatant in the simulation, similar to a Pokémon.             |
+| **Healing Move**          | A capacity that restores HP to the user.                                      |
+| **MoveCategory**          | Classification of a move: Physical, Special, or Status.                       |
+| **MoveResultState**       | A structure used to track the outcome of a turn and whether the battle continues.|
+| **Move Set**              | The list of up to 4 capacities assigned to an Entity.                         |
+| **Nerf**                  | A decrease in a stat (e.g., Speed -2 stages).                                 |
+| **Object Inspector**      | Qt Designer panel that shows all widgets in a UI hierarchy.                   |
+| **PP (Power Points)**     | The number of times a move can be used before becoming unusable.              |
+| **QStackedWidget**        | A Qt widget that displays one child widget at a time, used for menu navigation.|
+| **QWidget**               | A base class for all UI components in Qt.                                     |
+| **Qt Creator**            | The official IDE used to develop Qt-based applications.                       |
+| **Qt Designer**           | A visual tool within Qt Creator used to design `.ui` files.                   |
+| **Qt Framework**          | The C++ framework used to develop the application and UI.                     |
+| **RuleSet**               | A collection of gameplay rules (e.g., whether healing or buffing is allowed). |
+| **Setup Module**          | Initializes the simulation, loading rules and configuring entities.           |
+| **Signal & Slot**         | Qt’s event system allowing widgets to communicate.                            |
+| **Simulation Core**       | The backend logic that controls turn order, move effects, and battle flow.    |
+| **Simulation Menu**       | The main interface where users execute and visualize battles.                 |
+| **STAB**                  | Same-Type Attack Bonus; a damage multiplier for moves matching the user's type.|
+| **Template**              | A predefined set of rules and entities used to quickly set up battles.        |
