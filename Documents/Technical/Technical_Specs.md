@@ -789,29 +789,233 @@ struct EffectResult {
 - Utilizes C++'s std::mt19937 random number generator
 - Each move has equal 25% selection probability
 
-### 4.4 Setting Up Battle Templates
+### 4.4 Rules Implementation
+
+The rules system implementation involves several key components working together:
+
+#### Database Initialization
+
+The database connection is initially established in **templateMainMenu.cpp** when its constructor is called. This is a crucial first step as all rule operations depend on having an active database connection.
+
+#### Navigation to Rules Menu
+
+When a user clicks the rules button in the template main menu, the stackedWidget index is updated to display the rules menu widget. This transition is handled through Qt's widget stacking system.
+
+#### Rules State Management
+
+The rulesMenu class interacts with the database class to manage rule states:
+
+1. When the rules menu is displayed, the `showEvent` method is triggered and:
+- Calls `database::getAllRules()` to retrieve the current state of all rules
+- Updates the UI checkboxes to reflect the current rule states:
+
+  ```cpp
+  QMap<QString, bool> rules = database::getAllRules();
+  ui->healing_checkBox->setChecked(rules["healingAllowed"]);
+  ui->buffing_checkBox->setChecked(rules["buffingAllowed"]);
+  ui->PP_checkBox->setChecked(rules["PPSystem"]);
+  ```
+
+2. When the user clicks the Confirm button:
+- The current state of all checkboxes is captured
+- `database::setAllRules()` is called to update all rules simultaneously:
+  ```cpp
+  bool newHealValue = ui->healing_checkBox->isChecked();
+  bool newBuffValue = ui->buffing_checkBox->isChecked();
+  bool newPPValue = ui->PP_checkBox->isChecked();
+  database::setAllRules(newHealValue, newBuffValue, newPPValue);
+  ```
+- The `rulesConfirmed` signal is emitted to trigger the return to the template main menu
+
+
+This implementation ensures efficient rule state management with minimal database operations by using batch updates instead of individual rule updates. The signal-slot mechanism handles the navigation flow, maintaining a clean separation between the UI and business logic.
+
+### 4.5 Characters Implementation
+
+#### Entity Class Overview
+
+The Entity class serves as the foundation for all characters in the game, implementing core functionality for managing character stats and abilities. It represents any creature that can participate in battles, with comprehensive stat management and skill systems.
+
+
+#### Stats Management System
+
+##### Base Stats
+
+The base stats are stored in a vector `_baseStats` and represent the character's innate, unchangeable attributes:
+
+```cpp
+void Entity::setBaseStats(int health, int strength, int defence, int speed) {
+    _baseStats[0] = health;    // Base HP
+    _baseStats[1] = strength;  // Base Strength
+    _baseStats[2] = defence;   // Base Defence
+    _baseStats[3] = speed;     // Base Speed
+}
+```
+
+##### Dynamic Stats
+
+While base stats remain constant, the actual battle stats (`_health`, `_strength`, `_defence`, `_speed`) can be modified during gameplay:
+
+• Initially set to match their corresponding base stats:
+```cpp
+_maxHealth = _baseStats[0];
+_health = _baseStats[0];
+_strength = _baseStats[1];
+_defence = _baseStats[2];
+_speed = _baseStats[3];
+```
+
+• Can be temporarily modified through buffs/nerfs using the stat stage system:
+
+```cpp
+void Entity::setStatStage(StatType stat, int stage) {
+    if (stage > 6) stage = 6;      // Cap maximum buff
+    if (stage < -6) stage = -6;    // Cap maximum nerf
+    _statStages[static_cast<int>(stat)] = stage;
+}
+```
+
+
+#### Health Management
+
+The `checkHealth()` function ensures health values remain within valid bounds:
+
+```cpp
+void Entity::checkHealth() {
+    if (getHealth() > getMaxHealth()) {
+        setHealth(getMaxHealth());    // Prevent overhealing
+    } else if (getHealth() < 0) {
+        setHealth(0);                 // Prevent negative health
+    }
+}
+```
+
+This function is crucial for maintaining game balance by:
+• Preventing health from exceeding maximum health after healing
+• Ensuring health doesn't go below zero when taking damage
+• Maintaining consistent health state throughout battle
+
+This implementation creates a robust system where characters have permanent base attributes while allowing for dynamic stat modifications during gameplay, all while maintaining proper boundaries for health values.
+
+### 4.6 Capacities Implementation
+
+#### Core Structure and Enumerations
+
+The capacity system is built around several key enumerations that define the fundamental types of moves and effects:
+
+```cpp
+enum class MoveCategory {
+    Physical,
+    Special,
+    Status
+};
+
+enum class EffectType {
+    Attack,
+    Buff,
+    Debuff,
+    Heal
+};
+
+enum class StatType {
+    Strength,
+    Defence,
+    Speed
+};
+```
+
+#### Stat Modification System
+
+The `StatModifier` struct provides a robust way to define stat changes:
+
+```cpp
+struct StatModifier {
+    StatType stat;    // Which stat to modify
+    int amount;       // Modification magnitude (+/-)
+};
+```
+
+This structure is crucial for implementing buff/debuff mechanics, allowing precise control over:
+• Which stat is being modified (Strength/Defence/Speed)
+• The magnitude and direction of the modification
+• Multiple modifications from a single capacity
+
+
+#### Capacity Class Implementation
+
+The capacity class maintains several key attributes:
+
+```cpp
+protected:
+    std::string _attackName;
+    int _attackPower;
+    int _powerPoints;
+    int _maxPowerPoints;
+    MoveCategory _category;
+    std::vector<EffectType> _effects;
+    std::vector<StatModifier> _statModifiers;
+```
+
+#### Power Point (PP) Management
+
+The PP system is implemented through the `useCapacity()` function:
+
+```cpp
+bool capacity::useCapacity() {
+    if (_powerPoints > 0) {
+        _powerPoints--;
+        return true;
+    }
+    return false;
+}
+```
+
+This ensures:
+• Moves can only be used if PP is available
+• PP decrements after each use
+• Moves become unusable when PP reaches 0
+
+#### Integration with Entity System
+
+Each Entity maintains a moveset of 4 capacities:
+
+```cpp
+std::array<capacity, 4> _skillList;
+```
+
+This allows:
+• Each entity to have a unique set of moves
+• Moves to be accessed and modified individually
+• PP tracking for each move separately
+
+
+#### Stat Modification Tracking
+
+The system includes comprehensive stat tracking:
+
+```cpp
+std::vector<int> capacity::getStatChangeSummary() const {
+    std::vector<int> summary(3, 0);  // Tracks all stat changes
+    for (const auto& modifier : _statModifiers) {
+        switch (modifier.stat) {
+            case StatType::Strength: summary[0] += modifier.amount; break;
+            case StatType::Defence:  summary[1] += modifier.amount; break;
+            case StatType::Speed:    summary[2] += modifier.amount; break;
+        }
+    }
+    return summary;
+}
+```
+
+This implementation provides a robust foundation for complex battle mechanics while maintaining clear separation of concerns and efficient resource management.
+
+
+### 4.7 Setting Up Battle
+
+### 4.8 Setting Up Battle Templates
 
 Connection with the database
 
-### 4.5 Damage Calculator Implementation
-
-
-The algorithm calculates damage using the following formula:
-
-```text
-(((Level * 0.4 + 2) * Attack * Power) / (Defense * 50)) + 2
-
-```
-
-Where:
-
-- Level is the level of the attacking entity.
-
-- Attack is the attack stat of the attacker.
-
-- Power is the base power of the move being used.
-
-- Defense is the defense stat of the target.
 
 ## 5. Product Deployment
 
