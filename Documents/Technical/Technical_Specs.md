@@ -684,13 +684,110 @@ BaseDamage = (((Level * 0.4 + 2) * Attack * Power) / (Defense * 50)) + 2
 - **Typing system is currently disabled** in this version. All damage calculations are neutral (no STAB, type effectiveness, or immunities applied).
 
 
-### 4.2 Rules Implementation
+### 4.2 Battle Simulation Core
 
-Connection with the database
+#### Overview
+The battle simulation core manages the turn-based combat system through the SimulationMenu widget. Here's a detailed breakdown of its key components and functionality.
 
-### 4.3 Characters Selection Implementation
+#### Widget Initialization and Setup
+The SimulationMenu widget is accessed via a pushbutton from the template main menu. During the showEvent(), the widget:
 
-Connection with the database
+- Initializes the battle through **initializeBattle()**
+- Sets up character displays and HP bars
+- Configures the battle scene with graphical elements
+- Starts a 2-second timer before enabling player input
+
+#### Core Battle Functions
+
+##### Battle Flow Control
+
+- **initializeBattle()**: Creates characters, movesets, and battle instance using the Setup class
+- **playerTurn(int move)**: Handles player move execution and result processing
+- **enemyTurn()**: Manages AI opponent moves using random selection (25% chance per move)
+- **secondCharacterPerform(bool isPlayer, int move)**: Coordinates second character's turn
+- **goToNextTurn()**: Advances turn counter and updates battle state
+
+##### Move Resolution System
+
+- **handleMoveResult()**: Processes move outcomes including:
+  - Damage calculation and HP updates
+  - Healing effects
+  - Stat modifications
+  - Battle continuation checks
+  - PP (Power Points) management
+
+##### Status Management
+
+- Dynamic status messages display battle events through:
+  - showStatusMessage() for fixed states
+  - showDynamicStatusMessage() for action-specific updates
+- Battle state tracking using the **MoveResultState** struct:
+
+```cpp
+struct MoveResultState {
+    bool continueBattle;
+    bool hasHealing;
+    bool hasBuffing;
+    Entity* character;
+    std::shared_ptr<capacity> moveUsed;
+};
+```
+
+##### UI and Control Management
+- Attack buttons are disabled during move animations
+- Battle completion triggers **battleFinished()** signal
+- Memory management includes proper cleanup of battle objects
+- HP bars update in real-time using percentage calculations
+
+### 4.3 Main Battle Functions
+
+#### Core Combat Mechanics
+
+- **calculateDamage()**: Computes damage using the formula:
+
+```cpp
+damage = (((level * 0.4 + 2) * attack * power) / (defense * 50)) + 2
+```
+
+- **performMove()**: Executes moves and applies their effects
+- **applyEffect()**: Processes different effect types (Attack, Heal, Buff)
+
+#### State Management
+- Battle progression tracked through **BattleState** enum:
+
+```cpp
+enum class BattleState {
+    Start,
+    WaitingForPlayer,
+    Animating,
+    Finished
+};
+```
+- Turn order determined by **checkAttackOrder()** based on speed stats
+
+#### Effect System
+
+- **EffectResult** struct tracks move outcomes:
+
+```cpp
+struct EffectResult {
+    int damageDealt;
+    int hpHealed;
+    short int attackBoost;
+    short int defenceBoost;
+    short int speedBoost;
+};
+```
+
+- Stat modifications handled through **getStatMultiplier()**:
+  - Positive stages: (2 + stage) / 2
+  - Negative stages: 2 / (2 - stage)
+  - Clamped between -6 and +6
+
+#### AI Implementation
+- Enemy moves selected using **randomMoveIndex()**
+- Utilizes C++'s std::mt19937 random number generator
+- Each move has equal 25% selection probability
 
 ### 4.4 Setting Up Battle Templates
 
