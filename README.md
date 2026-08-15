@@ -8,7 +8,7 @@ The goal of this project is to create a software application that will help deve
 
 ### Written Report (V1.0)
 
-- [Written Report 1.0] TBD
+- [Written Report 1.0](https://github.com/PaulNowak36/Kritical-Hit/blob/master/KriticalHit%20Written%20Report%20V1.0.pdf)
 
 ### Project Management
 - [Initial Presentation](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Presentation.md)
@@ -24,7 +24,7 @@ The goal of this project is to create a software application that will help deve
 
 ## How to use
 
-1. Download the following zip file and extract all: [KriticalHit_1.0](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Dev/KriticalHit_V1.0.zip)
+1. Download the following zip file and extract all: [KriticalHit_1.0](KriticalHit_V1.0.zip)
 
 2. Double click on the .exe file to open the app
 
