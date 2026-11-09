@@ -11,7 +11,7 @@ The goal of this project is to create a software application that will help deve
 - [Written Report 1.0](https://github.com/PaulNowak36/Kritical-Hit/blob/master/KriticalHit%20Written%20Report%20V1.0.pdf)
 
 ### Project Management
-- [Initial Presentation](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Presentation.md)
+- [Initial Presentation](Documents/Presentation.md)
 - [Click-Up Project](https://app.clickup.com/9003082302/v/l/4-90030869966-1)
 
 ### Specifications
