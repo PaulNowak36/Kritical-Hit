@@ -14,12 +14,12 @@ The goal of this project is to create a software application that will help deve
 - [Initial Presentation](https://github.com/PaulNowak36/Kritical-Hit/blob/cc2d804b5432e372aad19f742cc96d058caccace/Kritical-Hit/Documents/Presentation.md)
 
 ### Specifications
-- [Functional Specifications](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Functionnal/Functionnal_Specs.md)
-- [Technical Specifications](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Technical/Technical_Specs.md)
+- [Functional Specifications](https://github.com/PaulNowak36/Kritical-Hit/blob/966d2fdc74aad83961f3326a35e60d240bca49dd/Kritical-Hit/Documents/Functionnal/Functionnal_Specs.md)
+- [Technical Specifications](https://github.com/PaulNowak36/Kritical-Hit/blob/966d2fdc74aad83961f3326a35e60d240bca49dd/Kritical-Hit/Documents/Technical/Technical_Specs.md)
 
 ### Quality Assurance
-- [Test Plan](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Test%20Plan/Test_plan.md)
-- [Test Cases](https://github.com/PaulNowak36/Kritical-Hit/blob/master/Documents/Test%20Plan/Testing_Cases.md)
+- [Test Plan](https://github.com/PaulNowak36/Kritical-Hit/blob/966d2fdc74aad83961f3326a35e60d240bca49dd/Kritical-Hit/Documents/Test%20Plan/Test_plan.md)
+- [Test Cases](https://github.com/PaulNowak36/Kritical-Hit/blob/966d2fdc74aad83961f3326a35e60d240bca49dd/Kritical-Hit/Documents/Test%20Plan/Testing_Cases.md)
 
 ---
 
